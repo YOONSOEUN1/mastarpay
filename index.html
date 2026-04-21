@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ========== SEO 설정 (여기를 수정하세요) ========== -->
+    <title>브랜드명 | 한 줄 소개</title>
+    <meta name="description" content="브랜드 소개와 핵심 가치를 여기에 작성하세요.">
+    <meta property="og:title" content="브랜드명 | 한 줄 소개">
+    <meta property="og:description" content="브랜드 소개">
+    <meta property="og:type" content="website">
+    
+    <!-- Pretendard (한국어) + Fraunces (영문 장식용) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========== 색상 테마 (여기서 전체 분위기 변경) ========== */
+        :root {
+            --cream: #f7f4ed;          /* 메인 배경 (따뜻한 크림색) */
+            --cream-dark: #ede8db;     /* 섹션 구분용 */
+            --ink: #1a1a1a;            /* 메인 텍스트 */
+            --ink-soft: #4a4a4a;       /* 부드러운 텍스트 */
+            --forest: #2d4a3e;         /* 포인트 컬러 (딥 그린) */
+            --forest-dark: #1f352c;
+            --coral: #e8763a;          /* 강조 컬러 (코랄 오렌지) */
+            --border: #d9d3c4;         /* 테두리용 */
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        /* ========== 헤더 ========== */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--cream);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 32px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            background: var(--forest);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 14px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            transition: color 0.2s;
+        }
+        
+        .nav-menu a:hover { color: var(--ink); }
+        
+        .nav-cta {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .nav-cta:hover { transform: scale(1.03); }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* ========== 히어로 섹션 (비대칭 구조) ========== */
+        .hero {
+            padding: 80px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--cream-dark);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            margin-bottom: 32px;
+        }
+        
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 88px);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+        }
+        
+        .hero h1 .accent {
+            color: var(--forest);
+        }
+        
+        .hero h1 .italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--coral);
+        }
+        
+        .hero-sub {
+            font-size: 18px;
+            color: var(--ink-soft);
+            max-width: 520px;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+        }
+        
+        .btn-primary {
+            background: var(--ink);
+            color: var(--cream);
+        }
+        
+        .btn-primary:hover {
+            background: var(--forest);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--border);
+        }
+        
+        .btn-ghost:hover {
+            background: var(--cream-dark);
+        }
+        
+        /* 히어로 오른쪽 비주얼 카드 */
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 60px;
+        }
+        
+        .visual-card {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 24px;
+            border-radius: 20px;
+            width: 280px;
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
+        }
+        
+        .visual-card:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .visual-card:nth-child(2) {
+            background: var(--forest);
+            transform: rotate(3deg) translateX(-30px);
+        }
+        
+        .visual-card .icon-big {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        
+        .visual-card .card-label {
+            font-size: 12px;
+            opacity: 0.7;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .visual-card .card-value {
+            font-size: 32px;
+            font-weight: 700;
+            font-family: 'Fraunces', serif;
+        }
+        
+        /* 스크롤 힌트 */
+        .scroll-hint {
+            margin-top: 80px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--ink-soft);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        
+        .scroll-line {
+            width: 60px;
+            height: 1px;
+            background: var(--ink-soft);
+        }
+        
+        /* ========== 섹션 공통 ========== */
+        section {
+            padding: 120px 0;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 24px;
+            margin-bottom: 64px;
+            flex-wrap: wrap;
+        }
+        
+        .section-num {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 28px;
+            color: var(--coral);
+            font-weight: 400;
+        }
+        
+        .section-title {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .section-title .italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--forest);
+        }
+        
+        /* ========== 01 · 철학 / 강점 섹션 ========== */
+        .philosophy {
+            background: var(--cream-dark);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .phil-item {
+            background: var(--cream);
+            padding: 40px 32px;
+            transition: background 0.3s;
+        }
+        
+        .phil-item:hover {
+            background: var(--cream-dark);
+        }
+        
+        .phil-icon {
+            font-size: 36px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        
+        .phil-label {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 14px;
+            color: var(--coral);
+            margin-bottom: 8px;
+        }
+        
+        .phil-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        
+        .phil-desc {
+            font-size: 15px;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+        
+        /* ========== 02 · 서비스 (비대칭 그리드) ========== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 16px;
+        }
+        
+        .service {
+            background: var(--cream-dark);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service:hover {
+            transform: translateY(-4px);
+            border-color: var(--ink);
+        }
+        
+        .service-featured {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            background: var(--ink);
+            color: var(--cream);
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 400px;
+        }
+        
+        .service-featured:hover {
+            background: var(--forest);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .service-featured .service-icon {
+            font-size: 72px;
+            margin-bottom: 32px;
+        }
+        
+        .service-num {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 14px;
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+        
+        .service-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        
+        .service-featured .service-title {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        
+        .service-desc {
+            font-size: 14px;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+        
+        .service-featured .service-desc {
+            color: rgba(247, 244, 237, 0.75);
+            font-size: 16px;
+            max-width: 400px;
+        }
+        
+        .service-arrow {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s;
+            font-size: 20px;
+            margin-top: 16px;
+        }
+        
+        .service:hover .service-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* ========== 03 · 프로세스 (단계) ========== */
+        .process {
+            background: var(--cream-dark);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .process-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            position: relative;
+        }
+        
+        .process-step {
+            position: relative;
+            padding: 32px 0;
+        }
+        
+        .process-number {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 72px;
+            line-height: 1;
+            color: var(--forest);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .process-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .process-desc {
+            font-size: 14px;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+        
+        /* ========== 04 · 후기 (인용 스타일) ========== */
+        .testimonials {
+            background: var(--cream);
+        }
+        
+        .testimonial-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        
+        .testimonial {
+            padding: 40px 32px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: var(--cream);
+            transition: all 0.3s;
+        }
+        
+        .testimonial:hover {
+            background: var(--cream-dark);
+            transform: translateY(-2px);
+        }
+        
+        .quote-mark {
+            font-family: 'Fraunces', serif;
+            font-size: 64px;
+            color: var(--coral);
+            line-height: 0.5;
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 400;
+        }
+        
+        .testimonial-text {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            color: var(--ink);
+            font-weight: 500;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--forest);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .author-role {
+            font-size: 13px;
+            color: var(--ink-soft);
+        }
+        
+        /* ========== 05 · FAQ ========== */
+        .faq {
+            background: var(--cream-dark);
+            border-top: 1px solid var(--border);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            cursor: pointer;
+        }
+        
+        .faq-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            gap: 20px;
+        }
+        
+        .faq-toggle {
+            font-size: 24px;
+            color: var(--forest);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.open .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s;
+            color: var(--ink-soft);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-top: 16px;
+        }
+        
+        /* ========== CTA 섹션 ========== */
+        .cta {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--forest);
+            border-radius: 50%;
+            top: -300px;
+            right: -200px;
+            opacity: 0.4;
+            filter: blur(80px);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-label {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            color: var(--coral);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .cta h2 {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+        
+        .cta h2 .italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--coral);
+        }
+        
+        .cta-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 32px;
+            font-weight: 800;
+            padding: 20px 40px;
+            background: var(--cream);
+            color: var(--ink);
+            border-radius: 100px;
+            transition: transform 0.2s;
+            margin-bottom: 16px;
+        }
+        
+        .cta-phone:hover {
+            transform: scale(1.03);
+        }
+        
+        .cta-note {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        
+        /* ========== 푸터 ========== */
+        footer {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(247, 244, 237, 0.1);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand .logo {
+            color: var(--cream);
+            margin-bottom: 16px;
+        }
+        
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            max-width: 300px;
+            line-height: 1.6;
+        }
+        
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            color: var(--coral);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        
+        .footer-col a:hover { opacity: 1; }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(247, 244, 237, 0.1);
+            font-size: 13px;
+            opacity: 0.6;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        /* ========== 모바일 대응 ========== */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-visual { 
+                flex-direction: row; 
+                padding-top: 20px;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            .visual-card { flex-shrink: 0; width: 240px; }
+            .services-grid { 
+                grid-template-columns: 1fr;
+            }
+            .service-featured {
+                grid-column: 1;
+                grid-row: auto;
+                min-height: 300px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container { padding: 0 20px; }
+            .nav { padding: 16px 20px; }
+            .nav-menu, .nav-cta { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--cream);
+                padding: 20px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border);
+            }
+            .hero { padding: 40px 0 80px; }
+            section { padding: 80px 0; }
+            .service-featured { padding: 32px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .cta-phone { font-size: 22px; padding: 16px 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- 헤더                                            -->
+    <!-- ============================================== -->
+    <header>
+        <nav class="nav">
+            <a href="#" class="logo">
+                <span class="logo-mark">✦</span>
+                브랜드명
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#philosophy">철학</a></li>
+                <li><a href="#services">서비스</a></li>
+                <li><a href="#process">프로세스</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+            </ul>
+            
+            <a href="#contact" class="nav-cta">문의하기</a>
+            
+            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- 히어로 — 비대칭 레이아웃                         -->
+    <!-- ============================================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span class="hero-badge">
+                        <span class="dot"></span>
+                        지금 바로 상담 가능
+                    </span>
+                    
+                    <h1>
+                        평범한 서비스는<br>
+                        <span class="italic">충분하지</span> 않습니다<br>
+                        <span class="accent">다르게</span> 만듭니다.
+                    </h1>
+                    
+                    <p class="hero-sub">
+                        이곳에 브랜드의 한 줄 철학이나 미션을 작성하세요.
+                        2~3줄 정도가 적당합니다. 고객이 우리를 기억하게 만드는 문장을 담아보세요.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            상담 시작하기 →
+                        </a>
+                        <a href="#services" class="btn btn-ghost">
+                            서비스 둘러보기
+                        </a>
+                    </div>
+                    
+                    <div class="scroll-hint">
+                        <span>SCROLL</span>
+                        <span class="scroll-line"></span>
+                    </div>
+                </div>
+                
+                <!-- 오른쪽 비주얼 카드 (이모지로 대체) -->
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <div class="icon-big">📈</div>
+                        <div class="card-label">누적 실적</div>
+                        <div class="card-value">1,000+</div>
+                    </div>
+                    <div class="visual-card">
+                        <div class="icon-big">✨</div>
+                        <div class="card-label">고객 만족도</div>
+                        <div class="card-value">98%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 01 · 철학 / 우리가 다른 이유                     -->
+    <!-- ============================================== -->
+    <section class="philosophy" id="philosophy">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">01 / Philosophy</span>
+                <h2 class="section-title">
+                    우리는 <span class="italic">다르게</span> 생각합니다.
+                </h2>
+            </div>
+            
+            <div class="philosophy-grid">
+                <div class="phil-item">
+                    <div class="phil-icon">🎯</div>
+                    <div class="phil-label">Our Principle</div>
+                    <h3 class="phil-title">본질에 집중합니다</h3>
+                    <p class="phil-desc">
+                        화려한 포장보다 고객이 진짜 필요로 하는 것에 집중합니다.
+                    </p>
+                </div>
+                
+                <div class="phil-item">
+                    <div class="phil-icon">🤝</div>
+                    <div class="phil-label">Our Promise</div>
+                    <h3 class="phil-title">끝까지 책임집니다</h3>
+                    <p class="phil-desc">
+                        시작부터 마무리, 그리고 그 이후까지 함께합니다.
+                    </p>
+                </div>
+                
+                <div class="phil-item">
+                    <div class="phil-icon">💡</div>
+                    <div class="phil-label">Our Process</div>
+                    <h3 class="phil-title">투명하게 일합니다</h3>
+                    <p class="phil-desc">
+                        모든 과정을 열어두고 고객과 함께 만들어갑니다.
+                    </p>
+                </div>
+                
+                <div class="phil-item">
+                    <div class="phil-icon">🌱</div>
+                    <div class="phil-label">Our Vision</div>
+                    <h3 class="phil-title">꾸준히 성장합니다</h3>
+                    <p class="phil-desc">
+                        어제보다 나은 오늘, 오늘보다 나은 내일을 만듭니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 02 · 서비스 (비대칭 그리드)                      -->
+    <!-- ============================================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">02 / Services</span>
+                <h2 class="section-title">
+                    이런 <span class="italic">것들을</span> 제공합니다.
+                </h2>
+            </div>
+            
+            <div class="services-grid">
+                <!-- 큰 카드 (메인 서비스) -->
+                <div class="service service-featured">
+                    <div>
+                        <div class="service-icon">🌟</div>
+                        <div class="service-num">001 — Main</div>
+                        <h3 class="service-title">대표 서비스</h3>
+                        <p class="service-desc">
+                            가장 대표적이고 자신 있는 서비스를 여기에 크게 보여주세요.
+                            고객이 가장 먼저 눈에 띄게 됩니다.
+                        </p>
+                    </div>
+                    <div class="service-arrow">자세히 보기 →</div>
+                </div>
+                
+                <!-- 작은 카드들 -->
+                <div class="service">
+                    <div class="service-icon">📦</div>
+                    <div class="service-num">002</div>
+                    <h3 class="service-title">서비스 2</h3>
+                    <p class="service-desc">간단한 서비스 설명</p>
+                    <div class="service-arrow">→</div>
+                </div>
+                
+                <div class="service">
+                    <div class="service-icon">🎨</div>
+                    <div class="service-num">003</div>
+                    <h3 class="service-title">서비스 3</h3>
+                    <p class="service-desc">간단한 서비스 설명</p>
+                    <div class="service-arrow">→</div>
+                </div>
+                
+                <div class="service">
+                    <div class="service-icon">⚡</div>
+                    <div class="service-num">004</div>
+                    <h3 class="service-title">서비스 4</h3>
+                    <p class="service-desc">간단한 서비스 설명</p>
+                    <div class="service-arrow">→</div>
+                </div>
+                
+                <div class="service">
+                    <div class="service-icon">🔧</div>
+                    <div class="service-num">005</div>
+                    <h3 class="service-title">서비스 5</h3>
+                    <p class="service-desc">간단한 서비스 설명</p>
+                    <div class="service-arrow">→</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 03 · 프로세스 (단계)                            -->
+    <!-- ============================================== -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">03 / Process</span>
+                <h2 class="section-title">
+                    <span class="italic">어떻게</span> 진행되나요?
+                </h2>
+            </div>
+            
+            <div class="process-list">
+                <div class="process-step">
+                    <span class="process-number">01</span>
+                    <h3 class="process-title">상담 신청</h3>
+                    <p class="process-desc">
+                        전화나 폼으로 간단히 문의를 남기시면 담당자가 빠르게 연락드립니다.
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <span class="process-number">02</span>
+                    <h3 class="process-title">맞춤 제안</h3>
+                    <p class="process-desc">
+                        고객의 상황을 듣고 가장 적합한 방법을 찾아 제안해드립니다.
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <span class="process-number">03</span>
+                    <h3 class="process-title">진행</h3>
+                    <p class="process-desc">
+                        협의된 일정에 맞춰 정확하고 꼼꼼하게 진행합니다.
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <span class="process-number">04</span>
+                    <h3 class="process-title">사후 관리</h3>
+                    <p class="process-desc">
+                        완료 후에도 지속적으로 관리하며 언제든 도움을 드립니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 04 · 고객 후기 (인용 스타일)                     -->
+    <!-- ============================================== -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">04 / Voices</span>
+                <h2 class="section-title">
+                    고객의 <span class="italic">목소리</span>를 들어보세요.
+                </h2>
+            </div>
+            
+            <div class="testimonial-list">
+                <div class="testimonial">
+                    <span class="quote-mark">"</span>
+                    <p class="testimonial-text">
+                        기대했던 것 이상이었어요. 세심한 부분까지 신경 써주셔서 정말 만족했습니다.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">김</div>
+                        <div class="author-info">
+                            <div class="author-name">김○○ 고객님</div>
+                            <div class="author-role">서울 강남구</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <span class="quote-mark">"</span>
+                    <p class="testimonial-text">
+                        응대가 빠르고 친절했어요. 다음에도 꼭 다시 이용하고 싶습니다.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">박</div>
+                        <div class="author-info">
+                            <div class="author-name">박○○ 고객님</div>
+                            <div class="author-role">부산 해운대구</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <span class="quote-mark">"</span>
+                    <p class="testimonial-text">
+                        합리적인 가격에 전문적인 서비스였습니다. 주변에도 추천하고 있어요.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">이</div>
+                        <div class="author-info">
+                            <div class="author-name">이○○ 고객님</div>
+                            <div class="author-role">경기 수원시</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 05 · FAQ (아코디언)                             -->
+    <!-- ============================================== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">05 / FAQ</span>
+                <h2 class="section-title">
+                    자주 묻는 <span class="italic">질문들.</span>
+                </h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>질문 1을 여기에 작성하세요</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        답변을 여기에 작성합니다. 고객이 궁금해할 만한 내용을 충분히 풀어서 설명해주세요.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>질문 2를 여기에 작성하세요</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        답변을 여기에 작성합니다. 명확하고 친절한 답변이 신뢰를 만듭니다.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>질문 3을 여기에 작성하세요</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        답변을 여기에 작성합니다.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>질문 4를 여기에 작성하세요</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        답변을 여기에 작성합니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CTA — 전화 문의 유도                            -->
+    <!-- ============================================== -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-label">— Let's Talk —</div>
+                <h2>
+                    지금 바로<br>
+                    <span class="italic">시작해볼까요?</span>
+                </h2>
+                
+                <a href="tel:010-0000-0000" class="cta-phone">
+                    📞 010-0000-0000
+                </a>
+                
+                <div class="cta-note">
+                    평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 푸터                                            -->
+    <!-- ============================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-mark">✦</span>
+                        브랜드명
+                    </div>
+                    <p>
+                        브랜드 한 줄 소개<br>
+                        신뢰와 전문성으로 함께합니다.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">서비스 1</a></li>
+                        <li><a href="#">서비스 2</a></li>
+                        <li><a href="#">서비스 3</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">회사 소개</a></li>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">채용</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="mailto:hello@example.com">✉️ hello@example.com</a></li>
+                        <li><a href="#">💬 카카오톡 상담</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <span>© 2026 브랜드명. All rights reserved.</span>
+                <span>개인정보처리방침 · 이용약관</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================== -->
+    <!-- 인터랙션 스크립트                                -->
+    <!-- ============================================== -->
+    <script>
+        // 모바일 메뉴 토글
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+        
+        // FAQ 아코디언
+        function toggleFaq(item) {
+            item.classList.toggle('open');
+        }
+        
+        // 모바일 메뉴 링크 클릭 시 닫기
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
