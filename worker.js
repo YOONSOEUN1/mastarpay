@@ -1,5 +1,5 @@
 // ============================================================
-// 마스타페이 - Cloudflare Workers 통합 파일
+// 마스터페이 - Cloudflare Workers 통합 파일
 // 모든 페이지(메인 + 제품 10개 + 404)를 이 파일 하나로 서빙
 // ============================================================
 
@@ -9,10 +9,10 @@ const PAGE_HOME = `<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>마스타페이 | 카드단말기·포스기·키오스크 전문</title>
+    <title>마스터페이 | 카드단말기·포스기·키오스크 전문</title>
     <meta name="description" content="카드단말기, 포스기, 키오스크, 테이블오더, 철거까지. 매장 운영에 필요한 모든 장비를 한 번에 설치합니다.">
-    <meta property="og:title" content="마스타페이 | 카드단말기·포스기·키오스크 전문">
-    <meta property="og:description" content="매장 운영의 모든 것, 마스타페이와 함께.">
+    <meta property="og:title" content="마스터페이 | 카드단말기·포스기·키오스크 전문">
+    <meta property="og:description" content="매장 운영의 모든 것, 마스터페이와 함께.">
     <meta property="og:type" content="website">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -1079,7 +1079,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -1213,7 +1213,7 @@ footer {
                 <!-- 2인치 단말기 -->
                 <a href="/product/card-2inch" class="product-card">
                     <div>
-                        <div class="card-icon">💳</div>
+                        <div class="card-icon" style="background-image: url(https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg); background-size: cover; background-position: center; width: 100%; height: 180px; margin: -32px -32px 20px -32px; border-radius: 24px 24px 0 0;"></div>
                         <div class="card-tag">Compact</div>
                         <h3 class="card-title">2인치 단말기</h3>
                         <p class="card-desc">공간 절약형 컴팩트 카드 단말기</p>
@@ -1224,7 +1224,7 @@ footer {
                 <!-- 3인치 단말기 -->
                 <a href="/product/card-3inch" class="product-card">
                     <div>
-                        <div class="card-icon">🖨️</div>
+                        <div class="card-icon" style="background-image: url(https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg); background-size: cover; background-position: center; width: 100%; height: 180px; margin: -32px -32px 20px -32px; border-radius: 24px 24px 0 0;"></div>
                         <div class="card-tag">Standard</div>
                         <h3 class="card-title">3인치 단말기</h3>
                         <p class="card-desc">가장 많이 쓰이는 표준 카드 단말기</p>
@@ -1268,7 +1268,7 @@ footer {
                 <!-- 키오스크 -->
                 <a href="/product/kiosk" class="product-card">
                     <div>
-                        <div class="card-icon">🤖</div>
+                        <div class="card-icon" style="background-image: url(https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kiosk.png); background-size: cover; background-position: center; width: 100%; height: 180px; margin: -32px -32px 20px -32px; border-radius: 24px 24px 0 0;"></div>
                         <div class="card-tag">Kiosk</div>
                         <h3 class="card-title">키오스크</h3>
                         <p class="card-desc">대형 무인 주문·결제 시스템</p>
@@ -1279,7 +1279,7 @@ footer {
                 <!-- 미니 키오스크 -->
                 <a href="/product/kiosk-mini" class="product-card">
                     <div>
-                        <div class="card-icon">📱</div>
+                        <div class="card-icon" style="background-image: url(https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kiosk2.png); background-size: cover; background-position: center; width: 100%; height: 180px; margin: -32px -32px 20px -32px; border-radius: 24px 24px 0 0;"></div>
                         <div class="card-tag">Mini Kiosk</div>
                         <h3 class="card-title">미니 키오스크</h3>
                         <p class="card-desc">소형 매장 전용 공간 절약형</p>
@@ -1470,8 +1470,8 @@ footer {
                     <span class="italic">시작해볼까요?</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -1488,7 +1488,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -1518,14 +1518,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -1556,7 +1556,7 @@ const PAGE_NOT_FOUND = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>페이지를 찾을 수 없습니다 | 마스타페이</title>
+    <title>페이지를 찾을 수 없습니다 | 마스터페이</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
     <style>/* ========== 공용 스타일 (모든 페이지에서 사용) ========== */
@@ -2193,7 +2193,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             <a href="/#contact" class="nav-cta">문의하기</a>
         </nav>
@@ -2214,9 +2214,9 @@ const PAGE_POS = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포스기 POS 시스템 | 마스타페이</title>
+    <title>포스기 POS 시스템 | 마스터페이</title>
     <meta name="description" content="주문, 결제, 매출 관리까지 한 번에. 매장 운영의 모든 것을 하나의 시스템으로 통합하여 업무 효율을 극대화합니다.">
-    <meta property="og:title" content="포스기 POS 시스템 | 마스타페이">
+    <meta property="og:title" content="포스기 POS 시스템 | 마스터페이">
     <meta property="og:description" content="주문, 결제, 매출 관리까지 한 번에. 매장 운영의 모든 것을 하나의 시스템으로 통합하여 업무 효율을 극대화합니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -2829,7 +2829,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -2883,7 +2883,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -3007,8 +3007,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -3025,7 +3025,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -3055,14 +3055,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -3083,9 +3083,9 @@ const PAGE_CARD_2INCH = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2인치 컴팩트 단말기 | 마스타페이</title>
+    <title>2인치 컴팩트 단말기 | 마스터페이</title>
     <meta name="description" content="작은 크기에 강력한 성능. 좁은 카운터 공간에도 깔끔하게 들어가는 2인치 카드 단말기입니다.">
-    <meta property="og:title" content="2인치 컴팩트 단말기 | 마스타페이">
+    <meta property="og:title" content="2인치 컴팩트 단말기 | 마스터페이">
     <meta property="og:description" content="작은 크기에 강력한 성능. 좁은 카운터 공간에도 깔끔하게 들어가는 2인치 카드 단말기입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -3698,7 +3698,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -3752,7 +3752,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -3760,7 +3760,7 @@ footer {
                 
                 <!-- 제품 이미지 영역 (이모지 또는 이미지) -->
                 <div class="product-visual">
-                    💳
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                     <!-- 이미지 사용시: <img src="../images/파일명.jpg" alt="2인치 "> -->
                 </div>
             </div>
@@ -3872,8 +3872,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -3890,7 +3890,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -3920,14 +3920,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -3948,9 +3948,9 @@ const PAGE_CARD_3INCH = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3인치 스탠다드 단말기 | 마스타페이</title>
+    <title>3인치 스탠다드 단말기 | 마스터페이</title>
     <meta name="description" content="큰 화면으로 보기 편하고, 영수증도 선명하게. 가장 많이 사용되는 표준 사이즈 카드 단말기입니다.">
-    <meta property="og:title" content="3인치 스탠다드 단말기 | 마스타페이">
+    <meta property="og:title" content="3인치 스탠다드 단말기 | 마스터페이">
     <meta property="og:description" content="큰 화면으로 보기 편하고, 영수증도 선명하게. 가장 많이 사용되는 표준 사이즈 카드 단말기입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -4563,7 +4563,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -4617,7 +4617,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -4625,7 +4625,7 @@ footer {
                 
                 <!-- 제품 이미지 영역 (이모지 또는 이미지) -->
                 <div class="product-visual">
-                    🖨️
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg" alt="3인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                     <!-- 이미지 사용시: <img src="../images/파일명.jpg" alt="3인치 "> -->
                 </div>
             </div>
@@ -4737,8 +4737,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -4755,7 +4755,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -4785,14 +4785,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -4813,9 +4813,9 @@ const PAGE_CARD_TOSS = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>토스 Toss 단말기 | 마스타페이</title>
+    <title>토스 Toss 단말기 | 마스터페이</title>
     <meta name="description" content="토스페이먼츠와 완벽하게 연동되는 전용 단말기. 간편결제와 일반 카드결제를 한 번에 처리합니다.">
-    <meta property="og:title" content="토스 Toss 단말기 | 마스타페이">
+    <meta property="og:title" content="토스 Toss 단말기 | 마스터페이">
     <meta property="og:description" content="토스페이먼츠와 완벽하게 연동되는 전용 단말기. 간편결제와 일반 카드결제를 한 번에 처리합니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -5428,7 +5428,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -5482,7 +5482,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -5602,8 +5602,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -5620,7 +5620,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -5650,14 +5650,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -5678,9 +5678,9 @@ const PAGE_CARD_WIRELESS = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>무선 Wireless 단말기 | 마스타페이</title>
+    <title>무선 Wireless 단말기 | 마스터페이</title>
     <meta name="description" content="자리를 옮겨도, 배달을 가도 언제 어디서나 결제 OK. 이동이 자유로운 무선 카드 단말기입니다.">
-    <meta property="og:title" content="무선 Wireless 단말기 | 마스타페이">
+    <meta property="og:title" content="무선 Wireless 단말기 | 마스터페이">
     <meta property="og:description" content="자리를 옮겨도, 배달을 가도 언제 어디서나 결제 OK. 이동이 자유로운 무선 카드 단말기입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -6293,7 +6293,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -6347,7 +6347,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -6355,7 +6355,7 @@ footer {
                 
                 <!-- 제품 이미지 영역 (이모지 또는 이미지) -->
                 <div class="product-visual">
-                    📱
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kiosk2.png" alt="미니 키오스크" style="width: 100%; height: 100%; object-fit: cover;">
                     <!-- 이미지 사용시: <img src="../images/파일명.jpg" alt="무선"> -->
                 </div>
             </div>
@@ -6468,8 +6468,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -6486,7 +6486,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -6516,14 +6516,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -6544,9 +6544,9 @@ const PAGE_CARD_BLUETOOTH = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블루투스 Bluetooth 단말기 | 마스타페이</title>
+    <title>블루투스 Bluetooth 단말기 | 마스터페이</title>
     <meta name="description" content="스마트폰과 연동해 어디서든 간편하게. 작고 가벼운 블루투스 카드 단말기로 결제의 자유를 누리세요.">
-    <meta property="og:title" content="블루투스 Bluetooth 단말기 | 마스타페이">
+    <meta property="og:title" content="블루투스 Bluetooth 단말기 | 마스터페이">
     <meta property="og:description" content="스마트폰과 연동해 어디서든 간편하게. 작고 가벼운 블루투스 카드 단말기로 결제의 자유를 누리세요.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -7159,7 +7159,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -7213,7 +7213,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -7334,8 +7334,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -7352,7 +7352,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -7382,14 +7382,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -7410,9 +7410,9 @@ const PAGE_KIOSK = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>키오스크 Kiosk | 마스타페이</title>
+    <title>키오스크 Kiosk | 마스터페이</title>
     <meta name="description" content="인건비는 줄이고 효율은 높이고. 무인 주문·결제 시스템으로 매장 운영의 새로운 기준을 만들어보세요.">
-    <meta property="og:title" content="키오스크 Kiosk | 마스타페이">
+    <meta property="og:title" content="키오스크 Kiosk | 마스터페이">
     <meta property="og:description" content="인건비는 줄이고 효율은 높이고. 무인 주문·결제 시스템으로 매장 운영의 새로운 기준을 만들어보세요.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -8025,7 +8025,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -8079,7 +8079,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -8087,7 +8087,7 @@ footer {
                 
                 <!-- 제품 이미지 영역 (이모지 또는 이미지) -->
                 <div class="product-visual">
-                    🤖
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kiosk.png" alt="키오스크" style="width: 100%; height: 100%; object-fit: cover;">
                     <!-- 이미지 사용시: <img src="../images/파일명.jpg" alt="키오스크"> -->
                 </div>
             </div>
@@ -8200,8 +8200,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -8218,7 +8218,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -8248,14 +8248,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -8276,9 +8276,9 @@ const PAGE_KIOSK_MINI = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>미니 Mini 키오스크 | 마스타페이</title>
+    <title>미니 Mini 키오스크 | 마스터페이</title>
     <meta name="description" content="작은 매장에도 딱 맞는 컴팩트한 무인 주문 시스템. 공간은 절약하고 효율은 그대로입니다.">
-    <meta property="og:title" content="미니 Mini 키오스크 | 마스타페이">
+    <meta property="og:title" content="미니 Mini 키오스크 | 마스터페이">
     <meta property="og:description" content="작은 매장에도 딱 맞는 컴팩트한 무인 주문 시스템. 공간은 절약하고 효율은 그대로입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -8891,7 +8891,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -8945,7 +8945,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -8953,7 +8953,7 @@ footer {
                 
                 <!-- 제품 이미지 영역 (이모지 또는 이미지) -->
                 <div class="product-visual">
-                    📱
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kiosk2.png" alt="미니 키오스크" style="width: 100%; height: 100%; object-fit: cover;">
                     <!-- 이미지 사용시: <img src="../images/파일명.jpg" alt="미니"> -->
                 </div>
             </div>
@@ -9066,8 +9066,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -9084,7 +9084,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -9114,14 +9114,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -9142,9 +9142,9 @@ const PAGE_TABLEORDER = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>테이블 Table 오더 | 마스타페이</title>
+    <title>테이블 Table 오더 | 마스터페이</title>
     <meta name="description" content="자리에 앉아 QR로 주문부터 결제까지. 홀 직원 인건비는 줄이고, 객단가는 올리는 스마트 주문 시스템입니다.">
-    <meta property="og:title" content="테이블 Table 오더 | 마스타페이">
+    <meta property="og:title" content="테이블 Table 오더 | 마스터페이">
     <meta property="og:description" content="자리에 앉아 QR로 주문부터 결제까지. 홀 직원 인건비는 줄이고, 객단가는 올리는 스마트 주문 시스템입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -9757,7 +9757,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -9811,7 +9811,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -9932,8 +9932,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -9950,7 +9950,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -9980,14 +9980,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -10008,9 +10008,9 @@ const PAGE_REMOVAL = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>매장 철거 서비스 | 마스타페이</title>
+    <title>매장 철거 서비스 | 마스터페이</title>
     <meta name="description" content="매장·사무실·가게 철거를 전문 엔지니어팀이 책임집니다. 원상복구부터 폐기물 처리까지 원스톱으로.">
-    <meta property="og:title" content="매장 철거 서비스 | 마스타페이">
+    <meta property="og:title" content="매장 철거 서비스 | 마스터페이">
     <meta property="og:description" content="매장·사무실·가게 철거를 전문 엔지니어팀이 책임집니다. 원상복구부터 폐기물 처리까지 원스톱으로.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -10623,7 +10623,7 @@ footer {
         <nav class="nav">
             <a href="/" class="logo">
                 <span class="logo-mark">✦</span>
-                마스타페이
+                마스터페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -10677,7 +10677,7 @@ footer {
                         <a href="/#contact" class="btn btn-primary">
                             무료 상담 신청 →
                         </a>
-                        <a href="tel:010-0000-0000" class="btn btn-ghost">
+                        <a href="tel:010-2337-0458" class="btn btn-ghost">
                             📞 전화 상담
                         </a>
                     </div>
@@ -10798,8 +10798,8 @@ footer {
                     <span class="italic">상담 받아보세요.</span>
                 </h2>
                 
-                <a href="tel:010-0000-0000" class="cta-phone">
-                    📞 010-0000-0000
+                <a href="tel:010-2337-0458" class="cta-phone">
+                    📞 010-2337-0458
                 </a>
                 
                 <div class="cta-note">
@@ -10816,7 +10816,7 @@ footer {
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-mark">✦</span>
-                        마스타페이
+                        마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -10846,14 +10846,14 @@ footer {
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:010-0000-0000">📞 010-0000-0000</a></li>
+                        <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
                         <li><a href="#">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스타페이. All rights reserved.</span>
+                <span>© 2026 마스터페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
