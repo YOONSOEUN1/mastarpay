@@ -1,0 +1,27 @@
+name: Deploy to Cloudflare Workers
+
+# 언제 실행할지 결정
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'worker.js'  # worker.js가 변경됐을 때만 실행
+  workflow_dispatch:  # 수동 실행도 가능
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Worker
+    steps:
+      # 1. 레포지토리 코드 가져오기
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Cloudflare Workers로 배포
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy worker.js --name mastarpay --compatibility-date 2024-01-01
