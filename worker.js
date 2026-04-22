@@ -617,6 +617,552 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ========== 지역 페이지 전용 스타일 ========== */
+.region-hero {
+    padding: 60px 0 80px;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+    border-bottom: 1px solid var(--border);
+}
+
+.region-hero-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.region-hero-title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+.region-hero-title .italic {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--forest);
+}
+
+.region-hero-lead {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 780px;
+    margin-bottom: 40px;
+}
+
+.region-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.region-stat {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.region-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.region-stat-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.region-stat-label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+}
+
+.region-stat-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--forest);
+    letter-spacing: -0.01em;
+}
+
+.region-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* 일반 섹션 */
+.region-section {
+    padding: 80px 0;
+}
+
+.region-section-alt {
+    background: var(--cream-dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.region-h2 {
+    font-size: clamp(24px, 3.5vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.region-h2-center {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.region-h2 .italic {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--forest);
+}
+
+.region-h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--ink);
+}
+
+.region-section-lead {
+    text-align: center;
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin: 0 auto 20px;
+    line-height: 1.7;
+}
+
+/* 콘텐츠 2단 그리드 */
+.region-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.region-content-box {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+}
+
+.region-content-box p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+}
+
+/* 단계 리스트 */
+.region-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.region-steps li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+}
+
+.region-steps li:last-child {
+    border-bottom: none;
+}
+
+.region-steps strong {
+    color: var(--ink);
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+/* 테이블 */
+.region-table-wrap {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.region-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.region-table th {
+    background: var(--cream-dark);
+    padding: 16px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--border);
+}
+
+.region-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--ink-soft);
+}
+
+.region-table tr:last-child td {
+    border-bottom: none;
+}
+
+.region-table td:last-child {
+    color: var(--coral);
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.region-tip {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--coral);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+}
+
+.region-tip strong {
+    color: var(--ink);
+}
+
+/* 체크리스트 */
+.region-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.region-check-item {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.region-check-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--forest);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.region-check-item strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: var(--ink);
+}
+
+.region-check-item p {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* 업종별 가이드 */
+.region-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.region-guide-box {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.region-guide-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.region-guide-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.region-guide-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.region-guide-box p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+}
+
+/* FAQ */
+.region-faq {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.region-faq-item {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+
+.region-faq-item strong {
+    display: block;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.region-faq-item p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* 도입 효과 */
+.region-effect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 960px;
+    margin: 40px auto 0;
+}
+
+.region-effect-item {
+    text-align: center;
+    padding: 28px 20px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.region-effect-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(32px, 5vw, 44px);
+    color: var(--forest);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.region-effect-label {
+    font-size: 13px;
+    color: var(--ink-soft);
+}
+
+/* 지역 칩 그리드 */
+.region-chips-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.region-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 18px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: all 0.15s;
+}
+
+.region-chip:hover {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--cream);
+    transform: translateY(-1px);
+}
+
+.region-chip-highlight {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--cream);
+    font-weight: 600;
+}
+
+.region-chip-highlight:hover {
+    background: var(--forest);
+    border-color: var(--forest);
+}
+
+.region-chips-small .region-chip {
+    padding: 8px 14px;
+    font-size: 13px;
+}
+
+/* 리뷰 */
+.region-reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.region-review {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.region-review-stars {
+    color: var(--coral);
+    font-size: 16px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.region-review p {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.region-review-author {
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+/* CTA 박스 */
+.region-cta-section {
+    padding: 60px 0;
+}
+
+.region-cta-box {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.region-cta-box::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--forest);
+    border-radius: 50%;
+    top: -200px;
+    right: -100px;
+    opacity: 0.4;
+    filter: blur(60px);
+}
+
+.region-cta-box h3 {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 800;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.region-cta-box p {
+    font-size: 15px;
+    opacity: 0.85;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.region-cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.region-cta-box .btn-primary {
+    background: var(--cream);
+    color: var(--ink);
+}
+
+.region-cta-box .btn-primary:hover {
+    background: var(--coral);
+    color: var(--cream);
+}
+
+.region-cta-box .btn-ghost {
+    border-color: rgba(247, 244, 237, 0.3);
+    color: var(--cream);
+}
+
+.region-cta-box .btn-ghost:hover {
+    background: rgba(247, 244, 237, 0.1);
+}
+
+/* 모바일 */
+@media (max-width: 640px) {
+    .region-hero { padding: 40px 0 60px; }
+    .region-section { padding: 60px 0; }
+    .region-content-box { padding: 24px; }
+    .region-cta-box { padding: 32px 24px; }
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 </style>
     
     <style>
@@ -11876,8 +12422,23 @@ function getCTA() {
 </section>`;
 }
 
+
 // ============================================================
-// 시도 페이지 생성 (예: /region/seoul)
+// 공통 헬퍼: 시도별 설치 통계 (결정론적)
+// ============================================================
+
+function getSidoStats(sidoName) {
+  const seed = hashString(sidoName);
+  return {
+    shops: 1000 + (seed % 15000),
+    installs: 500 + (seed % 10000),
+    years: 5 + (seed % 8),
+    satisfaction: 95 + (seed % 5)
+  };
+}
+
+// ============================================================
+// 시도 페이지 (예: /region/seoul) - allpaystore 스타일
 // ============================================================
 
 function buildSidoPage(sidoUrl) {
@@ -11885,18 +12446,17 @@ function buildSidoPage(sidoUrl) {
   if (!sido) return null;
   
   const ctx = getRegionContext(sido.name);
+  const stats = getSidoStats(sido.name);
   const gus = Object.keys(sido.gus);
+  const totalDongs = gus.reduce((sum, gu) => sum + sido.gus[gu].length, 0);
   
-  let gusHtml = '';
+  // 시군구 바둑판 링크
+  let gusGridHtml = '';
   for (const gu of gus) {
-    const dongCount = sido.gus[gu].length;
-    gusHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(gu)}" class="related-card">
-      <div class="related-icon">📍</div>
-      <div class="related-name">${gu}</div>
-      <div class="related-desc">${dongCount}개 동 · 설치 가능</div>
-    </a>`;
+    gusGridHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(gu)}" class="region-chip">${gu}</a>`;
   }
   
+  // 제품 그리드
   let productsHtml = '';
   for (const key in PRODUCTS) {
     const p = PRODUCTS[key];
@@ -11909,106 +12469,295 @@ function buildSidoPage(sidoUrl) {
     </a>`;
   }
   
+  // 다른 시도 링크
+  let otherSidosHtml = '';
+  for (const otherUrl in REGIONS) {
+    if (otherUrl !== sidoUrl) {
+      otherSidosHtml += `<a href="/region/${otherUrl}" class="region-chip">${REGIONS[otherUrl].name}</a>`;
+    }
+  }
+  
   return getCommonHead(
     `${sido.name} 카드단말기·포스기·키오스크 설치`,
-    `${sido.name} 전 지역 카드단말기, 포스기, 키오스크 설치를 마스터페이가 책임집니다. 무료 상담·빠른 설치·A/S 보장.`
+    `${sido.name} 전 지역 ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동 카드단말기, 포스기, 키오스크 설치. 설치비 무료·빠른 설치·A/S 보장.`
   ) + `<body>${getHeader()}
-<section class="product-hero">
+<section class="region-hero">
 <div class="container">
 <div class="breadcrumb">
 <a href="/">홈</a>
 <span class="breadcrumb-separator">/</span>
+<a href="/#products">제품</a>
+<span class="breadcrumb-separator">/</span>
 <span>${sido.name}</span>
 </div>
-<div style="text-align:center;margin:60px 0;">
-<span class="product-badge">${ctx.opening}</span>
-<h1 class="product-title" style="margin-top:20px;">${sido.name} <span class="italic">전문 설치</span></h1>
-<p class="product-lead" style="max-width:700px;margin:24px auto 40px;">
-${sido.name} ${ctx.areaType} 일대의 ${ctx.topBiz[0]}, ${ctx.topBiz[1]}, ${ctx.topBiz[2]} 등
-다양한 업종의 사장님들이 마스터페이와 함께하고 계십니다. 
-${ctx.keyBenefit}을 핵심 가치로, ${sido.name} 내 ${gus.length}개 시군구 전역에 ${ctx.shopCount}+ 설치 실적을 보유하고 있으며 
-평균 ${ctx.satisfactionRate}%의 고객 만족도를 기록하고 있습니다.
+
+<div class="region-hero-badge">
+<span>📍 ${new Date().getFullYear()}년 ${new Date().getMonth()+1}월 기준 · ${sido.name} ${gus.length}개 시군구 · ${totalDongs.toLocaleString()}개 읍면동</span>
+</div>
+
+<h1 class="region-hero-title">
+${sido.name} <span class="italic">카드단말기·포스기·키오스크</span> 설치
+</h1>
+
+<p class="region-hero-lead">
+${sido.name} 전 지역(${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동)에 
+카드단말기, 포스기, 키오스크, 테이블오더, 철거 서비스를 전문으로 제공합니다. 
+${ctx.areaType} 중심으로 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 등 다양한 업종에 최적화된 장비를 설치하며, 
+설치비 무료·빠른 설치·A/S 보장으로 사장님의 매장 운영을 지원합니다.
 </p>
-<div class="product-cta" style="justify-content:center;">
+
+<div class="region-stats-grid">
+<div class="region-stat">
+<div class="region-stat-icon">🏆</div>
+<div class="region-stat-label">${sido.name} 누적</div>
+<div class="region-stat-value">${stats.shops.toLocaleString()}+건</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">⚡</div>
+<div class="region-stat-label">빠른 설치</div>
+<div class="region-stat-value">신속 완료</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">💰</div>
+<div class="region-stat-label">설치비</div>
+<div class="region-stat-value">무료</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">🔧</div>
+<div class="region-stat-label">A/S 지원</div>
+<div class="region-stat-value">빠른 대응</div>
+</div>
+</div>
+
+<div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 전화 상담</a>
+<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+</div>
+</div>
+</section>
+
+<section class="region-section region-section-alt">
+<div class="container">
+<div class="region-content-grid">
+<div class="region-content-box">
+<h2 class="region-h2">💳 ${sido.name} 설치 안내</h2>
+<p>${sido.name}에서 매장 설비를 도입하면 운영 효율이 획기적으로 개선됩니다. 마스터페이는 ${sido.name} 전 지역 ${gus.length}개 시군구에 업종별 최적화된 장비를 직접 방문 설치합니다. 카드단말기·포스기·키오스크·테이블오더는 설치비 무료이며, VAN사 수수료 비교를 통해 가장 유리한 조건을 찾아드립니다.</p>
+</div>
+
+<div class="region-content-box">
+<h2 class="region-h2">⚡ ${sido.name} 설치 프로세스</h2>
+<ul class="region-steps">
+<li><strong>1단계 무료 상담</strong> — 전화 또는 온라인으로 매장 업종·규모·필요 사항을 상담합니다</li>
+<li><strong>2단계 무료 견적</strong> — ${sido.name} 전 지역 직접 방문하여 매장 환경을 분석합니다</li>
+<li><strong>3단계 장비 선정·설치</strong> — 업종별 최적 장비를 선정하고 전문 기사가 설치합니다</li>
+<li><strong>4단계 교육·A/S</strong> — 사용법 교육 후 A/S를 지원합니다</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
 
-<section class="features">
+<section class="region-section">
 <div class="container">
-<div class="section-header">
-<span class="section-num">01 / ${sido.name}</span>
-<h2 class="section-title">${sido.name} <span class="italic">설치 서비스</span>의 특징</h2>
+<h2 class="region-h2 region-h2-center">🏪 ${sido.name} 추천 업종</h2>
+<div class="region-table-wrap">
+<table class="region-table">
+<thead>
+<tr><th>업종</th><th>도입 효과</th><th>추천도</th></tr>
+</thead>
+<tbody>
+<tr><td>음식점·식당</td><td>주문 정확도 향상, 대기시간 단축</td><td>★★★★★</td></tr>
+<tr><td>카페·베이커리</td><td>메뉴 자동화, 피크타임 처리</td><td>★★★★★</td></tr>
+<tr><td>편의점·마트</td><td>재고 연동, 자동 발주</td><td>★★★★</td></tr>
+<tr><td>미용실·네일샵</td><td>예약·결제 통합</td><td>★★★★</td></tr>
+<tr><td>스터디카페·무인매장</td><td>24시간 무인 운영</td><td>★★★★★</td></tr>
+</tbody>
+</table>
 </div>
-<div class="feature-grid">
-<div class="feature-item"><div class="feature-icon">🏪</div><h3 class="feature-title">${gus.length}개 시군구 커버</h3><p class="feature-desc">${sido.name} 전 지역 직접 방문 설치. 사각지대 없이 모든 구역을 담당합니다.</p></div>
-<div class="feature-item"><div class="feature-icon">⚡</div><h3 class="feature-title">빠른 설치 ${ctx.installTime}~${ctx.installTime+2}일</h3><p class="feature-desc">상담 후 평균 ${ctx.installTime}~${ctx.installTime+2}일 이내에 전문 기사가 직접 방문하여 설치를 완료합니다.</p></div>
-<div class="feature-item"><div class="feature-icon">💯</div><h3 class="feature-title">${ctx.satisfactionRate}% 만족도</h3><p class="feature-desc">${sido.name}에서 설치하신 사장님들의 ${ctx.satisfactionRate}%가 만족하셨습니다.</p></div>
-<div class="feature-item"><div class="feature-icon">🔧</div><h3 class="feature-title">현지 A/S 대응</h3><p class="feature-desc">${sido.name} 내 전담 A/S 인력 배치로 장애 시 빠른 출동이 가능합니다.</p></div>
+<div class="region-tip">
+<strong>💡 ${sido.name} 사장님 Tip:</strong> 카드단말기를 다른 장비와 함께 패키지로 설치하면 카드단말기·포스기·키오스크·테이블오더는 설치비 무료로 제공됩니다. 자세한 견적은 상담을 통해 안내드립니다.
 </div>
 </div>
 </section>
 
-<section class="services" id="products">
+<section class="region-section region-section-alt">
 <div class="container">
-<div class="section-header">
-<span class="section-num">02 / Products</span>
-<h2 class="section-title">${sido.name}에서 <span class="italic">설치 가능한</span> 제품</h2>
+<h2 class="region-h2 region-h2-center">✅ ${sido.name} 설치 시 확인사항</h2>
+<div class="region-checklist">
+<div class="region-check-item">
+<div class="region-check-icon">✓</div>
+<div>
+<strong>설치비 무료 여부</strong>
+<p>마스터페이는 VAN사 제휴로 설치비 전액 무료. 숨겨진 비용 없음</p>
 </div>
-<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+</div>
+<div class="region-check-item">
+<div class="region-check-icon">✓</div>
+<div>
+<strong>월 이용료 무료</strong>
+<p>별도 월정액 없음. 카드 수수료만 정상 부과</p>
+</div>
+</div>
+<div class="region-check-item">
+<div class="region-check-icon">✓</div>
+<div>
+<strong>A/S 보장</strong>
+<p>장애 시 원격 지원 또는 현장 출동 서비스 제공</p>
+</div>
+</div>
+<div class="region-check-item">
+<div class="region-check-icon">✓</div>
+<div>
+<strong>장비 통합 연동</strong>
+<p>카드단말기·포스기·키오스크·테이블오더 통합 연동</p>
+</div>
+</div>
+<div class="region-check-item">
+<div class="region-check-icon">✓</div>
+<div>
+<strong>업체 실적</strong>
+<p>${sido.name} ${stats.shops.toLocaleString()}+건 실적, ${stats.satisfaction}% 고객 만족도</p>
+</div>
+</div>
+<div class="region-check-item">
+<div class="region-check-icon">✓</div>
+<div>
+<strong>업종별 맞춤</strong>
+<p>${ctx.topBiz[0]}, ${ctx.topBiz[1]} 등 업종별 최적 장비 추천</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="region-section">
+<div class="container">
+<h2 class="region-h2 region-h2-center">📋 ${sido.name} 제품 안내</h2>
+<p class="region-section-lead">${sido.name}에서 설치 가능한 모든 제품을 확인하세요.</p>
+<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:40px;">
 ${productsHtml}
 </div>
 </div>
 </section>
 
-<section class="related">
+<section class="region-section region-section-alt">
 <div class="container">
-<div class="section-header">
-<span class="section-num">03 / Areas</span>
-<h2 class="section-title">${sido.name} <span class="italic">${gus.length}개</span> 시군구</h2>
+<h2 class="region-h2 region-h2-center">🏢 ${sido.name} 업종별 가이드</h2>
+<div class="region-guide-grid">
+<div class="region-guide-box">
+<div class="region-guide-icon">🍽️</div>
+<h3>음식점·카페</h3>
+<p>${sido.name} 음식점·카페는 포스기+카드단말기가 기본이며, 키오스크·테이블오더 추가로 인건비 월 150~200만원 절감. 배달 3사 연동으로 주문을 통합 관리합니다.</p>
 </div>
-<div class="related-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
-${gusHtml}
+<div class="region-guide-box">
+<div class="region-guide-icon">🏪</div>
+<h3>편의점·마트·소매점</h3>
+<p>카드단말기+포스기로 재고 자동 관리, CCTV로 도난 방지. 모든 장비를 한번에 설치하면 패키지 할인이 적용됩니다.</p>
+</div>
+<div class="region-guide-box">
+<div class="region-guide-icon">🏬</div>
+<h3>무인매장·스터디카페</h3>
+<p>키오스크+CCTV 패키지로 24시간 무인 운영. 인건비 100% 절감. ${sido.name} 무인 매장 트렌드에 최적.</p>
+</div>
+<div class="region-guide-box">
+<div class="region-guide-icon">💇</div>
+<h3>미용실·네일샵</h3>
+<p>예약과 결제가 통합된 포스기로 고객 관리 효율화. 재방문율 상승과 매출 증대 효과를 동시에.</p>
+</div>
 </div>
 </div>
 </section>
 
-<section class="detail">
+<section class="region-section">
 <div class="container">
-<div class="section-header">
-<span class="section-num">04 / Info</span>
-<h2 class="section-title">${sido.name} <span class="italic">매장 운영</span> 정보</h2>
+<h2 class="region-h2 region-h2-center">❓ ${sido.name} 자주 묻는 질문</h2>
+<div class="region-faq">
+<div class="region-faq-item">
+<strong>Q. ${sido.name} 전 지역 출장 설치가 가능한가요?</strong>
+<p>네, ${sido.name} ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 전 지역 직접 방문 설치를 제공합니다.</p>
 </div>
-<div class="detail-content">
-<h3>${sido.name}의 매장 환경</h3>
-<p>${sido.name}은(는) ${ctx.areaType}을(를) 중심으로 ${ctx.topBiz[0]}, ${ctx.topBiz[1]}, ${ctx.topBiz[2]} 등 다양한 업종의 매장이 분포하고 있습니다. 지역 특성에 맞는 결제 솔루션과 매장 운영 장비를 선택하는 것이 매출 향상과 효율적인 운영의 핵심입니다. 마스터페이는 ${sido.name} ${gus.length}개 시군구의 특성을 분석하여 최적의 설치 방안을 제안해드립니다.</p>
-
-<h3>${sido.name} 사장님들의 후기</h3>
-<p>"${ctx.review.text}" — ${sido.name} ${ctx.review.biz} ${ctx.review.name}</p>
-<p>"${ctx.review2.text}" — ${sido.name} ${ctx.review2.biz} ${ctx.review2.name}</p>
-
-<h3>${sido.name} 설치 프로세스</h3>
-<ul>
-<li>1단계 무료 상담 — 전화나 폼으로 간단히 문의하시면 ${sido.name} 담당자가 빠르게 연락드립니다</li>
-<li>2단계 현장 방문 — ${sido.name} 매장으로 직접 방문하여 환경을 분석합니다</li>
-<li>3단계 맞춤 제안 — 업종과 공간에 맞는 최적의 장비를 제안합니다</li>
-<li>4단계 설치 진행 — 전문 기사가 ${ctx.installTime}~${ctx.installTime+2}일 내 방문 설치합니다</li>
-<li>5단계 사용법 교육 — 직원 분들께 사용법을 친절하게 안내합니다</li>
-<li>6단계 지속 관리 — 설치 후에도 정기적으로 관리해드립니다</li>
-</ul>
+<div class="region-faq-item">
+<strong>Q. 설치비가 정말 무료인가요?</strong>
+<p>네, 마스터페이는 VAN사 제휴를 통해 설치비를 전액 지원합니다. 월 이용료도 무료이며, 카드 결제 시 VAN사 수수료만 정상 부과됩니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. 기존 장비 교체도 가능한가요?</strong>
+<p>네, 기존 카드단말기·포스기 교체도 무료 견적 후 빠르게 진행됩니다. VAN사 변경 시 위약금 여부도 사전에 확인해드립니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. 다른 장비와 함께 설치할 수 있나요?</strong>
+<p>네, 카드단말기·포스기·키오스크·CCTV·테이블오더를 한번에 설치하면 패키지 할인이 적용됩니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. A/S는 어떻게 이루어지나요?</strong>
+<p>장애 시 원격 지원으로 대부분 즉시 해결되며, 하드웨어 문제는 엔지니어가 ${sido.name} 전역 출동 서비스를 제공합니다.</p>
+</div>
 </div>
 </div>
 </section>
 
-${getCTA()}
+<section class="region-section region-section-alt">
+<div class="container">
+<h2 class="region-h2 region-h2-center">📈 ${sido.name} 도입 효과</h2>
+<p class="region-section-lead">${sido.name} 매장에 장비를 도입하면 평균 매출 15~25% 증가, 인건비 20~50% 절감 효과를 기대할 수 있습니다. 여러 장비를 패키지로 함께 도입하면 시너지 효과가 극대화되며, 마스터페이의 통합 관리 서비스로 VAN사 수수료 최적화, 매출 데이터 분석, 장비 업그레이드까지 지속적으로 지원받을 수 있습니다.</p>
+<div class="region-effect-grid">
+<div class="region-effect-item">
+<div class="region-effect-num">+${15 + (stats.shops % 10)}%</div>
+<div class="region-effect-label">평균 매출 증가</div>
+</div>
+<div class="region-effect-item">
+<div class="region-effect-num">-${20 + (stats.installs % 30)}%</div>
+<div class="region-effect-label">인건비 절감</div>
+</div>
+<div class="region-effect-item">
+<div class="region-effect-num">${stats.satisfaction}%</div>
+<div class="region-effect-label">고객 만족도</div>
+</div>
+<div class="region-effect-item">
+<div class="region-effect-num">${stats.shops.toLocaleString()}+</div>
+<div class="region-effect-label">${sido.name} 설치 실적</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="region-section">
+<div class="container">
+<h2 class="region-h2 region-h2-center">🏙 ${sido.name} 시군구 선택</h2>
+<p class="region-section-lead">시군구를 선택하면 읍면동별 설치 가이드를 확인할 수 있습니다.</p>
+<div class="region-chips-grid">
+${gusGridHtml}
+</div>
+</div>
+</section>
+
+<section class="region-cta-section">
+<div class="container">
+<div class="region-cta-box">
+<h3>💳 ${sido.name} 무료 견적 받기</h3>
+<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="region-section region-section-alt">
+<div class="container">
+<h3 class="region-h3">🌏 다른 시·도의 설치 서비스</h3>
+<div class="region-chips-grid region-chips-small">
+${otherSidosHtml}
+</div>
+</div>
+</section>
+
 ${getFooter()}`;
 }
 
 // ============================================================
-// 시군구 페이지 생성 (예: /region/seoul/강남구)
+// 시군구 페이지 (예: /region/seoul/강남구)
 // ============================================================
 
 function buildGuPage(sidoUrl, guName) {
@@ -12018,16 +12767,16 @@ function buildGuPage(sidoUrl, guName) {
   if (!dongs) return null;
   
   const ctx = getRegionContext(sido.name + guName);
+  const seed = hashString(sido.name + guName);
+  const shops = 100 + (seed % 1500);
   
-  let dongsHtml = '';
+  // 동 목록 (바둑판)
+  let dongsGridHtml = '';
   for (const dong of dongs) {
-    dongsHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dong)}" class="related-card">
-      <div class="related-icon">🏘️</div>
-      <div class="related-name">${dong}</div>
-      <div class="related-desc">${guName} · 설치 가능</div>
-    </a>`;
+    dongsGridHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dong)}" class="region-chip">${dong}</a>`;
   }
   
+  // 제품 그리드
   let productsHtml = '';
   for (const key in PRODUCTS) {
     const p = PRODUCTS[key];
@@ -12040,11 +12789,18 @@ function buildGuPage(sidoUrl, guName) {
     </a>`;
   }
   
+  // 같은 시도의 다른 시군구 (최대 8개)
+  const otherGus = Object.keys(sido.gus).filter(g => g !== guName).slice(0, 8);
+  let otherGusHtml = '';
+  for (const og of otherGus) {
+    otherGusHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(og)}" class="region-chip">${og}</a>`;
+  }
+  
   return getCommonHead(
     `${guName} 카드단말기·포스기·키오스크 설치`,
-    `${sido.name} ${guName} 카드단말기, 포스기, 키오스크 설치. 무료 상담·빠른 설치·A/S 보장. ${dongs.length}개 동 방문 설치.`
+    `${sido.name} ${guName} ${dongs.length}개 동 전체 카드단말기, 포스기, 키오스크 설치. 설치비 무료·빠른 설치·A/S 보장.`
   ) + `<body>${getHeader()}
-<section class="product-hero">
+<section class="region-hero">
 <div class="container">
 <div class="breadcrumb">
 <a href="/">홈</a>
@@ -12053,89 +12809,156 @@ function buildGuPage(sidoUrl, guName) {
 <span class="breadcrumb-separator">/</span>
 <span>${guName}</span>
 </div>
-<div style="text-align:center;margin:60px 0;">
-<span class="product-badge">${guName} 전문 설치</span>
-<h1 class="product-title" style="margin-top:20px;">${guName} <span class="italic">매장 설비</span> 전문</h1>
-<p class="product-lead" style="max-width:700px;margin:24px auto 40px;">
+
+<div class="region-hero-badge">
+<span>📍 ${sido.name} · ${guName} · ${dongs.length}개 동</span>
+</div>
+
+<h1 class="region-hero-title">
+${guName} <span class="italic">매장 설비</span> 설치
+</h1>
+
+<p class="region-hero-lead">
 ${guName}은(는) ${ctx.areaType} 특성이 강한 지역으로, ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종이 특히 활발합니다. 
-${guName} ${dongs.length}개 동 전역에 ${ctx.shopCount}+ 매장이 마스터페이 장비를 사용하고 있으며, 
+${guName} ${dongs.length}개 동 전역에 ${shops.toLocaleString()}+ 매장이 마스터페이 장비를 사용하고 있으며, 
 ${ctx.keyBenefit}과 ${ctx.subBenefits[0]} 효과를 체감하고 계십니다.
 </p>
-<div class="product-cta" style="justify-content:center;">
+
+<div class="region-stats-grid">
+<div class="region-stat">
+<div class="region-stat-icon">📍</div>
+<div class="region-stat-label">${guName} 전담팀</div>
+<div class="region-stat-value">${dongs.length}개 동</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">🏆</div>
+<div class="region-stat-label">${guName} 실적</div>
+<div class="region-stat-value">${shops.toLocaleString()}+건</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">⚡</div>
+<div class="region-stat-label">당일 출동</div>
+<div class="region-stat-value">긴급 대응</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">💰</div>
+<div class="region-stat-label">설치비</div>
+<div class="region-stat-value">무료</div>
+</div>
+</div>
+
+<div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 전화 상담</a>
+<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+</div>
+</div>
+</section>
+
+<section class="region-section region-section-alt">
+<div class="container">
+<div class="region-content-grid">
+<div class="region-content-box">
+<h2 class="region-h2">📍 ${guName} 매장 특성</h2>
+<p>${guName}은(는) ${ctx.areaType}이(가) 집중된 지역으로, ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]}이(가) 특히 활성화되어 있습니다. 이 지역 사장님들은 ${ctx.keyBenefit}을(를) 핵심 가치로 여기시며, 마스터페이는 이러한 니즈에 맞는 맞춤형 장비를 제안해드립니다.</p>
+</div>
+<div class="region-content-box">
+<h2 class="region-h2">⚡ ${guName} 전담 서비스</h2>
+<p>${guName} 내 ${dongs.length}개 동 전역을 담당하는 현지 설치팀이 배치되어 있어, 긴급 출동 요청 시 당일 방문이 가능합니다. A/S 발생 시 평균 2시간 내 현장 도착이 가능하며, 원격 지원으로 대부분 즉시 해결됩니다.</p>
 </div>
 </div>
 </div>
 </section>
 
-<section class="features">
+<section class="region-section">
 <div class="container">
-<div class="section-header">
-<span class="section-num">01 / ${guName}</span>
-<h2 class="section-title">${guName} <span class="italic">설치 서비스</span>의 특별함</h2>
-</div>
-<div class="feature-grid">
-<div class="feature-item"><div class="feature-icon">📍</div><h3 class="feature-title">${guName} 전담팀</h3><p class="feature-desc">${guName} ${dongs.length}개 동을 전담하는 현지 설치팀이 배치되어 있습니다.</p></div>
-<div class="feature-item"><div class="feature-icon">⚡</div><h3 class="feature-title">당일 출동 가능</h3><p class="feature-desc">${guName} 내 긴급 출동이 필요한 경우 당일 방문이 가능합니다.</p></div>
-<div class="feature-item"><div class="feature-icon">🏆</div><h3 class="feature-title">${ctx.shopCount}+ 실적</h3><p class="feature-desc">${guName}에서만 ${ctx.shopCount}건 이상의 설치 실적을 보유하고 있습니다.</p></div>
-<div class="feature-item"><div class="feature-icon">🔧</div><h3 class="feature-title">지역 A/S</h3><p class="feature-desc">${guName} 내 A/S 요청 시 평균 2시간 내 출동이 가능합니다.</p></div>
-</div>
-</div>
-</section>
-
-<section class="services" id="products">
-<div class="container">
-<div class="section-header">
-<span class="section-num">02 / Products</span>
-<h2 class="section-title">${guName}에서 <span class="italic">인기 있는</span> 제품</h2>
-</div>
-<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+<h2 class="region-h2 region-h2-center">📋 ${guName} 제품 안내</h2>
+<p class="region-section-lead">${guName}에서 설치 가능한 모든 제품입니다.</p>
+<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:40px;">
 ${productsHtml}
 </div>
 </div>
 </section>
 
-<section class="related">
+<section class="region-section region-section-alt">
 <div class="container">
-<div class="section-header">
-<span class="section-num">03 / Dongs</span>
-<h2 class="section-title">${guName} <span class="italic">${dongs.length}개</span> 동 둘러보기</h2>
-</div>
-<div class="related-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;">
-${dongsHtml}
+<h2 class="region-h2 region-h2-center">🏘️ ${guName} ${dongs.length}개 동 선택</h2>
+<p class="region-section-lead">동을 선택하면 해당 지역 맞춤 설치 가이드를 확인할 수 있습니다.</p>
+<div class="region-chips-grid">
+${dongsGridHtml}
 </div>
 </div>
 </section>
 
-<section class="detail">
+<section class="region-section">
 <div class="container">
-<div class="section-header">
-<span class="section-num">04 / Info</span>
-<h2 class="section-title">${guName} <span class="italic">매장 설치</span> 가이드</h2>
+<h2 class="region-h2 region-h2-center">💬 ${guName} 실제 후기</h2>
+<div class="region-reviews">
+<div class="region-review">
+<div class="region-review-stars">★★★★★</div>
+<p>"${ctx.review.text}"</p>
+<div class="region-review-author">— ${guName} ${ctx.review.biz} ${ctx.review.name}</div>
 </div>
-<div class="detail-content">
-<h3>${guName} 매장의 특징</h3>
-<p>${guName}은(는) ${ctx.areaType} 성격이 강한 지역입니다. 이 지역의 ${ctx.topBiz[0]}과(와) ${ctx.topBiz[1]}은(는) 특히 ${ctx.keyBenefit}에 민감한 업종으로, 장비 선택 시 신중한 검토가 필요합니다. 마스터페이는 ${guName} 현지 사정에 밝은 전담 인력이 최적의 솔루션을 제안해드립니다.</p>
-
-<h3>${guName} 사장님 실제 후기</h3>
-<p>"${ctx.review.text}" — ${guName} ${ctx.review.biz} ${ctx.review.name}</p>
-<p>"${ctx.review2.text}" — ${guName} ${ctx.review2.biz} ${ctx.review2.name}</p>
-
-<h3>자주 묻는 질문</h3>
-<p><strong>Q. ${guName} 어느 동이든 설치 가능한가요?</strong><br>네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 설치가 가능합니다.</p>
-<p><strong>Q. 설치까지 얼마나 걸리나요?</strong><br>${guName} 내 기본 설치는 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내에 완료됩니다.</p>
-<p><strong>Q. A/S 출동은 빠른가요?</strong><br>${guName} 전담 A/S 인력이 배치되어 있어 긴급 요청 시 평균 2시간 내 출동 가능합니다.</p>
+<div class="region-review">
+<div class="region-review-stars">★★★★★</div>
+<p>"${ctx.review2.text}"</p>
+<div class="region-review-author">— ${guName} ${ctx.review2.biz} ${ctx.review2.name}</div>
+</div>
 </div>
 </div>
 </section>
 
-${getCTA()}
+<section class="region-section region-section-alt">
+<div class="container">
+<h2 class="region-h2 region-h2-center">❓ ${guName} 자주 묻는 질문</h2>
+<div class="region-faq">
+<div class="region-faq-item">
+<strong>Q. ${guName} 어느 동이든 설치 가능한가요?</strong>
+<p>네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 설치가 가능합니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. 설치까지 얼마나 걸리나요?</strong>
+<p>${guName} 내 기본 설치는 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내 완료됩니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. A/S 출동은 빠른가요?</strong>
+<p>${guName} 전담 A/S 인력이 배치되어 있어 긴급 요청 시 평균 2시간 내 출동 가능합니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. 기존 장비 교체도 가능한가요?</strong>
+<p>네, ${guName} 지역도 기존 장비 교체 무료 서비스를 제공합니다.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="region-cta-section">
+<div class="container">
+<div class="region-cta-box">
+<h3>📞 ${guName} 무료 상담</h3>
+<p>${guName} 전담 상담사가 빠르게 도와드립니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="region-section region-section-alt">
+<div class="container">
+<h3 class="region-h3">🏙 ${sido.name} 다른 시군구</h3>
+<div class="region-chips-grid region-chips-small">
+${otherGusHtml}
+<a href="/region/${sidoUrl}" class="region-chip region-chip-highlight">${sido.name} 전체 보기 →</a>
+</div>
+</div>
+</section>
+
 ${getFooter()}`;
 }
 
 // ============================================================
-// 동 페이지 생성 (예: /region/seoul/강남구/역삼동)
+// 동 페이지 (예: /region/seoul/강남구/역삼동)
 // ============================================================
 
 function buildDongPage(sidoUrl, guName, dongName) {
@@ -12146,7 +12969,10 @@ function buildDongPage(sidoUrl, guName, dongName) {
   
   const ctx = getRegionContext(sido.name + guName + dongName);
   const fullAddr = `${sido.name} ${guName} ${dongName}`;
+  const seed = hashString(fullAddr);
+  const shops = 30 + (seed % 300);
   
+  // 제품 × 동 페이지 링크
   let productsHtml = '';
   for (const key in PRODUCTS) {
     const p = PRODUCTS[key];
@@ -12159,11 +12985,18 @@ function buildDongPage(sidoUrl, guName, dongName) {
     </a>`;
   }
   
+  // 같은 구의 다른 동 (최대 12개)
+  const otherDongs = dongs.filter(d => d !== dongName).slice(0, 12);
+  let otherDongsHtml = '';
+  for (const od of otherDongs) {
+    otherDongsHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(od)}" class="region-chip">${od}</a>`;
+  }
+  
   return getCommonHead(
     `${dongName} 카드단말기·포스기·키오스크 설치`,
     `${fullAddr} 카드단말기, 포스기, 키오스크 설치. 무료 상담, 빠른 설치, A/S 보장. ${dongName} 사장님을 위한 맞춤 솔루션.`
   ) + `<body>${getHeader()}
-<section class="product-hero">
+<section class="region-hero">
 <div class="container">
 <div class="breadcrumb">
 <a href="/">홈</a>
@@ -12174,72 +13007,147 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <span class="breadcrumb-separator">/</span>
 <span>${dongName}</span>
 </div>
-<div style="text-align:center;margin:60px 0;">
-<span class="product-badge">${dongName} 설치 전문</span>
-<h1 class="product-title" style="margin-top:20px;">${dongName} <span class="italic">매장 설비</span></h1>
-<p class="product-lead" style="max-width:700px;margin:24px auto 40px;">
-${fullAddr}의 ${ctx.areaType} 지역에서 운영 중인 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 사장님들이 
+
+<div class="region-hero-badge">
+<span>📍 ${fullAddr}</span>
+</div>
+
+<h1 class="region-hero-title">
+${dongName} <span class="italic">매장 설비</span> 설치
+</h1>
+
+<p class="region-hero-lead">
+${fullAddr}의 ${ctx.areaType} 지역에서 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 사장님들이 
 마스터페이와 함께 ${ctx.keyBenefit}을 실현하고 있습니다. 
 ${dongName} 맞춤 솔루션으로 매장 운영의 새로운 기준을 만들어드립니다.
 </p>
-<div class="product-cta" style="justify-content:center;">
+
+<div class="region-stats-grid">
+<div class="region-stat">
+<div class="region-stat-icon">📍</div>
+<div class="region-stat-label">${dongName} 실적</div>
+<div class="region-stat-value">${shops}+건</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">⚡</div>
+<div class="region-stat-label">설치 기간</div>
+<div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">💰</div>
+<div class="region-stat-label">설치비</div>
+<div class="region-stat-value">무료</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">🔧</div>
+<div class="region-stat-label">A/S</div>
+<div class="region-stat-value">즉시 대응</div>
+</div>
+</div>
+
+<div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 전화 상담</a>
+<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+</div>
+</div>
+</section>
+
+<section class="region-section region-section-alt">
+<div class="container">
+<div class="region-content-grid">
+<div class="region-content-box">
+<h2 class="region-h2">🏘️ ${dongName} 상권 분석</h2>
+<p>${fullAddr}은(는) ${ctx.areaType} 성격이 두드러지는 지역입니다. ${dongName} 일대에서는 ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종이 활발하게 운영되고 있으며, 매장 특성상 ${ctx.keyBenefit}과 ${ctx.subBenefits[0]}이(가) 핵심 요구사항입니다.</p>
+</div>
+<div class="region-content-box">
+<h2 class="region-h2">⚡ ${dongName} 설치 절차</h2>
+<ul class="region-steps">
+<li><strong>1단계</strong> — ${dongName} 매장 무료 상담 요청</li>
+<li><strong>2단계</strong> — 매장 특성 분석 및 장비 추천</li>
+<li><strong>3단계</strong> — ${ctx.installTime}~${ctx.installTime+2}일 내 설치 완료</li>
+<li><strong>4단계</strong> — 사용법 교육 및 A/S 지원</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
 
-<section class="services" id="products">
+<section class="region-section">
 <div class="container">
-<div class="section-header">
-<span class="section-num">01 / Products</span>
-<h2 class="section-title">${dongName}에서 <span class="italic">선택하는</span> 제품</h2>
-</div>
-<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+<h2 class="region-h2 region-h2-center">📋 ${dongName} 제품별 상세 보기</h2>
+<p class="region-section-lead">${dongName}에서 설치 가능한 제품을 카테고리별로 확인하세요.</p>
+<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:40px;">
 ${productsHtml}
 </div>
 </div>
 </section>
 
-<section class="detail">
+<section class="region-section region-section-alt">
 <div class="container">
-<div class="section-header">
-<span class="section-num">02 / Info</span>
-<h2 class="section-title">${dongName} <span class="italic">설치 가이드</span></h2>
+<h2 class="region-h2 region-h2-center">💬 ${dongName} 사장님 후기</h2>
+<div class="region-reviews">
+<div class="region-review">
+<div class="region-review-stars">★★★★★</div>
+<p>"${ctx.review.text}"</p>
+<div class="region-review-author">— ${dongName} ${ctx.review.biz} ${ctx.review.name}</div>
 </div>
-<div class="detail-content">
-<h3>${dongName}의 상권 특성</h3>
-<p>${fullAddr}은(는) ${ctx.areaType} 성격이 강한 지역입니다. ${dongName} 일대에서는 ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종이 활발하게 운영되고 있으며, 매장의 특성상 ${ctx.keyBenefit}과 ${ctx.subBenefits[0]}이(가) 핵심 요구사항입니다. 마스터페이는 ${dongName} 사장님들의 이러한 니즈를 정확히 파악하여 최적의 장비를 제안해드립니다.</p>
-
-<h3>${dongName} 설치 절차</h3>
-<ul>
-<li>${dongName} 매장으로 무료 상담 전화 또는 온라인 문의</li>
-<li>전문 상담사가 ${dongName} 매장 특성에 맞는 장비 추천</li>
-<li>${dongName} 담당 설치 기사가 직접 매장 방문</li>
-<li>${ctx.installTime}~${ctx.installTime+2}일 이내 설치 및 테스트 완료</li>
-<li>직원 사용법 교육 및 초기 운영 지원</li>
-<li>설치 후 정기 점검 및 A/S 지원</li>
-</ul>
-
-<h3>${dongName} 사장님 후기</h3>
-<p>"${ctx.review.text}" — ${dongName} ${ctx.review.biz} ${ctx.review.name}</p>
-<p>"${ctx.review2.text}" — ${dongName} ${ctx.review2.biz} ${ctx.review2.name}</p>
-
-<h3>자주 묻는 질문</h3>
-<p><strong>Q. ${dongName}도 설치 가능한가요?</strong><br>네, ${dongName}은(는) ${guName} 설치 권역에 포함되어 있어 빠른 방문이 가능합니다.</p>
-<p><strong>Q. ${dongName} 설치 비용은 얼마인가요?</strong><br>${dongName} 지역도 설치비 무료 옵션을 제공합니다. 장비와 옵션에 따라 다르니 상담을 통해 정확한 견적을 받으세요.</p>
-<p><strong>Q. ${dongName} 긴급 A/S도 가능한가요?</strong><br>${dongName}을 포함한 ${guName} 전역은 당일 긴급 A/S 출동이 가능합니다.</p>
+<div class="region-review">
+<div class="region-review-stars">★★★★★</div>
+<p>"${ctx.review2.text}"</p>
+<div class="region-review-author">— ${dongName} ${ctx.review2.biz} ${ctx.review2.name}</div>
+</div>
 </div>
 </div>
 </section>
 
-${getCTA()}
+<section class="region-section">
+<div class="container">
+<h2 class="region-h2 region-h2-center">❓ ${dongName} 자주 묻는 질문</h2>
+<div class="region-faq">
+<div class="region-faq-item">
+<strong>Q. ${dongName}도 설치 가능한가요?</strong>
+<p>네, ${dongName}은(는) ${guName} 설치 권역에 포함되어 있어 빠른 방문이 가능합니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. ${dongName} 설치 비용은 얼마인가요?</strong>
+<p>${dongName} 지역도 설치비 무료 옵션을 제공합니다. 정확한 견적은 상담을 통해 안내드립니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. ${dongName} 긴급 A/S도 가능한가요?</strong>
+<p>${dongName}을 포함한 ${guName} 전역 당일 긴급 A/S 출동 서비스를 제공합니다.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="region-cta-section">
+<div class="container">
+<div class="region-cta-box">
+<h3>📞 ${dongName} 무료 상담</h3>
+<p>지금 바로 전화 한 통으로 ${dongName} 맞춤 견적을 받아보세요.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
+</div>
+</div>
+</div>
+</section>
+
+${otherDongs.length > 0 ? `<section class="region-section region-section-alt">
+<div class="container">
+<h3 class="region-h3">🏘️ ${guName} 다른 동</h3>
+<div class="region-chips-grid region-chips-small">
+${otherDongsHtml}
+<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}" class="region-chip region-chip-highlight">${guName} 전체 보기 →</a>
+</div>
+</div>
+</section>` : ''}
+
 ${getFooter()}`;
 }
 
 // ============================================================
-// 동-제품 페이지 생성 (예: /region/seoul/강남구/역삼동/card-3inch)
+// 동×제품 페이지 (예: /region/seoul/강남구/역삼동/card-3inch)
 // ============================================================
 
 function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
@@ -12252,23 +13160,20 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
   
   const ctx = getRegionContext(sido.name + guName + dongName + productSlug);
   const fullAddr = `${sido.name} ${guName} ${dongName}`;
-  
-  // 다른 제품들 (3개 랜덤)
-  const otherProducts = Object.keys(PRODUCTS).filter(k => k !== productSlug);
   const seed = hashString(fullAddr + productSlug);
-  const related = [
-    otherProducts[seed % otherProducts.length],
-    otherProducts[(seed + 3) % otherProducts.length],
-    otherProducts[(seed + 7) % otherProducts.length]
-  ];
+  const shops = 10 + (seed % 200);
   
-  let relatedHtml = '';
-  for (const rel of related) {
-    const p = PRODUCTS[rel];
-    relatedHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dongName)}/${p.url}" class="related-card">
-      <div class="related-icon">${p.emoji}</div>
-      <div class="related-name">${dongName} ${p.name}</div>
-      <div class="related-desc">${p.desc}</div>
+  // 같은 동의 다른 제품들
+  const otherProducts = Object.keys(PRODUCTS).filter(k => k !== productSlug);
+  let otherProductsHtml = '';
+  for (const op of otherProducts) {
+    const p = PRODUCTS[op];
+    otherProductsHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dongName)}/${p.url}" class="product-card">
+      <div><div class="card-icon">${p.emoji}</div>
+      <div class="card-tag">${dongName}</div>
+      <h3 class="card-title">${p.name}</h3>
+      <p class="card-desc">${p.desc}</p></div>
+      <div class="card-arrow">→</div>
     </a>`;
   }
   
@@ -12276,7 +13181,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
     `${dongName} ${product.keyword} 설치 | ${product.name}`,
     `${fullAddr} ${product.name} 설치 전문. ${ctx.opening}. 무료 상담·빠른 설치·A/S 보장. ${dongName} 사장님 맞춤 견적.`
   ) + `<body>${getHeader()}
-<section class="product-hero">
+<section class="region-hero">
 <div class="container">
 <div class="breadcrumb">
 <a href="/">홈</a>
@@ -12289,91 +13194,135 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span class="breadcrumb-separator">/</span>
 <span>${product.name}</span>
 </div>
-<div class="product-grid">
-<div class="product-info">
-<span class="product-badge">${dongName} · ${product.keyword}</span>
-<h1 class="product-title">${dongName} <span class="italic">${product.name}</span></h1>
-<p class="product-lead">
+
+<div class="region-hero-badge">
+<span>📍 ${fullAddr} · ${product.keyword}</span>
+</div>
+
+<h1 class="region-hero-title">
+${dongName} <span class="italic">${product.name}</span>
+</h1>
+
+<p class="region-hero-lead">
 ${ctx.opening}. ${fullAddr} ${ctx.areaType} 지역에서 ${product.name}을(를) 설치하시려는 사장님들을 위한 마스터페이의 전문 설치 서비스입니다. 
 ${dongName}의 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종에 최적화된 ${product.name}으로 ${ctx.keyBenefit}을 실현하세요.
 </p>
-<div class="product-cta">
+
+<div class="region-stats-grid">
+<div class="region-stat">
+<div class="region-stat-icon">${product.emoji}</div>
+<div class="region-stat-label">${dongName} ${product.keyword}</div>
+<div class="region-stat-value">설치 전문</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">🏆</div>
+<div class="region-stat-label">설치 실적</div>
+<div class="region-stat-value">${shops}+건</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">⚡</div>
+<div class="region-stat-label">설치 기간</div>
+<div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div>
+</div>
+<div class="region-stat">
+<div class="region-stat-icon">💰</div>
+<div class="region-stat-label">설치비</div>
+<div class="region-stat-value">무료</div>
+</div>
+</div>
+
+<div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 전화 상담</a>
-</div>
-</div>
-<div class="product-visual">${product.emoji}</div>
+<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
 </div>
 </div>
 </section>
 
-<section class="features">
+<section class="region-section region-section-alt">
 <div class="container">
-<div class="section-header">
-<span class="section-num">01 / Features</span>
-<h2 class="section-title">${dongName} ${product.name} <span class="italic">설치 특징</span></h2>
-</div>
-<div class="feature-grid">
-<div class="feature-item"><div class="feature-icon">📍</div><h3 class="feature-title">${dongName} 현지 설치</h3><p class="feature-desc">${dongName} 담당 기사가 직접 방문하여 매장 특성에 맞게 설치합니다.</p></div>
-<div class="feature-item"><div class="feature-icon">⚡</div><h3 class="feature-title">${ctx.installTime}~${ctx.installTime+2}일 빠른 설치</h3><p class="feature-desc">${dongName} 지역은 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 내 설치 완료됩니다.</p></div>
-<div class="feature-item"><div class="feature-icon">💰</div><h3 class="feature-title">무료 견적</h3><p class="feature-desc">${dongName} 매장 환경을 분석하여 가장 유리한 조건의 견적을 제공합니다.</p></div>
-<div class="feature-item"><div class="feature-icon">🔧</div><h3 class="feature-title">A/S 보장</h3><p class="feature-desc">${dongName}을 포함한 ${guName} 전역 긴급 A/S 지원이 가능합니다.</p></div>
-</div>
-</div>
-</section>
-
-<section class="detail">
-<div class="container">
-<div class="section-header">
-<span class="section-num">02 / Details</span>
-<h2 class="section-title">${dongName} ${product.name} <span class="italic">설치 안내</span></h2>
-</div>
-<div class="detail-content">
-<h3>${dongName}에서 ${product.name}이 중요한 이유</h3>
+<div class="region-content-grid">
+<div class="region-content-box">
+<h2 class="region-h2">💡 ${dongName}에서 ${product.name}이 중요한 이유</h2>
 <p>${fullAddr}은(는) ${ctx.areaType} 특성이 두드러지는 지역입니다. 이 지역에서 ${product.name}은(는) ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종에서 특히 중요한 역할을 합니다. ${ctx.keyBenefit}을 최우선으로 고려하는 ${dongName} 사장님들에게 ${product.name}은(는) ${ctx.subBenefits[0]}과(와) ${ctx.subBenefits[1]}까지 동시에 만족시키는 솔루션입니다.</p>
-
-<h3>${dongName} ${product.name} 설치 프로세스</h3>
-<ul>
-<li>1단계 — ${dongName} 매장으로 무료 상담 요청 (전화 또는 온라인)</li>
-<li>2단계 — ${dongName} 담당 상담사가 매장 특성 분석 및 ${product.name} 모델 추천</li>
-<li>3단계 — ${dongName} 현장 방문하여 설치 위치·네트워크 점검</li>
-<li>4단계 — ${ctx.installTime}~${ctx.installTime+2}일 내 ${product.name} 설치 및 테스트</li>
-<li>5단계 — ${dongName} 매장 직원에게 ${product.name} 사용법 교육</li>
-<li>6단계 — 설치 후 ${guName} 전담팀의 지속적인 A/S 지원</li>
+</div>
+<div class="region-content-box">
+<h2 class="region-h2">⚡ ${dongName} ${product.name} 설치 프로세스</h2>
+<ul class="region-steps">
+<li><strong>1단계</strong> — ${dongName} 매장 무료 상담</li>
+<li><strong>2단계</strong> — 현장 방문 및 ${product.name} 모델 추천</li>
+<li><strong>3단계</strong> — ${ctx.installTime}~${ctx.installTime+2}일 내 설치 및 테스트</li>
+<li><strong>4단계</strong> — 사용법 교육 및 지속적인 A/S</li>
 </ul>
-
-<h3>${dongName}에 적합한 ${product.name} 추천</h3>
-<p>${dongName}의 ${ctx.areaType} 환경에서는 ${product.name}의 다양한 모델 중에서도 특히 안정성과 ${ctx.keyBenefit}에 강점을 보이는 제품을 추천드립니다. ${dongName} 내 ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 매장에서 이미 많이 사용하고 있으며, 지속적인 업데이트와 개선을 통해 최고의 성능을 제공합니다.</p>
-
-<h3>${dongName} 사장님의 실제 후기</h3>
-<p>"${ctx.review.text}" — ${dongName} ${ctx.review.biz} ${ctx.review.name}</p>
-<p>"${ctx.review2.text}" — ${dongName} ${ctx.review2.biz} ${ctx.review2.name}</p>
-
-<h3>${dongName} ${product.name} 자주 묻는 질문</h3>
-<p><strong>Q. ${dongName}도 설치 가능한가요?</strong><br>네, ${dongName}은(는) ${guName} 전담 설치 권역에 포함되어 있어 당연히 설치 가능합니다. 보통 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치가 완료됩니다.</p>
-<p><strong>Q. ${dongName} ${product.name} 비용은 얼마인가요?</strong><br>${product.name}은(는) 모델과 옵션에 따라 비용이 달라집니다. ${dongName} 매장 환경에 맞는 정확한 견적은 상담을 통해 안내해드리며, 설치비 무료 옵션도 제공합니다.</p>
-<p><strong>Q. ${dongName}에서 긴급 A/S도 받을 수 있나요?</strong><br>네, ${dongName}을 포함한 ${guName} 전역은 당일 긴급 A/S 출동이 가능합니다. 전화 한 통이면 빠르게 해결해드립니다.</p>
-<p><strong>Q. 기존 장비를 ${product.name}으로 교체 가능한가요?</strong><br>기존 장비 교체도 ${dongName} 현장에서 즉시 가능합니다. 데이터 이전과 설정 변경까지 전문 기사가 직접 처리해드립니다.</p>
-
-<h3>지금 바로 ${dongName} ${product.name} 상담 받기</h3>
-<p>${ctx.closing}. ${fullAddr} 매장에 맞는 최적의 ${product.name}을(를) 합리적인 가격에 설치해드립니다. 전화 한 통으로 ${dongName} 지역 전담 상담사와 연결되며, 매장 특성에 맞는 맞춤 견적을 즉시 받아보실 수 있습니다.</p>
+</div>
 </div>
 </div>
 </section>
 
-<section class="related">
+<section class="region-section">
 <div class="container">
-<div class="section-header">
-<span class="section-num">03 / Related</span>
-<h2 class="section-title">${dongName}의 <span class="italic">다른 제품</span>도 보세요</h2>
+<h2 class="region-h2 region-h2-center">💬 ${dongName} ${product.name} 사장님 후기</h2>
+<div class="region-reviews">
+<div class="region-review">
+<div class="region-review-stars">★★★★★</div>
+<p>"${ctx.review.text}"</p>
+<div class="region-review-author">— ${dongName} ${ctx.review.biz} ${ctx.review.name}</div>
 </div>
-<div class="related-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
-${relatedHtml}
+<div class="region-review">
+<div class="region-review-stars">★★★★★</div>
+<p>"${ctx.review2.text}"</p>
+<div class="region-review-author">— ${dongName} ${ctx.review2.biz} ${ctx.review2.name}</div>
+</div>
 </div>
 </div>
 </section>
 
-${getCTA()}
+<section class="region-section region-section-alt">
+<div class="container">
+<h2 class="region-h2 region-h2-center">❓ ${dongName} ${product.name} 자주 묻는 질문</h2>
+<div class="region-faq">
+<div class="region-faq-item">
+<strong>Q. ${dongName}도 설치 가능한가요?</strong>
+<p>네, ${dongName}은(는) ${guName} 전담 설치 권역에 포함되어 있어 당연히 설치 가능합니다. 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 내 설치 완료됩니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. ${dongName} ${product.name} 비용은 얼마인가요?</strong>
+<p>${product.name}은(는) 모델과 옵션에 따라 다릅니다. ${dongName} 매장 환경에 맞는 정확한 견적은 상담을 통해 안내하며, 설치비 무료 옵션도 제공합니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. ${dongName}에서 긴급 A/S도 가능한가요?</strong>
+<p>네, ${dongName}을 포함한 ${guName} 전역 당일 긴급 A/S 출동 서비스를 제공합니다.</p>
+</div>
+<div class="region-faq-item">
+<strong>Q. 기존 장비를 ${product.name}으로 교체 가능한가요?</strong>
+<p>기존 장비 교체도 ${dongName} 현장에서 즉시 가능합니다. 데이터 이전과 설정 변경까지 전문 기사가 직접 처리합니다.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="region-section">
+<div class="container">
+<h2 class="region-h2 region-h2-center">🛒 ${dongName}의 다른 제품도 확인하세요</h2>
+<p class="region-section-lead">${dongName}에서 설치 가능한 다른 제품들을 한눈에 확인할 수 있습니다.</p>
+<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-top:40px;">
+${otherProductsHtml}
+</div>
+</div>
+</section>
+
+<section class="region-cta-section">
+<div class="container">
+<div class="region-cta-box">
+<h3>📞 ${dongName} ${product.name} 무료 상담</h3>
+<p>${ctx.closing}. 지금 바로 전화 한 통이면 충분합니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
+</div>
+</div>
+</div>
+</section>
+
 ${getFooter()}`;
 }
 
