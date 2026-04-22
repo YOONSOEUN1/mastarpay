@@ -6355,7 +6355,7 @@ footer {
                 
                 <!-- 제품 이미지 영역 (이모지 또는 이미지) -->
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kiosk2.png" alt="미니 키오스크" style="width: 100%; height: 100%; object-fit: cover;">
+                    📱
                     <!-- 이미지 사용시: <img src="../images/파일명.jpg" alt="무선"> -->
                 </div>
             </div>
