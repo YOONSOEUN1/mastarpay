@@ -1960,7 +1960,7 @@ section.main-section {
 <section class="find-section" id="find-sec">
 <div class="container">
 <div class="find-label">FIND YOUR SOLUTION</div>
-<h2 class="find-title">우리 매장에 필요한<br>설비를 찾아보세요</h2>
+<h2 class="find-title">매장 운영에 필요한<br>설비를 한 번에 체크하세요</h2>
 
 <div class="find-tabs">
 <button class="find-tab active" data-tab="region" onclick="switchFindTab('region')">📍 지역별 설치</button>
@@ -2015,7 +2015,7 @@ section.main-section {
 <section class="allinone-section" id="allinone">
 <div class="container">
 <div class="find-label">ALL-IN-ONE SOLUTION</div>
-<h2 class="find-title">매장에 필요한 모든 장비<br>한번에 설치합니다</h2>
+<h2 class="find-title">매장에 필요한 모든 장비<br>한번에 설치 가능합니다</h2>
 
 <div class="allinone-products-grid">
 
@@ -2045,7 +2045,7 @@ section.main-section {
 
 <a href="/product/card-3inch" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in.jpg" alt="3인치 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg" alt="3인치 단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">03 / 10</div>
@@ -3745,7 +3745,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    🖥️
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/pos.jpg" alt="포스기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -6394,7 +6394,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    ⚡
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Tosscard.png" alt="토스 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -7277,7 +7277,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    📱
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Wirelesscard.png" alt="무선 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -8160,7 +8160,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    🔷
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Bluetoothcard.jpg" alt="블루투스 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -10818,7 +10818,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    📋
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/tableorder.png" alt="테이블 오더" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
