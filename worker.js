@@ -1352,6 +1352,15 @@ body {
     .region-products-simple { grid-template-columns: repeat(3, 1fr); }
 }
 
+
+/* 모든 .italic 클래스 비활성화 - 글씨체 통일 */
+.italic {
+    font-family: inherit !important;
+    font-style: normal !important;
+    font-weight: inherit !important;
+    color: inherit !important;
+}
+
 </style>
 <style>
 /* 메인 페이지 전용 추가 스타일 */
@@ -1912,7 +1921,7 @@ section.main-section {
 
 <h1>
 전국 어디든,<br>
-<span class="italic">매장 설비</span>를<br>
+매장 설비를<br>
 <span class="accent">한 번에</span>.
 </h1>
 
@@ -2024,7 +2033,7 @@ section.main-section {
 
 <a href="/product/card-2inch" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kis2200_2in.jpg" alt="2인치 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">02 / 10</div>
@@ -2036,7 +2045,7 @@ section.main-section {
 
 <a href="/product/card-3inch" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kis1420_3in.jpg" alt="3인치 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in.jpg" alt="3인치 단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">03 / 10</div>
@@ -2140,7 +2149,7 @@ section.main-section {
 <div class="section-header">
 <span class="section-num">Process</span>
 <h2 class="section-title">
-<span class="italic">어떻게</span> 진행되나요?
+어떻게 진행되나요?
 </h2>
 </div>
 
@@ -2175,7 +2184,7 @@ section.main-section {
 <div class="section-header">
 <span class="section-num">Voices</span>
 <h2 class="section-title">
-고객의 <span class="italic">목소리</span>를 들어보세요.
+고객의 목소리를 들어보세요.
 </h2>
 </div>
 
@@ -2231,7 +2240,7 @@ section.main-section {
 <div class="section-header">
 <span class="section-num">FAQ</span>
 <h2 class="section-title">
-자주 묻는 <span class="italic">질문들.</span>
+자주 묻는 질문들.
 </h2>
 </div>
 
@@ -2286,7 +2295,7 @@ section.main-section {
 <div class="cta-label">— Let's Talk —</div>
 <h2>
 지금 바로<br>
-<span class="italic">시작해볼까요?</span>
+시작해볼까요?
 </h2>
 
 <a href="tel:010-2337-0458" class="cta-phone">
@@ -3748,7 +3757,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -3783,7 +3792,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -3834,7 +3843,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -3865,7 +3874,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -4618,7 +4627,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kis2200_2in.jpg" alt="2인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -4630,7 +4639,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -4665,7 +4674,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -4717,7 +4726,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -4748,7 +4757,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -5501,7 +5510,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kis1420_3in2.jpg" alt="3인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg" alt="3인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -5513,7 +5522,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -5548,7 +5557,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -5601,7 +5610,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -5632,7 +5641,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -6397,7 +6406,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -6432,7 +6441,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -6484,7 +6493,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -6515,7 +6524,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -7280,7 +7289,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -7315,7 +7324,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -7367,7 +7376,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -7398,7 +7407,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -8163,7 +8172,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -8198,7 +8207,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -8253,7 +8262,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -8284,7 +8293,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -9049,7 +9058,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -9084,7 +9093,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -9139,7 +9148,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -9170,7 +9179,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -9935,7 +9944,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -9970,7 +9979,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -10025,7 +10034,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -10056,7 +10065,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -10821,7 +10830,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -10856,7 +10865,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -10912,7 +10921,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -10943,7 +10952,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -11708,7 +11717,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">01 / Features</span>
                 <h2 class="section-title">
-                    이런 <span class="italic">특징이</span> 있어요.
+                    이런 특징이 있어요.
                 </h2>
             </div>
             
@@ -11743,7 +11752,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">02 / Details</span>
                 <h2 class="section-title">
-                    <span class="italic">자세히</span> 알아보기.
+                    자세히 알아보기.
                 </h2>
             </div>
             
@@ -11799,7 +11808,7 @@ footer {
             <div class="section-header">
                 <span class="section-num">03 / Related</span>
                 <h2 class="section-title">
-                    다른 <span class="italic">제품도</span> 둘러보세요.
+                    다른 제품도 둘러보세요.
                 </h2>
             </div>
             
@@ -11830,7 +11839,7 @@ footer {
                 <div class="cta-label">— Let's Talk —</div>
                 <h2>
                     지금 바로<br>
-                    <span class="italic">상담 받아보세요.</span>
+                    상담 받아보세요.
                 </h2>
                 
                 <a href="tel:010-2337-0458" class="cta-phone">
@@ -13279,7 +13288,7 @@ function getCTA() {
 <div class="container">
 <div class="cta-content">
 <div class="cta-label">— Let's Talk —</div>
-<h2>지금 바로<br><span class="italic">상담 받아보세요.</span></h2>
+<h2>지금 바로<br>상담 받아보세요.</h2>
 <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
 <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
 </div>
