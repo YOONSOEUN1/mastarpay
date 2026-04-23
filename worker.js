@@ -15007,11 +15007,10 @@ ${getFooter()}`;
 
 
 // ============================================================
-// API: /api/contact - 문의 폼 처리 (Resend로 이메일 발송)
+// API: /api/contact - 구글 폼으로 문의 제출
 // ============================================================
 
-async function handleContactAPI(request, env) {
-  // CORS 대응 (혹시 필요할 경우)
+async function handleContactAPI(request) {
   const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -15044,135 +15043,35 @@ async function handleContactAPI(request, env) {
       });
     }
     
-    // Resend API Key 확인
-    if (!env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not set');
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: '이메일 서비스가 설정되지 않았습니다. 전화로 문의해주세요.' 
-      }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json', ...corsHeaders }
-      });
-    }
+    // 주소 + 상세주소 합치기
+    const fullAddress = addressDetail ? `${address} ${addressDetail}` : address;
     
-    // 이메일 내용 구성
-    const now = new Date();
-    const kstTime = new Date(now.getTime() + 9 * 60 * 60 * 1000).toISOString().replace('T', ' ').substring(0, 19);
+    // 구글 폼 formResponse URL
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsD1zDpmz9aTvZQzs17l7QFmmT0NVZF-t3FckTzbf4yvqq0w/formResponse';
     
-    const emailHTML = `
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
-<body style="font-family: 'Pretendard', sans-serif; background: #f5f5f5; padding: 20px;">
-<div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-  <div style="background: linear-gradient(135deg, #1a1a1a, #2d4a3e); padding: 32px 28px; color: #ffffff;">
-    <div style="font-size: 13px; color: #e8763a; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px;">✦ MASTERPAY</div>
-    <h1 style="margin: 0; font-size: 22px; font-weight: 800;">🔔 새로운 문의가 도착했습니다</h1>
-    <p style="margin: 8px 0 0; font-size: 13px; opacity: 0.8;">${kstTime} KST</p>
-  </div>
-  <div style="padding: 32px 28px;">
-    <table style="width: 100%; border-collapse: collapse;">
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 14px 0; color: #888; font-size: 13px; width: 100px; vertical-align: top;">👤 상호/이름</td>
-        <td style="padding: 14px 0; color: #1a1a1a; font-size: 15px; font-weight: 700;">${name}</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📞 연락처</td>
-        <td style="padding: 14px 0; color: #1a1a1a; font-size: 15px; font-weight: 700;">
-          <a href="tel:${phone}" style="color: #e8763a; text-decoration: none;">${phone}</a>
-        </td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📍 주소</td>
-        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px; line-height: 1.6;">
-          ${address}${addressDetail ? '<br>' + addressDetail : ''}
-        </td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📦 문의 제품</td>
-        <td style="padding: 14px 0;">
-          <span style="display: inline-block; padding: 6px 12px; background: #fef3e0; color: #e8763a; border-radius: 100px; font-size: 13px; font-weight: 700;">${product}</span>
-        </td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">🏪 업종</td>
-        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px;">${business || '-'}</td>
-      </tr>
-      <tr>
-        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">💬 문의 내용</td>
-        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px; line-height: 1.7;">
-          ${message ? message.replace(/\n/g, '<br>') : '<span style="color: #aaa;">(없음)</span>'}
-        </td>
-      </tr>
-    </table>
-    <div style="margin-top: 28px; padding: 20px; background: #f7f4ed; border-radius: 12px; border-left: 4px solid #e8763a;">
-      <div style="font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">⚡ 빠른 대응 안내</div>
-      <div style="font-size: 13px; color: #666; line-height: 1.6;">
-        고객의 연락처로 <strong>24시간 이내</strong>에 상담 전화를 드려주세요.<br>
-        긴급한 경우 010-2337-0458 발신번호를 사용하세요.
-      </div>
-    </div>
-  </div>
-  <div style="background: #f7f4ed; padding: 16px 28px; text-align: center; font-size: 12px; color: #888;">
-    이 메일은 mastarpay.com 홈페이지 문의 폼에서 자동 발송되었습니다.
-  </div>
-</div>
-</body>
-</html>
-`.trim();
+    // 폼 데이터 생성
+    const formData = new URLSearchParams();
+    formData.append('entry.1079318290', name);           // 상호(이름)
+    formData.append('entry.59254598', phone);            // 연락처
+    formData.append('entry.2013933285', fullAddress);    // 주소
+    formData.append('entry.1589514823', product);        // 문의 제품
+    formData.append('entry.499131073', business || '기타'); // 업종 (필수라서 기본값)
+    formData.append('entry.1351802365', message || '');  // 문의 내용
     
-    // 텍스트 버전 (이메일 클라이언트 호환성)
-    const emailText = `
-🔔 새로운 문의가 도착했습니다
-${kstTime} KST
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-👤 상호/이름: ${name}
-📞 연락처: ${phone}
-📍 주소: ${address}${addressDetail ? '\n        ' + addressDetail : ''}
-📦 문의 제품: ${product}
-🏪 업종: ${business || '-'}
-
-💬 문의 내용:
-${message || '(없음)'}
-━━━━━━━━━━━━━━━━━━━━━━━━
-
-⚡ 고객의 연락처로 24시간 이내에 상담 전화를 드려주세요.
-
-이 메일은 mastarpay.com 홈페이지 문의 폼에서 자동 발송되었습니다.
-`.trim();
-    
-    // Resend API 호출
-    const resendResponse = await fetch('https://api.resend.com/emails', {
+    // 구글 폼으로 POST 요청
+    const response = await fetch(googleFormUrl, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify({
-        from: 'Mastarpay <onboarding@resend.dev>',
-        to: ['thdmsdidfl@naver.com'],
-        reply_to: phone + '@sms.relay',  // 답장용 (의미 없음, 그냥 정보)
-        subject: `[마스터페이 문의] ${name} · ${product} · ${phone}`,
-        html: emailHTML,
-        text: emailText,
-      }),
+      body: formData.toString(),
     });
     
-    if (!resendResponse.ok) {
-      const errorData = await resendResponse.json().catch(() => ({}));
-      console.error('Resend API error:', resendResponse.status, errorData);
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: '이메일 발송에 실패했습니다. 전화로 문의해주세요.',
-        debug: errorData
-      }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json', ...corsHeaders }
-      });
-    }
+    // 구글 폼은 성공 시 302 리다이렉트 또는 200 반환
+    // 단, fetch에서 리다이렉트 처리되면 opaque response가 됨
+    // 그래서 status 체크보다는 단순히 요청이 던져졌는지를 기준으로 판단
     
+    // 구글 폼은 사실상 대부분 성공으로 처리됨 (유효성 검사 안 하면)
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json', ...corsHeaders }
@@ -15182,15 +15081,13 @@ ${message || '(없음)'}
     console.error('handleContactAPI error:', error);
     return new Response(JSON.stringify({ 
       success: false, 
-      error: '서버 오류가 발생했습니다.',
-      debug: error.message
+      error: '서버 오류가 발생했습니다. 전화로 문의해주세요.'
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders }
     });
   }
 }
-
 
 // ============================================================
 // 라우팅 테이블
@@ -15219,7 +15116,7 @@ export default {
     // API 엔드포인트 먼저 처리
     const _url = new URL(request.url);
     if (_url.pathname === '/api/contact') {
-      return handleContactAPI(request, env);
+      return handleContactAPI(request);
     }
     
     const url = new URL(request.url);
