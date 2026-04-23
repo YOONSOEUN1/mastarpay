@@ -35,7 +35,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -506,7 +506,7 @@ header {
     font-size: 28px;
     font-weight: 800;
     padding: 20px 40px;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     border-radius: 100px;
     transition: transform 0.2s;
@@ -1248,7 +1248,7 @@ body {
 }
 
 .region-cta-box .btn-primary {
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
 }
 
@@ -3080,7 +3080,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -3673,8 +3673,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -3962,7 +3962,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -4555,8 +4555,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -4845,7 +4845,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -5438,8 +5438,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -5729,7 +5729,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -6322,8 +6322,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -6612,7 +6612,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -7205,8 +7205,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -7495,7 +7495,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -8088,8 +8088,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -8381,7 +8381,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -8974,8 +8974,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -9267,7 +9267,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -9860,8 +9860,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -10153,7 +10153,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -10746,8 +10746,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -11040,7 +11040,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -11633,8 +11633,8 @@ footer {
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/#philosophy">철학</a></li>
-                <li><a href="/#products">서비스</a></li>
+                <li><a href="/#find-sec">지역별 설치</a></li>
+                <li><a href="/#allinone">제품 안내</a></li>
                 <li><a href="/#process">프로세스</a></li>
                 <li><a href="/#faq">자주 묻는 질문</a></li>
             </ul>
@@ -12636,10 +12636,10 @@ footer {
 }
 
 /* ========== 지역 페이지 전용 스타일 ========== */
-body { background: var(--cream-dark); }
+body { background: #ffffff; }
 .region-hero {
     padding: 60px 0 40px;
-    background: var(--cream-dark);
+    background: #ffffff;
     text-align: center;
 }
 .region-hero .breadcrumb {
@@ -12724,7 +12724,7 @@ body { background: var(--cream-dark); }
     flex-wrap: wrap;
     justify-content: center;
 }
-.region-main { padding: 40px 0 80px; background: var(--cream-dark); }
+.region-main { padding: 40px 0 80px; background: #ffffff; }
 .region-main .container {
     display: flex;
     flex-direction: column;
@@ -13208,8 +13208,8 @@ function getHeader() {
 <nav class="nav">
 <a href="/" class="logo"><span class="logo-mark">✦</span>마스터페이</a>
 <ul class="nav-menu" id="navMenu">
-<li><a href="/#philosophy">철학</a></li>
-<li><a href="/#products">서비스</a></li>
+<li><a href="/#find-sec">지역별 설치</a></li>
+<li><a href="/#allinone">제품 안내</a></li>
 <li><a href="/#process">프로세스</a></li>
 <li><a href="/#faq">자주 묻는 질문</a></li>
 </ul>
@@ -14154,7 +14154,7 @@ export default {
       return new Response(staticRoutes[pathname], {
         headers: {
           'Content-Type': 'text/html; charset=utf-8',
-          'Cache-Control': 'public, max-age=3600',
+          'Cache-Control': 'public, max-age=0, must-revalidate',
         },
       });
     }
@@ -14194,7 +14194,7 @@ export default {
         return new Response(html, {
           headers: {
             'Content-Type': 'text/html; charset=utf-8',
-            'Cache-Control': 'public, max-age=3600',
+            'Cache-Control': 'public, max-age=0, must-revalidate',
           },
         });
       }
