@@ -1552,140 +1552,139 @@ body {
     justify-content: center;
 }
 
-/* ALL-IN-ONE SOLUTION 섹션 (제품 슬라이더) */
+
+/* ALL-IN-ONE SOLUTION - 제품 카드 그리드 */
 .allinone-section {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--cream);
 }
-.allinone-grid {
+.allinone-products-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 32px;
-    max-width: 1140px;
-    margin: 48px auto 0;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+}
+.allinone-product-card {
     background: var(--cream-dark);
     border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 32px;
-}
-.allinone-visual {
-    background: var(--cream);
-    border: 1px solid var(--border);
     border-radius: 16px;
-    aspect-ratio: 1;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+.allinone-product-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--ink);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+.allinone-card-visual {
+    background: var(--cream);
+    aspect-ratio: 1 / 0.75;
+    display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
 }
-.allinone-visual-emoji {
-    font-size: 180px;
+.allinone-product-card:hover .allinone-card-visual {
+    background: #ffffff;
+}
+.allinone-card-emoji {
+    font-size: 60px;
     line-height: 1;
+    transition: transform 0.3s;
 }
-.allinone-visual-info {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    right: 24px;
+.allinone-product-card:hover .allinone-card-emoji {
+    transform: scale(1.1);
 }
-.allinone-visual-index {
+/* ALL-IN-ONE 카드 이미지 스타일 */
+.allinone-card-img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.allinone-product-card:hover .allinone-card-img {
+    transform: scale(1.08);
+}
+
+.allinone-card-info {
+    padding: 16px 18px 18px;
+}
+.allinone-card-index {
     font-family: 'Fraunces', serif;
     font-style: italic;
-    font-size: 13px;
+    font-size: 11px;
     color: var(--ink-soft);
     margin-bottom: 4px;
 }
-.allinone-visual-name {
-    font-size: 22px;
+.allinone-card-name {
+    font-size: 15px;
     font-weight: 800;
-    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    color: var(--ink);
 }
-.allinone-visual-desc {
-    font-size: 13px;
+.allinone-card-desc {
+    font-size: 11px;
     color: var(--ink-soft);
+    line-height: 1.5;
     margin-bottom: 12px;
 }
-.allinone-visual-btn {
+.allinone-card-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
+    gap: 4px;
+    padding: 6px 11px;
     background: var(--ink);
     color: var(--cream);
     border-radius: 100px;
-    font-size: 13px;
-    font-weight: 600;
-    transition: background 0.2s;
-}
-.allinone-visual-btn:hover {
-    background: var(--forest);
-}
-.allinone-list {
-    display: flex;
-    flex-direction: column;
-}
-.allinone-list-label {
     font-size: 11px;
-    font-weight: 700;
-    color: var(--coral);
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-    text-align: right;
-}
-.allinone-item {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 16px;
-    align-items: center;
-    padding: 14px 16px;
-    border-radius: 12px;
-    cursor: pointer;
+    font-weight: 600;
     transition: all 0.2s;
-    border: 1px solid transparent;
 }
-.allinone-item:hover {
-    background: var(--cream);
-    border-color: var(--border);
-}
-.allinone-item.active {
+.allinone-product-card:hover .allinone-card-btn {
     background: var(--forest);
-    color: var(--cream);
-    border-color: var(--forest);
 }
-.allinone-item-num {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 13px;
-    color: var(--ink-soft);
-    min-width: 24px;
+
+/* 태블릿 크기 */
+@media (max-width: 900px) {
+    .allinone-products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    .allinone-card-emoji { font-size: 50px; }
 }
-.allinone-item.active .allinone-item-num {
-    color: rgba(247, 244, 237, 0.7);
+
+/* 모바일 - 2개씩 배치 */
+@media (max-width: 640px) {
+    .allinone-section { padding: 50px 0; }
+    .allinone-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 4px;
+    }
+    .allinone-card-visual {
+        aspect-ratio: 1 / 0.8;
+    }
+    .allinone-card-emoji { font-size: 44px; }
+    .allinone-card-img { width: 80%; height: 80%; }
+    .allinone-card-info { padding: 12px 14px 14px; }
+    .allinone-card-name { font-size: 13px; }
+    .allinone-card-desc { font-size: 10px; margin-bottom: 8px; }
+    .allinone-card-btn { font-size: 10px; padding: 5px 9px; }
+    .allinone-card-index { font-size: 10px; }
 }
-.allinone-item-info .name {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 2px;
-    letter-spacing: -0.01em;
-}
-.allinone-item-info .desc {
-    font-size: 12px;
-    color: var(--ink-soft);
-}
-.allinone-item.active .allinone-item-info .desc {
-    color: rgba(247, 244, 237, 0.75);
-}
-.allinone-item-arrow {
-    font-size: 14px;
-    color: var(--ink-soft);
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-.allinone-item.active .allinone-item-arrow {
-    color: var(--cream);
-    opacity: 1;
+
+/* 아주 작은 화면 */
+@media (max-width: 360px) {
+    .allinone-card-emoji { font-size: 36px; }
+    .allinone-card-info { padding: 10px 12px 12px; }
 }
 
 section.main-section {
@@ -1872,16 +1871,10 @@ section.main-section {
         padding-bottom: 10px;
     }
     .visual-card { flex-shrink: 0; width: 240px; }
-    .allinone-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
 }
 @media (max-width: 640px) {
     .hero { padding: 40px 0 80px; }
     section.main-section, .find-section, .allinone-section { padding: 60px 0; }
-    .allinone-visual-emoji { font-size: 120px; }
-    .allinone-grid { padding: 20px; }
 }
 </style>
 </head>
@@ -2009,108 +2002,134 @@ section.main-section {
 </div>
 </section>
 
-<!-- ALL-IN-ONE SOLUTION - 제품 슬라이더 (NEW!) -->
+<!-- ALL-IN-ONE SOLUTION - 제품 카드 그리드 -->
 <section class="allinone-section" id="allinone">
 <div class="container">
 <div class="find-label">ALL-IN-ONE SOLUTION</div>
 <h2 class="find-title">매장에 필요한 모든 장비<br>한번에 설치합니다</h2>
 
-<div class="allinone-grid">
-<!-- 왼쪽: 선택된 제품 -->
-<div class="allinone-visual" id="allinoneVisual">
-<div class="allinone-visual-emoji" id="allinoneEmoji">🖥️</div>
-<div class="allinone-visual-info">
-<div class="allinone-visual-index" id="allinoneIndex">01 / 10</div>
-<div class="allinone-visual-name" id="allinoneName">포스기(POS)</div>
-<div class="allinone-visual-desc" id="allinoneDesc">주문·결제·매출 통합 관리 시스템</div>
-<a class="allinone-visual-btn" id="allinoneBtn" href="/product/pos">상세 보기 →</a>
-</div>
-</div>
+<div class="allinone-products-grid">
 
-<!-- 오른쪽: 제품 목록 -->
-<div class="allinone-list">
-<div class="allinone-list-label">PRODUCT INDEX</div>
-<div class="allinone-item active" onclick="selectProduct(0)" data-product="0">
-<div class="allinone-item-num">01</div>
-<div class="allinone-item-info">
-<div class="name">포스기(POS)</div>
-<div class="desc">주문·결제·매출 통합 관리</div>
+<a href="/product/pos" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/pos.jpg" alt="포스기" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">01 / 10</div>
+<div class="allinone-card-name">포스기(POS)</div>
+<div class="allinone-card-desc">주문·결제·매출 통합 관리 시스템</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(1)" data-product="1">
-<div class="allinone-item-num">02</div>
-<div class="allinone-item-info">
-<div class="name">2인치 단말기</div>
-<div class="desc">컴팩트 카드 단말기</div>
+</a>
+
+<a href="/product/card-2inch" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 단말기" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">02 / 10</div>
+<div class="allinone-card-name">2인치 단말기</div>
+<div class="allinone-card-desc">컴팩트 사이즈 카드 단말기</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(2)" data-product="2">
-<div class="allinone-item-num">03</div>
-<div class="allinone-item-info">
-<div class="name">3인치 단말기</div>
-<div class="desc">표준 카드 단말기</div>
+</a>
+
+<a href="/product/card-3inch" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in.jpg" alt="3인치 단말기" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">03 / 10</div>
+<div class="allinone-card-name">3인치 단말기</div>
+<div class="allinone-card-desc">표준 사이즈 카드 단말기</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(3)" data-product="3">
-<div class="allinone-item-num">04</div>
-<div class="allinone-item-info">
-<div class="name">토스 단말기</div>
-<div class="desc">간편결제 특화</div>
+</a>
+
+<a href="/product/card-toss" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Tosscard.png" alt="토스 단말기" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">04 / 10</div>
+<div class="allinone-card-name">토스 단말기</div>
+<div class="allinone-card-desc">간편결제 특화 단말기</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(4)" data-product="4">
-<div class="allinone-item-num">05</div>
-<div class="allinone-item-info">
-<div class="name">무선 단말기</div>
-<div class="desc">이동 결제 자유</div>
+</a>
+
+<a href="/product/card-wireless" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Wirelesscard.png" alt="무선 단말기" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">05 / 10</div>
+<div class="allinone-card-name">무선 단말기</div>
+<div class="allinone-card-desc">이동 결제가 가능한 무선 단말기</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(5)" data-product="5">
-<div class="allinone-item-num">06</div>
-<div class="allinone-item-info">
-<div class="name">블루투스 단말기</div>
-<div class="desc">스마트폰 연동 휴대용</div>
+</a>
+
+<a href="/product/card-bluetooth" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Bluetoothcard.jpg" alt="블루투스 단말기" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">06 / 10</div>
+<div class="allinone-card-name">블루투스 단말기</div>
+<div class="allinone-card-desc">스마트폰 연동 초소형 단말기</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(6)" data-product="6">
-<div class="allinone-item-num">07</div>
-<div class="allinone-item-info">
-<div class="name">키오스크</div>
-<div class="desc">대형 무인 주문·결제</div>
+</a>
+
+<a href="/product/kiosk" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kiosk.png" alt="키오스크" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">07 / 10</div>
+<div class="allinone-card-name">키오스크</div>
+<div class="allinone-card-desc">대형 무인 주문·결제 시스템</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(7)" data-product="7">
-<div class="allinone-item-num">08</div>
-<div class="allinone-item-info">
-<div class="name">미니 키오스크</div>
-<div class="desc">소형 매장 전용</div>
+</a>
+
+<a href="/product/kiosk-mini" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kiosk2.png" alt="미니 키오스크" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">08 / 10</div>
+<div class="allinone-card-name">미니 키오스크</div>
+<div class="allinone-card-desc">소형 매장 전용 키오스크</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(8)" data-product="8">
-<div class="allinone-item-num">09</div>
-<div class="allinone-item-info">
-<div class="name">테이블 오더</div>
-<div class="desc">QR·태블릿 주문</div>
+</a>
+
+<a href="/product/tableorder" class="allinone-product-card">
+<div class="allinone-card-visual">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/tableorder.png" alt="테이블 오더" class="allinone-card-img">
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">09 / 10</div>
+<div class="allinone-card-name">테이블 오더</div>
+<div class="allinone-card-desc">QR·태블릿 주문 시스템</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-<div class="allinone-item" onclick="selectProduct(9)" data-product="9">
-<div class="allinone-item-num">10</div>
-<div class="allinone-item-info">
-<div class="name">매장 철거</div>
-<div class="desc">철거·원상복구</div>
+</a>
+
+<a href="/product/removal" class="allinone-product-card">
+<div class="allinone-card-visual">
+<div class="allinone-card-emoji">🔨</div>
 </div>
-<div class="allinone-item-arrow">→</div>
+<div class="allinone-card-info">
+<div class="allinone-card-index">10 / 10</div>
+<div class="allinone-card-name">매장 철거</div>
+<div class="allinone-card-desc">철거·원상복구 서비스</div>
+<div class="allinone-card-btn">상세 보기 →</div>
 </div>
-</div>
+</a>
+
 </div>
 </div>
 </section>
@@ -2358,19 +2377,7 @@ function switchFindTab(tab) {
     if (panel) panel.classList.add('active');
 }
 
-// 제품 슬라이더
-const allinoneProducts = [
-    { emoji: '🖥️', name: '포스기(POS)', desc: '주문·결제·매출 통합 관리 시스템', url: '/product/pos' },
-    { emoji: '💳', name: '2인치 단말기', desc: '컴팩트 사이즈 카드 단말기', url: '/product/card-2inch' },
-    { emoji: '🖨️', name: '3인치 단말기', desc: '표준 사이즈 카드 단말기', url: '/product/card-3inch' },
-    { emoji: '⚡', name: '토스 단말기', desc: '간편결제 특화 단말기', url: '/product/card-toss' },
-    { emoji: '📱', name: '무선 단말기', desc: '이동 결제가 가능한 무선 단말기', url: '/product/card-wireless' },
-    { emoji: '🔷', name: '블루투스 단말기', desc: '스마트폰 연동 초소형 단말기', url: '/product/card-bluetooth' },
-    { emoji: '🤖', name: '키오스크', desc: '대형 무인 주문·결제 시스템', url: '/product/kiosk' },
-    { emoji: '📱', name: '미니 키오스크', desc: '소형 매장 전용 키오스크', url: '/product/kiosk-mini' },
-    { emoji: '📋', name: '테이블 오더', desc: 'QR·태블릿 주문 시스템', url: '/product/tableorder' },
-    { emoji: '🔨', name: '매장 철거', desc: '철거·원상복구 서비스', url: '/product/removal' },
-];
+
 
 function selectProduct(index) {
     const p = allinoneProducts[index];
