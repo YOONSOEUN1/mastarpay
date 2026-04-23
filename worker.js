@@ -2647,7 +2647,7 @@ section.main-section {
 <span>📝 온라인 문의</span>
 </h3>
 
-<form id="contactForm" class="contact-form" onsubmit="submitContactForm(event)">
+<form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
 <div class="form-group">
 <label for="name">상호(이름) <span class="required">*</span></label>
 <input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required>
@@ -2713,7 +2713,7 @@ section.main-section {
 <div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div>
 </div>
 
-<button type="submit" class="contact-submit" id="submitBtn">
+<button type="submit" class="contact-submit" id="submitBtn" onclick="submitContactForm(event)">
 <span id="submitText">무료 상담 신청하기 →</span>
 </button>
 
@@ -2802,35 +2802,65 @@ function scrollToContact(event) {
     }
 }
 
-// 문의 폼 제출 (Resend API 사용)
+// 문의 폼 제출 (Resend API 사용) - 디버그 모드
 async function submitContactForm(event) {
-    event.preventDefault();
-    var form = event.target;
+    // 기본 동작 막기 (페이지 새로고침 방지) - 최우선!
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    
+    console.log('[문의폼] submitContactForm 함수 실행 시작');
+    
+    var form = document.getElementById('contactForm');
     var submitBtn = document.getElementById('submitBtn');
     var submitText = document.getElementById('submitText');
     var formMessage = document.getElementById('formMessage');
     
-    // 개인정보 동의 체크
-    if (!document.getElementById('agree').checked) {
-        alert('개인정보 수집 및 이용에 동의해주세요.');
-        return;
+    if (!form) {
+        alert('⚠️ 폼을 찾을 수 없습니다. 새로고침 후 다시 시도해주세요.');
+        return false;
     }
     
-    submitBtn.disabled = true;
-    submitText.textContent = '전송 중...';
-    formMessage.className = 'form-message';
-    formMessage.style.display = 'none';
+    // 개인정보 동의 체크
+    var agreeCheckbox = document.getElementById('agree');
+    if (!agreeCheckbox || !agreeCheckbox.checked) {
+        alert('개인정보 수집 및 이용에 동의해주세요.');
+        return false;
+    }
+    
+    // 필수 필드 체크
+    var name = document.getElementById('name').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var address = document.getElementById('address').value.trim();
+    var product = document.getElementById('product').value;
+    
+    if (!name) { alert('상호(이름)을 입력해주세요.'); document.getElementById('name').focus(); return false; }
+    if (!phone) { alert('연락처를 입력해주세요.'); document.getElementById('phone').focus(); return false; }
+    if (!address) { alert('주소를 입력해주세요.'); document.getElementById('address').focus(); return false; }
+    if (!product) { alert('문의 제품을 선택해주세요.'); document.getElementById('product').focus(); return false; }
+    
+    console.log('[문의폼] 검증 통과, 전송 시작');
+    
+    if (submitBtn) submitBtn.disabled = true;
+    if (submitText) submitText.textContent = '전송 중...';
+    if (formMessage) {
+        formMessage.className = 'form-message';
+        formMessage.style.display = 'none';
+    }
     
     // 폼 데이터 수집
     var data = {
-        name: document.getElementById('name').value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        address: document.getElementById('address').value.trim(),
+        name: name,
+        phone: phone,
+        address: address,
         addressDetail: document.getElementById('address_detail').value.trim(),
-        product: document.getElementById('product').value,
+        product: product,
         business: document.getElementById('business').value,
         message: document.getElementById('message').value.trim(),
     };
+    
+    console.log('[문의폼] 전송 데이터:', data);
     
     try {
         var response = await fetch('/api/contact', {
@@ -2839,31 +2869,45 @@ async function submitContactForm(event) {
             body: JSON.stringify(data)
         });
         
+        console.log('[문의폼] 서버 응답 상태:', response.status);
+        
         var result = await response.json();
+        console.log('[문의폼] 서버 응답 내용:', result);
         
         if (result.success) {
-            formMessage.className = 'form-message success';
-            formMessage.textContent = '✅ 문의가 성공적으로 접수되었습니다! 24시간 이내에 연락드리겠습니다.';
+            if (formMessage) {
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                formMessage.textContent = '✅ 문의가 성공적으로 접수되었습니다! 24시간 이내에 연락드리겠습니다.';
+            }
+            alert('✅ 문의가 성공적으로 접수되었습니다!\n24시간 이내에 연락드리겠습니다.');
             form.reset();
-            // 성공 후 페이지 맨 위로 스크롤 (폼이 너무 길어서)
             setTimeout(function(){ 
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); 
+                var contactSec = document.getElementById('contact');
+                if (contactSec) contactSec.scrollIntoView({ behavior: 'smooth' }); 
             }, 100);
         } else {
             throw new Error(result.error || '전송에 실패했습니다.');
         }
     } catch (error) {
-        formMessage.className = 'form-message error';
-        formMessage.textContent = '❌ ' + (error.message || '전송에 실패했습니다.') + ' 전화(010-2337-0458)로 문의해주세요.';
+        console.error('[문의폼] 에러 발생:', error);
+        var errorMsg = error.message || '전송에 실패했습니다';
+        if (formMessage) {
+            formMessage.className = 'form-message error';
+            formMessage.style.display = 'block';
+            formMessage.innerHTML = '❌ ' + errorMsg + '<br><br><strong>📞 전화 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.';
+        }
+        alert('❌ ' + errorMsg + '\n\n전화 010-2337-0458 또는 카카오톡으로 문의해주세요.');
     } finally {
-        submitBtn.disabled = false;
-        submitText.textContent = '무료 상담 신청하기 →';
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitText) submitText.textContent = '무료 상담 신청하기 →';
     }
+    
+    return false; // 항상 false 반환해서 폼 제출 막기
 }
-</script>
+}
 
 
-<script>
 function toggleMenu() {
     document.getElementById('navMenu').classList.toggle('active');
 }
@@ -2891,21 +2935,6 @@ function switchFindTab(tab) {
 }
 
 
-
-function selectProduct(index) {
-    const p = allinoneProducts[index];
-    if (!p) return;
-    
-    document.getElementById('allinoneEmoji').textContent = p.emoji;
-    document.getElementById('allinoneIndex').textContent = String(index + 1).padStart(2, '0') + ' / 10';
-    document.getElementById('allinoneName').textContent = p.name;
-    document.getElementById('allinoneDesc').textContent = p.desc;
-    document.getElementById('allinoneBtn').href = p.url;
-    
-    document.querySelectorAll('.allinone-item').forEach(el => el.classList.remove('active'));
-    const activeItem = document.querySelector('.allinone-item[data-product="' + index + '"]');
-    if (activeItem) activeItem.classList.add('active');
-}
 </script>
 
 </body>
