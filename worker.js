@@ -1556,7 +1556,7 @@ body {
 /* ALL-IN-ONE SOLUTION - 제품 카드 그리드 */
 .allinone-section {
     padding: 80px 0;
-    background: var(--cream);
+    background: #ffffff;
 }
 .allinone-products-grid {
     display: grid;
@@ -1566,7 +1566,7 @@ body {
     margin: 40px auto 0;
 }
 .allinone-product-card {
-    background: var(--cream-dark);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 0;
@@ -1583,7 +1583,7 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 .allinone-card-visual {
-    background: var(--cream);
+    background: #ffffff;
     aspect-ratio: 1 / 0.75;
     display: flex;
     align-items: center;
@@ -1592,7 +1592,7 @@ body {
     transition: background 0.3s;
 }
 .allinone-product-card:hover .allinone-card-visual {
-    background: #ffffff;
+    background: #fafafa;
 }
 .allinone-card-emoji {
     font-size: 60px;
@@ -2024,7 +2024,7 @@ section.main-section {
 
 <a href="/product/card-2inch" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kis2200_2in.jpg" alt="2인치 단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">02 / 10</div>
@@ -2036,7 +2036,7 @@ section.main-section {
 
 <a href="/product/card-3inch" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in.jpg" alt="3인치 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kis1420_3in.jpg" alt="3인치 단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">03 / 10</div>
@@ -4618,7 +4618,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kis2200_2in.jpg" alt="2인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -5501,7 +5501,7 @@ footer {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg" alt="3인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Kis1420_3in2.jpg" alt="3인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
