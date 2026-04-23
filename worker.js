@@ -1576,24 +1576,34 @@ body {
     transform: none;
 }
 .form-message {
-    padding: 14px 18px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 14px;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
     display: none;
+    margin-top: 16px;
 }
 .form-message.success {
     display: block;
-    background: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #a5d6a7;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #1b5e20;
+    border: 2px solid #66bb6a;
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.2);
+    animation: messagePop 0.4s ease;
 }
 .form-message.error {
     display: block;
-    background: #ffebee;
-    color: #c62828;
-    border: 1px solid #ef9a9a;
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    color: #b71c1c;
+    border: 2px solid #ef5350;
+    box-shadow: 0 4px 16px rgba(244, 67, 54, 0.2);
+    animation: messagePop 0.4s ease;
+}
+@keyframes messagePop {
+    0% { transform: scale(0.9); opacity: 0; }
+    60% { transform: scale(1.02); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 /* 모바일 */
@@ -2713,7 +2723,7 @@ section.main-section {
 <div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div>
 </div>
 
-<button type="submit" class="contact-submit" id="submitBtn" onclick="submitContactForm(event)">
+<button type="submit" class="contact-submit" id="submitBtn">
 <span id="submitText">무료 상담 신청하기 →</span>
 </button>
 
@@ -2878,13 +2888,12 @@ async function submitContactForm(event) {
             if (formMessage) {
                 formMessage.className = 'form-message success';
                 formMessage.style.display = 'block';
-                formMessage.textContent = '✅ 문의가 성공적으로 접수되었습니다! 24시간 이내에 연락드리겠습니다.';
+                formMessage.innerHTML = '<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';
             }
-            alert('✅ 문의가 성공적으로 접수되었습니다!\n24시간 이내에 연락드리겠습니다.');
             form.reset();
+            // 메시지가 보이도록 스크롤
             setTimeout(function(){ 
-                var contactSec = document.getElementById('contact');
-                if (contactSec) contactSec.scrollIntoView({ behavior: 'smooth' }); 
+                if (formMessage) formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
         } else {
             throw new Error(result.error || '전송에 실패했습니다.');
@@ -2895,16 +2904,15 @@ async function submitContactForm(event) {
         if (formMessage) {
             formMessage.className = 'form-message error';
             formMessage.style.display = 'block';
-            formMessage.innerHTML = '❌ ' + errorMsg + '<br><br><strong>📞 전화 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.';
+            formMessage.innerHTML = '<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">' + errorMsg + '</div><div style="font-size:14px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-        alert('❌ ' + errorMsg + '\n\n전화 010-2337-0458 또는 카카오톡으로 문의해주세요.');
     } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (submitText) submitText.textContent = '무료 상담 신청하기 →';
     }
     
     return false; // 항상 false 반환해서 폼 제출 막기
-}
 }
 
 
@@ -13963,24 +13971,34 @@ body { background: #ffffff; }
     transform: none;
 }
 .form-message {
-    padding: 14px 18px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 14px;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
     display: none;
+    margin-top: 16px;
 }
 .form-message.success {
     display: block;
-    background: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #a5d6a7;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #1b5e20;
+    border: 2px solid #66bb6a;
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.2);
+    animation: messagePop 0.4s ease;
 }
 .form-message.error {
     display: block;
-    background: #ffebee;
-    color: #c62828;
-    border: 1px solid #ef9a9a;
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    color: #b71c1c;
+    border: 2px solid #ef5350;
+    box-shadow: 0 4px 16px rgba(244, 67, 54, 0.2);
+    animation: messagePop 0.4s ease;
+}
+@keyframes messagePop {
+    0% { transform: scale(0.9); opacity: 0; }
+    60% { transform: scale(1.02); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 /* 모바일 */
@@ -15058,30 +15076,62 @@ async function handleContactAPI(request) {
     formData.append('entry.499131073', business || '기타'); // 업종 (필수라서 기본값)
     formData.append('entry.1351802365', message || '');  // 문의 내용
     
-    // 구글 폼으로 POST 요청
+    // 구글 폼으로 POST 요청 (브라우저처럼 보이도록 헤더 설정)
     const response = await fetch(googleFormUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'ko-KR,ko;q=0.9,en;q=0.8',
       },
       body: formData.toString(),
+      redirect: 'follow', // 구글 폼의 리다이렉트 따라가기
     });
     
-    // 구글 폼은 성공 시 302 리다이렉트 또는 200 반환
-    // 단, fetch에서 리다이렉트 처리되면 opaque response가 됨
-    // 그래서 status 체크보다는 단순히 요청이 던져졌는지를 기준으로 판단
+    // 응답 검증 - 구글 폼 submit 후 일반적으로:
+    // - 200: 성공 후 "응답이 제출되었습니다" 페이지
+    // - 302/303: 리다이렉트 (성공)
+    // - 400: 필수 항목 누락 등
     
-    // 구글 폼은 사실상 대부분 성공으로 처리됨 (유효성 검사 안 하면)
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json', ...corsHeaders }
-    });
+    const resText = await response.text();
+    
+    // 디버깅 로그
+    console.log('Google Form response status:', response.status);
+    console.log('Response text length:', resText.length);
+    
+    // 실제 성공 여부 확인
+    // 구글 폼 성공 시 페이지에 "응답이 기록되었습니다" 또는 "Your response has been recorded" 포함
+    const isSuccess = response.status === 200 || response.status === 302 || response.status === 303 
+                      || resText.includes('응답이 기록되었습니다') 
+                      || resText.includes('Your response has been recorded')
+                      || resText.includes('formResponse');
+    
+    if (isSuccess) {
+      return new Response(JSON.stringify({ 
+        success: true,
+        message: '문의가 접수되었습니다.'
+      }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders }
+      });
+    } else {
+      console.error('Google Form may have failed. Status:', response.status);
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: `구글 폼 전송 실패 (상태: ${response.status}). 전화로 문의해주세요.`,
+        debug: { status: response.status, textStart: resText.substring(0, 200) }
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders }
+      });
+    }
     
   } catch (error) {
-    console.error('handleContactAPI error:', error);
+    console.error('handleContactAPI error:', error.message);
     return new Response(JSON.stringify({ 
       success: false, 
-      error: '서버 오류가 발생했습니다. 전화로 문의해주세요.'
+      error: '서버 오류: ' + error.message + ' 전화(010-2337-0458)로 문의해주세요.'
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders }
