@@ -9,6 +9,7 @@ const PAGE_HOME = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
 <title>마스터페이 | 카드단말기·포스기·키오스크 전국 설치 전문</title>
 <meta name="description" content="카드단말기, 포스기, 키오스크, 테이블오더, 철거까지. 전국 어디든 매장에 필요한 모든 장비를 한 번에 설치합니다. 무료 상담·빠른 설치·A/S 보장.">
 <meta property="og:title" content="마스터페이 | 매장 설비 전국 설치">
@@ -2953,6 +2954,7 @@ const PAGE_NOT_FOUND = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>페이지를 찾을 수 없습니다 | 마스터페이</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
@@ -3611,6 +3613,7 @@ const PAGE_POS = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>포스기 | 마스터페이</title>
     <meta name="description" content="주문·결제·매출·재고 관리까지 한 번에 통합하는 매장 운영의 심장, 포스기(POS) 시스템입니다. 업종별 맞춤 설치부터 A/S까지 마스터페이가 책임집니다.">
     <meta property="og:title" content="포스기 | 마스터페이">
@@ -4493,6 +4496,7 @@ const PAGE_CARD_2INCH = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>2인치 단말기 | 마스터페이</title>
     <meta name="description" content="좁은 공간에도 깔끔하게 설치되는 컴팩트 사이즈 2인치 카드 단말기. KIS2200·KPN1902 등 검증된 모델로 안정적인 결제 환경을 제공합니다.">
     <meta property="og:title" content="2인치 단말기 | 마스터페이">
@@ -5376,6 +5380,7 @@ const PAGE_CARD_3INCH = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>3인치 단말기 | 마스터페이</title>
     <meta name="description" content="가장 많이 사용되는 표준 사이즈 3인치 카드 단말기. 넓은 영수증 출력과 선명한 화면으로 업무 효율을 높입니다. KIS1420·KPN1901 등 대표 모델 취급.">
     <meta property="og:title" content="3인치 단말기 | 마스터페이">
@@ -6260,6 +6265,7 @@ const PAGE_CARD_TOSS = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>토스 단말기 | 마스터페이</title>
     <meta name="description" content="토스페이먼츠와 완벽하게 연동되는 전용 단말기. 간편결제 특화 기능과 합리적인 수수료로 트렌디한 매장에 가장 적합한 결제 솔루션입니다.">
     <meta property="og:title" content="토스 단말기 | 마스터페이">
@@ -7143,6 +7149,7 @@ const PAGE_CARD_WIRELESS = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>무선 단말기 | 마스터페이</title>
     <meta name="description" content="이동 결제의 자유로움을 제공하는 무선 카드 단말기. 테이블 결제, 배달, 출장까지 매장을 벗어나서도 어디든 결제 가능한 필수 장비입니다.">
     <meta property="og:title" content="무선 단말기 | 마스터페이">
@@ -8026,6 +8033,7 @@ const PAGE_CARD_BLUETOOTH = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>블루투스 단말기 | 마스터페이</title>
     <meta name="description" content="스마트폰·태블릿과 블루투스로 연결되는 초소형 휴대용 카드 단말기. 출장·방문 서비스·플리마켓 등 이동이 잦은 업종에 최적화되었습니다.">
     <meta property="og:title" content="블루투스 단말기 | 마스터페이">
@@ -8912,6 +8920,7 @@ const PAGE_KIOSK = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>키오스크 | 마스터페이</title>
     <meta name="description" content="인건비 절감과 매출 증대를 동시에. 대형 터치스크린 무인 주문·결제 시스템으로 매장 운영의 새로운 표준을 만듭니다.">
     <meta property="og:title" content="키오스크 | 마스터페이">
@@ -9798,6 +9807,7 @@ const PAGE_KIOSK_MINI = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>미니 키오스크 | 마스터페이</title>
     <meta name="description" content="작은 매장에도 부담 없이 도입하는 컴팩트 무인 주문 시스템. 공간 절약과 비용 절감, 두 마리 토끼를 모두 잡는 합리적인 선택입니다.">
     <meta property="og:title" content="미니 키오스크 | 마스터페이">
@@ -10684,6 +10694,7 @@ const PAGE_TABLEORDER = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>테이블 오더 | 마스터페이</title>
     <meta name="description" content="QR코드 스캔 한 번으로 주문부터 결제까지. 홀 인건비를 줄이고 객단가를 높이는 스마트 주문 시스템을 경험해보세요.">
     <meta property="og:title" content="테이블 오더 | 마스터페이">
@@ -11571,6 +11582,7 @@ const PAGE_REMOVAL = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>매장 철거 | 마스터페이</title>
     <meta name="description" content="매장·사무실·가게 철거를 전문 엔지니어팀이 책임집니다. 철거부터 원상복구·폐기물 처리까지 원스톱으로 깔끔하게.">
     <meta property="og:title" content="매장 철거 | 마스터페이">
@@ -12586,6 +12598,7 @@ function getCommonHead(title, description) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
 <title>${title} | 마스터페이</title>
 <meta name="description" content="${description}">
 <meta property="og:title" content="${title} | 마스터페이">
@@ -15025,10 +15038,10 @@ ${getFooter()}`;
 
 
 // ============================================================
-// API: /api/contact - 구글 폼으로 문의 제출
+// API: /api/contact - Resend로 이메일 발송
 // ============================================================
 
-async function handleContactAPI(request) {
+async function handleContactAPI(request, env) {
   const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -15061,77 +15074,125 @@ async function handleContactAPI(request) {
       });
     }
     
-    // 주소 + 상세주소 합치기
-    const fullAddress = addressDetail ? `${address} ${addressDetail}` : address;
-    
-    // 구글 폼 formResponse URL
-    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsD1zDpmz9aTvZQzs17l7QFmmT0NVZF-t3FckTzbf4yvqq0w/formResponse';
-    
-    // 폼 데이터 생성
-    const formData = new URLSearchParams();
-    formData.append('entry.1079318290', name);           // 상호(이름)
-    formData.append('entry.59254598', phone);            // 연락처
-    formData.append('entry.2013933285', fullAddress);    // 주소
-    formData.append('entry.1589514823', product);        // 문의 제품
-    formData.append('entry.499131073', business || '기타'); // 업종 (필수라서 기본값)
-    formData.append('entry.1351802365', message || '');  // 문의 내용
-    
-    // 구글 폼으로 POST 요청 (브라우저처럼 보이도록 헤더 설정)
-    const response = await fetch(googleFormUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'ko-KR,ko;q=0.9,en;q=0.8',
-      },
-      body: formData.toString(),
-      redirect: 'follow', // 구글 폼의 리다이렉트 따라가기
-    });
-    
-    // 응답 검증 - 구글 폼 submit 후 일반적으로:
-    // - 200: 성공 후 "응답이 제출되었습니다" 페이지
-    // - 302/303: 리다이렉트 (성공)
-    // - 400: 필수 항목 누락 등
-    
-    const resText = await response.text();
-    
-    // 디버깅 로그
-    console.log('Google Form response status:', response.status);
-    console.log('Response text length:', resText.length);
-    
-    // 실제 성공 여부 확인
-    // 구글 폼 성공 시 페이지에 "응답이 기록되었습니다" 또는 "Your response has been recorded" 포함
-    const isSuccess = response.status === 200 || response.status === 302 || response.status === 303 
-                      || resText.includes('응답이 기록되었습니다') 
-                      || resText.includes('Your response has been recorded')
-                      || resText.includes('formResponse');
-    
-    if (isSuccess) {
-      return new Response(JSON.stringify({ 
-        success: true,
-        message: '문의가 접수되었습니다.'
-      }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json', ...corsHeaders }
-      });
-    } else {
-      console.error('Google Form may have failed. Status:', response.status);
+    // API Key 확인
+    if (!env || !env.RESEND_API_KEY) {
       return new Response(JSON.stringify({ 
         success: false, 
-        error: `구글 폼 전송 실패 (상태: ${response.status}). 전화로 문의해주세요.`,
-        debug: { status: response.status, textStart: resText.substring(0, 200) }
+        error: 'RESEND_API_KEY가 Cloudflare Secret에 설정되지 않았습니다.' 
       }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', ...corsHeaders }
       });
     }
     
+    // 주소 합치기
+    const fullAddress = addressDetail ? address + ' ' + addressDetail : address;
+    
+    // 시간 (한국 시간)
+    const now = new Date();
+    const kstTime = new Date(now.getTime() + 9 * 60 * 60 * 1000)
+      .toISOString().replace('T', ' ').substring(0, 19);
+    
+    // 이메일 HTML (예쁘게)
+    const emailHTML = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family: 'Malgun Gothic', sans-serif; background: #f5f5f5; padding: 20px; margin: 0;">
+<div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+  <div style="background: linear-gradient(135deg, #1a1a1a, #2d4a3e); padding: 32px 28px; color: #ffffff;">
+    <div style="font-size: 13px; color: #e8763a; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px;">✦ MASTERPAY</div>
+    <h1 style="margin: 0; font-size: 22px; font-weight: 800;">🔔 새로운 문의가 도착했습니다</h1>
+    <p style="margin: 8px 0 0; font-size: 13px; opacity: 0.8;">${kstTime} KST</p>
+  </div>
+  <div style="padding: 32px 28px;">
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; width: 100px; vertical-align: top;">👤 상호/이름</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 15px; font-weight: 700;">${name}</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📞 연락처</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 15px; font-weight: 700;">
+          <a href="tel:${phone}" style="color: #e8763a; text-decoration: none;">${phone}</a>
+        </td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📍 주소</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px; line-height: 1.6;">${fullAddress}</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📦 문의 제품</td>
+        <td style="padding: 14px 0;">
+          <span style="display: inline-block; padding: 6px 12px; background: #fef3e0; color: #e8763a; border-radius: 100px; font-size: 13px; font-weight: 700;">${product}</span>
+        </td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">🏪 업종</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px;">${business || '-'}</td>
+      </tr>
+      <tr>
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">💬 문의 내용</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px; line-height: 1.7;">
+          ${message ? message.replace(/\n/g, '<br>') : '<span style="color: #aaa;">(없음)</span>'}
+        </td>
+      </tr>
+    </table>
+    <div style="margin-top: 28px; padding: 20px; background: #f7f4ed; border-radius: 12px; border-left: 4px solid #e8763a;">
+      <div style="font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">⚡ 빠른 대응 안내</div>
+      <div style="font-size: 13px; color: #666; line-height: 1.6;">
+        고객의 연락처로 <strong>24시간 이내</strong>에 상담 전화를 드려주세요.
+      </div>
+    </div>
+  </div>
+  <div style="background: #f7f4ed; padding: 16px 28px; text-align: center; font-size: 12px; color: #888;">
+    mastarpay.com 홈페이지 문의 폼에서 자동 발송되었습니다.
+  </div>
+</div>
+</body>
+</html>`;
+    
+    // Resend API 호출
+    const resendResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + env.RESEND_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Mastarpay <onboarding@resend.dev>',
+        to: ['thdmsdidfl@naver.com'],
+        subject: '[마스터페이] ' + name + ' · ' + product + ' · ' + phone,
+        html: emailHTML,
+      }),
+    });
+    
+    if (!resendResponse.ok) {
+      const errorData = await resendResponse.text();
+      console.error('Resend API 에러:', resendResponse.status, errorData);
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: '이메일 발송 실패 (상태: ' + resendResponse.status + '). 전화로 문의해주세요.',
+        debug: errorData.substring(0, 300)
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders }
+      });
+    }
+    
+    return new Response(JSON.stringify({ 
+      success: true,
+      message: '문의가 접수되었습니다.'
+    }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+    });
+    
   } catch (error) {
     console.error('handleContactAPI error:', error.message);
     return new Response(JSON.stringify({ 
       success: false, 
-      error: '서버 오류: ' + error.message + ' 전화(010-2337-0458)로 문의해주세요.'
+      error: '서버 오류: ' + error.message
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders }
@@ -15166,7 +15227,7 @@ export default {
     // API 엔드포인트 먼저 처리
     const _url = new URL(request.url);
     if (_url.pathname === '/api/contact') {
-      return handleContactAPI(request);
+      return handleContactAPI(request, env);
     }
     
     const url = new URL(request.url);
