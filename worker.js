@@ -1361,6 +1361,333 @@ body {
     color: inherit !important;
 }
 
+
+/* ========== 문의 폼 섹션 ========== */
+.contact-section {
+    padding: 100px 0;
+    background: var(--cream-dark);
+}
+.contact-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1140px;
+}
+.contact-intro {
+    position: sticky;
+    top: 100px;
+}
+.contact-intro .cta-label {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--coral);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+.contact-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+.contact-sub {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0 0 32px;
+}
+.contact-direct {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contact-direct-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 22px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+.contact-direct-btn:hover {
+    border-color: var(--forest);
+    transform: translateX(4px);
+}
+.contact-direct-btn .cd-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--cream-dark);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+.cd-label {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: 2px;
+}
+.cd-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+/* 문의 폼 박스 */
+.contact-form-box {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+.contact-form-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 28px;
+    letter-spacing: -0.01em;
+}
+.cf-bar {
+    width: 4px;
+    height: 22px;
+    background: var(--coral);
+    border-radius: 2px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+.required {
+    color: var(--coral);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px 16px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fafafa;
+    color: var(--ink);
+    transition: all 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--forest);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #b0b0b0;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 10px;
+    padding-right: 40px;
+}
+.form-agree {
+    padding: 16px;
+    background: #fafafa;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+}
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--forest);
+    cursor: pointer;
+}
+.agree-detail {
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    padding-left: 26px;
+    line-height: 1.6;
+}
+.contact-submit {
+    background: var(--ink);
+    color: #ffffff;
+    border: none;
+    padding: 18px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    margin-top: 8px;
+}
+.contact-submit:hover {
+    background: var(--forest);
+    transform: translateY(-2px);
+}
+.contact-submit:disabled {
+    background: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+.form-message {
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+}
+.form-message.success {
+    display: block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+.form-message.error {
+    display: block;
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* 모바일 */
+@media (max-width: 900px) {
+    .contact-section .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .contact-intro {
+        position: static;
+        text-align: center;
+    }
+    .contact-intro .cta-label { text-align: center; }
+    .contact-direct-btn { flex-direction: row; text-align: left; }
+    .contact-form-box { padding: 28px 24px; }
+}
+
+/* ========== 플로팅 버튼 ========== */
+.floating-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+.fab-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+    text-decoration: none;
+    position: relative;
+}
+.fab-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+.fab-btn.fab-contact {
+    background: var(--ink);
+    color: #ffffff;
+}
+.fab-btn.fab-kakao {
+    background: #FEE500;
+    color: #000000;
+}
+.fab-btn.fab-phone {
+    background: var(--coral);
+    color: #ffffff;
+}
+.fab-btn::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--ink);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+.fab-btn:hover::before {
+    opacity: 1;
+}
+
+/* 모바일에서 플로팅 버튼 */
+@media (max-width: 640px) {
+    .floating-buttons {
+        right: 14px;
+        bottom: 14px;
+        gap: 8px;
+    }
+    .fab-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    .fab-btn::before { display: none; }
+}
+
 </style>
 <style>
 /* 메인 페이지 전용 추가 스타일 */
@@ -2288,23 +2615,110 @@ section.main-section {
 </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="contact">
+<!-- 문의 폼 섹션 -->
+<section class="contact-section" id="contact">
 <div class="container">
-<div class="cta-content">
-<div class="cta-label">— Let's Talk —</div>
-<h2>
-지금 바로<br>
-시작해볼까요?
-</h2>
+<div class="contact-intro">
+<div class="cta-label">— Contact Us —</div>
+<h2 class="contact-title">무료 상담 신청</h2>
+<p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
 
-<a href="tel:010-2337-0458" class="cta-phone">
-📞 010-2337-0458
+<div class="contact-direct">
+<a href="tel:010-2337-0458" class="contact-direct-btn">
+<span class="cd-icon">📞</span>
+<span>
+<span class="cd-label">전화 상담</span>
+<span class="cd-value">010-2337-0458</span>
+</span>
 </a>
-
-<div class="cta-note">
-평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다
+<a href="#kakaoChannel" onclick="openKakao(); return false;" class="contact-direct-btn">
+<span class="cd-icon">💬</span>
+<span>
+<span class="cd-label">카카오톡</span>
+<span class="cd-value">바로 상담</span>
+</span>
+</a>
 </div>
+</div>
+
+<div class="contact-form-box">
+<h3 class="contact-form-title">
+<span class="cf-bar"></span>
+<span>📝 온라인 문의</span>
+</h3>
+
+<form id="contactForm" class="contact-form" onsubmit="submitContactForm(event)">
+<div class="form-group">
+<label for="name">상호(이름) <span class="required">*</span></label>
+<input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required>
+</div>
+
+<div class="form-group">
+<label for="phone">연락처 <span class="required">*</span></label>
+<input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required>
+</div>
+
+<div class="form-group">
+<label for="address">주소 <span class="required">*</span></label>
+<input type="text" id="address" name="주소" placeholder="매장 주소를 입력하세요 (예: 서울 강남구 테헤란로 1)" required>
+<input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;">
+</div>
+
+<div class="form-group">
+<label for="product">문의 제품 <span class="required">*</span></label>
+<select id="product" name="문의_제품" required>
+<option value="">선택해주세요</option>
+<option value="포스기">포스기(POS)</option>
+<option value="2인치 단말기">2인치 단말기</option>
+<option value="3인치 단말기">3인치 단말기</option>
+<option value="토스 단말기">토스 단말기</option>
+<option value="무선 단말기">무선 단말기</option>
+<option value="블루투스 단말기">블루투스 단말기</option>
+<option value="키오스크">키오스크</option>
+<option value="미니 키오스크">미니 키오스크</option>
+<option value="테이블 오더">테이블 오더</option>
+<option value="매장 철거">매장 철거</option>
+<option value="여러 제품 패키지">여러 제품 패키지</option>
+<option value="기타/미정">기타/미정</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="business">업종</label>
+<select id="business" name="업종">
+<option value="">선택해주세요</option>
+<option value="음식점/식당">음식점/식당</option>
+<option value="카페/베이커리">카페/베이커리</option>
+<option value="편의점/마트">편의점/마트</option>
+<option value="미용실/네일샵">미용실/네일샵</option>
+<option value="스터디카페">스터디카페</option>
+<option value="주점/호프">주점/호프</option>
+<option value="무인매장">무인매장</option>
+<option value="의류/잡화">의류/잡화</option>
+<option value="병원/약국">병원/약국</option>
+<option value="기타">기타</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="message">문의 내용</label>
+<textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea>
+</div>
+
+<div class="form-agree">
+<label class="checkbox-label">
+<input type="checkbox" id="agree" required>
+<span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span>
+</label>
+<div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div>
+</div>
+
+<button type="submit" class="contact-submit" id="submitBtn">
+<span id="submitText">무료 상담 신청하기 →</span>
+</button>
+
+<div id="formMessage" class="form-message"></div>
+</form>
 </div>
 </div>
 </section>
@@ -2347,7 +2761,7 @@ section.main-section {
 <h4>Contact</h4>
 <ul>
 <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-<li><a href="#">💬 카카오톡 상담</a></li>
+<li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
 </ul>
 </div>
 </div>
@@ -2358,6 +2772,96 @@ section.main-section {
 </div>
 </div>
 </footer>
+<!-- 플로팅 버튼 -->
+<div class="floating-buttons">
+<a href="#contact" class="fab-btn fab-contact" data-tooltip="온라인 문의" onclick="scrollToContact(event)" aria-label="온라인 문의">💬</a>
+<a href="#kakao" class="fab-btn fab-kakao" data-tooltip="카카오톡 상담" onclick="openKakao(); return false;" aria-label="카카오톡 상담">💛</a>
+<a href="tel:010-2337-0458" class="fab-btn fab-phone" data-tooltip="전화 상담 010-2337-0458" aria-label="전화 상담">📞</a>
+</div>
+
+<script>
+// 카카오톡 채널 열기 (나중에 실제 URL로 교체)
+function openKakao() {
+    var kakaoUrl = 'http://pf.kakao.com/_fPrxbG';
+    if (kakaoUrl === '#') {
+        alert('카카오톡 상담은 곧 오픈 예정입니다.\n지금은 전화 010-2337-0458 또는 아래 문의폼을 이용해주세요.');
+    } else {
+        window.open(kakaoUrl, '_blank');
+    }
+}
+
+// 문의 섹션으로 스크롤
+function scrollToContact(event) {
+    event.preventDefault();
+    var contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        // 현재 페이지에 contact 섹션이 없으면 메인 페이지의 contact로 이동
+        window.location.href = '/#contact';
+    }
+}
+
+// 문의 폼 제출 (Resend API 사용)
+async function submitContactForm(event) {
+    event.preventDefault();
+    var form = event.target;
+    var submitBtn = document.getElementById('submitBtn');
+    var submitText = document.getElementById('submitText');
+    var formMessage = document.getElementById('formMessage');
+    
+    // 개인정보 동의 체크
+    if (!document.getElementById('agree').checked) {
+        alert('개인정보 수집 및 이용에 동의해주세요.');
+        return;
+    }
+    
+    submitBtn.disabled = true;
+    submitText.textContent = '전송 중...';
+    formMessage.className = 'form-message';
+    formMessage.style.display = 'none';
+    
+    // 폼 데이터 수집
+    var data = {
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        address: document.getElementById('address').value.trim(),
+        addressDetail: document.getElementById('address_detail').value.trim(),
+        product: document.getElementById('product').value,
+        business: document.getElementById('business').value,
+        message: document.getElementById('message').value.trim(),
+    };
+    
+    try {
+        var response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        
+        var result = await response.json();
+        
+        if (result.success) {
+            formMessage.className = 'form-message success';
+            formMessage.textContent = '✅ 문의가 성공적으로 접수되었습니다! 24시간 이내에 연락드리겠습니다.';
+            form.reset();
+            // 성공 후 페이지 맨 위로 스크롤 (폼이 너무 길어서)
+            setTimeout(function(){ 
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); 
+            }, 100);
+        } else {
+            throw new Error(result.error || '전송에 실패했습니다.');
+        }
+    } catch (error) {
+        formMessage.className = 'form-message error';
+        formMessage.textContent = '❌ ' + (error.message || '전송에 실패했습니다.') + ' 전화(010-2337-0458)로 문의해주세요.';
+    } finally {
+        submitBtn.disabled = false;
+        submitText.textContent = '무료 상담 신청하기 →';
+    }
+}
+</script>
+
 
 <script>
 function toggleMenu() {
@@ -3926,7 +4430,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -4809,7 +5313,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -5693,7 +6197,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -6576,7 +7080,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -7459,7 +7963,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -8345,7 +8849,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -9231,7 +9735,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -10117,7 +10621,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -11004,7 +11508,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -11891,7 +12395,7 @@ footer {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="#">💬 카카오톡 상담</a></li>
+                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -13215,6 +13719,333 @@ body { background: #ffffff; }
     color: inherit !important;
 }
 
+
+/* ========== 문의 폼 섹션 ========== */
+.contact-section {
+    padding: 100px 0;
+    background: var(--cream-dark);
+}
+.contact-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1140px;
+}
+.contact-intro {
+    position: sticky;
+    top: 100px;
+}
+.contact-intro .cta-label {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--coral);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+.contact-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+.contact-sub {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0 0 32px;
+}
+.contact-direct {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contact-direct-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 22px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+.contact-direct-btn:hover {
+    border-color: var(--forest);
+    transform: translateX(4px);
+}
+.contact-direct-btn .cd-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--cream-dark);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+.cd-label {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: 2px;
+}
+.cd-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+/* 문의 폼 박스 */
+.contact-form-box {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+.contact-form-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 28px;
+    letter-spacing: -0.01em;
+}
+.cf-bar {
+    width: 4px;
+    height: 22px;
+    background: var(--coral);
+    border-radius: 2px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+.required {
+    color: var(--coral);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px 16px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fafafa;
+    color: var(--ink);
+    transition: all 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--forest);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #b0b0b0;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 10px;
+    padding-right: 40px;
+}
+.form-agree {
+    padding: 16px;
+    background: #fafafa;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+}
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--forest);
+    cursor: pointer;
+}
+.agree-detail {
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    padding-left: 26px;
+    line-height: 1.6;
+}
+.contact-submit {
+    background: var(--ink);
+    color: #ffffff;
+    border: none;
+    padding: 18px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    margin-top: 8px;
+}
+.contact-submit:hover {
+    background: var(--forest);
+    transform: translateY(-2px);
+}
+.contact-submit:disabled {
+    background: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+.form-message {
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+}
+.form-message.success {
+    display: block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+.form-message.error {
+    display: block;
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* 모바일 */
+@media (max-width: 900px) {
+    .contact-section .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .contact-intro {
+        position: static;
+        text-align: center;
+    }
+    .contact-intro .cta-label { text-align: center; }
+    .contact-direct-btn { flex-direction: row; text-align: left; }
+    .contact-form-box { padding: 28px 24px; }
+}
+
+/* ========== 플로팅 버튼 ========== */
+.floating-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+.fab-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+    text-decoration: none;
+    position: relative;
+}
+.fab-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+.fab-btn.fab-contact {
+    background: var(--ink);
+    color: #ffffff;
+}
+.fab-btn.fab-kakao {
+    background: #FEE500;
+    color: #000000;
+}
+.fab-btn.fab-phone {
+    background: var(--coral);
+    color: #ffffff;
+}
+.fab-btn::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--ink);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+.fab-btn:hover::before {
+    opacity: 1;
+}
+
+/* 모바일에서 플로팅 버튼 */
+@media (max-width: 640px) {
+    .floating-buttons {
+        right: 14px;
+        bottom: 14px;
+        gap: 8px;
+    }
+    .fab-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    .fab-btn::before { display: none; }
+}
+
 </style>
 </head>`;
 }
@@ -13267,7 +14098,7 @@ function getFooter() {
 <h4>Contact</h4>
 <ul>
 <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-<li><a href="#">💬 카카오톡 상담</a></li>
+<li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
 </ul>
 </div>
 </div>
@@ -13277,8 +14108,25 @@ function getFooter() {
 </div>
 </div>
 </footer>
+<!-- 플로팅 버튼 -->
+<div class="floating-buttons">
+<a href="#contact" class="fab-btn fab-contact" data-tooltip="온라인 문의" onclick="scrollToContact(event)" aria-label="온라인 문의">💬</a>
+<a href="#kakao" class="fab-btn fab-kakao" data-tooltip="카카오톡 상담" onclick="openKakao(); return false;" aria-label="카카오톡 상담">💛</a>
+<a href="tel:010-2337-0458" class="fab-btn fab-phone" data-tooltip="전화 상담 010-2337-0458" aria-label="전화 상담">📞</a>
+</div>
 <script>
 function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
+function openKakao(){
+  var kakaoUrl='http://pf.kakao.com/_fPrxbG';
+  if(kakaoUrl==='#'){alert('카카오톡 상담은 곧 오픈 예정입니다.\\n지금은 전화 010-2337-0458 또는 문의폼을 이용해주세요.');}
+  else{window.open(kakaoUrl,'_blank');}
+}
+function scrollToContact(event){
+  event.preventDefault();
+  var contactSection=document.getElementById('contact');
+  if(contactSection){contactSection.scrollIntoView({behavior:'smooth',block:'start'});}
+  else{window.location.href='/#contact';}
+}
 </script>
 </body></html>`;
 }
@@ -14128,6 +14976,193 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 ${getFooter()}`;
 }
 
+
+// ============================================================
+// API: /api/contact - 문의 폼 처리 (Resend로 이메일 발송)
+// ============================================================
+
+async function handleContactAPI(request, env) {
+  // CORS 대응 (혹시 필요할 경우)
+  const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+  
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { headers: corsHeaders });
+  }
+  
+  if (request.method !== 'POST') {
+    return new Response(JSON.stringify({ success: false, error: 'POST only' }), {
+      status: 405,
+      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+    });
+  }
+  
+  try {
+    const body = await request.json();
+    const { name, phone, address, addressDetail, product, business, message } = body;
+    
+    // 기본 검증
+    if (!name || !phone || !address || !product) {
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: '필수 항목을 모두 입력해주세요.' 
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders }
+      });
+    }
+    
+    // Resend API Key 확인
+    if (!env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not set');
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: '이메일 서비스가 설정되지 않았습니다. 전화로 문의해주세요.' 
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders }
+      });
+    }
+    
+    // 이메일 내용 구성
+    const now = new Date();
+    const kstTime = new Date(now.getTime() + 9 * 60 * 60 * 1000).toISOString().replace('T', ' ').substring(0, 19);
+    
+    const emailHTML = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family: 'Pretendard', sans-serif; background: #f5f5f5; padding: 20px;">
+<div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+  <div style="background: linear-gradient(135deg, #1a1a1a, #2d4a3e); padding: 32px 28px; color: #ffffff;">
+    <div style="font-size: 13px; color: #e8763a; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px;">✦ MASTERPAY</div>
+    <h1 style="margin: 0; font-size: 22px; font-weight: 800;">🔔 새로운 문의가 도착했습니다</h1>
+    <p style="margin: 8px 0 0; font-size: 13px; opacity: 0.8;">${kstTime} KST</p>
+  </div>
+  <div style="padding: 32px 28px;">
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; width: 100px; vertical-align: top;">👤 상호/이름</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 15px; font-weight: 700;">${name}</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📞 연락처</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 15px; font-weight: 700;">
+          <a href="tel:${phone}" style="color: #e8763a; text-decoration: none;">${phone}</a>
+        </td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📍 주소</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px; line-height: 1.6;">
+          ${address}${addressDetail ? '<br>' + addressDetail : ''}
+        </td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">📦 문의 제품</td>
+        <td style="padding: 14px 0;">
+          <span style="display: inline-block; padding: 6px 12px; background: #fef3e0; color: #e8763a; border-radius: 100px; font-size: 13px; font-weight: 700;">${product}</span>
+        </td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">🏪 업종</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px;">${business || '-'}</td>
+      </tr>
+      <tr>
+        <td style="padding: 14px 0; color: #888; font-size: 13px; vertical-align: top;">💬 문의 내용</td>
+        <td style="padding: 14px 0; color: #1a1a1a; font-size: 14px; line-height: 1.7;">
+          ${message ? message.replace(/\n/g, '<br>') : '<span style="color: #aaa;">(없음)</span>'}
+        </td>
+      </tr>
+    </table>
+    <div style="margin-top: 28px; padding: 20px; background: #f7f4ed; border-radius: 12px; border-left: 4px solid #e8763a;">
+      <div style="font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">⚡ 빠른 대응 안내</div>
+      <div style="font-size: 13px; color: #666; line-height: 1.6;">
+        고객의 연락처로 <strong>24시간 이내</strong>에 상담 전화를 드려주세요.<br>
+        긴급한 경우 010-2337-0458 발신번호를 사용하세요.
+      </div>
+    </div>
+  </div>
+  <div style="background: #f7f4ed; padding: 16px 28px; text-align: center; font-size: 12px; color: #888;">
+    이 메일은 mastarpay.com 홈페이지 문의 폼에서 자동 발송되었습니다.
+  </div>
+</div>
+</body>
+</html>
+`.trim();
+    
+    // 텍스트 버전 (이메일 클라이언트 호환성)
+    const emailText = `
+🔔 새로운 문의가 도착했습니다
+${kstTime} KST
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+👤 상호/이름: ${name}
+📞 연락처: ${phone}
+📍 주소: ${address}${addressDetail ? '\n        ' + addressDetail : ''}
+📦 문의 제품: ${product}
+🏪 업종: ${business || '-'}
+
+💬 문의 내용:
+${message || '(없음)'}
+━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ 고객의 연락처로 24시간 이내에 상담 전화를 드려주세요.
+
+이 메일은 mastarpay.com 홈페이지 문의 폼에서 자동 발송되었습니다.
+`.trim();
+    
+    // Resend API 호출
+    const resendResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Mastarpay <onboarding@resend.dev>',
+        to: ['thdmsdidfl@naver.com'],
+        reply_to: phone + '@sms.relay',  // 답장용 (의미 없음, 그냥 정보)
+        subject: `[마스터페이 문의] ${name} · ${product} · ${phone}`,
+        html: emailHTML,
+        text: emailText,
+      }),
+    });
+    
+    if (!resendResponse.ok) {
+      const errorData = await resendResponse.json().catch(() => ({}));
+      console.error('Resend API error:', resendResponse.status, errorData);
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: '이메일 발송에 실패했습니다. 전화로 문의해주세요.',
+        debug: errorData
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders }
+      });
+    }
+    
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+    });
+    
+  } catch (error) {
+    console.error('handleContactAPI error:', error);
+    return new Response(JSON.stringify({ 
+      success: false, 
+      error: '서버 오류가 발생했습니다.',
+      debug: error.message
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+    });
+  }
+}
+
+
 // ============================================================
 // 라우팅 테이블
 // ============================================================
@@ -14151,7 +15186,13 @@ const staticRoutes = {
 // ============================================================
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
+    // API 엔드포인트 먼저 처리
+    const _url = new URL(request.url);
+    if (_url.pathname === '/api/contact') {
+      return handleContactAPI(request, env);
+    }
+    
     const url = new URL(request.url);
     let pathname = decodeURIComponent(url.pathname);
     
