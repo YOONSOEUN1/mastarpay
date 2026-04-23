@@ -13186,6 +13186,19 @@ body { background: var(--cream-dark); }
     .region-products-simple { grid-template-columns: repeat(3, 1fr); }
 }
 
+
+/* 지역 페이지 이탤릭 통일 - 모두 같은 폰트로 */
+.region-hero-title .italic,
+.region-box-title .italic,
+.region-box h3 .italic,
+.region-box h2 .italic,
+.region-cta-box h3 .italic {
+    font-family: inherit !important;
+    font-style: normal !important;
+    font-weight: inherit !important;
+    color: inherit !important;
+}
+
 </style>
 </head>`;
 }
@@ -13355,7 +13368,7 @@ function buildSidoPage(sidoUrl) {
 <span>${sido.name}</span>
 </div>
 <div class="region-hero-badge">📍 ${sido.name} · ${gus.length}개 시군구 · ${totalDongs.toLocaleString()}개 읍면동</div>
-<h1 class="region-hero-title">${sido.name} <span class="italic">매장 설비</span> 설치</h1>
+<h1 class="region-hero-title">${sido.name} 매장 설비 설치</h1>
 <p class="region-hero-sub">카드단말기·포스기·키오스크·테이블오더·철거까지 ${sido.name} 전 지역 무료 설치와 빠른 A/S를 지원합니다.</p>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
@@ -13386,7 +13399,7 @@ function buildSidoPage(sidoUrl) {
 
 <!-- 박스 2: 왜 마스터페이인가 -->
 <div class="region-box">
-<h2 class="region-box-title">🏙️ ${sido.name} 설치, <span class="italic">왜 마스터페이일까요?</span></h2>
+<h2 class="region-box-title">🏙️ ${sido.name} 설치, 왜 마스터페이일까요?</h2>
 <p class="region-box-subtitle">${sido.name}은(는) ${ctx.areaType} 중심으로 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 등 다양한 업종이 분포한 지역입니다. 마스터페이는 ${sido.name} ${gus.length}개 시군구의 매장 특성을 분석하여 꼭 맞는 장비를 설치합니다.</p>
 <div class="region-features-grid">
 <div class="region-feature-card"><div class="fi-icon">🎯</div><h3>업종별 맞춤 설치</h3><p>${sido.name} 매장의 업종·규모·동선을 분석해 꼭 맞는 장비를 추천합니다.</p></div>
@@ -13398,14 +13411,14 @@ function buildSidoPage(sidoUrl) {
 
 <!-- 박스 3: 제품 -->
 <div class="region-box">
-<h2 class="region-box-title">🛒 ${sido.name} <span class="italic">설치 가능한</span> 제품</h2>
+<h2 class="region-box-title">🛒 ${sido.name} 설치 가능한 제품</h2>
 <p class="region-box-subtitle">제품을 선택하면 ${sido.name} 맞춤 상세 안내로 이동합니다.</p>
 <div class="region-products-simple">${buildSidoProductsSimpleGrid(sidoUrl)}</div>
 </div>
 
 <!-- 박스 4: 특징 (번호) -->
 <div class="region-box">
-<h2 class="region-box-title">💡 마스터페이만의 <span class="italic">특별함</span></h2>
+<h2 class="region-box-title">💡 마스터페이만의 특별함</h2>
 <div class="region-numbered-grid">
 <div class="region-numbered-card"><div class="num-circle">1</div><h3>현장 환경 분석</h3><p>매장 방문 전 업종, 크기, 동선, 네트워크 상태를 파악하고 꼭 맞는 장비 조합을 설계합니다.</p></div>
 <div class="region-numbered-card"><div class="num-circle">2</div><h3>패키지 설치 할인</h3><p>카드단말기·포스기·키오스크·테이블오더를 함께 설치하면 설치비 무료 혜택이 적용됩니다.</p></div>
@@ -13416,7 +13429,7 @@ function buildSidoPage(sidoUrl) {
 
 <!-- 박스 5: 추천 업종 -->
 <div class="region-box">
-<h2 class="region-box-title">🏪 ${sido.name} <span class="italic">추천 업종</span></h2>
+<h2 class="region-box-title">🏪 ${sido.name} 추천 업종</h2>
 <div class="region-biz-grid">
 <div class="region-biz-card"><div class="region-biz-icon">🍽️</div><div class="region-biz-info"><div class="region-biz-name">음식점·식당</div><div class="region-biz-effect">주문 정확도 향상</div></div><div class="region-biz-stars">★★★★★</div></div>
 <div class="region-biz-card"><div class="region-biz-icon">☕</div><div class="region-biz-info"><div class="region-biz-name">카페·베이커리</div><div class="region-biz-effect">메뉴 자동화</div></div><div class="region-biz-stars">★★★★★</div></div>
@@ -13429,7 +13442,7 @@ function buildSidoPage(sidoUrl) {
 
 <!-- 박스 6: FAQ -->
 <div class="region-box">
-<h2 class="region-box-title">❓ <span class="italic">자주 묻는</span> 질문</h2>
+<h2 class="region-box-title">❓ 자주 묻는 질문</h2>
 <div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${sido.name} 어디든 출장 설치가 가능한가요?</strong><p>네, ${sido.name} ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 전 지역 직접 방문 설치를 제공합니다.</p></div>
 <div class="region-faq-item"><strong>Q. 설치비가 정말 무료인가요?</strong><p>네, 마스터페이는 VAN사 제휴를 통해 설치비를 전액 지원합니다. 월 이용료도 무료이며, 카드 수수료만 정상 부과됩니다.</p></div>
@@ -13441,7 +13454,7 @@ function buildSidoPage(sidoUrl) {
 
 <!-- 박스 7: 시군구 리스트 -->
 <div class="region-box">
-<h2 class="region-box-title">🏘️ ${sido.name} <span class="italic">${gus.length}개</span> 시군구</h2>
+<h2 class="region-box-title">🏘️ ${sido.name} ${gus.length}개 시군구</h2>
 <p class="region-box-subtitle">시군구를 클릭하면 읍면동별 설치 가이드를 확인할 수 있습니다.</p>
 <div class="region-list-grid">${gusListHtml}</div>
 </div>
@@ -13458,7 +13471,7 @@ function buildSidoPage(sidoUrl) {
 
 <!-- 박스 9: 다른 시도 -->
 <div class="region-box">
-<h2 class="region-box-title">🌏 다른 <span class="italic">시·도</span> 설치</h2>
+<h2 class="region-box-title">🌏 다른 시·도 설치</h2>
 <div class="region-chips-grid">${otherSidosHtml}</div>
 </div>
 
@@ -13510,7 +13523,7 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-hero-badge">${product.emoji} ${sido.name} · ${product.keyword}</div>
-<h1 class="region-hero-title">${sido.name} <span class="italic">${product.name}</span></h1>
+<h1 class="region-hero-title">${sido.name} ${product.name}</h1>
 <p class="region-hero-sub">${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 무료 설치와 빠른 A/S를 지원합니다.</p>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
@@ -13530,13 +13543,13 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 
 <!-- 박스 1: 설치 안내 -->
 <div class="region-box">
-<h2 class="region-box-title">💳 ${sido.name} <span class="italic">${product.name}</span> 설치 안내</h2>
+<h2 class="region-box-title">💳 ${sido.name} ${product.name} 설치 안내</h2>
 <p>${sido.name}에서 매장 설비를 도입하면 운영 효율이 획기적으로 개선됩니다. 마스터페이는 ${sido.name} 전 지역 ${gus.length}개 시군구에 업종별 최적화된 장비를 직접 방문 설치합니다. 카드단말기·포스기·키오스크·테이블오더는 설치비 무료이며, VAN사 수수료 비교를 통해 가장 유리한 조건을 찾아드립니다.</p>
 </div>
 
 <!-- 박스 2: 설치 프로세스 -->
 <div class="region-box">
-<h2 class="region-box-title">⚡ ${sido.name} <span class="italic">설치 프로세스</span></h2>
+<h2 class="region-box-title">⚡ ${sido.name} 설치 프로세스</h2>
 <ul>
 <li><strong>1단계 무료 상담</strong> 전화나 온라인으로 매장 업종·규모 공유</li>
 <li><strong>2단계 현장 분석</strong> ${sido.name} 매장 방문하여 환경 점검</li>
@@ -13549,7 +13562,7 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 
 <!-- 박스 3: 추천 업종 -->
 <div class="region-box">
-<h2 class="region-box-title">🏪 ${sido.name} <span class="italic">추천 업종</span></h2>
+<h2 class="region-box-title">🏪 ${sido.name} 추천 업종</h2>
 <div class="region-biz-grid">
 <div class="region-biz-card"><div class="region-biz-icon">🍽️</div><div class="region-biz-info"><div class="region-biz-name">음식점·식당</div><div class="region-biz-effect">주문 정확도 향상</div></div><div class="region-biz-stars">★★★★★</div></div>
 <div class="region-biz-card"><div class="region-biz-icon">☕</div><div class="region-biz-info"><div class="region-biz-name">카페·베이커리</div><div class="region-biz-effect">메뉴 자동화</div></div><div class="region-biz-stars">★★★★★</div></div>
@@ -13560,7 +13573,7 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 
 <!-- 박스 4: 제품 특징 -->
 <div class="region-box">
-<h2 class="region-box-title">✨ ${product.name} <span class="italic">주요 특징</span></h2>
+<h2 class="region-box-title">✨ ${product.name} 주요 특징</h2>
 <ul>
 <li><strong>검증된 모델</strong> ${product.desc}에 최적화된 품질 보증 제품</li>
 <li><strong>빠른 설치</strong> 상담 후 1~3일 내 설치 완료 · 당일 설치도 가능</li>
@@ -13573,7 +13586,7 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 
 <!-- 박스 5: 도입 효과 -->
 <div class="region-box">
-<h2 class="region-box-title">📈 ${sido.name} <span class="italic">도입 효과</span></h2>
+<h2 class="region-box-title">📈 ${sido.name} 도입 효과</h2>
 <p class="region-box-subtitle">${sido.name} 매장에 ${product.name}을(를) 도입한 ${stats.shops.toLocaleString()}+ 매장이 ${stats.satisfaction}% 만족도를 보이고 있습니다.</p>
 <div class="region-effect-grid">
 <div class="region-effect-item"><div class="region-effect-num">+${15 + (stats.shops % 10)}%</div><div class="region-effect-label">평균 매출 증가</div></div>
@@ -13585,7 +13598,7 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 
 <!-- 박스 6: FAQ -->
 <div class="region-box">
-<h2 class="region-box-title">❓ <span class="italic">자주 묻는</span> 질문</h2>
+<h2 class="region-box-title">❓ 자주 묻는 질문</h2>
 <div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${sido.name} 전 지역 출장 설치가 가능한가요?</strong><p>네, ${sido.name} ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동 직접 방문 설치 제공합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${product.name} 비용은 얼마인가요?</strong><p>${product.name}은(는) 설치비 무료 옵션을 제공합니다. 정확한 견적은 상담을 통해 안내드립니다.</p></div>
@@ -13596,7 +13609,7 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 
 <!-- 박스 7: 시군구 리스트 -->
 <div class="region-box">
-<h2 class="region-box-title">🏘️ ${sido.name} <span class="italic">${gus.length}개</span> 시군구</h2>
+<h2 class="region-box-title">🏘️ ${sido.name} ${gus.length}개 시군구</h2>
 <p class="region-box-subtitle">시군구를 클릭하면 해당 지역 ${product.name} 상세 안내와 동 목록을 확인할 수 있습니다.</p>
 <div class="region-list-grid">${gusListHtml}</div>
 </div>
@@ -13657,7 +13670,7 @@ function buildGuPage(sidoUrl, guName) {
 <span>${guName}</span>
 </div>
 <div class="region-hero-badge">📍 ${sido.name} · ${guName} · ${dongs.length}개 동</div>
-<h1 class="region-hero-title">${guName} <span class="italic">매장 설비</span> 설치</h1>
+<h1 class="region-hero-title">${guName} 매장 설비 설치</h1>
 <p class="region-hero-sub">${guName} ${dongs.length}개 동 전 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</p>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${guName}</div><div class="region-stat-value">${dongs.length}개 동</div></div>
@@ -13686,7 +13699,7 @@ function buildGuPage(sidoUrl, guName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🏙️ ${guName} 설치, <span class="italic">왜 마스터페이일까요?</span></h2>
+<h2 class="region-box-title">🏙️ ${guName} 설치, 왜 마스터페이일까요?</h2>
 <p class="region-box-subtitle">${guName}은(는) ${ctx.areaType} 특성이 강한 지역으로, ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종이 특히 활발합니다. ${guName} ${dongs.length}개 동 전역에 ${shops.toLocaleString()}+ 매장이 마스터페이 장비를 이용하고 있습니다.</p>
 <div class="region-features-grid">
 <div class="region-feature-card"><div class="fi-icon">📍</div><h3>${guName} 전담팀</h3><p>${guName} ${dongs.length}개 동을 전담하는 현지 설치팀이 빠르게 대응합니다.</p></div>
@@ -13697,13 +13710,13 @@ function buildGuPage(sidoUrl, guName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🛒 ${guName} <span class="italic">설치 가능</span> 제품</h2>
+<h2 class="region-box-title">🛒 ${guName} 설치 가능 제품</h2>
 <p class="region-box-subtitle">제품을 선택하면 ${guName} 동별 상세 설치 정보로 이동합니다.</p>
 <div class="region-products-simple">${buildGuProductsSimpleGrid(sidoUrl, guName)}</div>
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">💬 ${guName} <span class="italic">실제 후기</span></h2>
+<h2 class="region-box-title">💬 ${guName} 실제 후기</h2>
 <div class="region-reviews-grid">
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review.text}"</p><div class="region-review-author">— ${guName} ${ctx.review.biz} ${ctx.review.name}</div></div>
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review2.text}"</p><div class="region-review-author">— ${guName} ${ctx.review2.biz} ${ctx.review2.name}</div></div>
@@ -13711,7 +13724,7 @@ function buildGuPage(sidoUrl, guName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">❓ <span class="italic">자주 묻는</span> 질문</h2>
+<h2 class="region-box-title">❓ 자주 묻는 질문</h2>
 <div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${guName} 어느 동이든 설치 가능한가요?</strong><p>네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 설치 가능합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${guName} 설치까지 얼마나 걸리나요?</strong><p>상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내 설치 완료됩니다.</p></div>
@@ -13721,7 +13734,7 @@ function buildGuPage(sidoUrl, guName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🏘️ ${guName} <span class="italic">${dongs.length}개</span> 동</h2>
+<h2 class="region-box-title">🏘️ ${guName} ${dongs.length}개 동</h2>
 <p class="region-box-subtitle">동을 선택하면 해당 지역 맞춤 설치 가이드로 이동합니다.</p>
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
@@ -13785,7 +13798,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-hero-badge">${product.emoji} ${guName} · ${product.keyword}</div>
-<h1 class="region-hero-title">${guName} <span class="italic">${product.name}</span></h1>
+<h1 class="region-hero-title">${guName} ${product.name}</h1>
 <p class="region-hero-sub">${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.</p>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${guName}</div><div class="region-stat-value">전문</div></div>
@@ -13804,12 +13817,12 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <div class="container">
 
 <div class="region-box">
-<h2 class="region-box-title">💡 ${guName}에서 <span class="italic">${product.name}</span>이 중요한 이유</h2>
+<h2 class="region-box-title">💡 ${guName}에서 ${product.name}이 중요한 이유</h2>
 <p>${sido.name} ${guName}은(는) ${ctx.areaType} 특성이 두드러지는 지역입니다. 이 지역에서 ${product.name}은(는) ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종에서 특히 중요한 역할을 합니다. ${ctx.keyBenefit}을 최우선으로 고려하는 ${guName} 사장님들에게 ${product.name}은(는) ${ctx.subBenefits[0]}과(와) ${ctx.subBenefits[1]}까지 동시에 만족시키는 솔루션입니다.</p>
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">✨ ${product.name} <span class="italic">주요 특징</span></h2>
+<h2 class="region-box-title">✨ ${product.name} 주요 특징</h2>
 <ul>
 <li><strong>${guName} 전담 설치</strong> ${guName} 담당 기사가 직접 방문 설치</li>
 <li><strong>빠른 설치</strong> 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 내 설치 완료</li>
@@ -13821,7 +13834,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">⚡ ${guName} ${product.name} <span class="italic">설치 프로세스</span></h2>
+<h2 class="region-box-title">⚡ ${guName} ${product.name} 설치 프로세스</h2>
 <ul>
 <li><strong>1단계</strong> ${guName} 매장 무료 상담 (전화/온라인)</li>
 <li><strong>2단계</strong> ${guName} 현장 방문 및 환경 분석</li>
@@ -13833,7 +13846,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">💬 ${guName} <span class="italic">사장님 후기</span></h2>
+<h2 class="region-box-title">💬 ${guName} 사장님 후기</h2>
 <div class="region-reviews-grid">
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review.text}"</p><div class="region-review-author">— ${guName} ${ctx.review.biz} ${ctx.review.name}</div></div>
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review2.text}"</p><div class="region-review-author">— ${guName} ${ctx.review2.biz} ${ctx.review2.name}</div></div>
@@ -13841,7 +13854,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">❓ ${guName} ${product.name} <span class="italic">자주 묻는</span> 질문</h2>
+<h2 class="region-box-title">❓ ${guName} ${product.name} 자주 묻는 질문</h2>
 <div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${guName} 어느 동이든 ${product.name} 설치 가능한가요?</strong><p>네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 ${product.name} 설치 가능합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${guName} ${product.name} 설치 비용은 얼마인가요?</strong><p>${product.name}은(는) 설치비 무료 옵션을 제공합니다. 정확한 견적은 상담을 통해 안내드립니다.</p></div>
@@ -13851,7 +13864,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🏘️ ${guName} <span class="italic">${dongs.length}개</span> 동</h2>
+<h2 class="region-box-title">🏘️ ${guName} ${dongs.length}개 동</h2>
 <p class="region-box-subtitle">동을 선택하면 해당 지역의 ${product.name} 맞춤 상세 정보로 이동합니다.</p>
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
@@ -13912,7 +13925,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <span>${dongName}</span>
 </div>
 <div class="region-hero-badge">📍 ${fullAddr}</div>
-<h1 class="region-hero-title">${dongName} <span class="italic">매장 설비</span> 설치</h1>
+<h1 class="region-hero-title">${dongName} 매장 설비 설치</h1>
 <p class="region-hero-sub">${fullAddr} 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</p>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${dongName}</div><div class="region-stat-value">${shops}+건</div></div>
@@ -13941,7 +13954,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">⚡ ${dongName} <span class="italic">설치 특징</span></h2>
+<h2 class="region-box-title">⚡ ${dongName} 설치 특징</h2>
 <div class="region-features-grid">
 <div class="region-feature-card"><div class="fi-icon">📍</div><h3>${dongName} 현지 설치</h3><p>${dongName} 담당 기사가 직접 방문 설치합니다.</p></div>
 <div class="region-feature-card"><div class="fi-icon">⚡</div><h3>${ctx.installTime}~${ctx.installTime+2}일 설치</h3><p>상담 후 빠른 일정으로 설치 완료됩니다.</p></div>
@@ -13951,13 +13964,13 @@ function buildDongPage(sidoUrl, guName, dongName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🛒 ${dongName} <span class="italic">설치 가능</span> 제품</h2>
+<h2 class="region-box-title">🛒 ${dongName} 설치 가능 제품</h2>
 <p class="region-box-subtitle">제품을 선택하면 ${dongName} 맞춤 설치 정보로 이동합니다.</p>
 <div class="region-products-simple">${productsHtml}</div>
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">💬 ${dongName} <span class="italic">사장님 후기</span></h2>
+<h2 class="region-box-title">💬 ${dongName} 사장님 후기</h2>
 <div class="region-reviews-grid">
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review.text}"</p><div class="region-review-author">— ${dongName} ${ctx.review.biz} ${ctx.review.name}</div></div>
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review2.text}"</p><div class="region-review-author">— ${dongName} ${ctx.review2.biz} ${ctx.review2.name}</div></div>
@@ -13965,7 +13978,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">❓ <span class="italic">자주 묻는</span> 질문</h2>
+<h2 class="region-box-title">❓ 자주 묻는 질문</h2>
 <div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${dongName}도 설치 가능한가요?</strong><p>네, ${dongName}은(는) ${guName} 설치 권역에 포함되어 있어 빠른 방문이 가능합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${dongName} 설치 비용은 얼마인가요?</strong><p>${dongName} 지역도 설치비 무료 옵션을 제공합니다.</p></div>
@@ -14034,7 +14047,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-hero-badge">${product.emoji} ${fullAddr} · ${product.keyword}</div>
-<h1 class="region-hero-title">${dongName} <span class="italic">${product.name}</span></h1>
+<h1 class="region-hero-title">${dongName} ${product.name}</h1>
 <p class="region-hero-sub">${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.</p>
 <div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
@@ -14047,12 +14060,12 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <div class="container">
 
 <div class="region-box">
-<h2 class="region-box-title">💡 ${dongName}에서 <span class="italic">${product.name}</span>이 필요한 이유</h2>
+<h2 class="region-box-title">💡 ${dongName}에서 ${product.name}이 필요한 이유</h2>
 <p>${fullAddr}의 ${ctx.areaType} 지역에서 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 사장님들이 마스터페이 ${product.name}을(를) 통해 ${ctx.keyBenefit}을 실현하고 있습니다. ${dongName} 맞춤 솔루션으로 매장 운영의 새로운 기준을 만들어드립니다.</p>
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">✨ ${product.name} <span class="italic">주요 특징</span></h2>
+<h2 class="region-box-title">✨ ${product.name} 주요 특징</h2>
 <ul>
 <li><strong>${dongName} 현지 설치</strong> ${dongName} 담당 기사 방문 설치</li>
 <li><strong>빠른 설치</strong> ${ctx.installTime}~${ctx.installTime+2}일 내 완료</li>
@@ -14063,7 +14076,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">💬 ${dongName} <span class="italic">사장님 후기</span></h2>
+<h2 class="region-box-title">💬 ${dongName} 사장님 후기</h2>
 <div class="region-reviews-grid">
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review.text}"</p><div class="region-review-author">— ${dongName} ${ctx.review.biz} ${ctx.review.name}</div></div>
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review2.text}"</p><div class="region-review-author">— ${dongName} ${ctx.review2.biz} ${ctx.review2.name}</div></div>
@@ -14071,7 +14084,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">❓ <span class="italic">자주 묻는</span> 질문</h2>
+<h2 class="region-box-title">❓ 자주 묻는 질문</h2>
 <div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${dongName}도 설치 가능한가요?</strong><p>네, ${dongName}은(는) ${guName} 전담 설치 권역에 포함되어 있어 당연히 설치 가능합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${dongName} ${product.name} 비용은 얼마인가요?</strong><p>${product.name}은(는) 설치비 무료 옵션을 제공합니다.</p></div>
@@ -14080,7 +14093,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🛒 ${dongName} <span class="italic">다른 제품</span>도 확인하세요</h2>
+<h2 class="region-box-title">🛒 ${dongName} 다른 제품도 확인하세요</h2>
 <div class="region-products-simple">${otherProductsHtml}</div>
 </div>
 
