@@ -14580,7 +14580,7 @@ function buildGuPage(sidoUrl, guName) {
   }
   
   return getCommonHead(
-    `${guName} 카드단말기·포스기·키오스크 설치`,
+    `${sido.name} ${guName} 카드단말기·포스기·키오스크 설치`,
     `${sido.name} ${guName} ${dongs.length}개 동 전체 카드단말기, 포스기, 키오스크 설치. 설치비 무료·빠른 설치·A/S 보장.`
   ) + `<body>${getHeader()}
 
@@ -14594,10 +14594,10 @@ function buildGuPage(sidoUrl, guName) {
 <span>${guName}</span>
 </div>
 <div class="region-hero-badge">📍 ${sido.name} · ${guName} · ${dongs.length}개 동</div>
-<h1 class="region-hero-title">${guName} 매장 설비 설치</h1>
-<p class="region-hero-sub">${guName} ${dongs.length}개 동 전 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</p>
+<h1 class="region-hero-title">${sido.name} ${guName} 매장 설비 설치</h1>
+<p class="region-hero-sub">${sido.name} ${guName} ${dongs.length}개 동 전 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</p>
 <div class="region-stats-grid">
-<div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${guName}</div><div class="region-stat-value">${dongs.length}개 동</div></div>
+<div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">${dongs.length}개 동</div></div>
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">실적</div><div class="region-stat-value">${shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">출동</div><div class="region-stat-value">당일</div></div>
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
@@ -14616,15 +14616,15 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-intro-box">
 <div class="region-intro-icon">📋</div>
 <div class="region-intro-text">
-<strong>${guName} 설치 진행 방식</strong>
-<p>무료 상담 → ${guName} 매장 방문 → 업종별 최적 장비 추천 → 설치·교육 완료 방식으로 진행됩니다. ${ctx.areaType} 특성과 업종에 맞는 장비를 함께 결정해 드립니다.</p>
+<strong>${sido.name} ${guName} 설치 진행 방식</strong>
+<p>무료 상담 → ${sido.name} ${guName} 매장 방문 → 업종별 최적 장비 추천 → 설치·교육 완료 방식으로 진행됩니다. ${ctx.areaType} 특성과 업종에 맞는 장비를 함께 결정해 드립니다.</p>
 </div>
 </div>
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🏙️ ${guName} 설치, 왜 마스터페이일까요?</h2>
-<p class="region-box-subtitle">${guName}은(는) ${ctx.areaType} 특성이 강한 지역으로, ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종이 특히 활발합니다. ${guName} ${dongs.length}개 동 전역에 ${shops.toLocaleString()}+ 매장이 마스터페이 장비를 이용하고 있습니다.</p>
+<h2 class="region-box-title">🏙️ ${sido.name} ${guName} 설치, 왜 마스터페이일까요?</h2>
+<p class="region-box-subtitle">${sido.name} ${guName}은(는) ${ctx.areaType} 특성이 강한 지역으로, ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종이 특히 활발합니다. ${guName} ${dongs.length}개 동 전역에 ${shops.toLocaleString()}+ 매장이 마스터페이 장비를 이용하고 있습니다.</p>
 <div class="region-features-grid">
 <div class="region-feature-card"><div class="fi-icon">📍</div><h3>${guName} 전담팀</h3><p>${guName} ${dongs.length}개 동을 전담하는 현지 설치팀이 빠르게 대응합니다.</p></div>
 <div class="region-feature-card"><div class="fi-icon">⚡</div><h3>당일 긴급 출동</h3><p>${guName} 내 긴급 A/S 요청 시 평균 2시간 내 도착합니다.</p></div>
@@ -14640,7 +14640,7 @@ function buildGuPage(sidoUrl, guName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">💬 ${guName} 실제 후기</h2>
+<h2 class="region-box-title">💬 ${sido.name} ${guName} 실제 후기</h2>
 <div class="region-reviews-grid">
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review.text}"</p><div class="region-review-author">— ${guName} ${ctx.review.biz} ${ctx.review.name}</div></div>
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review2.text}"</p><div class="region-review-author">— ${guName} ${ctx.review2.biz} ${ctx.review2.name}</div></div>
@@ -14658,13 +14658,13 @@ function buildGuPage(sidoUrl, guName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🏘️ ${guName} ${dongs.length}개 동</h2>
+<h2 class="region-box-title">🏘️ ${sido.name} ${guName} ${dongs.length}개 동</h2>
 <p class="region-box-subtitle">동을 선택하면 해당 지역 맞춤 설치 가이드로 이동합니다.</p>
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
 
 <div class="region-cta-box">
-<h3>📞 ${guName} 무료 상담</h3>
+<h3>📞 ${sido.name} ${guName} 무료 상담</h3>
 <p>${guName} 전담 상담사가 빠르게 도와드립니다.</p>
 <div class="region-cta-buttons">
 <a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
@@ -14706,7 +14706,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
   }
   
   return getCommonHead(
-    `${guName} ${product.keyword} 설치 | ${product.name}`,
+    `${sido.name} ${guName} ${product.keyword} 설치 | ${product.name}`,
     `${sido.name} ${guName} ${dongs.length}개 동 전체 ${product.name} 설치. 설치비 무료·빠른 설치·A/S 보장.`
   ) + `<body>${getHeader()}
 
@@ -14722,10 +14722,10 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-hero-badge">${product.emoji} ${guName} · ${product.keyword}</div>
-<h1 class="region-hero-title">${guName} ${product.name}</h1>
-<p class="region-hero-sub">${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.</p>
+<h1 class="region-hero-title">${sido.name} ${guName} ${product.name}</h1>
+<p class="region-hero-sub">${sido.name} ${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.</p>
 <div class="region-stats-grid">
-<div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${guName}</div><div class="region-stat-value">전문</div></div>
+<div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">전문</div></div>
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">실적</div><div class="region-stat-value">${shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
@@ -14741,7 +14741,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <div class="container">
 
 <div class="region-box">
-<h2 class="region-box-title">💡 ${guName}에서 ${product.name}이 중요한 이유</h2>
+<h2 class="region-box-title">💡 ${sido.name} ${guName}에서 ${product.name}이 중요한 이유</h2>
 <p>${sido.name} ${guName}은(는) ${ctx.areaType} 특성이 두드러지는 지역입니다. 이 지역에서 ${product.name}은(는) ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종에서 특히 중요한 역할을 합니다. ${ctx.keyBenefit}을 최우선으로 고려하는 ${guName} 사장님들에게 ${product.name}은(는) ${ctx.subBenefits[0]}과(와) ${ctx.subBenefits[1]}까지 동시에 만족시키는 솔루션입니다.</p>
 </div>
 
@@ -14758,7 +14758,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">⚡ ${guName} ${product.name} 설치 프로세스</h2>
+<h2 class="region-box-title">⚡ ${sido.name} ${guName} ${product.name} 설치 프로세스</h2>
 <ul>
 <li><strong>1단계</strong> ${guName} 매장 무료 상담 (전화/온라인)</li>
 <li><strong>2단계</strong> ${guName} 현장 방문 및 환경 분석</li>
@@ -14770,7 +14770,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">💬 ${guName} 사장님 후기</h2>
+<h2 class="region-box-title">💬 ${sido.name} ${guName} 사장님 후기</h2>
 <div class="region-reviews-grid">
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review.text}"</p><div class="region-review-author">— ${guName} ${ctx.review.biz} ${ctx.review.name}</div></div>
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review2.text}"</p><div class="region-review-author">— ${guName} ${ctx.review2.biz} ${ctx.review2.name}</div></div>
@@ -14778,7 +14778,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">❓ ${guName} ${product.name} 자주 묻는 질문</h2>
+<h2 class="region-box-title">❓ ${sido.name} ${guName} ${product.name} 자주 묻는 질문</h2>
 <div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${guName} 어느 동이든 ${product.name} 설치 가능한가요?</strong><p>네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 ${product.name} 설치 가능합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${guName} ${product.name} 설치 비용은 얼마인가요?</strong><p>${product.name}은(는) 설치비 무료 옵션을 제공합니다. 정확한 견적은 상담을 통해 안내드립니다.</p></div>
@@ -14788,13 +14788,13 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🏘️ ${guName} ${dongs.length}개 동</h2>
+<h2 class="region-box-title">🏘️ ${sido.name} ${guName} ${dongs.length}개 동</h2>
 <p class="region-box-subtitle">동을 선택하면 해당 지역의 ${product.name} 맞춤 상세 정보로 이동합니다.</p>
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
 
 <div class="region-cta-box">
-<h3>${product.emoji} ${guName} ${product.name} 무료 견적</h3>
+<h3>${product.emoji} ${sido.name} ${guName} ${product.name} 무료 견적</h3>
 <p>${guName} 전담 상담사가 빠르게 도와드립니다.</p>
 <div class="region-cta-buttons">
 <a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
@@ -14833,7 +14833,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
   }
   
   return getCommonHead(
-    `${dongName} 카드단말기·포스기·키오스크 설치`,
+    `${sido.name} ${guName} ${dongName} 카드단말기·포스기·키오스크 설치`,
     `${fullAddr} 카드단말기, 포스기, 키오스크 설치. 무료 상담, 빠른 설치, A/S 보장.`
   ) + `<body>${getHeader()}
 
@@ -14849,10 +14849,10 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <span>${dongName}</span>
 </div>
 <div class="region-hero-badge">📍 ${fullAddr}</div>
-<h1 class="region-hero-title">${dongName} 매장 설비 설치</h1>
+<h1 class="region-hero-title">${sido.name} ${guName} ${dongName} 매장 설비 설치</h1>
 <p class="region-hero-sub">${fullAddr} 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</p>
 <div class="region-stats-grid">
-<div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${dongName}</div><div class="region-stat-value">${shops}+건</div></div>
+<div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${guName} ${dongName}</div><div class="region-stat-value">${shops}+건</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">즉시</div></div>
@@ -14871,14 +14871,14 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <div class="region-intro-box">
 <div class="region-intro-icon">🏘️</div>
 <div class="region-intro-text">
-<strong>${dongName} 상권 특성</strong>
+<strong>${sido.name} ${guName} ${dongName} 상권 특성</strong>
 <p>${fullAddr}은(는) ${ctx.areaType} 성격이 두드러지는 지역으로, ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종이 활발합니다. ${ctx.keyBenefit}이(가) 매장 운영의 핵심 요소로 작용합니다.</p>
 </div>
 </div>
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">⚡ ${dongName} 설치 특징</h2>
+<h2 class="region-box-title">⚡ ${sido.name} ${guName} ${dongName} 설치 특징</h2>
 <div class="region-features-grid">
 <div class="region-feature-card"><div class="fi-icon">📍</div><h3>${dongName} 현지 설치</h3><p>${dongName} 담당 기사가 직접 방문 설치합니다.</p></div>
 <div class="region-feature-card"><div class="fi-icon">⚡</div><h3>${ctx.installTime}~${ctx.installTime+2}일 설치</h3><p>상담 후 빠른 일정으로 설치 완료됩니다.</p></div>
@@ -14888,13 +14888,13 @@ function buildDongPage(sidoUrl, guName, dongName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🛒 ${dongName} 설치 가능 제품</h2>
+<h2 class="region-box-title">🛒 ${sido.name} ${guName} ${dongName} 설치 가능 제품</h2>
 <p class="region-box-subtitle">제품을 선택하면 ${dongName} 맞춤 설치 정보로 이동합니다.</p>
 <div class="region-products-simple">${productsHtml}</div>
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">💬 ${dongName} 사장님 후기</h2>
+<h2 class="region-box-title">💬 ${sido.name} ${guName} ${dongName} 사장님 후기</h2>
 <div class="region-reviews-grid">
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review.text}"</p><div class="region-review-author">— ${dongName} ${ctx.review.biz} ${ctx.review.name}</div></div>
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review2.text}"</p><div class="region-review-author">— ${dongName} ${ctx.review2.biz} ${ctx.review2.name}</div></div>
@@ -14911,7 +14911,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
 </div>
 
 <div class="region-cta-box">
-<h3>📞 ${dongName} 무료 상담</h3>
+<h3>📞 ${sido.name} ${guName} ${dongName} 무료 상담</h3>
 <p>지금 바로 전화 한 통으로 ${dongName} 맞춤 견적을 받아보세요.</p>
 <div class="region-cta-buttons">
 <a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
@@ -14924,6 +14924,211 @@ function buildDongPage(sidoUrl, guName, dongName) {
 
 ${getFooter()}`;
 }
+
+
+// ============================================================
+// 동×제품 페이지용 제품별 맞춤 상세 콘텐츠 (2000자+)
+// ============================================================
+
+function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
+  const fullAddr = sidoName + ' ' + guName + ' ' + dongName;
+  
+  const contents = {
+    'pos': `
+<div class="region-box">
+<h2 class="region-box-title">📊 ${fullAddr} 포스기 상세 가이드</h2>
+<h3>${dongName} 매장에 포스기가 꼭 필요한 5가지 이유</h3>
+<p>${ctx.areaType} 특성이 강한 ${fullAddr} 일대는 ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종의 매장이 밀집해 있어, 빠르고 정확한 매출 관리가 매장 경쟁력의 핵심입니다. 포스기는 단순히 결제하는 도구가 아니라 매장 운영의 두뇌 역할을 하는 통합 시스템입니다. 마스터페이가 ${dongName} 사장님들께 포스기를 권해드리는 이유는 다음과 같습니다.</p>
+<p><strong>첫째, 매출 통합 관리.</strong> 포스기 한 대로 카드결제·현금결제·간편결제·테이블별 매출·시간대별 매출까지 모두 자동 집계됩니다. ${dongName} 매장이 ${ctx.topBiz[0]} 업종이라면 매일 마감 정산 시간을 절반 이하로 줄일 수 있습니다.</p>
+<p><strong>둘째, 재고 자동 차감.</strong> 메뉴를 등록해두면 판매할 때마다 재고가 자동으로 차감되어, ${dongName} 같이 회전율이 높은 상권에서는 재료 소진 시점을 정확히 파악할 수 있습니다. 식자재·소모품 발주 타이밍을 놓치지 않게 됩니다.</p>
+<p><strong>셋째, 직원 관리 통합.</strong> 직원별 로그인 기능으로 누가 언제 어떤 결제를 처리했는지 모두 기록되며, 출퇴근 관리도 함께 가능합니다. ${guName} 같이 인건비 부담이 큰 지역에서는 인력 효율을 극대화할 수 있습니다.</p>
+<p><strong>넷째, 부가세·종합소득세 신고 자동화.</strong> 국세청 홈택스와 자동 연동되어, ${dongName} 사장님들이 직접 매출 정리할 필요 없이 신고 자료가 자동 생성됩니다. 세무사 비용도 절감됩니다.</p>
+<p><strong>다섯째, 24시간 데이터 백업.</strong> 클라우드 자동 백업으로 ${dongName} 매장의 모든 데이터가 안전하게 보관되며, 갑작스러운 정전·기기 고장에도 매출 정보가 사라지지 않습니다.</p>
+<h3>${fullAddr}에 추천하는 포스기 모델</h3>
+<p>${ctx.topBiz[0]} 업종은 일반적으로 15.6인치 터치스크린 모델이 적합합니다. 화면이 커서 메뉴 추가가 쉽고, 키친 프린터·번호표 출력기·카드단말기 등 다양한 주변 기기를 동시에 연결할 수 있습니다. ${ctx.topBiz[1]} 업종은 11~13인치 컴팩트 모델로도 충분합니다. 매장 면적이 작은 ${dongName} 일대 매장이라면 카운터 공간을 최대한 효율적으로 사용할 수 있습니다.</p>
+<p>마스터페이는 ${fullAddr}에서 다양한 포스기 브랜드(OKPOS, 솔루엠, 빌포스 등)를 직접 비교 견적해드리며, ${ctx.topBiz[0]} 업종에 최적화된 메뉴 템플릿까지 무료로 세팅해 드립니다. 설치 후 1주일 동안 ${dongName} 전담 기사가 직접 매장을 방문하거나 원격 지원으로 사용법을 알려드리고, 6개월 무상 A/S와 1년 동안 정기 점검까지 포함됩니다.</p>
+<h3>${dongName} 포스기 도입 절차</h3>
+<p>전화 또는 카카오톡으로 상담을 신청하시면 ${dongName} 담당 매니저가 매장에 직접 방문해 매장 환경(인터넷·전기·동선)을 점검하고, 업종에 맞는 모델 2~3종을 비교해드립니다. 결정 후 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치가 완료되며, 운영 중인 매장이라면 영업 종료 후 야간 설치도 가능합니다. 설치 비용은 무료이며, VAN사 수수료만 정상 부과됩니다.</p>
+</div>
+`,
+
+    'card-2inch': `
+<div class="region-box">
+<h2 class="region-box-title">💳 ${fullAddr} 2인치 카드단말기 상세 가이드</h2>
+<h3>${dongName} 매장에 2인치 단말기가 적합한 이유</h3>
+<p>2인치 카드단말기는 영수증 폭이 좁고 본체 크기가 작아, 카운터 공간이 제한적이거나 사장님이 직접 결제 받는 1인 매장에 가장 적합한 모델입니다. ${ctx.areaType} 성격이 강한 ${fullAddr} 일대는 작은 평수의 매장이 많고, 이런 매장에서는 큰 단말기보다 컴팩트한 2인치 모델이 공간 효율 면에서 우수합니다.</p>
+<p><strong>2인치 단말기의 장점</strong></p>
+<p><strong>① 작은 사이즈, 큰 효과.</strong> 가로 7cm 정도의 본체 크기로 어디든 둘 수 있고, 가벼워서 이동 결제도 가능합니다. ${dongName} 매장에서 카운터가 좁다면 2인치가 정답입니다.</p>
+<p><strong>② 영수증 비용 절감.</strong> 영수증 용지 폭이 좁아 일반 3인치 모델 대비 용지 비용이 약 30% 절감됩니다. ${ctx.topBiz[0]}처럼 결제 횟수가 많은 업종은 연간 수십만 원의 영수증 용지 비용을 아낄 수 있습니다.</p>
+<p><strong>③ 빠른 결제 속도.</strong> 신형 2인치 단말기(KIS-2200 등)는 IC카드·MS카드·삼성페이·LG페이·애플페이까지 한 대로 모두 처리하며, 결제 처리 속도가 평균 1.5초 이내입니다.</p>
+<p><strong>④ 무선 모델 선택 가능.</strong> Wi-Fi 또는 LTE 모델을 선택하면 매장 어디서든 결제가 가능해, ${dongName} 일대 ${ctx.topBiz[1]} 업종(테이블 결제, 출장 결제)에 특히 유리합니다.</p>
+<h3>${fullAddr}에서 자주 받는 질문</h3>
+<p><strong>Q. 2인치 단말기로 영수증이 너무 작지 않나요?</strong> A. 일반 결제 정보(가맹점명, 카드사, 금액, 승인번호 등)는 모두 정상적으로 출력되며, 글자 크기도 충분히 읽기 좋습니다. 단, 메뉴 항목이 많은 카페나 식당이라면 3인치 모델이 더 적합할 수 있습니다.</p>
+<p><strong>Q. 단말기 비용은 얼마인가요?</strong> A. 마스터페이를 통해 신청하시면 ${guName} 지역도 단말기 무료 옵션이 있으며, 월 사용료도 0원입니다. VAN사 카드 수수료만 일반 요율로 부과됩니다.</p>
+<p><strong>Q. 기존 단말기 교체도 가능한가요?</strong> A. 네, ${fullAddr} 매장의 기존 단말기는 마스터페이가 무료 회수·반납 처리를 도와드립니다. 가맹점 명의 변경 절차도 함께 처리됩니다.</p>
+<h3>${dongName} 2인치 단말기 설치 절차</h3>
+<p>상담 → 매장 방문 또는 전화 견적 → 모델 선정 → 설치(${ctx.installTime}~${ctx.installTime+2}일 이내) → 사용법 교육 → 사후 관리. ${guName} 전담 기사가 ${dongName} 매장을 직접 방문해 설치하며, 카드사 가맹 등록까지 모두 대행합니다. 사장님은 설치 당일 결제 테스트만 함께 해보시면 됩니다.</p>
+</div>
+`,
+
+    'card-3inch': `
+<div class="region-box">
+<h2 class="region-box-title">🖨️ ${fullAddr} 3인치 카드단말기 상세 가이드</h2>
+<h3>3인치 단말기가 ${dongName} 매장에 주는 가치</h3>
+<p>3인치 카드단말기는 표준형 모델로, 영수증 폭이 넓어 결제 정보 외에도 매장 로고·이벤트 안내·QR쿠폰 등을 함께 인쇄할 수 있는 가장 대중적인 모델입니다. ${ctx.areaType} 특성을 가진 ${fullAddr} 일대 ${ctx.topBiz[0]} 업종 매장에서는 표준 3인치 단말기가 가장 안정적인 선택입니다.</p>
+<p><strong>3인치 단말기의 강점</strong></p>
+<p><strong>① 가독성 우수.</strong> 영수증 폭이 80mm로 넓어 메뉴명·옵션·할인 내역이 모두 한눈에 보입니다. ${ctx.topBiz[0]} 같이 메뉴가 많은 업종에 적합합니다.</p>
+<p><strong>② 표준 호환성.</strong> 대부분의 포스기·키오스크와 표준 인터페이스로 연결되어, ${dongName} 매장에서 향후 시스템 업그레이드 시에도 호환성 문제가 없습니다.</p>
+<p><strong>③ 다양한 결제 수단 지원.</strong> 신용카드·체크카드·삼성페이·LG페이·애플페이·제로페이·서울페이·각종 모바일 상품권까지 모두 한 대로 처리됩니다.</p>
+<p><strong>④ 영수증 디자인 커스터마이징.</strong> 매장 로고, 인사말, 쿠폰 코드, SNS 정보 등을 영수증에 함께 인쇄할 수 있어 ${dongName} 매장 브랜딩에도 도움이 됩니다.</p>
+<p><strong>⑤ 안정적인 내구성.</strong> 일평균 500건 이상의 결제도 무리 없이 처리하며, 평균 사용 수명이 5년 이상으로 ${ctx.topBiz[1]} 처럼 결제 횟수가 많은 업종에서도 안심하고 사용 가능합니다.</p>
+<h3>${fullAddr}에서 추천하는 3인치 모델</h3>
+<p>일반 매장은 KIS-1420 모델이 가장 인기 있으며, 결제 속도가 빠르고 NFC·MS·IC 카드를 모두 지원합니다. 무선 결제가 필요한 매장은 KIS-1420 LTE 모델을, 비용 절감이 중요한 매장은 동급 KS-7700 시리즈도 좋은 선택입니다.</p>
+<p>마스터페이는 ${fullAddr} 매장에 ${ctx.topBiz[0]} 업종 기준으로 가장 적합한 모델을 추천드리며, 카드사 수수료를 카드사별로 비교해 가장 유리한 조건으로 가맹 신청을 진행해드립니다. 신용카드 수수료는 매출 규모에 따라 차이가 크기 때문에, 같은 단말기라도 어느 VAN사를 통하느냐에 따라 연간 수백만 원의 차이가 날 수 있습니다.</p>
+<h3>${dongName} 3인치 단말기 도입 효과</h3>
+<p>${dongName} 일대 매장 사례를 보면, 3인치 단말기 도입 후 결제 대기 시간이 평균 30% 단축되고, 영수증 분실로 인한 환불 분쟁도 크게 줄어듭니다. 또한 매출 데이터가 자동으로 정리되어 부가세 신고 시간도 절약됩니다. 마스터페이가 설치한 ${guName} 지역 매장의 평균 만족도는 ${ctx.satisfaction || 96}% 이상입니다.</p>
+</div>
+`,
+
+    'card-toss': `
+<div class="region-box">
+<h2 class="region-box-title">⚡ ${fullAddr} 토스 단말기 상세 가이드</h2>
+<h3>${dongName}에서 토스 단말기가 인기인 이유</h3>
+<p>토스 단말기는 토스페이먼츠가 자체 개발한 차세대 결제 단말기로, 일반 카드결제뿐만 아니라 토스페이·삼성페이·간편송금까지 한 대로 처리할 수 있는 통합형 결제기입니다. ${ctx.areaType} 성격의 ${fullAddr} 일대는 젊은 고객층이 많아, 간편결제 비중이 높은 업종에서 토스 단말기의 효과가 특히 큽니다.</p>
+<p><strong>토스 단말기의 차별점</strong></p>
+<p><strong>① 간편결제 통합.</strong> 토스페이·카카오페이·네이버페이·페이코 등 주요 간편결제를 모두 한 대로 처리하며, 결제 화면도 직관적이라 고객이 빠르게 결제할 수 있습니다.</p>
+<p><strong>② 가맹점 정산 빠름.</strong> 일반 카드 매출은 영업일 기준 2~3일 후 입금되지만, 토스 결제는 익일 정산이 기본이며 일부는 당일 정산도 가능합니다. ${dongName} 1인 자영업자에게는 자금 회전이 큰 도움이 됩니다.</p>
+<p><strong>③ 수수료 투명.</strong> 토스페이먼츠는 카드사별 수수료를 명확히 공개하며, 일반 VAN사 대비 평균 0.1~0.3%p 낮은 경우가 많습니다. ${ctx.topBiz[0]} 처럼 매출 규모가 큰 업종은 연간 수십만 원의 수수료 절감 효과가 있습니다.</p>
+<p><strong>④ 매출 알림 즉시.</strong> 결제될 때마다 토스 사장님 앱으로 푸시 알림이 오며, 매출 현황을 실시간으로 확인할 수 있습니다. ${dongName} 처럼 직원이 결제 받는 매장에서는 사장님이 매장 밖에서도 매출을 모니터링할 수 있습니다.</p>
+<p><strong>⑤ 단말기 디자인.</strong> 깔끔한 흰색 미니멀 디자인으로 인테리어와 잘 어울리며, ${ctx.topBiz[1]} 같은 디자인 중요 업종에서 호평을 받습니다.</p>
+<h3>${fullAddr} 토스 단말기 도입 절차</h3>
+<p>토스페이먼츠 가맹 심사 → 단말기 발송 → ${dongName} 현지 설치 → 토스 사장님 앱 설치 → 사용법 교육 순으로 진행됩니다. 마스터페이는 ${fullAddr} 매장의 가맹 신청을 대행하며, 사업자등록증·통장사본·신분증만 준비하시면 나머지는 모두 처리해드립니다. ${guName} 전담 기사가 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치를 완료합니다.</p>
+<h3>${dongName} 매장에 추천하는 토스 단말기 활용법</h3>
+<p>토스 단말기를 ${dongName} 매장에 설치하면, 토스 앱 사용자에게 자동 노출되는 장점도 있습니다. 토스 앱의 '내 주변 가맹점' 기능에 ${fullAddr} 매장이 노출되어 자연 유입이 늘어날 수 있습니다. 또한 토스 결제 고객 대상 자체 적립금·쿠폰 발행도 가능해, ${ctx.topBiz[0]} 업종이라면 단골 마케팅 도구로도 활용할 수 있습니다.</p>
+</div>
+`,
+
+    'card-wireless': `
+<div class="region-box">
+<h2 class="region-box-title">📡 ${fullAddr} 무선 카드단말기 상세 가이드</h2>
+<h3>${dongName} 매장에 무선 단말기가 필요한 경우</h3>
+<p>무선 카드단말기는 LTE 또는 Wi-Fi로 인터넷에 연결되어, 매장 내 어디서든 결제가 가능한 휴대형 결제기입니다. ${ctx.areaType} 특성의 ${fullAddr} 일대에서는 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 처럼 테이블 결제·출장 결제·이동식 매장이 많아 무선 단말기 수요가 높습니다.</p>
+<p><strong>무선 단말기 vs 유선 단말기</strong></p>
+<p>유선 단말기는 카운터에 고정되어 있어 고객이 카운터까지 와서 결제해야 합니다. 반면 무선 단말기는 사장님이 단말기를 들고 고객에게 가서 결제할 수 있어, 매장 동선이 길거나 테이블이 많은 업종에서 회전율을 크게 높여줍니다.</p>
+<p><strong>무선 단말기 활용 사례</strong></p>
+<p><strong>① 음식점·식당:</strong> 테이블 결제로 고객 만족도 향상. ${ctx.topBiz[0]} 업종 ${dongName} 매장의 평균 회전율이 15~20% 증가합니다.</p>
+<p><strong>② 푸드트럭·이동매장:</strong> 어디서든 즉시 결제 가능. ${guName} 일대 행사·축제에서 매출 누락 없이 결제 처리.</p>
+<p><strong>③ 출장 서비스:</strong> 청소·이사·인테리어·정비 업종이 현장에서 바로 결제. ${dongName} 매장이 출장 서비스를 제공한다면 필수 장비.</p>
+<p><strong>④ 야외 매장:</strong> 카페 야외 테라스·가든 레스토랑에서 자유롭게 이동하며 결제.</p>
+<p><strong>⑤ 줄 서는 매장:</strong> ${ctx.topBiz[1]} 같은 인기 매장에서 대기줄 결제 선처리로 회전율 향상.</p>
+<h3>${fullAddr} 무선 단말기 추천 사양</h3>
+<p>일반 매장은 LTE 무선 모델 (월 통신비 5,000~9,000원)을 추천드리며, Wi-Fi가 안정적인 매장은 Wi-Fi 모델로도 충분합니다. 배터리는 한 번 충전으로 8~12시간 사용 가능하며, ${dongName} 매장에서 영업 시간 내내 결제가 가능합니다. 영수증 출력은 내장 프린터로 즉시 가능하며, 일부 모델은 무선으로 별도 프린터와 연결됩니다.</p>
+<h3>${dongName} 무선 단말기 도입 시 주의사항</h3>
+<p>무선 단말기는 통신 환경이 중요합니다. ${fullAddr} 매장의 위치에 따라 LTE 신호가 약할 수 있으므로, 마스터페이는 설치 전 ${dongName} 매장 위치의 통신 환경을 미리 확인합니다. 신호가 약한 지역은 Wi-Fi 모델을 추천하거나, 신호 증폭 옵션을 안내합니다. ${guName} 전담 기사가 직접 매장에 방문해 통신 테스트를 진행하고, 가장 안정적인 옵션을 결정해드립니다.</p>
+</div>
+`,
+
+    'card-bluetooth': `
+<div class="region-box">
+<h2 class="region-box-title">📶 ${fullAddr} 블루투스 카드단말기 상세 가이드</h2>
+<h3>블루투스 단말기가 ${dongName} 매장에 적합한 이유</h3>
+<p>블루투스 카드단말기는 스마트폰 또는 태블릿과 무선으로 연결되어 결제하는 초소형 결제기입니다. 본체 크기가 일반 단말기의 1/4 수준이며 무게도 100g 내외로 가벼워, ${ctx.areaType} 성격의 ${fullAddr} 일대 1인 매장이나 출장형 사장님께 가장 인기가 높습니다.</p>
+<p><strong>블루투스 단말기의 차별점</strong></p>
+<p><strong>① 초소형 휴대성.</strong> 손바닥 안에 들어오는 크기로, 사장님이 항상 휴대할 수 있습니다. ${dongName} 일대 1인 사업자에게는 가장 편리한 결제 도구입니다.</p>
+<p><strong>② 저렴한 단말기 비용.</strong> 일반 단말기 대비 약 절반 수준의 단말기 비용으로, ${guName} 지역 사장님들도 부담 없이 도입 가능합니다.</p>
+<p><strong>③ 통신비 절감.</strong> 별도 LTE 통신비가 없으며, 사장님 스마트폰 데이터를 활용해 결제됩니다. 월 5,000~10,000원의 통신비를 절약할 수 있습니다.</p>
+<p><strong>④ 다중 단말기 운영.</strong> 한 매장에서 여러 명의 직원이 각자 블루투스 단말기를 들고 결제하면 줄서는 시간을 분산할 수 있습니다. ${ctx.topBiz[0]} 같은 회전율 중요 업종에 효과적입니다.</p>
+<p><strong>⑤ 영수증 선택 발급.</strong> 종이 영수증이 필요 없는 고객에게는 모바일 영수증(SMS/카카오톡)을 발송할 수 있어, 영수증 용지 비용도 크게 절감됩니다.</p>
+<h3>${fullAddr} 블루투스 단말기 사용 환경</h3>
+<p>안드로이드폰·아이폰 모두 호환되며, 전용 앱(MPI 등)을 설치하면 결제 화면이 스마트폰에 표시됩니다. 결제 정보·영수증·매출 통계를 모두 스마트폰에서 확인할 수 있어, ${dongName} 사장님이 매장 밖에서도 실시간으로 매출을 모니터링할 수 있습니다.</p>
+<p>블루투스 연결 안정성은 최대 10m이며, ${guName} 일대 일반적인 매장 크기에서는 충분합니다. 다만 콘크리트 벽이나 금속 가구가 많은 환경에서는 연결이 끊길 수 있으므로, ${fullAddr} 매장 환경에 따라 적합 여부를 마스터페이가 사전 확인해드립니다.</p>
+<h3>${dongName} 블루투스 단말기 도입 절차</h3>
+<p>가맹 신청 → 단말기 발송 → 스마트폰 앱 설치 → 페어링(약 5분) → 첫 결제 테스트 → 운영 시작. ${ctx.installTime}~${ctx.installTime+2}일 이내에 모든 절차가 완료되며, ${guName} 전담 매니저가 첫 사용을 도와드립니다. ${ctx.topBiz[1]} 업종이라면 특히 추천드리는 모델입니다.</p>
+</div>
+`,
+
+    'kiosk': `
+<div class="region-box">
+<h2 class="region-box-title">🤖 ${fullAddr} 키오스크 상세 가이드</h2>
+<h3>${dongName}에서 키오스크가 매장 운영을 바꾸는 방식</h3>
+<p>키오스크는 고객이 직접 메뉴를 주문하고 결제까지 마치는 무인 주문기로, 인건비 절감과 주문 정확도 향상이라는 두 가지 효과를 동시에 가져옵니다. ${ctx.areaType} 특성의 ${fullAddr} 일대 ${ctx.topBiz[0]} 업종은 점심·저녁 피크타임 인력 부담이 크기 때문에, 키오스크 도입 효과가 즉각적으로 나타납니다.</p>
+<p><strong>키오스크 도입의 5대 효과</strong></p>
+<p><strong>① 인건비 절감.</strong> 주문 받는 인력 1명을 줄일 수 있으며, ${dongName} 일대 시급 기준 월 100~150만 원 이상 절감됩니다. 6개월~1년 안에 키오스크 비용을 회수할 수 있습니다.</p>
+<p><strong>② 주문 오류 감소.</strong> 고객이 직접 메뉴를 선택하므로 주문 오류가 거의 발생하지 않습니다. ${ctx.topBiz[1]} 업종에서는 주문 분쟁이 90% 이상 감소합니다.</p>
+<p><strong>③ 평균 객단가 상승.</strong> 키오스크의 추천·세트 메뉴 표시 기능으로 추가 메뉴 주문이 늘어나, ${dongName} 매장 평균 객단가가 10~15% 상승하는 사례가 많습니다.</p>
+<p><strong>④ 24시간 주문 가능.</strong> 야간 무인 운영도 가능해, ${guName} 일대 24시간 매장(편의점, 무인카페)에서 야간 인력 없이 운영할 수 있습니다.</p>
+<p><strong>⑤ 데이터 분석.</strong> 어떤 메뉴가 잘 팔리는지·언제 가장 많이 팔리는지 등 데이터가 자동 누적되어, ${dongName} 매장의 메뉴 개발과 마케팅에 활용할 수 있습니다.</p>
+<h3>${fullAddr} 키오스크 추천 사양</h3>
+<p>일반 매장은 21.5~32인치 스탠드형 키오스크가 가장 인기입니다. 메뉴 사진을 크게 보여줄 수 있고, 고객 인지도도 높아집니다. 카드결제·삼성페이·간편결제 모두 지원하며, 영수증 프린터·출력기가 내장되어 있습니다. ${ctx.topBiz[0]} 업종은 음성 안내 기능을 추가하면 시각약자 고객도 편리하게 사용할 수 있습니다.</p>
+<p>설치 공간이 협소한 ${dongName} 매장은 카운터 거치형(15~17인치) 모델로도 충분합니다. 비용은 절반 이하지만 효과는 동일합니다. 마스터페이는 ${fullAddr} 매장의 평수와 동선을 보고 가장 효율적인 모델을 추천드립니다.</p>
+<h3>${dongName} 키오스크 도입 절차 및 효과 측정</h3>
+<p>상담 → 매장 실측 → 모델 선정 → 메뉴 입력(약 50~100개) → 설치(${ctx.installTime}~${ctx.installTime+2}일) → 직원 교육 → 운영 시작. 키오스크는 단순 설치가 아니라 매장 메뉴를 사진과 함께 등록하는 작업이 가장 중요한데, 마스터페이는 ${dongName} 매장의 메뉴를 직접 촬영해 등록까지 무료로 처리해드립니다. 도입 후 1개월 내에 매출 변화·인건비 절감 효과를 확인할 수 있습니다.</p>
+</div>
+`,
+
+    'kiosk-mini': `
+<div class="region-box">
+<h2 class="region-box-title">📱 ${fullAddr} 미니 키오스크 상세 가이드</h2>
+<h3>${dongName} 소형 매장에 미니 키오스크가 적합한 이유</h3>
+<p>미니 키오스크는 일반 스탠드형 키오스크의 1/3 크기인 카운터 거치형 모델로, 좁은 매장 공간에 부담 없이 설치할 수 있는 무인 주문 시스템입니다. ${ctx.areaType} 특성의 ${fullAddr} 일대 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 같이 평수가 작은 매장에서 특히 인기가 높습니다.</p>
+<p><strong>미니 키오스크의 강점</strong></p>
+<p><strong>① 공간 효율.</strong> 13~17인치 컴팩트 사이즈로 카운터 위에 올려놓을 수 있어, ${dongName} 일대 5평 미만 매장에도 설치 가능합니다. 별도 바닥 공간이 필요 없습니다.</p>
+<p><strong>② 저렴한 비용.</strong> 일반 키오스크 대비 단말기 비용이 절반 이하이며, 마스터페이를 통해 신청하면 ${guName} 지역도 추가 할인 혜택이 있습니다. 자영업자에게 부담 없는 가격대입니다.</p>
+<p><strong>③ 빠른 설치.</strong> 전기 콘센트와 인터넷만 있으면 ${ctx.installTime}~${ctx.installTime+2}일 이내 설치 완료. 매장 인테리어 변경이 필요 없습니다.</p>
+<p><strong>④ 동일한 기능.</strong> 크기는 작아도 메뉴 등록·주문·결제·영수증 발급까지 모든 기능이 동일합니다. ${ctx.topBiz[0]} 업종에서 충분히 활용할 수 있습니다.</p>
+<p><strong>⑤ 모바일 디자인.</strong> 깔끔한 디자인으로 인테리어와 잘 어울려, ${dongName} 일대 트렌디한 매장에서 선호됩니다.</p>
+<h3>${fullAddr}에서 미니 키오스크가 잘 맞는 매장</h3>
+<p>1인 운영 카페, 무인 아이스크림 매장, 작은 분식점, 떡볶이·핫도그·치킨 테이크아웃 매장 등 ${dongName} 일대에서 흔히 볼 수 있는 소형 매장에 적합합니다. 또한 ${ctx.topBiz[1]} 업종 중 카운터 결제가 많은 매장도 미니 키오스크를 도입하면 결제 대기 시간이 크게 줄어듭니다.</p>
+<p>미니 키오스크는 셀프 주문뿐 아니라 메뉴 추천·세트 메뉴 안내·이벤트 알림까지 화면에 표시할 수 있어, ${dongName} 매장의 마케팅 도구로도 활용 가능합니다. 단골 고객에게 적립금·쿠폰을 자동 안내하면 재방문율이 높아집니다.</p>
+<h3>${dongName} 미니 키오스크 도입 효과</h3>
+<p>${guName} 일대 미니 키오스크 도입 매장 사례에서, 평균 주문 시간이 50% 단축되고 객단가는 10~12% 상승했습니다. 또한 직원 1명이 주문 받지 않고 조리·서빙에 집중할 수 있어, 같은 인력으로 더 많은 고객을 응대할 수 있습니다. 마스터페이는 ${fullAddr} 매장에 미니 키오스크를 설치한 후, 메뉴 등록·디자인·운영 가이드까지 모두 무료로 지원합니다.</p>
+</div>
+`,
+
+    'tableorder': `
+<div class="region-box">
+<h2 class="region-box-title">📋 ${fullAddr} 테이블오더 상세 가이드</h2>
+<h3>${dongName} 식당·주점에 테이블오더가 가져오는 변화</h3>
+<p>테이블오더는 각 테이블에 설치된 태블릿 또는 QR코드로 고객이 직접 주문하는 시스템으로, 주문 인력 부담을 없애고 회전율을 극대화하는 차세대 주문 방식입니다. ${ctx.areaType} 특성의 ${fullAddr} 일대 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종에서는 테이블오더 도입이 매장 경쟁력의 척도가 되고 있습니다.</p>
+<p><strong>테이블오더 도입의 7가지 혜택</strong></p>
+<p><strong>① 주문 인력 절감.</strong> 홀 직원 1~2명을 줄일 수 있으며, ${dongName} 일대 ${ctx.topBiz[0]} 매장 기준 월 200~300만 원 절감됩니다.</p>
+<p><strong>② 주문 누락 제로.</strong> 고객이 직접 입력한 주문이 즉시 주방으로 전송되어 주문 오류·누락이 사라집니다. ${guName} 일대 매장의 주문 분쟁이 95% 이상 감소했습니다.</p>
+<p><strong>③ 회전율 30% 상승.</strong> 주문·결제 시간이 단축되어 ${dongName} 피크타임 회전율이 평균 30% 증가합니다. ${ctx.topBiz[1]} 업종에서는 매출이 직접적으로 늘어납니다.</p>
+<p><strong>④ 메뉴 추천 자동화.</strong> 고객이 메뉴를 선택할 때 사이드 메뉴·세트·주류를 자동 추천하여 객단가가 15~20% 상승합니다.</p>
+<p><strong>⑤ 다국어 지원.</strong> 한국어·영어·중국어·일본어 메뉴를 자동 표시해, ${fullAddr} 외국인 관광객·유학생 비중이 높은 매장에 효과적입니다.</p>
+<p><strong>⑥ 메뉴 사진 강화.</strong> 모든 메뉴를 고화질 사진과 함께 표시해, 고객이 메뉴를 망설이지 않고 빠르게 선택합니다.</p>
+<p><strong>⑦ 데이터 분석.</strong> 시간대별·요일별·테이블별 매출 데이터가 자동 집계되어 매장 운영 전략 수립에 활용됩니다.</p>
+<h3>${fullAddr}에서 테이블오더가 잘 맞는 매장</h3>
+<p>${ctx.topBiz[0]} (4~10인 테이블이 많은 식당·고깃집·중식·일식), ${ctx.topBiz[1]} (주점·호프집·이자카야), 카페·디저트 전문점, 패밀리 레스토랑 등이 테이블오더 도입 시 가장 큰 효과를 봅니다. ${dongName} 일대 매장 중 객단가가 1만 원 이상이면서 테이블이 5개 이상인 매장은 테이블오더 도입을 강력 추천합니다.</p>
+<h3>${dongName} 테이블오더 도입 절차</h3>
+<p>마스터페이가 ${fullAddr} 매장을 직접 방문해 테이블 수·메뉴 수·고객층을 분석한 후 적합한 테이블오더 시스템(태블릿형 또는 QR형)을 추천드립니다. 메뉴 사진 촬영·등록·다국어 번역까지 모두 무료로 지원하며, ${ctx.installTime}~${ctx.installTime+2}일 이내 설치가 완료됩니다. 직원 교육은 30분이면 충분하며, ${guName} 전담 매니저가 도입 후 1개월 동안 지속 관리해드립니다.</p>
+</div>
+`,
+
+    'removal': `
+<div class="region-box">
+<h2 class="region-box-title">🔨 ${fullAddr} 매장 철거 상세 가이드</h2>
+<h3>${dongName} 매장 철거가 필요한 경우</h3>
+<p>매장 철거는 임대차 종료 시 원상복구 의무를 이행하기 위해 또는 새로운 매장으로 변경하기 위해 진행되는 작업으로, ${ctx.areaType} 특성의 ${fullAddr} 일대처럼 임대료가 높은 지역에서는 빠른 철거가 곧 비용 절감입니다. 임대차 종료 후 1일이라도 철거가 늦어지면 일할 임대료가 추가 발생합니다.</p>
+<p><strong>철거 작업 범위</strong></p>
+<p><strong>① 인테리어 철거.</strong> 천장·벽·바닥·조명·주방 시설·간판·유리·집기까지 모두 철거합니다. ${dongName} 매장 평수와 인테리어 종류에 따라 작업량이 달라집니다.</p>
+<p><strong>② 폐기물 처리.</strong> 철거 후 발생하는 산업폐기물·일반폐기물을 분리해 합법적으로 처리합니다. ${guName} 지자체 규정에 맞춰 처리되어 추후 과태료 위험이 없습니다.</p>
+<p><strong>③ 원상복구.</strong> 임대차 계약서 기준 원상태로 복구합니다. 벽지·바닥재·천장 등 입주 전 상태로 되돌리는 작업이 포함됩니다.</p>
+<p><strong>④ 청소 및 인계.</strong> 철거 완료 후 깨끗이 청소하여 임대인에게 인계할 수 있는 상태로 만듭니다.</p>
+<h3>${fullAddr} 매장 철거 시 주의사항</h3>
+<p>철거 전 반드시 임대차 계약서를 확인하고, 임대인이 요구하는 원상복구 수준을 명확히 협의해야 합니다. ${dongName} 일대 임대인마다 요구 수준이 달라, 마스터페이가 ${guName} 지역 사례를 바탕으로 협상도 함께 도와드립니다. 또한 폐기물 처리는 반드시 면허 보유 업체에 맡겨야 하며, 무자격 업체에 맡기면 사장님이 폐기물 처리 책임을 지게 됩니다.</p>
+<p><strong>비용 산정 기준</strong></p>
+<p>${fullAddr} 매장 철거 비용은 평당 평균 5~15만 원 수준이며, 인테리어 종류·집기 양·폐기물 양에 따라 달라집니다. 마스터페이는 ${dongName} 매장을 직접 방문해 무료 견적을 제공하며, 일반 시세 대비 10~20% 저렴한 가격으로 진행됩니다.</p>
+<h3>${dongName} 매장 철거 절차</h3>
+<p>전화 상담 → 현장 방문 견적 → 견적 확정 → 철거 일정 협의 → 철거 작업(반나절~3일) → 폐기물 처리 → 청소 및 인계. ${guName} 일대 매장은 평균 1~2일이면 철거가 완료되며, ${ctx.installTime}일 이내 일정 협의도 가능합니다. ${dongName} 사장님은 철거 당일 마지막 점검만 함께 해주시면 됩니다.</p>
+<p>마스터페이의 매장 철거 서비스는 임대인 인계까지 책임지며, 사장님께서 다른 일정을 잡으셔도 문제없이 진행됩니다. ${fullAddr} 일대에서 가장 빠르고 깔끔한 철거를 원하신다면 언제든 상담 문의 주십시오.</p>
+</div>
+`,
+  };
+  
+  return contents[productSlug] || '';
+}
+
 
 // ============================================================
 // 동×제품 페이지 (예: /region/seoul/강남구/역삼동/card-3inch)
@@ -14953,7 +15158,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
   }
   
   return getCommonHead(
-    `${dongName} ${product.keyword} 설치 | ${product.name}`,
+    `${sido.name} ${guName} ${dongName} ${product.keyword} 설치 | ${product.name}`,
     `${fullAddr} ${product.name} 설치 전문. ${ctx.opening}. 무료 상담·빠른 설치·A/S 보장.`
   ) + `<body>${getHeader()}
 
@@ -14971,7 +15176,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-hero-badge">${product.emoji} ${fullAddr} · ${product.keyword}</div>
-<h1 class="region-hero-title">${dongName} ${product.name}</h1>
+<h1 class="region-hero-title">${sido.name} ${guName} ${dongName} ${product.name}</h1>
 <p class="region-hero-sub">${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.</p>
 <div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
@@ -14984,7 +15189,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <div class="container">
 
 <div class="region-box">
-<h2 class="region-box-title">💡 ${dongName}에서 ${product.name}이 필요한 이유</h2>
+<h2 class="region-box-title">💡 ${sido.name} ${guName} ${dongName}에서 ${product.name}이 필요한 이유</h2>
 <p>${fullAddr}의 ${ctx.areaType} 지역에서 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 사장님들이 마스터페이 ${product.name}을(를) 통해 ${ctx.keyBenefit}을 실현하고 있습니다. ${dongName} 맞춤 솔루션으로 매장 운영의 새로운 기준을 만들어드립니다.</p>
 </div>
 
@@ -15000,7 +15205,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">💬 ${dongName} 사장님 후기</h2>
+<h2 class="region-box-title">💬 ${sido.name} ${guName} ${dongName} 사장님 후기</h2>
 <div class="region-reviews-grid">
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review.text}"</p><div class="region-review-author">— ${dongName} ${ctx.review.biz} ${ctx.review.name}</div></div>
 <div class="region-review"><div class="region-review-stars">★★★★★</div><p>"${ctx.review2.text}"</p><div class="region-review-author">— ${dongName} ${ctx.review2.biz} ${ctx.review2.name}</div></div>
@@ -15017,12 +15222,14 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🛒 ${dongName} 다른 제품도 확인하세요</h2>
+<h2 class="region-box-title">🛒 ${sido.name} ${guName} ${dongName} 다른 제품도 확인하세요</h2>
 <div class="region-products-simple">${otherProductsHtml}</div>
 </div>
 
+${getProductDetailContent(productSlug, sido.name, guName, dongName, ctx)}
+
 <div class="region-cta-box">
-<h3>${product.emoji} ${dongName} ${product.name} 무료 견적</h3>
+<h3>${product.emoji} ${sido.name} ${guName} ${dongName} ${product.name} 무료 견적</h3>
 <p>${ctx.closing}. 지금 바로 전화 한 통이면 충분합니다.</p>
 <div class="region-cta-buttons">
 <a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
