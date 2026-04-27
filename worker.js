@@ -12282,13 +12282,13 @@ footer {
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">빠른 설치</h3>
-                    <p class="feature-desc">상담 후 빠른 일정으로 설치가 완료됩니다.</p>
+                    <h3 class="feature-title">빠른 견적 확인 가능</h3>
+                    <p class="feature-desc">매장 방문 또는 사진 견적으로 빠르게 비용을 확인할 수 있습니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">시세 대비 합리적인 가격으로 진행되며, 추가 비용 없는 투명한 견적을 제공합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -12381,6 +12381,218 @@ footer {
                     <div class="related-name">카드 단말기</div>
                     <div class="related-desc">새 장비 설치</div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 철거 진행 절차 7단계 -->
+    <section class="removal-process" style="padding: 100px 0; background: var(--cream);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <span class="section-num" style="display: inline-block; padding: 6px 16px; background: var(--ink); color: var(--cream); border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 16px;">02 / Process</span>
+                <h2 class="section-title" style="font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; margin: 0;">
+                    체계적인 7단계 철거 진행 절차
+                </h2>
+                <p style="font-size: 15px; color: var(--ink-soft); margin: 16px 0 0; line-height: 1.7;">
+                    마스터페이의 철거는 즉흥적으로 진행되지 않습니다.<br>
+                    안전하고 합법적인 작업을 위해 체계화된 7단계 프로세스를 따릅니다.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto;">
+                
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: all 0.3s;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 40px; height: 40px; background: var(--ink); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px;">1</div>
+                        <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: var(--ink);">전국 지점 무료 상담</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.8;">
+                        <li>✓ 고객의 상황에 맞는 무료 상담</li>
+                        <li>✓ 희망리턴패키지 안내</li>
+                        <li>✓ 전화·카톡 즉시 응대</li>
+                    </ul>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 40px; height: 40px; background: var(--ink); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px;">2</div>
+                        <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: var(--ink);">현장 답사</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.8;">
+                        <li>✓ 현장 주변 구조·높이·지하층 파악</li>
+                        <li>✓ 전기·수도·가스 위치 확인</li>
+                        <li>✓ 작업 시간·교통 흐름 체크</li>
+                    </ul>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 40px; height: 40px; background: var(--ink); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px;">3</div>
+                        <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: var(--ink);">신고 및 협의</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.8;">
+                        <li>✓ 관할 구청에 단전·단수 신고</li>
+                        <li>✓ 분진 방지 살수용으로 1선 유지</li>
+                        <li>✓ 멸실 신고 및 폐기물 발생 신고</li>
+                        <li>✓ 인근 주민들과 협의</li>
+                    </ul>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 40px; height: 40px; background: var(--ink); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px;">4</div>
+                        <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: var(--ink);">가설 작업</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.8;">
+                        <li>✓ 건물 주변 분진 방지막 설치</li>
+                        <li>✓ 낙석 방지 방음판 설치</li>
+                        <li>✓ 안전 펜스 및 표지판 부착</li>
+                    </ul>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 40px; height: 40px; background: var(--ink); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px;">5</div>
+                        <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: var(--ink);">계획 수립</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.8;">
+                        <li>✓ 해체물 종류·규모에 맞는 공법 선정</li>
+                        <li>✓ 공정표 작성</li>
+                        <li>✓ 소음·분진·진동 대책 수립</li>
+                        <li>✓ 안전 관리 계획 수립</li>
+                    </ul>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 40px; height: 40px; background: var(--ink); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px;">6</div>
+                        <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: var(--ink);">해체 작업</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.8;">
+                        <li>✓ 내부·외부 철거 동시 진행</li>
+                        <li>✓ 전기·용접·가스·목공 부분 철거</li>
+                        <li>✓ 폐기물 분리 작업·운반</li>
+                        <li>✓ RC조 구조물 그라샤 철거</li>
+                        <li>✓ 양수발전기 가동·살수 진행</li>
+                    </ul>
+                </div>
+
+                <div style="background: #ffffff; border: 2px solid var(--coral); border-radius: 16px; padding: 28px 24px; grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 40px; height: 40px; background: var(--coral); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px;">7</div>
+                        <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: var(--ink);">공사 완료 및 검토</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.8;">
+                        <li>✓ 철거 폐기물 반출</li>
+                        <li>✓ 혼합 폐기물과 건설 폐기물 분리</li>
+                        <li>✓ 건축물대장 말소 신고 (필요 시)</li>
+                        <li>✓ 최종 점검 및 인계</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 마스터페이 강점 3가지 -->
+    <section class="removal-why" style="padding: 100px 0; background: var(--cream-dark);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <span class="section-num" style="display: inline-block; padding: 6px 16px; background: var(--ink); color: var(--cream); border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 16px;">03 / Why Mastarpay</span>
+                <h2 class="section-title" style="font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; margin: 0;">
+                    왜 마스터페이여야 할까요?
+                </h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+                
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 20px; padding: 36px 28px; text-align: center;">
+                    <div style="font-size: 56px; margin-bottom: 16px;">📋</div>
+                    <h3 style="margin: 0 0 12px; font-size: 19px; font-weight: 800; color: var(--ink);">100% 무료<br>방문 견적 서비스</h3>
+                    <p style="font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin: 0;">전국 어디든 직접 방문하여 무료로 상세 견적을 제공합니다. 견적은 정확하고 추가 비용 없이 투명하게 진행됩니다.</p>
+                </div>
+
+                <div style="background: #ffffff; border: 2px solid var(--coral); border-radius: 20px; padding: 36px 28px; text-align: center; position: relative;">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--coral); color: #ffffff; padding: 4px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 1px;">BEST</div>
+                    <div style="font-size: 56px; margin-bottom: 16px;">💰</div>
+                    <h3 style="margin: 0 0 12px; font-size: 19px; font-weight: 800; color: var(--ink);">전국 최저가<br>가격 보증</h3>
+                    <p style="font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin: 0;">마스터페이 원상복구는 전국 최저가를 보증합니다. 다른 곳에서 더 저렴한 견적을 받으셨다면 알려주세요.</p>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 20px; padding: 36px 28px; text-align: center;">
+                    <div style="font-size: 56px; margin-bottom: 16px;">🛡️</div>
+                    <h3 style="margin: 0 0 12px; font-size: 19px; font-weight: 800; color: var(--ink);">모든 현장 AS<br>1년 책임 보증</h3>
+                    <p style="font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin: 0;">철거 후에도 발생할 수 있는 모든 문제를 1년간 책임집니다. 임대인 인계 후 발생하는 이슈도 함께 해결합니다.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 폐업 원상복구 + 정부지원금 -->
+    <section class="removal-support" style="padding: 100px 0; background: var(--cream);">
+        <div class="container" style="max-width: 900px;">
+            <div style="background: linear-gradient(135deg, #2d4a3e, #1a1a1a); color: #ffffff; border-radius: 24px; padding: 48px 40px; text-align: center;">
+                <div style="display: inline-block; padding: 6px 16px; background: var(--coral); color: #ffffff; border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px;">정부 지원금 활용 가능</div>
+                <h2 style="font-size: clamp(26px, 3.5vw, 36px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 16px;">
+                    폐업 원상복구 패키지
+                </h2>
+                <p style="font-size: 16px; line-height: 1.8; opacity: 0.9; margin: 0 0 32px;">
+                    대한민국 NO.1 소상공인 폐업 지원 패키지!<br>
+                    마스터페이 폐업원상복구는 소상공인 분들의 철거 공사를<br>
+                    정부지원금 중 하나인 <strong style="color: var(--coral);">"폐업점포철거지원금"</strong>으로<br>
+                    철거 및 원상복구 공사를 진행할 수 있도록 도와드립니다.
+                </p>
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                    <a href="tel:010-2337-0458" style="display: inline-block; padding: 14px 28px; background: var(--cream); color: var(--ink); border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 15px;">📞 010-2337-0458</a>
+                    <a href="#contact" style="display: inline-block; padding: 14px 28px; background: transparent; color: var(--cream); border: 1px solid rgba(255,255,255,0.3); border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 15px;">💬 무료 상담</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 고객 만족도 100% -->
+    <section class="removal-satisfaction" style="padding: 100px 0; background: var(--cream-dark);">
+        <div class="container" style="max-width: 1000px;">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <span class="section-num" style="display: inline-block; padding: 6px 16px; background: var(--ink); color: var(--cream); border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 16px;">04 / Satisfaction</span>
+                <h2 class="section-title" style="font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; margin: 0;">
+                    고객 만족도 100%의 이유
+                </h2>
+                <p style="font-size: 15px; color: var(--ink-soft); margin: 16px 0 0;">전국 그 어느 업체보다 정확하고 깔끔하게 처리합니다</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">⭐</div>
+                    <div style="font-weight: 800; font-size: 16px; color: var(--ink); margin-bottom: 6px;">처음처럼 원상복구</div>
+                    <div style="font-size: 12px; color: var(--ink-soft); line-height: 1.6;">입주 전 상태로 깔끔하게</div>
+                </div>
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">⚡</div>
+                    <div style="font-weight: 800; font-size: 16px; color: var(--ink); margin-bottom: 6px;">빠른 견적</div>
+                    <div style="font-size: 12px; color: var(--ink-soft); line-height: 1.6;">사진 견적 즉시 가능</div>
+                </div>
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">💼</div>
+                    <div style="font-weight: 800; font-size: 16px; color: var(--ink); margin-bottom: 6px;">집기 매입</div>
+                    <div style="font-size: 12px; color: var(--ink-soft); line-height: 1.6;">최고가 매입 시스템</div>
+                </div>
+                <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">📞</div>
+                    <div style="font-weight: 800; font-size: 16px; color: var(--ink); margin-bottom: 6px;">즉시 매입</div>
+                    <div style="font-size: 12px; color: var(--ink-soft); line-height: 1.6;">현장에서 바로 결정</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding: 32px; background: #ffffff; border-radius: 20px; border: 1px solid var(--border);">
+                <p style="font-size: 16px; color: var(--ink); line-height: 1.8; margin: 0 0 12px; font-weight: 600;">
+                    처치곤란 집기 때문에 고민이신가요?
+                </p>
+                <p style="font-size: 15px; color: var(--ink-soft); line-height: 1.8; margin: 0;">
+                    최고가 매입 시스템을 통해<br>
+                    <strong style="color: var(--coral); font-size: 18px;">빠른 견적 ! 즉시 매입 ! 가격 2배 !</strong>
+                </p>
             </div>
         </div>
     </section>
@@ -14447,7 +14659,7 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-hero-badge">${product.emoji} ${sido.name} · ${product.keyword}</div>
-<h1 class="region-hero-title">${sido.name} ${product.name}</h1>
+<h1 class="region-hero-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <p class="region-hero-sub">${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 무료 설치와 빠른 A/S를 지원합니다.</p>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
@@ -14722,7 +14934,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-hero-badge">${product.emoji} ${guName} · ${product.keyword}</div>
-<h1 class="region-hero-title">${sido.name} ${guName} ${product.name}</h1>
+<h1 class="region-hero-title">${sido.name} ${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <p class="region-hero-sub">${sido.name} ${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.</p>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">전문</div></div>
@@ -15176,7 +15388,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-hero-badge">${product.emoji} ${fullAddr} · ${product.keyword}</div>
-<h1 class="region-hero-title">${sido.name} ${guName} ${dongName} ${product.name}</h1>
+<h1 class="region-hero-title">${sido.name} ${guName} ${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <p class="region-hero-sub">${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.</p>
 <div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
@@ -15197,8 +15409,10 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <h2 class="region-box-title">✨ ${product.name} 주요 특징</h2>
 <ul>
 <li><strong>${dongName} 현지 설치</strong> ${dongName} 담당 기사 방문 설치</li>
-<li><strong>빠른 설치</strong> ${ctx.installTime}~${ctx.installTime+2}일 내 완료</li>
-<li><strong>무료 설치</strong> 설치비 전액 무료</li>
+${productSlug === 'removal' 
+  ? `<li><strong>빠른 견적 확인 가능</strong> 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 내 견적 확인 가능</li>`
+  : `<li><strong>빠른 설치</strong> ${ctx.installTime}~${ctx.installTime+2}일 내 완료</li>
+<li><strong>무료 설치</strong> 설치비 전액 무료</li>`}
 <li><strong>업종 맞춤</strong> ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종 최적화</li>
 <li><strong>지속 A/S</strong> ${guName} 전역 긴급 출동</li>
 </ul>
