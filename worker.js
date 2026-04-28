@@ -630,33 +630,34 @@ body {
 
 .region-thumbnail {
     margin-bottom: 32px;
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
     position: relative;
     aspect-ratio: 16 / 9;
-    max-height: 360px;
+    max-height: 420px;
     background: linear-gradient(135deg, #1a1a1a, #2d4a3e);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18);
 }
 .region-thumbnail-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    filter: brightness(0.55) saturate(0.85);
 }
 .region-thumbnail-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.65) 100%);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 32px;
+    justify-content: center;
+    padding: 56px 48px;
 }
 .region-thumbnail-badge {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 24px;
+    right: 24px;
     background: rgba(255,255,255,0.95);
     color: #1a1a1a;
     padding: 8px 16px;
@@ -667,33 +668,52 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-}
-.region-thumbnail-title {
-    color: #ffffff;
-    font-size: clamp(20px, 4vw, 32px);
-    font-weight: 800;
-    margin: 0 0 12px;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 2;
 }
 .region-thumbnail-meta {
-    color: rgba(255,255,255,0.95);
-    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
 }
 .region-thumbnail-meta span {
     display: inline-flex;
     align-items: center;
     gap: 4px;
 }
+.region-thumbnail-meta .region-thumbnail-dot {
+    opacity: 0.5;
+}
+.region-thumbnail-title {
+    color: #ffffff;
+    font-size: clamp(28px, 5.5vw, 48px);
+    font-weight: 800;
+    margin: 0 0 20px;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    line-height: 1.15;
+}
+.region-thumbnail-services {
+    color: rgba(255,255,255,0.92);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+    max-width: 640px;
+}
 @media (max-width: 768px) {
-    .region-thumbnail { aspect-ratio: 4 / 3; max-height: 280px; margin-bottom: 24px; }
-    .region-thumbnail-overlay { padding: 20px; }
+    .region-thumbnail { aspect-ratio: 4 / 3; max-height: 320px; margin-bottom: 24px; border-radius: 20px; }
+    .region-thumbnail-overlay { padding: 28px 24px; }
     .region-thumbnail-badge { top: 14px; right: 14px; padding: 6px 12px; font-size: 11px; }
+    .region-thumbnail-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 14px; }
+    .region-thumbnail-meta { font-size: 12px; margin-bottom: 12px; gap: 8px; }
+    .region-thumbnail-services { font-size: 13px; }
 }
 
 .region-hero {
@@ -14536,7 +14556,7 @@ function buildGuProductsSimpleGrid(sidoUrl, guName) {
 // 사람 X, 돈/배경/매장 관련 이미지
 // ============================================================
 
-function getThumbnailUrl(productSlug) {
+function getThumbnailUrl(productSlug, regionName) {
   // 제품별 매칭 이미지 (Unsplash)
   const images = {
     // 포스기 - 카운터/계산대 분위기
@@ -14556,10 +14576,36 @@ function getThumbnailUrl(productSlug) {
     'removal': 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=675&fit=crop&q=80',
   };
   
-  // 지역 페이지 (제품 없음) - 돈/매장 관련 일반 이미지
-  const defaultImg = 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&h=675&fit=crop&q=80';
+  if (images[productSlug]) return images[productSlug];
   
-  return images[productSlug] || defaultImg;
+  // 지역 페이지 (제품 없음) - 사람 없는 매장/도시/거리 분위기 이미지 풀
+  // 지역 이름으로 hashString하여 결정론적으로 선택 → 같은 지역은 항상 같은 이미지
+  const regionImages = [
+    // 식당·바·인테리어
+    'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=675&fit=crop&q=80',
+    // 빈 매장·공사 현장
+    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=675&fit=crop&q=80',
+    // 카운터·계산대
+    'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=1200&h=675&fit=crop&q=80',
+    // 카드 결제·POS 시스템
+    'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=1200&h=675&fit=crop&q=80',
+    // 키오스크·무인 매장
+    'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=1200&h=675&fit=crop&q=80',
+  ];
+  
+  if (regionName) {
+    const idx = hashString(regionName) % regionImages.length;
+    return regionImages[idx];
+  }
+  
+  return regionImages[0];
+}
+
+// 한국 시간 기준 "YYYY년 M월 D일" 문자열 반환 (요청 시점 기준)
+function getKstDateString() {
+  const now = new Date();
+  const kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+  return `${kst.getUTCFullYear()}년 ${kst.getUTCMonth() + 1}월 ${kst.getUTCDate()}일`;
 }
 
 function getThumbnailEmoji(productSlug) {
@@ -14638,17 +14684,18 @@ function buildSidoPage(sidoUrl) {
 <span>${sido.name}</span>
 </div>
 <div class="region-thumbnail">
-<img src="${getThumbnailUrl()}" alt="${sido.name} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
+<img src="${getThumbnailUrl(null, sido.name)}" alt="${sido.name} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
 <div class="region-thumbnail-badge">🏪 매장 설비 설치</div>
 <div class="region-thumbnail-overlay">
-<h2 class="region-thumbnail-title">${sido.name} 매장 설비 설치</h2>
 <div class="region-thumbnail-meta">
-<span>📍 ${sido.name}</span>
-<span>·</span>
-<span>${gus.length}개 시군구</span>
-<span>·</span>
+<span>${getKstDateString()} 기준</span>
+<span class="region-thumbnail-dot">·</span>
+<span>${sido.name} ${gus.length}개 시군구</span>
+<span class="region-thumbnail-dot">·</span>
 <span>${totalDongs.toLocaleString()}개 읍면동</span>
 </div>
+<h2 class="region-thumbnail-title">${sido.name} 설치 전문</h2>
+<div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
 <div class="region-hero-badge">📍 ${sido.name} · ${gus.length}개 시군구 · ${totalDongs.toLocaleString()}개 읍면동</div>
@@ -14811,17 +14858,18 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-thumbnail">
-<img src="${getThumbnailUrl(productSlug)}" alt="${sido.name} ${product.name}" class="region-thumbnail-img" loading="lazy">
+<img src="${getThumbnailUrl(productSlug, sido.name)}" alt="${sido.name} ${product.name}" class="region-thumbnail-img" loading="lazy">
 <div class="region-thumbnail-badge">${getThumbnailEmoji(productSlug)} ${getThumbnailLabel(productSlug)}</div>
 <div class="region-thumbnail-overlay">
-<h2 class="region-thumbnail-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
 <div class="region-thumbnail-meta">
-<span>📍 ${sido.name}</span>
-<span>·</span>
+<span>${getKstDateString()} 기준</span>
+<span class="region-thumbnail-dot">·</span>
+<span>${sido.name} 전 지역</span>
+<span class="region-thumbnail-dot">·</span>
 <span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
-<span>·</span>
-<span>☎ 010-2337-0458</span>
 </div>
+<h2 class="region-thumbnail-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
 <div class="region-hero-badge">${product.emoji} ${sido.name} · ${product.keyword}</div>
@@ -15025,17 +15073,18 @@ function buildGuPage(sidoUrl, guName) {
 <span>${guName}</span>
 </div>
 <div class="region-thumbnail">
-<img src="${getThumbnailUrl()}" alt="${sido.name} ${guName} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
+<img src="${getThumbnailUrl(null, sido.name + ' ' + guName)}" alt="${sido.name} ${guName} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
 <div class="region-thumbnail-badge">🏪 매장 설비 설치</div>
 <div class="region-thumbnail-overlay">
-<h2 class="region-thumbnail-title">${sido.name} ${guName} 매장 설비 설치</h2>
 <div class="region-thumbnail-meta">
-<span>📍 ${sido.name} ${guName}</span>
-<span>·</span>
+<span>${getKstDateString()} 기준</span>
+<span class="region-thumbnail-dot">·</span>
+<span>${sido.name} ${guName}</span>
+<span class="region-thumbnail-dot">·</span>
 <span>${dongs.length}개 동</span>
-<span>·</span>
-<span>☎ 010-2337-0458</span>
 </div>
+<h2 class="region-thumbnail-title">${guName} 설치 전문</h2>
+<div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
 <div class="region-hero-badge">📍 ${sido.name} · ${guName} · ${dongs.length}개 동</div>
@@ -15171,17 +15220,18 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-thumbnail">
-<img src="${getThumbnailUrl(productSlug)}" alt="${sido.name} ${guName} ${product.name}" class="region-thumbnail-img" loading="lazy">
+<img src="${getThumbnailUrl(productSlug, sido.name + ' ' + guName)}" alt="${sido.name} ${guName} ${product.name}" class="region-thumbnail-img" loading="lazy">
 <div class="region-thumbnail-badge">${getThumbnailEmoji(productSlug)} ${getThumbnailLabel(productSlug)}</div>
 <div class="region-thumbnail-overlay">
-<h2 class="region-thumbnail-title">${sido.name} ${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
 <div class="region-thumbnail-meta">
-<span>📍 ${sido.name} ${guName}</span>
-<span>·</span>
+<span>${getKstDateString()} 기준</span>
+<span class="region-thumbnail-dot">·</span>
+<span>${sido.name} ${guName}</span>
+<span class="region-thumbnail-dot">·</span>
 <span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
-<span>·</span>
-<span>☎ 010-2337-0458</span>
 </div>
+<h2 class="region-thumbnail-title">${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
 <div class="region-hero-badge">${product.emoji} ${guName} · ${product.keyword}</div>
@@ -15349,17 +15399,18 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <span>${dongName}</span>
 </div>
 <div class="region-thumbnail">
-<img src="${getThumbnailUrl()}" alt="${fullAddr} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
+<img src="${getThumbnailUrl(null, fullAddr)}" alt="${fullAddr} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
 <div class="region-thumbnail-badge">🏪 매장 설비 설치</div>
 <div class="region-thumbnail-overlay">
-<h2 class="region-thumbnail-title">${sido.name} ${guName} ${dongName} 매장 설비 설치</h2>
 <div class="region-thumbnail-meta">
-<span>📍 ${fullAddr}</span>
-<span>·</span>
+<span>${getKstDateString()} 기준</span>
+<span class="region-thumbnail-dot">·</span>
+<span>${fullAddr}</span>
+<span class="region-thumbnail-dot">·</span>
 <span>무료 설치</span>
-<span>·</span>
-<span>☎ 010-2337-0458</span>
 </div>
+<h2 class="region-thumbnail-title">${dongName} 설치 전문</h2>
+<div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
 <div class="region-hero-badge">📍 ${fullAddr}</div>
@@ -15694,17 +15745,18 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span>${product.name}</span>
 </div>
 <div class="region-thumbnail">
-<img src="${getThumbnailUrl(productSlug)}" alt="${fullAddr} ${product.name}" class="region-thumbnail-img" loading="lazy">
+<img src="${getThumbnailUrl(productSlug, fullAddr)}" alt="${fullAddr} ${product.name}" class="region-thumbnail-img" loading="lazy">
 <div class="region-thumbnail-badge">${getThumbnailEmoji(productSlug)} ${getThumbnailLabel(productSlug)}</div>
 <div class="region-thumbnail-overlay">
-<h2 class="region-thumbnail-title">${sido.name} ${guName} ${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
 <div class="region-thumbnail-meta">
-<span>📍 ${fullAddr}</span>
-<span>·</span>
+<span>${getKstDateString()} 기준</span>
+<span class="region-thumbnail-dot">·</span>
+<span>${fullAddr}</span>
+<span class="region-thumbnail-dot">·</span>
 <span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
-<span>·</span>
-<span>☎ 010-2337-0458</span>
 </div>
+<h2 class="region-thumbnail-title">${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
 <div class="region-hero-badge">${product.emoji} ${fullAddr} · ${product.keyword}</div>
