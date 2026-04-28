@@ -627,6 +627,75 @@ body {
 }
 
 /* 히어로 - 중앙정렬 */
+
+.region-thumbnail {
+    margin-bottom: 32px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    max-height: 360px;
+    background: linear-gradient(135deg, #1a1a1a, #2d4a3e);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+.region-thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.region-thumbnail-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px;
+}
+.region-thumbnail-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.region-thumbnail-title {
+    color: #ffffff;
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 800;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.region-thumbnail-meta {
+    color: rgba(255,255,255,0.95);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.region-thumbnail-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+@media (max-width: 768px) {
+    .region-thumbnail { aspect-ratio: 4 / 3; max-height: 280px; margin-bottom: 24px; }
+    .region-thumbnail-overlay { padding: 20px; }
+    .region-thumbnail-badge { top: 14px; right: 14px; padding: 6px 12px; font-size: 11px; }
+}
+
 .region-hero {
     padding: 60px 0 40px;
     background: var(--cream-dark);
@@ -14461,6 +14530,71 @@ function buildGuProductsSimpleGrid(sidoUrl, guName) {
 // 시도 페이지 (예: /region/seoul)
 // ============================================================
 
+
+// ============================================================
+// 페이지별 썸네일 이미지 URL 매핑 (Unsplash 무료 이미지)
+// 사람 X, 돈/배경/매장 관련 이미지
+// ============================================================
+
+function getThumbnailUrl(productSlug) {
+  // 제품별 매칭 이미지 (Unsplash)
+  const images = {
+    // 포스기 - 카운터/계산대 분위기
+    'pos': 'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=1200&h=675&fit=crop&q=80',
+    // 카드 단말기 - 신용카드 결제
+    'card-2inch': 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=675&fit=crop&q=80',
+    'card-3inch': 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=1200&h=675&fit=crop&q=80',
+    'card-toss': 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=675&fit=crop&q=80',
+    'card-wireless': 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=1200&h=675&fit=crop&q=80',
+    'card-bluetooth': 'https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=1200&h=675&fit=crop&q=80',
+    // 키오스크 - 무인 주문기
+    'kiosk': 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=1200&h=675&fit=crop&q=80',
+    'kiosk-mini': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=675&fit=crop&q=80',
+    // 테이블오더 - 식당/레스토랑
+    'tableorder': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=675&fit=crop&q=80',
+    // 매장 철거 - 빈 매장/공사 현장
+    'removal': 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=675&fit=crop&q=80',
+  };
+  
+  // 지역 페이지 (제품 없음) - 돈/매장 관련 일반 이미지
+  const defaultImg = 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&h=675&fit=crop&q=80';
+  
+  return images[productSlug] || defaultImg;
+}
+
+function getThumbnailEmoji(productSlug) {
+  const emojis = {
+    'pos': '🖥️',
+    'card-2inch': '💳',
+    'card-3inch': '🖨️',
+    'card-toss': '⚡',
+    'card-wireless': '📡',
+    'card-bluetooth': '📶',
+    'kiosk': '🤖',
+    'kiosk-mini': '📱',
+    'tableorder': '📋',
+    'removal': '🔨',
+  };
+  return emojis[productSlug] || '🏪';
+}
+
+function getThumbnailLabel(productSlug) {
+  const labels = {
+    'pos': '포스기 설치',
+    'card-2inch': '2인치 단말기 설치',
+    'card-3inch': '3인치 단말기 설치',
+    'card-toss': '토스 단말기 설치',
+    'card-wireless': '무선 단말기 설치',
+    'card-bluetooth': '블루투스 단말기 설치',
+    'kiosk': '키오스크 설치',
+    'kiosk-mini': '미니 키오스크 설치',
+    'tableorder': '테이블오더 설치',
+    'removal': '매장 철거',
+  };
+  return labels[productSlug] || '매장 설비 설치';
+}
+
+
 function buildSidoPage(sidoUrl) {
   const sido = REGIONS[sidoUrl];
   if (!sido) return null;
@@ -14502,6 +14636,20 @@ function buildSidoPage(sidoUrl) {
 <a href="/#find-sec">지역별 설치</a>
 <span class="breadcrumb-separator">/</span>
 <span>${sido.name}</span>
+</div>
+<div class="region-thumbnail">
+<img src="${getThumbnailUrl()}" alt="${sido.name} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
+<div class="region-thumbnail-badge">🏪 매장 설비 설치</div>
+<div class="region-thumbnail-overlay">
+<h2 class="region-thumbnail-title">${sido.name} 매장 설비 설치</h2>
+<div class="region-thumbnail-meta">
+<span>📍 ${sido.name}</span>
+<span>·</span>
+<span>${gus.length}개 시군구</span>
+<span>·</span>
+<span>${totalDongs.toLocaleString()}개 읍면동</span>
+</div>
+</div>
 </div>
 <div class="region-hero-badge">📍 ${sido.name} · ${gus.length}개 시군구 · ${totalDongs.toLocaleString()}개 읍면동</div>
 <h1 class="region-hero-title">${sido.name} 매장 설비 설치</h1>
@@ -14645,8 +14793,12 @@ function buildSidoProductPage(sidoUrl, productSlug) {
   }
   
   return getCommonHead(
-    `${sido.name} ${product.keyword} 설치 | ${product.name}`,
-    `${sido.name} ${product.name} 설치 전문. ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동. 설치비 무료·빠른 설치·A/S 보장.`
+    productSlug === 'removal'
+      ? `${sido.name} 매장 철거 | 무료 견적·원상복구`
+      : `${sido.name} ${product.keyword} 설치 | ${product.name}`,
+    productSlug === 'removal'
+      ? `${sido.name} 매장 철거·원상복구 전문. ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동. 무료 견적·전국 최저가·1년 사후 책임.`
+      : `${sido.name} ${product.name} 설치 전문. ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동. 설치비 무료·빠른 설치·A/S 보장.`
   ) + `<body>${getHeader()}
 
 <section class="region-hero">
@@ -14658,14 +14810,33 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 <span class="breadcrumb-separator">/</span>
 <span>${product.name}</span>
 </div>
+<div class="region-thumbnail">
+<img src="${getThumbnailUrl(productSlug)}" alt="${sido.name} ${product.name}" class="region-thumbnail-img" loading="lazy">
+<div class="region-thumbnail-badge">${getThumbnailEmoji(productSlug)} ${getThumbnailLabel(productSlug)}</div>
+<div class="region-thumbnail-overlay">
+<h2 class="region-thumbnail-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<div class="region-thumbnail-meta">
+<span>📍 ${sido.name}</span>
+<span>·</span>
+<span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
+<span>·</span>
+<span>☎ 010-2337-0458</span>
+</div>
+</div>
+</div>
 <div class="region-hero-badge">${product.emoji} ${sido.name} · ${product.keyword}</div>
 <h1 class="region-hero-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
-<p class="region-hero-sub">${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 무료 설치와 빠른 A/S를 지원합니다.</p>
+<p class="region-hero-sub">${productSlug === 'removal' ? `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 매장 철거·원상복구 전문. 무료 견적과 1년 사후 책임을 약속합니다.` : `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 무료 설치와 빠른 A/S를 지원합니다.`}</p>
 <div class="region-stats-grid">
-<div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
+${productSlug === 'removal'
+? `<div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
+<div class="region-stat"><div class="region-stat-icon">📋</div><div class="region-stat-label">방문 견적</div><div class="region-stat-value">무료</div></div>
+<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">전국 최저가</div><div class="region-stat-value">보증</div></div>
+<div class="region-stat"><div class="region-stat-icon">🛡️</div><div class="region-stat-label">사후 책임</div><div class="region-stat-value">1년</div></div>`
+: `<div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">빠른 설치</div><div class="region-stat-value">신속</div></div>
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
-<div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">빠른 대응</div></div>
+<div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">빠른 대응</div></div>`}
 </div>
 <div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
@@ -14677,15 +14848,29 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 <section class="region-main">
 <div class="container">
 
-<!-- 박스 1: 설치 안내 -->
+<!-- 박스 1: 안내 -->
 <div class="region-box">
-<h2 class="region-box-title">💳 ${sido.name} ${product.name} 설치 안내</h2>
-<p>${sido.name}에서 매장 설비를 도입하면 운영 효율이 획기적으로 개선됩니다. 마스터페이는 ${sido.name} 전 지역 ${gus.length}개 시군구에 업종별 최적화된 장비를 직접 방문 설치합니다. 카드단말기·포스기·키오스크·테이블오더는 설치비 무료이며, VAN사 수수료 비교를 통해 가장 유리한 조건을 찾아드립니다.</p>
+${productSlug === 'removal'
+? `<h2 class="region-box-title">🔨 ${sido.name} 매장 철거 안내</h2>
+<p>${sido.name}에서 매장 폐업·이전·인테리어 변경 시 깔끔한 철거와 원상복구가 필요합니다. 마스터페이는 ${sido.name} 전 지역 ${gus.length}개 시군구에 전문 엔지니어팀을 보내 안전하고 합법적인 철거 작업을 진행합니다. 무료 방문 견적을 제공하며, 임대인 인계까지 책임지고 도와드립니다. 폐업점포철거지원금 등 정부 지원금 활용도 안내해드립니다.</p>`
+: `<h2 class="region-box-title">💳 ${sido.name} ${product.name} 설치 안내</h2>
+<p>${sido.name}에서 매장 설비를 도입하면 운영 효율이 획기적으로 개선됩니다. 마스터페이는 ${sido.name} 전 지역 ${gus.length}개 시군구에 업종별 최적화된 장비를 직접 방문 설치합니다. 카드단말기·포스기·키오스크·테이블오더는 설치비 무료이며, VAN사 수수료 비교를 통해 가장 유리한 조건을 찾아드립니다.</p>`}
 </div>
 
-<!-- 박스 2: 설치 프로세스 -->
+<!-- 박스 2: 프로세스 -->
 <div class="region-box">
-<h2 class="region-box-title">⚡ ${sido.name} 설치 프로세스</h2>
+${productSlug === 'removal'
+? `<h2 class="region-box-title">⚡ ${sido.name} 철거 진행 절차</h2>
+<ul>
+<li><strong>1단계 무료 상담</strong> 전화나 온라인으로 매장 위치·규모·일정 공유</li>
+<li><strong>2단계 현장 답사</strong> ${sido.name} 매장 방문하여 정밀 분석</li>
+<li><strong>3단계 견적 확정</strong> 정확한 비용을 정찰제로 제시 (추가 청구 없음)</li>
+<li><strong>4단계 가설 작업</strong> 분진 방지막·방음판 설치 및 신고 절차</li>
+<li><strong>5단계 해체 작업</strong> 내부·외부 철거, 폐기물 분리 처리</li>
+<li><strong>6단계 원상복구</strong> 임대차 계약 기준 원상태로 복구</li>
+<li><strong>7단계 공사 완료</strong> 폐기물 반출, 임대인 인계, 1년 사후 책임</li>
+</ul>`
+: `<h2 class="region-box-title">⚡ ${sido.name} 설치 프로세스</h2>
 <ul>
 <li><strong>1단계 무료 상담</strong> 전화나 온라인으로 매장 업종·규모 공유</li>
 <li><strong>2단계 현장 분석</strong> ${sido.name} 매장 방문하여 환경 점검</li>
@@ -14693,67 +14878,101 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 <li><strong>4단계 설치 진행</strong> 전문 기사 방문 설치 및 테스트</li>
 <li><strong>5단계 사용법 교육</strong> 직원 교육 및 초기 운영 지원</li>
 <li><strong>6단계 지속 관리</strong> 정기 점검 및 빠른 A/S 지원</li>
-</ul>
+</ul>`}
 </div>
 
 <!-- 박스 3: 추천 업종 -->
 <div class="region-box">
 <h2 class="region-box-title">🏪 ${sido.name} 추천 업종</h2>
-<div class="region-biz-grid">
+${productSlug === 'removal'
+? `<div class="region-biz-grid">
+<div class="region-biz-card"><div class="region-biz-icon">🍽️</div><div class="region-biz-info"><div class="region-biz-name">음식점·식당</div><div class="region-biz-effect">주방 시설 철거</div></div><div class="region-biz-stars">★★★★★</div></div>
+<div class="region-biz-card"><div class="region-biz-icon">☕</div><div class="region-biz-info"><div class="region-biz-name">카페·베이커리</div><div class="region-biz-effect">인테리어 원상복구</div></div><div class="region-biz-stars">★★★★★</div></div>
+<div class="region-biz-card"><div class="region-biz-icon">🏪</div><div class="region-biz-info"><div class="region-biz-name">편의점·마트</div><div class="region-biz-effect">진열대·집기 철거</div></div><div class="region-biz-stars">★★★★</div></div>
+<div class="region-biz-card"><div class="region-biz-icon">💇</div><div class="region-biz-info"><div class="region-biz-name">미용실·네일샵</div><div class="region-biz-effect">시설물 철거 전문</div></div><div class="region-biz-stars">★★★★</div></div>
+</div>`
+: `<div class="region-biz-grid">
 <div class="region-biz-card"><div class="region-biz-icon">🍽️</div><div class="region-biz-info"><div class="region-biz-name">음식점·식당</div><div class="region-biz-effect">주문 정확도 향상</div></div><div class="region-biz-stars">★★★★★</div></div>
 <div class="region-biz-card"><div class="region-biz-icon">☕</div><div class="region-biz-info"><div class="region-biz-name">카페·베이커리</div><div class="region-biz-effect">메뉴 자동화</div></div><div class="region-biz-stars">★★★★★</div></div>
 <div class="region-biz-card"><div class="region-biz-icon">🏪</div><div class="region-biz-info"><div class="region-biz-name">편의점·마트</div><div class="region-biz-effect">재고 연동</div></div><div class="region-biz-stars">★★★★</div></div>
 <div class="region-biz-card"><div class="region-biz-icon">💇</div><div class="region-biz-info"><div class="region-biz-name">미용실·네일샵</div><div class="region-biz-effect">예약·결제 통합</div></div><div class="region-biz-stars">★★★★</div></div>
-</div>
+</div>`}
 </div>
 
-<!-- 박스 4: 제품 특징 -->
+<!-- 박스 4: 주요 특징 -->
 <div class="region-box">
 <h2 class="region-box-title">✨ ${product.name} 주요 특징</h2>
-<ul>
+${productSlug === 'removal'
+? `<ul>
+<li><strong>전문 엔지니어팀</strong> ${sido.name} 직접 방문 작업, 안전 관리 철저</li>
+<li><strong>100% 무료 견적</strong> 정찰제로 추가 청구 없는 투명한 비용</li>
+<li><strong>전국 최저가 보증</strong> 다른 곳 더 저렴한 견적이 있으면 알려주세요</li>
+<li><strong>합법 폐기물 처리</strong> 관할 구청 신고 및 적법 분류·수거·처리</li>
+<li><strong>완벽한 원상복구</strong> 바닥·벽면·천장 임차 전 상태로 복구</li>
+<li><strong>1년 사후 책임</strong> 임대인 인계 후 발생하는 이슈도 함께 해결</li>
+<li><strong>정부지원금 활용</strong> 폐업점포철거지원금 신청 절차 안내</li>
+</ul>`
+: `<ul>
 <li><strong>검증된 모델</strong> ${product.desc}에 최적화된 품질 보증 제품</li>
 <li><strong>빠른 설치</strong> 상담 후 1~3일 내 설치 완료 · 당일 설치도 가능</li>
 <li><strong>무료 설치</strong> 설치비 · 월 이용료 모두 무료 · VAN사 수수료만 정상 부과</li>
 <li><strong>지속 A/S</strong> 장애 시 원격 지원 · 현장 출동 · 정기 점검 제공</li>
 <li><strong>통합 연동</strong> 포스기·키오스크·테이블오더 등 다른 장비와 완벽 연동</li>
 <li><strong>사후 관리</strong> VAN사 수수료 최적화 · 장비 업그레이드 지속 지원</li>
-</ul>
+</ul>`}
 </div>
 
-<!-- 박스 5: 도입 효과 -->
+<!-- 박스 5: 효과/실적 -->
 <div class="region-box">
-<h2 class="region-box-title">📈 ${sido.name} 도입 효과</h2>
+${productSlug === 'removal'
+? `<h2 class="region-box-title">📈 ${sido.name} 철거 실적</h2>
+<p class="region-box-subtitle">${sido.name}에서 마스터페이가 진행한 매장 철거·원상복구 사례입니다.</p>
+<div class="region-effect-grid">
+<div class="region-effect-item"><div class="region-effect-num">${stats.satisfaction}%</div><div class="region-effect-label">고객 만족도</div></div>
+<div class="region-effect-item"><div class="region-effect-num">100%</div><div class="region-effect-label">정찰제 견적</div></div>
+<div class="region-effect-item"><div class="region-effect-num">1년</div><div class="region-effect-label">사후 책임 보증</div></div>
+<div class="region-effect-item"><div class="region-effect-num">${stats.shops.toLocaleString()}+</div><div class="region-effect-label">철거 실적</div></div>
+</div>`
+: `<h2 class="region-box-title">📈 ${sido.name} 도입 효과</h2>
 <p class="region-box-subtitle">${sido.name} 매장에 ${product.name}을(를) 도입한 ${stats.shops.toLocaleString()}+ 매장이 ${stats.satisfaction}% 만족도를 보이고 있습니다.</p>
 <div class="region-effect-grid">
 <div class="region-effect-item"><div class="region-effect-num">+${15 + (stats.shops % 10)}%</div><div class="region-effect-label">평균 매출 증가</div></div>
 <div class="region-effect-item"><div class="region-effect-num">-${20 + (stats.installs % 30)}%</div><div class="region-effect-label">인건비 절감</div></div>
 <div class="region-effect-item"><div class="region-effect-num">${stats.satisfaction}%</div><div class="region-effect-label">고객 만족도</div></div>
 <div class="region-effect-item"><div class="region-effect-num">${stats.shops.toLocaleString()}+</div><div class="region-effect-label">설치 실적</div></div>
-</div>
+</div>`}
 </div>
 
 <!-- 박스 6: FAQ -->
 <div class="region-box">
 <h2 class="region-box-title">❓ 자주 묻는 질문</h2>
-<div class="region-faq-list">
+${productSlug === 'removal'
+? `<div class="region-faq-list">
+<div class="region-faq-item"><strong>Q. ${sido.name} 전 지역 철거 작업이 가능한가요?</strong><p>네, ${sido.name} ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동 직접 방문 철거 작업이 가능합니다.</p></div>
+<div class="region-faq-item"><strong>Q. 견적은 어떻게 받나요?</strong><p>현장 무료 방문 견적을 제공하며, 정찰제로 운영되어 추가 청구가 없습니다. 사진 견적도 가능합니다.</p></div>
+<div class="region-faq-item"><strong>Q. 폐기물은 어떻게 처리되나요?</strong><p>관련 법규에 따라 분류·수거·처리되며, 관할 구청 신고도 함께 진행됩니다.</p></div>
+<div class="region-faq-item"><strong>Q. 철거 후 하자 발생 시 책임지나요?</strong><p>네, 1년 사후 책임 보증을 제공합니다. 시공 보증서를 발급해드립니다.</p></div>
+<div class="region-faq-item"><strong>Q. 폐업점포철거지원금 활용도 가능한가요?</strong><p>네, 정부 지원금 신청 절차를 함께 도와드립니다. 자격 요건 확인부터 신청까지 안내해드립니다.</p></div>
+</div>`
+: `<div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${sido.name} 전 지역 출장 설치가 가능한가요?</strong><p>네, ${sido.name} ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동 직접 방문 설치 제공합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${product.name} 비용은 얼마인가요?</strong><p>${product.name}은(는) 설치비 무료 옵션을 제공합니다. 정확한 견적은 상담을 통해 안내드립니다.</p></div>
 <div class="region-faq-item"><strong>Q. 기존 장비 교체도 가능한가요?</strong><p>네, 기존 장비 교체도 무료 견적 후 빠르게 진행됩니다.</p></div>
 <div class="region-faq-item"><strong>Q. 설치까지 얼마나 걸리나요?</strong><p>상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내 설치 완료됩니다.</p></div>
-</div>
+</div>`}
 </div>
 
 <!-- 박스 7: 시군구 리스트 -->
 <div class="region-box">
 <h2 class="region-box-title">🏘️ ${sido.name} ${gus.length}개 시군구</h2>
-<p class="region-box-subtitle">시군구를 클릭하면 해당 지역 ${product.name} 상세 안내와 동 목록을 확인할 수 있습니다.</p>
+<p class="region-box-subtitle">${productSlug === 'removal' ? `시군구를 클릭하면 해당 지역 매장 철거 상세 안내와 동 목록을 확인할 수 있습니다.` : `시군구를 클릭하면 해당 지역 ${product.name} 상세 안내와 동 목록을 확인할 수 있습니다.`}</p>
 <div class="region-list-grid">${gusListHtml}</div>
 </div>
 
 <!-- 박스 8: CTA -->
 <div class="region-cta-box">
 <h3>${product.emoji} ${sido.name} ${product.name} 무료 견적</h3>
-<p>${sido.name} 전 지역 ${product.name} 설치 상담 가능합니다.</p>
+<p>${productSlug === 'removal' ? `${sido.name} 전 지역 매장 철거·원상복구 상담 가능합니다.` : `${sido.name} 전 지역 ${product.name} 설치 상담 가능합니다.`}</p>
 <div class="region-cta-buttons">
 <a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
 <a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
@@ -14804,6 +15023,20 @@ function buildGuPage(sidoUrl, guName) {
 <a href="/region/${sidoUrl}">${sido.name}</a>
 <span class="breadcrumb-separator">/</span>
 <span>${guName}</span>
+</div>
+<div class="region-thumbnail">
+<img src="${getThumbnailUrl()}" alt="${sido.name} ${guName} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
+<div class="region-thumbnail-badge">🏪 매장 설비 설치</div>
+<div class="region-thumbnail-overlay">
+<h2 class="region-thumbnail-title">${sido.name} ${guName} 매장 설비 설치</h2>
+<div class="region-thumbnail-meta">
+<span>📍 ${sido.name} ${guName}</span>
+<span>·</span>
+<span>${dongs.length}개 동</span>
+<span>·</span>
+<span>☎ 010-2337-0458</span>
+</div>
+</div>
 </div>
 <div class="region-hero-badge">📍 ${sido.name} · ${guName} · ${dongs.length}개 동</div>
 <h1 class="region-hero-title">${sido.name} ${guName} 매장 설비 설치</h1>
@@ -14911,15 +15144,19 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
     dongsListHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dong)}/${product.url}" class="region-list-card">
       <div class="region-list-info">
         <div class="region-list-name">🏘️ ${dong}</div>
-        <div class="region-list-desc">${product.name} 설치 가능</div>
+        <div class="region-list-desc">${productSlug === 'removal' ? '매장 철거 가능' : `${product.name} 설치 가능`}</div>
       </div>
       <div class="region-list-arrow">→</div>
     </a>`;
   }
   
   return getCommonHead(
-    `${sido.name} ${guName} ${product.keyword} 설치 | ${product.name}`,
-    `${sido.name} ${guName} ${dongs.length}개 동 전체 ${product.name} 설치. 설치비 무료·빠른 설치·A/S 보장.`
+    productSlug === 'removal'
+      ? `${sido.name} ${guName} 매장 철거 | 무료 견적·원상복구`
+      : `${sido.name} ${guName} ${product.keyword} 설치 | ${product.name}`,
+    productSlug === 'removal'
+      ? `${sido.name} ${guName} ${dongs.length}개 동 전체 매장 철거·원상복구 전문. 무료 견적·전국 최저가·1년 사후 책임.`
+      : `${sido.name} ${guName} ${dongs.length}개 동 전체 ${product.name} 설치. 설치비 무료·빠른 설치·A/S 보장.`
   ) + `<body>${getHeader()}
 
 <section class="region-hero">
@@ -14933,14 +15170,33 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <span class="breadcrumb-separator">/</span>
 <span>${product.name}</span>
 </div>
+<div class="region-thumbnail">
+<img src="${getThumbnailUrl(productSlug)}" alt="${sido.name} ${guName} ${product.name}" class="region-thumbnail-img" loading="lazy">
+<div class="region-thumbnail-badge">${getThumbnailEmoji(productSlug)} ${getThumbnailLabel(productSlug)}</div>
+<div class="region-thumbnail-overlay">
+<h2 class="region-thumbnail-title">${sido.name} ${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<div class="region-thumbnail-meta">
+<span>📍 ${sido.name} ${guName}</span>
+<span>·</span>
+<span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
+<span>·</span>
+<span>☎ 010-2337-0458</span>
+</div>
+</div>
+</div>
 <div class="region-hero-badge">${product.emoji} ${guName} · ${product.keyword}</div>
 <h1 class="region-hero-title">${sido.name} ${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
-<p class="region-hero-sub">${sido.name} ${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.</p>
+<p class="region-hero-sub">${productSlug === 'removal' ? `${sido.name} ${guName} ${dongs.length}개 동 전 지역 매장 철거·원상복구 전문. 무료 견적, 1년 사후 책임, 지역 전담팀이 책임집니다.` : `${sido.name} ${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.`}</p>
 <div class="region-stats-grid">
-<div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">전문</div></div>
+${productSlug === 'removal'
+? `<div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">전문</div></div>
+<div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">실적</div><div class="region-stat-value">${shops.toLocaleString()}+</div></div>
+<div class="region-stat"><div class="region-stat-icon">📋</div><div class="region-stat-label">방문 견적</div><div class="region-stat-value">무료</div></div>
+<div class="region-stat"><div class="region-stat-icon">🛡️</div><div class="region-stat-label">사후 책임</div><div class="region-stat-value">1년</div></div>`
+: `<div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">전문</div></div>
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">실적</div><div class="region-stat-value">${shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
-<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
+<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>`}
 </div>
 <div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
@@ -14953,24 +15209,48 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <div class="container">
 
 <div class="region-box">
-<h2 class="region-box-title">💡 ${sido.name} ${guName}에서 ${product.name}이 중요한 이유</h2>
-<p>${sido.name} ${guName}은(는) ${ctx.areaType} 특성이 두드러지는 지역입니다. 이 지역에서 ${product.name}은(는) ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종에서 특히 중요한 역할을 합니다. ${ctx.keyBenefit}을 최우선으로 고려하는 ${guName} 사장님들에게 ${product.name}은(는) ${ctx.subBenefits[0]}과(와) ${ctx.subBenefits[1]}까지 동시에 만족시키는 솔루션입니다.</p>
+${productSlug === 'removal'
+? `<h2 class="region-box-title">💡 ${sido.name} ${guName}에서 매장 철거가 중요한 이유</h2>
+<p>${sido.name} ${guName}은(는) ${ctx.areaType} 특성이 두드러지는 지역으로 임대료가 높은 편입니다. 임대차 종료 시 빠른 원상복구는 곧 비용 절감으로 이어지며, ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종 매장에서는 깔끔한 철거가 보증금 반환에 직접적인 영향을 줍니다. 마스터페이는 ${guName} 일대 매장의 폐업·이전을 책임지고 처리해드립니다.</p>`
+: `<h2 class="region-box-title">💡 ${sido.name} ${guName}에서 ${product.name}이 중요한 이유</h2>
+<p>${sido.name} ${guName}은(는) ${ctx.areaType} 특성이 두드러지는 지역입니다. 이 지역에서 ${product.name}은(는) ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종에서 특히 중요한 역할을 합니다. ${ctx.keyBenefit}을 최우선으로 고려하는 ${guName} 사장님들에게 ${product.name}은(는) ${ctx.subBenefits[0]}과(와) ${ctx.subBenefits[1]}까지 동시에 만족시키는 솔루션입니다.</p>`}
 </div>
 
 <div class="region-box">
 <h2 class="region-box-title">✨ ${product.name} 주요 특징</h2>
-<ul>
+${productSlug === 'removal'
+? `<ul>
+<li><strong>${guName} 전담 작업</strong> ${guName} 담당 엔지니어 직접 방문</li>
+<li><strong>무료 방문 견적</strong> 정찰제로 추가 청구 없는 정확한 비용</li>
+<li><strong>전국 최저가 보증</strong> ${guName} 일대 시세 대비 합리적 가격</li>
+<li><strong>업종 맞춤</strong> ${guName}의 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종 경험 풍부</li>
+<li><strong>합법 폐기물 처리</strong> 관할 구청 신고 및 적법 처리</li>
+<li><strong>1년 사후 책임</strong> 임대인 인계 후에도 책임지고 관리</li>
+<li><strong>${shops.toLocaleString()}+ 작업 실적</strong> ${guName}에서 이미 많은 매장이 진행</li>
+</ul>`
+: `<ul>
 <li><strong>${guName} 전담 설치</strong> ${guName} 담당 기사가 직접 방문 설치</li>
 <li><strong>빠른 설치</strong> 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 내 설치 완료</li>
 <li><strong>무료 설치</strong> 설치비 · 월 이용료 모두 무료</li>
 <li><strong>업종 맞춤</strong> ${guName}의 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종에 최적화</li>
 <li><strong>지속 A/S</strong> ${guName} 전역 긴급 출동 서비스 제공</li>
 <li><strong>${shops.toLocaleString()}+ 실적</strong> ${guName}에서 이미 많은 매장이 이용 중</li>
-</ul>
+</ul>`}
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">⚡ ${sido.name} ${guName} ${product.name} 설치 프로세스</h2>
+${productSlug === 'removal'
+? `<h2 class="region-box-title">⚡ ${sido.name} ${guName} 매장 철거 진행 절차</h2>
+<ul>
+<li><strong>1단계</strong> ${guName} 매장 무료 상담 (전화/온라인)</li>
+<li><strong>2단계</strong> ${guName} 현장 방문 및 정밀 분석</li>
+<li><strong>3단계</strong> 정찰제 견적 확정 (추가 청구 없음)</li>
+<li><strong>4단계</strong> 가설 작업 (분진 방지·신고)</li>
+<li><strong>5단계</strong> 해체 및 폐기물 분리 처리</li>
+<li><strong>6단계</strong> 원상복구 및 임대인 인계</li>
+<li><strong>7단계</strong> ${guName} 전담팀의 1년 사후 책임</li>
+</ul>`
+: `<h2 class="region-box-title">⚡ ${sido.name} ${guName} ${product.name} 설치 프로세스</h2>
 <ul>
 <li><strong>1단계</strong> ${guName} 매장 무료 상담 (전화/온라인)</li>
 <li><strong>2단계</strong> ${guName} 현장 방문 및 환경 분석</li>
@@ -14978,7 +15258,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <li><strong>4단계</strong> ${ctx.installTime}~${ctx.installTime+2}일 내 설치 완료</li>
 <li><strong>5단계</strong> 사용법 교육 및 초기 운영 지원</li>
 <li><strong>6단계</strong> ${guName} 전담팀의 지속적 A/S</li>
-</ul>
+</ul>`}
 </div>
 
 <div class="region-box">
@@ -14991,17 +15271,25 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 
 <div class="region-box">
 <h2 class="region-box-title">❓ ${sido.name} ${guName} ${product.name} 자주 묻는 질문</h2>
-<div class="region-faq-list">
+${productSlug === 'removal'
+? `<div class="region-faq-list">
+<div class="region-faq-item"><strong>Q. ${guName} 어느 동이든 매장 철거 가능한가요?</strong><p>네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 철거 작업이 가능합니다.</p></div>
+<div class="region-faq-item"><strong>Q. ${guName} 매장 철거 비용은 어떻게 산정되나요?</strong><p>매장 면적·철거 범위·폐기물 양에 따라 산정됩니다. 무료 방문 견적을 통해 정확한 비용을 안내드립니다.</p></div>
+<div class="region-faq-item"><strong>Q. ${guName} 철거 작업은 얼마나 걸리나요?</strong><p>일반 매장 기준 ${guName} 내 평균 1~3일이면 완료됩니다. 규모에 따라 달라질 수 있습니다.</p></div>
+<div class="region-faq-item"><strong>Q. 폐기물 처리는 어떻게 되나요?</strong><p>관련 법규에 맞게 분류·수거·처리하며, ${guName} 관할 구청 신고도 함께 진행합니다.</p></div>
+<div class="region-faq-item"><strong>Q. 폐업점포철거지원금 활용도 가능한가요?</strong><p>네, 정부 지원금 활용 절차도 함께 안내해드립니다.</p></div>
+</div>`
+: `<div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${guName} 어느 동이든 ${product.name} 설치 가능한가요?</strong><p>네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 ${product.name} 설치 가능합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${guName} ${product.name} 설치 비용은 얼마인가요?</strong><p>${product.name}은(는) 설치비 무료 옵션을 제공합니다. 정확한 견적은 상담을 통해 안내드립니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${guName} 설치까지 얼마나 걸리나요?</strong><p>${guName} 내 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내 설치 완료됩니다.</p></div>
 <div class="region-faq-item"><strong>Q. 기존 ${product.name} 교체도 가능한가요?</strong><p>기존 장비 교체도 ${guName} 현장에서 즉시 가능합니다.</p></div>
-</div>
+</div>`}
 </div>
 
 <div class="region-box">
 <h2 class="region-box-title">🏘️ ${sido.name} ${guName} ${dongs.length}개 동</h2>
-<p class="region-box-subtitle">동을 선택하면 해당 지역의 ${product.name} 맞춤 상세 정보로 이동합니다.</p>
+<p class="region-box-subtitle">${productSlug === 'removal' ? `동을 선택하면 해당 지역의 매장 철거 맞춤 상세 정보로 이동합니다.` : `동을 선택하면 해당 지역의 ${product.name} 맞춤 상세 정보로 이동합니다.`}</p>
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
 
@@ -15059,6 +15347,20 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <a href="/region/${sidoUrl}/${encodeURIComponent(guName)}">${guName}</a>
 <span class="breadcrumb-separator">/</span>
 <span>${dongName}</span>
+</div>
+<div class="region-thumbnail">
+<img src="${getThumbnailUrl()}" alt="${fullAddr} 매장 설비 설치" class="region-thumbnail-img" loading="lazy">
+<div class="region-thumbnail-badge">🏪 매장 설비 설치</div>
+<div class="region-thumbnail-overlay">
+<h2 class="region-thumbnail-title">${sido.name} ${guName} ${dongName} 매장 설비 설치</h2>
+<div class="region-thumbnail-meta">
+<span>📍 ${fullAddr}</span>
+<span>·</span>
+<span>무료 설치</span>
+<span>·</span>
+<span>☎ 010-2337-0458</span>
+</div>
+</div>
 </div>
 <div class="region-hero-badge">📍 ${fullAddr}</div>
 <h1 class="region-hero-title">${sido.name} ${guName} ${dongName} 매장 설비 설치</h1>
@@ -15370,8 +15672,12 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
   }
   
   return getCommonHead(
-    `${sido.name} ${guName} ${dongName} ${product.keyword} 설치 | ${product.name}`,
-    `${fullAddr} ${product.name} 설치 전문. ${ctx.opening}. 무료 상담·빠른 설치·A/S 보장.`
+    productSlug === 'removal'
+      ? `${sido.name} ${guName} ${dongName} 매장 철거 | 무료 견적·원상복구`
+      : `${sido.name} ${guName} ${dongName} ${product.keyword} 설치 | ${product.name}`,
+    productSlug === 'removal'
+      ? `${fullAddr} 매장 철거·원상복구 전문. ${ctx.opening}. 무료 견적·전국 최저가·1년 사후 책임.`
+      : `${fullAddr} ${product.name} 설치 전문. ${ctx.opening}. 무료 상담·빠른 설치·A/S 보장.`
   ) + `<body>${getHeader()}
 
 <section class="region-hero">
@@ -15387,9 +15693,23 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span class="breadcrumb-separator">/</span>
 <span>${product.name}</span>
 </div>
+<div class="region-thumbnail">
+<img src="${getThumbnailUrl(productSlug)}" alt="${fullAddr} ${product.name}" class="region-thumbnail-img" loading="lazy">
+<div class="region-thumbnail-badge">${getThumbnailEmoji(productSlug)} ${getThumbnailLabel(productSlug)}</div>
+<div class="region-thumbnail-overlay">
+<h2 class="region-thumbnail-title">${sido.name} ${guName} ${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<div class="region-thumbnail-meta">
+<span>📍 ${fullAddr}</span>
+<span>·</span>
+<span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
+<span>·</span>
+<span>☎ 010-2337-0458</span>
+</div>
+</div>
+</div>
 <div class="region-hero-badge">${product.emoji} ${fullAddr} · ${product.keyword}</div>
 <h1 class="region-hero-title">${sido.name} ${guName} ${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
-<p class="region-hero-sub">${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.</p>
+<p class="region-hero-sub">${productSlug === 'removal' ? `${fullAddr} 매장 철거·원상복구 전문. 무료 방문 견적, 전국 최저가, 1년 사후 책임을 약속합니다.` : `${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.`}</p>
 <div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
 <a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
@@ -15401,21 +15721,31 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <div class="container">
 
 <div class="region-box">
-<h2 class="region-box-title">💡 ${sido.name} ${guName} ${dongName}에서 ${product.name}이 필요한 이유</h2>
-<p>${fullAddr}의 ${ctx.areaType} 지역에서 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 사장님들이 마스터페이 ${product.name}을(를) 통해 ${ctx.keyBenefit}을 실현하고 있습니다. ${dongName} 맞춤 솔루션으로 매장 운영의 새로운 기준을 만들어드립니다.</p>
+${productSlug === 'removal'
+? `<h2 class="region-box-title">💡 ${sido.name} ${guName} ${dongName}에서 매장 철거가 필요한 이유</h2>
+<p>${fullAddr}의 ${ctx.areaType} 지역은 임대료가 비싸 임대차 종료 후 빠른 원상복구가 곧 비용 절감입니다. 마스터페이는 ${dongName} 일대 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 매장의 폐업·이전 시 깔끔한 철거와 원상복구를 책임집니다. 보증금을 제때 돌려받으실 수 있도록 임대인 인계까지 지원합니다.</p>`
+: `<h2 class="region-box-title">💡 ${sido.name} ${guName} ${dongName}에서 ${product.name}이 필요한 이유</h2>
+<p>${fullAddr}의 ${ctx.areaType} 지역에서 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 사장님들이 마스터페이 ${product.name}을(를) 통해 ${ctx.keyBenefit}을 실현하고 있습니다. ${dongName} 맞춤 솔루션으로 매장 운영의 새로운 기준을 만들어드립니다.</p>`}
 </div>
 
 <div class="region-box">
 <h2 class="region-box-title">✨ ${product.name} 주요 특징</h2>
-<ul>
+${productSlug === 'removal'
+? `<ul>
+<li><strong>${dongName} 현장 직접 방문</strong> ${dongName} 담당 기사가 매장에 직접 방문</li>
+<li><strong>무료 방문 견적</strong> 100% 무료로 정확한 견적 제공</li>
+<li><strong>전국 최저가 보증</strong> 다른 곳 더 저렴하면 알려주세요</li>
+<li><strong>업종 맞춤 진행</strong> ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 등 업종별 맞춤 작업</li>
+<li><strong>1년 사후 책임</strong> 임대인 인계 후에도 책임지고 관리</li>
+<li><strong>폐기물 적법 처리</strong> 관할 ${guName} 구청 신고 및 합법 처리</li>
+</ul>`
+: `<ul>
 <li><strong>${dongName} 현지 설치</strong> ${dongName} 담당 기사 방문 설치</li>
-${productSlug === 'removal' 
-  ? `<li><strong>빠른 견적 확인 가능</strong> 상담 후 ${ctx.installTime}~${ctx.installTime+2}일 내 견적 확인 가능</li>`
-  : `<li><strong>빠른 설치</strong> ${ctx.installTime}~${ctx.installTime+2}일 내 완료</li>
-<li><strong>무료 설치</strong> 설치비 전액 무료</li>`}
+<li><strong>빠른 설치</strong> ${ctx.installTime}~${ctx.installTime+2}일 내 완료</li>
+<li><strong>무료 설치</strong> 설치비 전액 무료</li>
 <li><strong>업종 맞춤</strong> ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종 최적화</li>
 <li><strong>지속 A/S</strong> ${guName} 전역 긴급 출동</li>
-</ul>
+</ul>`}
 </div>
 
 <div class="region-box">
@@ -15428,11 +15758,18 @@ ${productSlug === 'removal'
 
 <div class="region-box">
 <h2 class="region-box-title">❓ 자주 묻는 질문</h2>
-<div class="region-faq-list">
+${productSlug === 'removal'
+? `<div class="region-faq-list">
+<div class="region-faq-item"><strong>Q. ${dongName}도 철거 작업이 가능한가요?</strong><p>네, ${dongName}은(는) ${guName} 전담 작업 권역에 포함되어 있어 당연히 진행 가능합니다.</p></div>
+<div class="region-faq-item"><strong>Q. ${dongName} 매장 철거 비용은 어떻게 산정되나요?</strong><p>매장 면적·철거 범위·폐기물 양에 따라 견적이 산정됩니다. 마스터페이는 ${dongName} 매장 직접 방문 후 무료로 정확한 견적을 드리며, 전국 최저가를 보증합니다.</p></div>
+<div class="region-faq-item"><strong>Q. ${dongName} 철거 후 사후 관리도 가능한가요?</strong><p>네, ${dongName}을 포함한 ${guName} 전역 1년 사후 책임 보증을 제공합니다. 임대인 인계 후 발생하는 이슈도 함께 해결해드립니다.</p></div>
+<div class="region-faq-item"><strong>Q. 폐업점포철거지원금도 활용 가능한가요?</strong><p>네, 정부 지원금인 폐업점포철거지원금을 활용할 수 있도록 신청 절차도 도와드립니다.</p></div>
+</div>`
+: `<div class="region-faq-list">
 <div class="region-faq-item"><strong>Q. ${dongName}도 설치 가능한가요?</strong><p>네, ${dongName}은(는) ${guName} 전담 설치 권역에 포함되어 있어 당연히 설치 가능합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${dongName} ${product.name} 비용은 얼마인가요?</strong><p>${product.name}은(는) 설치비 무료 옵션을 제공합니다.</p></div>
 <div class="region-faq-item"><strong>Q. ${dongName}에서 긴급 A/S도 가능한가요?</strong><p>네, ${dongName}을 포함한 ${guName} 전역 당일 긴급 A/S 출동 서비스를 제공합니다.</p></div>
-</div>
+</div>`}
 </div>
 
 <div class="region-box">
