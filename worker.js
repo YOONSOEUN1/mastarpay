@@ -13506,6 +13506,95 @@ footer {
     .product-visual { font-size: 100px; }
 }
 
+/* ========== 지역 페이지 썸네일 (배경 이미지 위 텍스트 오버레이) ========== */
+.region-thumbnail {
+    margin-bottom: 32px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    max-height: 420px;
+    background: linear-gradient(135deg, #1a1a1a, #2d4a3e);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+}
+.region-thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.55) saturate(0.85);
+}
+.region-thumbnail-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.65) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 56px 48px;
+}
+.region-thumbnail-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+}
+.region-thumbnail-meta {
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+}
+.region-thumbnail-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.region-thumbnail-meta .region-thumbnail-dot {
+    opacity: 0.5;
+}
+.region-thumbnail-title {
+    color: #ffffff;
+    font-size: clamp(28px, 5.5vw, 48px);
+    font-weight: 800;
+    margin: 0 0 20px;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    line-height: 1.15;
+}
+.region-thumbnail-services {
+    color: rgba(255,255,255,0.92);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+    max-width: 640px;
+}
+@media (max-width: 768px) {
+    .region-thumbnail { aspect-ratio: 4 / 3; max-height: 320px; margin-bottom: 24px; border-radius: 20px; }
+    .region-thumbnail-overlay { padding: 28px 24px; }
+    .region-thumbnail-badge { top: 14px; right: 14px; padding: 6px 12px; font-size: 11px; }
+    .region-thumbnail-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 14px; }
+    .region-thumbnail-meta { font-size: 12px; margin-bottom: 12px; gap: 8px; }
+    .region-thumbnail-services { font-size: 13px; }
+}
+
 /* ========== 지역 페이지 전용 스타일 ========== */
 body { background: #ffffff; }
 .region-hero {
