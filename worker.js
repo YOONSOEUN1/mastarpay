@@ -4,9 +4,9 @@
 // - 지역별 페이지: 동적 생성 (시도/시군구/동/동-제품)
 // ============================================================
 
-// ⚠️ brand.png 호스팅 URL — 본인의 GitHub 저장소 raw URL로 교체 필요
-// 형식: https://raw.githubusercontent.com/{사용자명}/{저장소명}/{브랜치}/brand.png
-const BRAND_PNG_URL = 'https://raw.githubusercontent.com/USERNAME/REPO/main/brand.png';
+// ⚠️ brand.png 호스팅 URL
+// jsdelivr CDN (GitHub public 저장소를 캐시해주는 안정적 CDN)
+const BRAND_PNG_URL = 'https://cdn.jsdelivr.net/gh/YOONSOEUN1/mastarpay@main/images/brand.png';
 
 
 const PAGE_HOME = `<!DOCTYPE html>
