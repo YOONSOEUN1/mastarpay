@@ -629,7 +629,8 @@ body {
 /* 히어로 - 중앙정렬 */
 
 .region-thumbnail {
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
+    max-width: 980px;
     border-radius: 24px;
     overflow: hidden;
     position: relative;
@@ -652,6 +653,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 56px 48px;
 }
 .region-thumbnail-badge {
@@ -676,6 +679,7 @@ body {
     font-weight: 500;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 18px;
@@ -697,6 +701,7 @@ body {
     letter-spacing: -0.025em;
     text-shadow: 0 2px 16px rgba(0,0,0,0.4);
     line-height: 1.15;
+    max-width: 800px;
 }
 .region-thumbnail-services {
     color: rgba(255,255,255,0.92);
@@ -706,14 +711,15 @@ body {
     letter-spacing: 0.01em;
     text-shadow: 0 1px 8px rgba(0,0,0,0.3);
     max-width: 640px;
+    margin: 0 auto;
 }
 @media (max-width: 768px) {
-    .region-thumbnail { aspect-ratio: 4 / 3; max-height: 320px; margin-bottom: 24px; border-radius: 20px; }
-    .region-thumbnail-overlay { padding: 28px 24px; }
+    .region-thumbnail { aspect-ratio: 4 / 3; max-height: 320px; max-width: 100%; margin: 0 auto 24px; border-radius: 20px; }
+    .region-thumbnail-overlay { padding: 24px 20px; }
     .region-thumbnail-badge { top: 14px; right: 14px; padding: 6px 12px; font-size: 11px; }
-    .region-thumbnail-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 14px; }
-    .region-thumbnail-meta { font-size: 12px; margin-bottom: 12px; gap: 8px; }
-    .region-thumbnail-services { font-size: 13px; }
+    .region-thumbnail-title { font-size: clamp(22px, 6vw, 30px); margin-bottom: 12px; line-height: 1.2; }
+    .region-thumbnail-meta { font-size: 11.5px; margin-bottom: 10px; gap: 6px; }
+    .region-thumbnail-services { font-size: 12.5px; line-height: 1.5; }
 }
 
 .region-hero {
@@ -778,6 +784,17 @@ body {
     line-height: 1.7;
     max-width: 700px;
     margin: 0 auto 28px;
+}
+
+/* 썸네일 바로 아래 잔잔한 안내 문구 */
+.region-hero-sub-standalone {
+    text-align: center;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: -8px auto 28px;
+    letter-spacing: -0.005em;
 }
 
 /* 히어로 통계 4개 박스 (명확히!) */
@@ -1440,6 +1457,7 @@ body {
     .region-stats-grid { grid-template-columns: repeat(2, 1fr); }
     .region-effect-grid { grid-template-columns: repeat(2, 1fr); }
     .region-products-simple { grid-template-columns: repeat(3, 1fr); }
+    .region-hero-sub-standalone { font-size: 13.5px; padding: 0 8px; margin: -4px auto 22px; }
 }
 
 
@@ -13508,7 +13526,8 @@ footer {
 
 /* ========== 지역 페이지 썸네일 (배경 이미지 위 텍스트 오버레이) ========== */
 .region-thumbnail {
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
+    max-width: 980px;
     border-radius: 24px;
     overflow: hidden;
     position: relative;
@@ -13531,6 +13550,8 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 56px 48px;
 }
 .region-thumbnail-badge {
@@ -13555,6 +13576,7 @@ footer {
     font-weight: 500;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 18px;
@@ -13576,6 +13598,7 @@ footer {
     letter-spacing: -0.025em;
     text-shadow: 0 2px 16px rgba(0,0,0,0.4);
     line-height: 1.15;
+    max-width: 800px;
 }
 .region-thumbnail-services {
     color: rgba(255,255,255,0.92);
@@ -13585,14 +13608,15 @@ footer {
     letter-spacing: 0.01em;
     text-shadow: 0 1px 8px rgba(0,0,0,0.3);
     max-width: 640px;
+    margin: 0 auto;
 }
 @media (max-width: 768px) {
-    .region-thumbnail { aspect-ratio: 4 / 3; max-height: 320px; margin-bottom: 24px; border-radius: 20px; }
-    .region-thumbnail-overlay { padding: 28px 24px; }
+    .region-thumbnail { aspect-ratio: 4 / 3; max-height: 320px; max-width: 100%; margin: 0 auto 24px; border-radius: 20px; }
+    .region-thumbnail-overlay { padding: 24px 20px; }
     .region-thumbnail-badge { top: 14px; right: 14px; padding: 6px 12px; font-size: 11px; }
-    .region-thumbnail-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 14px; }
-    .region-thumbnail-meta { font-size: 12px; margin-bottom: 12px; gap: 8px; }
-    .region-thumbnail-services { font-size: 13px; }
+    .region-thumbnail-title { font-size: clamp(22px, 6vw, 30px); margin-bottom: 12px; line-height: 1.2; }
+    .region-thumbnail-meta { font-size: 11.5px; margin-bottom: 10px; gap: 6px; }
+    .region-thumbnail-services { font-size: 12.5px; line-height: 1.5; }
 }
 
 /* ========== 지역 페이지 전용 스타일 ========== */
@@ -13649,6 +13673,15 @@ body { background: #ffffff; }
     line-height: 1.7;
     max-width: 700px;
     margin: 0 auto 28px;
+}
+.region-hero-sub-standalone {
+    text-align: center;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: -8px auto 28px;
+    letter-spacing: -0.005em;
 }
 .region-stats-grid {
     display: grid;
@@ -14144,6 +14177,7 @@ body { background: #ffffff; }
     .region-stats-grid { grid-template-columns: repeat(2, 1fr); }
     .region-effect-grid { grid-template-columns: repeat(2, 1fr); }
     .region-products-simple { grid-template-columns: repeat(3, 1fr); }
+    .region-hero-sub-standalone { font-size: 13.5px; padding: 0 8px; margin: -4px auto 22px; }
 }
 
 
@@ -14783,13 +14817,11 @@ function buildSidoPage(sidoUrl) {
 <span class="region-thumbnail-dot">·</span>
 <span>${totalDongs.toLocaleString()}개 읍면동</span>
 </div>
-<h2 class="region-thumbnail-title">${sido.name} 설치 전문</h2>
+<h1 class="region-thumbnail-title">${sido.name} 설치 전문</h1>
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
-<div class="region-hero-badge">📍 ${sido.name} · ${gus.length}개 시군구 · ${totalDongs.toLocaleString()}개 읍면동</div>
-<h1 class="region-hero-title">${sido.name} 매장 설비 설치</h1>
-<p class="region-hero-sub">카드단말기·포스기·키오스크·테이블오더·철거까지 ${sido.name} 전 지역 무료 설치와 빠른 A/S를 지원합니다.</p>
+<div class="region-hero-sub-standalone">카드단말기·포스기·키오스크·테이블오더·철거까지 ${sido.name} 전 지역 무료 설치와 빠른 A/S를 지원합니다.</div>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">빠른 설치</div><div class="region-stat-value">신속</div></div>
@@ -14957,13 +14989,11 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 <span class="region-thumbnail-dot">·</span>
 <span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
 </div>
-<h2 class="region-thumbnail-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<h1 class="region-thumbnail-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
-<div class="region-hero-badge">${product.emoji} ${sido.name} · ${product.keyword}</div>
-<h1 class="region-hero-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
-<p class="region-hero-sub">${productSlug === 'removal' ? `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 매장 철거·원상복구 전문. 무료 견적과 1년 사후 책임을 약속합니다.` : `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 무료 설치와 빠른 A/S를 지원합니다.`}</p>
+<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 매장 철거·원상복구 전문. 무료 견적과 1년 사후 책임을 약속합니다.` : `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 무료 설치와 빠른 A/S를 지원합니다.`}</div>
 <div class="region-stats-grid">
 ${productSlug === 'removal'
 ? `<div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
@@ -15172,13 +15202,11 @@ function buildGuPage(sidoUrl, guName) {
 <span class="region-thumbnail-dot">·</span>
 <span>${dongs.length}개 동</span>
 </div>
-<h2 class="region-thumbnail-title">${guName} 설치 전문</h2>
+<h1 class="region-thumbnail-title">${guName} 설치 전문</h1>
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
-<div class="region-hero-badge">📍 ${sido.name} · ${guName} · ${dongs.length}개 동</div>
-<h1 class="region-hero-title">${sido.name} ${guName} 매장 설비 설치</h1>
-<p class="region-hero-sub">${sido.name} ${guName} ${dongs.length}개 동 전 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</p>
+<div class="region-hero-sub-standalone">${sido.name} ${guName} ${dongs.length}개 동 전 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</div>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">${dongs.length}개 동</div></div>
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">실적</div><div class="region-stat-value">${shops.toLocaleString()}+</div></div>
@@ -15319,13 +15347,11 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <span class="region-thumbnail-dot">·</span>
 <span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
 </div>
-<h2 class="region-thumbnail-title">${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<h1 class="region-thumbnail-title">${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
-<div class="region-hero-badge">${product.emoji} ${guName} · ${product.keyword}</div>
-<h1 class="region-hero-title">${sido.name} ${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
-<p class="region-hero-sub">${productSlug === 'removal' ? `${sido.name} ${guName} ${dongs.length}개 동 전 지역 매장 철거·원상복구 전문. 무료 견적, 1년 사후 책임, 지역 전담팀이 책임집니다.` : `${sido.name} ${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.`}</p>
+<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${sido.name} ${guName} ${dongs.length}개 동 전 지역 매장 철거·원상복구 전문. 무료 견적, 1년 사후 책임, 지역 전담팀이 책임집니다.` : `${sido.name} ${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.`}</div>
 <div class="region-stats-grid">
 ${productSlug === 'removal'
 ? `<div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">전문</div></div>
@@ -15498,13 +15524,11 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <span class="region-thumbnail-dot">·</span>
 <span>무료 설치</span>
 </div>
-<h2 class="region-thumbnail-title">${dongName} 설치 전문</h2>
+<h1 class="region-thumbnail-title">${dongName} 설치 전문</h1>
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
-<div class="region-hero-badge">📍 ${fullAddr}</div>
-<h1 class="region-hero-title">${sido.name} ${guName} ${dongName} 매장 설비 설치</h1>
-<p class="region-hero-sub">${fullAddr} 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</p>
+<div class="region-hero-sub-standalone">${fullAddr} 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</div>
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${guName} ${dongName}</div><div class="region-stat-value">${shops}+건</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
@@ -15844,13 +15868,11 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span class="region-thumbnail-dot">·</span>
 <span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
 </div>
-<h2 class="region-thumbnail-title">${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h2>
+<h1 class="region-thumbnail-title">${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
-<div class="region-hero-badge">${product.emoji} ${fullAddr} · ${product.keyword}</div>
-<h1 class="region-hero-title">${sido.name} ${guName} ${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
-<p class="region-hero-sub">${productSlug === 'removal' ? `${fullAddr} 매장 철거·원상복구 전문. 무료 방문 견적, 전국 최저가, 1년 사후 책임을 약속합니다.` : `${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.`}</p>
+<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${fullAddr} 매장 철거·원상복구 전문. 무료 방문 견적, 전국 최저가, 1년 사후 책임을 약속합니다.` : `${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.`}</div>
 <div class="region-cta">
 <a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
 <a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
