@@ -13386,6 +13386,22 @@ function getProductPoolKey(slug) {
   return 'card';
 }
 
+// 시도 이름 → 짧은 표기 (예: "부산광역시" → "부산")
+// 다른 지역과 겹치는 구·동 이름(동구·서구·중구 등) 식별을 위해 H1·라벨에 사용
+function getShortSidoName(sidoName) {
+  const map = {
+    '서울특별시': '서울', '부산광역시': '부산', '대구광역시': '대구',
+    '인천광역시': '인천', '광주광역시': '광주', '대전광역시': '대전',
+    '울산광역시': '울산', '세종특별자치시': '세종',
+    '경기도': '경기', '강원특별자치도': '강원', '강원도': '강원',
+    '충청북도': '충북', '충청남도': '충남',
+    '전라북도': '전북', '전북특별자치도': '전북', '전라남도': '전남',
+    '경상북도': '경북', '경상남도': '경남',
+    '제주특별자치도': '제주', '제주도': '제주'
+  };
+  return map[sidoName] || sidoName;
+}
+
 // 제품 5줄 설명 생성 (지역명+제품 시드로 결정론적)
 // 한국어 조사 자동 처리 (받침에 따라 은/는, 이/가, 을/를, 으로/로, 와/과 자동 선택)
 function josaText(text, vars) {
@@ -16504,7 +16520,7 @@ function buildGuPage(sidoUrl, guName) {
 <span class="region-thumbnail-dot">·</span>
 <span>${dongs.length}개 동</span>
 </div>
-<h1 class="region-thumbnail-title">${guName} 설치 전문</h1>
+<h1 class="region-thumbnail-title">${getShortSidoName(sido.name)} ${guName} 설치 전문</h1>
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
@@ -16655,7 +16671,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <span class="region-thumbnail-dot">·</span>
 <span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
 </div>
-<h1 class="region-thumbnail-title">${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
+<h1 class="region-thumbnail-title">${getShortSidoName(sido.name)} ${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
@@ -16755,7 +16771,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <span class="region-thumbnail-dot">·</span>
 <span>무료 설치</span>
 </div>
-<h1 class="region-thumbnail-title">${dongName} 설치 전문</h1>
+<h1 class="region-thumbnail-title">${getShortSidoName(sido.name)} ${guName} ${dongName} 설치 전문</h1>
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
@@ -17105,7 +17121,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span class="region-thumbnail-dot">·</span>
 <span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
 </div>
-<h1 class="region-thumbnail-title">${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
+<h1 class="region-thumbnail-title">${getShortSidoName(sido.name)} ${guName} ${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
