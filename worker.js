@@ -4,10 +4,17 @@
 // - 지역별 페이지: 동적 생성 (시도/시군구/동/동-제품)
 // ============================================================
 
+// ⚠️ brand.png 호스팅 URL — 본인의 GitHub 저장소 raw URL로 교체 필요
+// 형식: https://raw.githubusercontent.com/{사용자명}/{저장소명}/{브랜치}/brand.png
+const BRAND_PNG_URL = 'https://raw.githubusercontent.com/USERNAME/REPO/main/brand.png';
+
+
 const PAGE_HOME = `<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
 <title>마스터페이 | 카드단말기·포스기·키오스크 전국 설치 전문</title>
@@ -88,6 +95,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -2473,7 +2489,7 @@ section.main-section {
 <header>
 <nav class="nav">
 <a href="/" class="logo">
-<span class="logo-mark">✦</span>
+<img src="/brand.png" alt="마스터페이" class="logo-mark-img">
 마스터페이
 </a>
 
@@ -2982,7 +2998,7 @@ section.main-section {
 <div class="footer-grid">
 <div class="footer-brand">
 <div class="logo">
-<span class="logo-mark">✦</span>
+<img src="/brand.png" alt="마스터페이" class="logo-mark-img">
 마스터페이
 </div>
 <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -3195,6 +3211,8 @@ const PAGE_NOT_FOUND = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>페이지를 찾을 수 없습니다 | 마스터페이</title>
@@ -3270,6 +3288,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -3833,7 +3860,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             <a href="/#contact" class="nav-cta">문의하기</a>
@@ -3854,6 +3881,8 @@ const PAGE_POS = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>포스기 | 마스터페이</title>
@@ -3934,6 +3963,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -4470,7 +4508,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -4680,7 +4718,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -4737,6 +4775,8 @@ const PAGE_CARD_2INCH = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>2인치 단말기 | 마스터페이</title>
@@ -4817,6 +4857,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -5353,7 +5402,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -5564,7 +5613,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -5621,6 +5670,8 @@ const PAGE_CARD_3INCH = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>3인치 단말기 | 마스터페이</title>
@@ -5701,6 +5752,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -6237,7 +6297,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -6449,7 +6509,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -6506,6 +6566,8 @@ const PAGE_CARD_TOSS = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>토스 단말기 | 마스터페이</title>
@@ -6586,6 +6648,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -7122,7 +7193,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -7333,7 +7404,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -7390,6 +7461,8 @@ const PAGE_CARD_WIRELESS = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>무선 단말기 | 마스터페이</title>
@@ -7470,6 +7543,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -8006,7 +8088,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -8217,7 +8299,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -8274,6 +8356,8 @@ const PAGE_CARD_BLUETOOTH = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>블루투스 단말기 | 마스터페이</title>
@@ -8354,6 +8438,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -8890,7 +8983,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -9104,7 +9197,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -9161,6 +9254,8 @@ const PAGE_KIOSK = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>키오스크 | 마스터페이</title>
@@ -9241,6 +9336,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -9777,7 +9881,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -9991,7 +10095,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -10048,6 +10152,8 @@ const PAGE_KIOSK_MINI = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>미니 키오스크 | 마스터페이</title>
@@ -10128,6 +10234,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -10664,7 +10779,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -10878,7 +10993,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -10935,6 +11050,8 @@ const PAGE_TABLEORDER = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>테이블 오더 | 마스터페이</title>
@@ -11015,6 +11132,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -11551,7 +11677,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -11766,7 +11892,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -11823,6 +11949,8 @@ const PAGE_REMOVAL = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
     <title>매장 철거 | 마스터페이</title>
@@ -11903,6 +12031,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -12439,7 +12576,7 @@ footer {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <span class="logo-mark">✦</span>
+                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                 마스터페이
             </a>
             
@@ -12866,7 +13003,7 @@ footer {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-mark">✦</span>
+                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
                         마스터페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
@@ -14040,6 +14177,8 @@ function getCommonHead(title, description) {
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
 <title>${title} | 마스터페이</title>
@@ -14119,6 +14258,15 @@ header {
     justify-content: center;
     color: var(--cream);
     font-size: 14px;
+}
+.logo-mark-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -15796,7 +15944,7 @@ body { background: #ffffff; }
 function getHeader() {
   return `<header>
 <nav class="nav">
-<a href="/" class="logo"><span class="logo-mark">✦</span>마스터페이</a>
+<a href="/" class="logo"><img src="/brand.png" alt="마스터페이" class="logo-mark-img">마스터페이</a>
 <ul class="nav-menu" id="navMenu">
 <li><a href="/#find-sec">지역별 설치</a></li>
 <li><a href="/#allinone">제품 안내</a></li>
@@ -15814,7 +15962,7 @@ function getFooter() {
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<div class="logo"><span class="logo-mark">✦</span>마스터페이</div>
+<div class="logo"><img src="/brand.png" alt="마스터페이" class="logo-mark-img">마스터페이</div>
 <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
 </div>
 <div class="footer-col">
@@ -17057,7 +17205,9 @@ async function handleContactAPI(request, env) {
     const emailHTML = `
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"></head>
+<head><meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/brand.png">
+<link rel="apple-touch-icon" href="/brand.png"></head>
 <body style="font-family: 'Malgun Gothic', sans-serif; background: #f5f5f5; padding: 20px; margin: 0;">
 <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
   <div style="background: linear-gradient(135deg, #1a1a1a, #2d4a3e); padding: 32px 28px; color: #ffffff;">
@@ -17201,6 +17351,24 @@ export default {
     // .html 확장자 제거 지원
     if (pathname.endsWith('.html')) {
       pathname = pathname.slice(0, -5);
+    }
+    
+    // 0. brand.png / favicon — GitHub raw에서 가져와 캐시
+    if (pathname === '/brand.png' || pathname === '/favicon.png' || pathname === '/favicon.ico') {
+      try {
+        const res = await fetch(BRAND_PNG_URL, {
+          cf: { cacheTtl: 86400, cacheEverything: true }
+        });
+        if (!res.ok) throw new Error('fetch failed');
+        return new Response(res.body, {
+          headers: {
+            'Content-Type': 'image/png',
+            'Cache-Control': 'public, max-age=86400, immutable',
+          },
+        });
+      } catch (e) {
+        return new Response('Brand image not found', { status: 404 });
+      }
     }
     
     // 1. 정적 페이지 매칭
