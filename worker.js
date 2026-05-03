@@ -39,7 +39,7 @@ const PAGE_HOME = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -2552,6 +2552,77 @@ section.main-section {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
 }
+/* === 후기 슬라이더 === */
+.testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    gap: 24px;
+}
+.testimonial-track .testimonial {
+    flex: 0 0 calc((100% - 48px) / 3);
+    box-sizing: border-box;
+}
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+.testimonial-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-family: inherit;
+    padding: 0;
+}
+.testimonial-btn:hover {
+    background: var(--forest);
+    color: var(--cream);
+    border-color: var(--forest);
+}
+.testimonial-dots {
+    display: flex;
+    gap: 8px;
+}
+.testimonial-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+}
+.testimonial-dot.active {
+    background: var(--forest);
+    width: 28px;
+    border-radius: 4px;
+}
+@media (max-width: 900px) {
+    .testimonial-track .testimonial { flex: 0 0 calc((100% - 24px) / 2); }
+}
+@media (max-width: 640px) {
+    .testimonial-track .testimonial { flex: 0 0 100%; }
+    .testimonial-track { gap: 16px; }
+}
 .testimonial {
     padding: 40px 32px;
     border: 1px solid var(--border);
@@ -3008,7 +3079,7 @@ p, h1, h2, h3, h4, li {
 
 <div class="find-tabs">
 <button class="find-tab active" data-tab="region" onclick="switchFindTab('region')">📍 지역별 설치</button>
-<button class="find-tab" data-tab="product" onclick="switchFindTab('product')">📦 제품별 안내</button>
+<button class="find-tab" data-tab="product" onclick="switchFindTab('product'); document.getElementById('allinone').scrollIntoView({behavior:'smooth', block:'start'});">📦 제품별 안내</button>
 <a href="tel:010-2337-0458" class="find-tab">📞 무료 상담</a>
 </div>
 
@@ -3232,7 +3303,8 @@ p, h1, h2, h3, h4, li {
 </h2>
 </div>
 
-<div class="testimonial-list">
+<div class="testimonial-slider" id="testimonialSlider">
+<div class="testimonial-track" id="testimonialTrack">
 <div class="testimonial">
 <span class="quote-mark">"</span>
 <p class="testimonial-text">
@@ -3273,6 +3345,55 @@ p, h1, h2, h3, h4, li {
 <div class="author-role">경기 분당구 치킨집</div>
 </div>
 </div>
+</div>
+
+<div class="testimonial">
+<span class="quote-mark">"</span>
+<p class="testimonial-text">
+포스기를 도입하니 매출 분석이 한 화면에서 다 보여서 너무 편해요. 메뉴 추가도 직접 1분이면 끝납니다.
+</p>
+<div class="testimonial-author">
+<div class="author-avatar">최</div>
+<div>
+<div class="author-name">최○○ 사장님</div>
+<div class="author-role">대구 수성구 분식점</div>
+</div>
+</div>
+</div>
+
+<div class="testimonial">
+<span class="quote-mark">"</span>
+<p class="testimonial-text">
+무선 단말기로 바꾸고 나서 손님 응대가 훨씬 빨라졌어요. 야외 테이블에서도 결제가 자유로워서 좋아요.
+</p>
+<div class="testimonial-author">
+<div class="author-avatar">정</div>
+<div>
+<div class="author-name">정○○ 사장님</div>
+<div class="author-role">인천 송도동 카페</div>
+</div>
+</div>
+</div>
+
+<div class="testimonial">
+<span class="quote-mark">"</span>
+<p class="testimonial-text">
+폐업 정리할 때 철거 견적 받아봤는데 가격도 합리적이고 임대인 인계까지 깔끔하게 마무리해주셨어요.
+</p>
+<div class="testimonial-author">
+<div class="author-avatar">윤</div>
+<div>
+<div class="author-name">윤○○ 사장님</div>
+<div class="author-role">광주 동구 음식점</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="testimonial-controls">
+<button class="testimonial-btn testimonial-prev" onclick="moveTestimonial(-1)" aria-label="이전 후기">‹</button>
+<div class="testimonial-dots" id="testimonialDots"></div>
+<button class="testimonial-btn testimonial-next" onclick="moveTestimonial(1)" aria-label="다음 후기">›</button>
 </div>
 </div>
 </div>
@@ -3627,6 +3748,68 @@ function toggleMenu() {
     document.getElementById('navMenu').classList.toggle('active');
 }
 
+// === 후기 슬라이더 ===
+let testimonialIdx = 0;
+let testimonialAuto = null;
+function getTestimonialPerView() {
+    if (window.innerWidth <= 640) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
+}
+function getTestimonialMax() {
+    const track = document.getElementById('testimonialTrack');
+    if (!track) return 0;
+    return Math.max(0, track.children.length - getTestimonialPerView());
+}
+function updateTestimonial() {
+    const track = document.getElementById('testimonialTrack');
+    const dots = document.getElementById('testimonialDots');
+    if (!track) return;
+    const perView = getTestimonialPerView();
+    const total = track.children.length;
+    const max = Math.max(0, total - perView);
+    if (testimonialIdx > max) testimonialIdx = 0;
+    if (testimonialIdx < 0) testimonialIdx = max;
+    
+    const cardW = track.children[0].offsetWidth;
+    const gap = parseInt(getComputedStyle(track).gap) || 24;
+    const offset = testimonialIdx * (cardW + gap);
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    
+    // dots
+    if (dots) {
+        const dotCount = max + 1;
+        if (dots.children.length !== dotCount) {
+            dots.innerHTML = '';
+            for (let i = 0; i < dotCount; i++) {
+                const d = document.createElement('button');
+                d.className = 'testimonial-dot' + (i === testimonialIdx ? ' active' : '');
+                d.setAttribute('aria-label', (i+1) + '번 후기로 이동');
+                d.onclick = () => { testimonialIdx = i; updateTestimonial(); resetTestimonialAuto(); };
+                dots.appendChild(d);
+            }
+        } else {
+            Array.from(dots.children).forEach((d, i) => {
+                d.classList.toggle('active', i === testimonialIdx);
+            });
+        }
+    }
+}
+function moveTestimonial(dir) {
+    testimonialIdx += dir;
+    updateTestimonial();
+    resetTestimonialAuto();
+}
+function resetTestimonialAuto() {
+    if (testimonialAuto) clearInterval(testimonialAuto);
+    testimonialAuto = setInterval(() => {
+        testimonialIdx++;
+        updateTestimonial();
+    }, 4000);
+}
+window.addEventListener('load', () => { updateTestimonial(); resetTestimonialAuto(); });
+window.addEventListener('resize', updateTestimonial);
+
 function toggleFaq(item) {
     item.classList.toggle('open');
 }
@@ -3680,7 +3863,7 @@ const PAGE_NOT_FOUND = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -4803,7 +4986,7 @@ const PAGE_POS = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -5921,7 +6104,7 @@ const PAGE_CARD_2INCH = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -7040,7 +7223,7 @@ const PAGE_CARD_3INCH = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -8160,7 +8343,7 @@ const PAGE_CARD_TOSS = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -9279,7 +9462,7 @@ const PAGE_CARD_WIRELESS = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -10398,7 +10581,7 @@ const PAGE_CARD_BLUETOOTH = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -11520,7 +11703,7 @@ const PAGE_KIOSK = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -12642,7 +12825,7 @@ const PAGE_KIOSK_MINI = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -13764,7 +13947,7 @@ const PAGE_TABLEORDER = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -14887,7 +15070,7 @@ const PAGE_REMOVAL = `<!DOCTYPE html>
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
@@ -17354,7 +17537,7 @@ function getCommonHead(title, description) {
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
