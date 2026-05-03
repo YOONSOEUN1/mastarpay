@@ -2552,28 +2552,39 @@ section.main-section {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
 }
-/* === 후기 슬라이더 === */
+/* === 후기 슬라이더 (단순 페이드 방식) === */
 .testimonial-slider {
     position: relative;
-    overflow: hidden;
-    max-width: 1100px;
+    max-width: 720px;
     margin: 0 auto;
+    min-height: 320px;
 }
 .testimonial-track {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    gap: 24px;
+    position: relative;
+    min-height: 280px;
 }
 .testimonial-track .testimonial {
-    flex: 0 0 calc((100% - 48px) / 3);
-    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+.testimonial-track .testimonial.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    pointer-events: auto;
 }
 .testimonial-controls {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 32px;
+    margin-top: 24px;
 }
 .testimonial-btn {
     width: 44px;
@@ -2591,6 +2602,7 @@ section.main-section {
     transition: all 0.2s;
     font-family: inherit;
     padding: 0;
+    flex-shrink: 0;
 }
 .testimonial-btn:hover {
     background: var(--forest);
@@ -2600,6 +2612,7 @@ section.main-section {
 .testimonial-dots {
     display: flex;
     gap: 8px;
+    align-items: center;
 }
 .testimonial-dot {
     width: 8px;
@@ -2616,12 +2629,9 @@ section.main-section {
     width: 28px;
     border-radius: 4px;
 }
-@media (max-width: 900px) {
-    .testimonial-track .testimonial { flex: 0 0 calc((100% - 24px) / 2); }
-}
 @media (max-width: 640px) {
-    .testimonial-track .testimonial { flex: 0 0 100%; }
-    .testimonial-track { gap: 16px; }
+    .testimonial-slider { min-height: 360px; }
+    .testimonial-track { min-height: 320px; }
 }
 .testimonial {
     padding: 40px 32px;
@@ -2633,6 +2643,10 @@ section.main-section {
 .testimonial:hover {
     background: var(--cream-dark);
     transform: translateY(-2px);
+}
+/* 슬라이더 내 카드는 hover transform 제거 (위치 어긋남 방지) */
+.testimonial-slider .testimonial:hover {
+    transform: none;
 }
 .quote-mark {
     font-family: 'Fraunces', serif;
@@ -3748,67 +3762,80 @@ function toggleMenu() {
     document.getElementById('navMenu').classList.toggle('active');
 }
 
-// === 후기 슬라이더 ===
-let testimonialIdx = 0;
-let testimonialAuto = null;
-function getTestimonialPerView() {
-    if (window.innerWidth <= 640) return 1;
-    if (window.innerWidth <= 900) return 2;
-    return 3;
-}
-function getTestimonialMax() {
-    const track = document.getElementById('testimonialTrack');
-    if (!track) return 0;
-    return Math.max(0, track.children.length - getTestimonialPerView());
-}
-function updateTestimonial() {
-    const track = document.getElementById('testimonialTrack');
-    const dots = document.getElementById('testimonialDots');
-    if (!track) return;
-    const perView = getTestimonialPerView();
-    const total = track.children.length;
-    const max = Math.max(0, total - perView);
-    if (testimonialIdx > max) testimonialIdx = 0;
-    if (testimonialIdx < 0) testimonialIdx = max;
+// === 후기 슬라이더 (단순 페이드 방식) ===
+(function() {
+    let idx = 0;
+    let timer = null;
+    let total = 0;
     
-    const cardW = track.children[0].offsetWidth;
-    const gap = parseInt(getComputedStyle(track).gap) || 24;
-    const offset = testimonialIdx * (cardW + gap);
-    track.style.transform = 'translateX(-' + offset + 'px)';
-    
-    // dots
-    if (dots) {
-        const dotCount = max + 1;
-        if (dots.children.length !== dotCount) {
-            dots.innerHTML = '';
-            for (let i = 0; i < dotCount; i++) {
+    function init() {
+        const track = document.getElementById('testimonialTrack');
+        const dotsBox = document.getElementById('testimonialDots');
+        if (!track) return;
+        
+        const items = track.querySelectorAll('.testimonial');
+        total = items.length;
+        if (total === 0) return;
+        
+        // 첫 번째 활성화
+        items[0].classList.add('active');
+        
+        // 점 인디케이터 생성
+        if (dotsBox) {
+            dotsBox.innerHTML = '';
+            for (let i = 0; i < total; i++) {
                 const d = document.createElement('button');
-                d.className = 'testimonial-dot' + (i === testimonialIdx ? ' active' : '');
-                d.setAttribute('aria-label', (i+1) + '번 후기로 이동');
-                d.onclick = () => { testimonialIdx = i; updateTestimonial(); resetTestimonialAuto(); };
-                dots.appendChild(d);
+                d.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+                d.setAttribute('aria-label', (i+1) + '번 후기');
+                d.addEventListener('click', function() {
+                    show(i);
+                    resetAuto();
+                });
+                dotsBox.appendChild(d);
             }
-        } else {
-            Array.from(dots.children).forEach((d, i) => {
-                d.classList.toggle('active', i === testimonialIdx);
-            });
         }
+        
+        // 자동 회전 시작
+        resetAuto();
     }
-}
-function moveTestimonial(dir) {
-    testimonialIdx += dir;
-    updateTestimonial();
-    resetTestimonialAuto();
-}
-function resetTestimonialAuto() {
-    if (testimonialAuto) clearInterval(testimonialAuto);
-    testimonialAuto = setInterval(() => {
-        testimonialIdx++;
-        updateTestimonial();
-    }, 4000);
-}
-window.addEventListener('load', () => { updateTestimonial(); resetTestimonialAuto(); });
-window.addEventListener('resize', updateTestimonial);
+    
+    function show(n) {
+        const track = document.getElementById('testimonialTrack');
+        const dotsBox = document.getElementById('testimonialDots');
+        if (!track) return;
+        const items = track.querySelectorAll('.testimonial');
+        const dots = dotsBox ? dotsBox.querySelectorAll('.testimonial-dot') : [];
+        
+        if (n < 0) n = total - 1;
+        if (n >= total) n = 0;
+        
+        items.forEach(function(el) { el.classList.remove('active'); });
+        dots.forEach(function(el) { el.classList.remove('active'); });
+        
+        if (items[n]) items[n].classList.add('active');
+        if (dots[n]) dots[n].classList.add('active');
+        idx = n;
+    }
+    
+    function resetAuto() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(function() {
+            show(idx + 1);
+        }, 4000);
+    }
+    
+    window.moveTestimonial = function(dir) {
+        show(idx + dir);
+        resetAuto();
+    };
+    
+    // 초기화: DOM 준비 시점
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
 
 function toggleFaq(item) {
     item.classList.toggle('open');
