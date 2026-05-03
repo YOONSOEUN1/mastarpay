@@ -1957,6 +1957,230 @@ body {
     .fab-btn::before { display: none; }
 }
 
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 <style>
 /* 메인 페이지 전용 추가 스타일 */
@@ -2481,6 +2705,230 @@ section.main-section {
     .hero { padding: 40px 0 80px; }
     section.main-section, .find-section, .allinone-section { padding: 60px 0; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -3825,6 +4273,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
     <style>
         .notfound {
@@ -3854,7 +4526,231 @@ footer {
             color: var(--ink-soft);
             margin-bottom: 32px;
         }
-    </style>
+    
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+</style>
 </head>
 <body>
     <header>
@@ -4500,6 +5396,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -5394,6 +6514,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -6289,6 +7633,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -7185,6 +8753,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -8080,6 +9872,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -8975,6 +10991,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -9873,6 +12113,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -10771,6 +13235,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -11669,6 +14357,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -12568,6 +15480,230 @@ footer {
     .cta-phone { font-size: 20px; padding: 16px 28px; }
     .product-visual { font-size: 100px; }
 }
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -15951,6 +19087,230 @@ body { background: #ffffff; }
         font-size: 22px;
     }
     .fab-btn::before { display: none; }
+}
+
+
+/* ============================================================
+   📱 모바일 반응형 종합 보강 (일괄 패치)
+   ============================================================ */
+
+/* 가로 스크롤 방지 (가장 중요) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+* { max-width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 768px 이하 (태블릿 ↓) */
+@media (max-width: 768px) {
+    .container { padding: 0 16px !important; }
+    
+    /* 본문 텍스트 가독성 */
+    body { font-size: 15px; line-height: 1.7; }
+    h1 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.25 !important; word-break: keep-all; }
+    h2 { font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.3 !important; word-break: keep-all; }
+    h3 { font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; }
+    p { word-break: keep-all; line-height: 1.75; }
+    
+    /* 헤더/네비 */
+    .nav { padding: 14px 0 !important; }
+    .nav-menu { display: none !important; }
+    .mobile-toggle { display: block !important; font-size: 22px; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+    .nav-menu.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 16px; gap: 14px; border-top: 1px solid var(--border); z-index: 100; }
+    .nav-cta { padding: 8px 14px !important; font-size: 13px !important; }
+    .logo { font-size: 17px !important; gap: 8px !important; }
+    .logo-mark, .logo-mark-img { width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    
+    /* 그리드들 → 1열 */
+    .region-features-grid,
+    .region-biz-grid,
+    .region-reviews-grid,
+    .region-products-grid,
+    .footer-grid,
+    .features-grid,
+    .product-cards-grid,
+    .pricing-grid,
+    .review-grid,
+    .stat-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+    
+    /* 시도/시군구 통계 → 2열 (너무 좁아지면 1열) */
+    .region-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    
+    /* 지역 리스트(시군구·동) → 2~3열 */
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; font-size: 13px; }
+    
+    /* 제품 그리드 → 2열 */
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    
+    /* 박스 패딩 축소 */
+    .region-box { padding: 20px 18px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+    .region-box-title { font-size: 17px !important; margin-bottom: 12px !important; }
+    
+    /* 썸네일 (Hero) */
+    .region-thumbnail { max-width: 100% !important; max-height: 280px !important; aspect-ratio: 4/3 !important; margin: 0 auto 20px !important; border-radius: 14px !important; }
+    .region-thumbnail-overlay { padding: 18px 16px !important; }
+    .region-thumbnail-meta { font-size: 11px !important; gap: 6px !important; }
+    .region-thumbnail-title { font-size: clamp(20px, 5.5vw, 28px) !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+    .region-thumbnail-services { font-size: 12px !important; line-height: 1.5 !important; }
+    .region-hero-sub-standalone { font-size: 14px !important; line-height: 1.7 !important; max-width: 100% !important; padding: 0 4px !important; }
+    
+    /* 제품 5줄 카드 폰트 축소 */
+    .region-product-detail-card { padding: 14px 16px !important; }
+    .region-product-detail-card h3 { font-size: 15px !important; }
+    .region-product-detail-card li { font-size: 12.5px !important; line-height: 1.65 !important; }
+    
+    /* FAQ */
+    .region-faq-item { padding: 12px 14px !important; }
+    .region-faq-item strong { font-size: 13.5px !important; }
+    .region-faq-item p { font-size: 12.5px !important; }
+    
+    /* 주의사항 */
+    .region-caution-item { padding: 12px 14px !important; gap: 10px !important; }
+    .region-caution-item h3 { font-size: 13.5px !important; }
+    .region-caution-item p { font-size: 12.5px !important; }
+    
+    /* 추천 업종 카드 */
+    .region-biz-card { padding: 12px 14px !important; }
+    .region-biz-name { font-size: 13.5px !important; }
+    .region-biz-effect { font-size: 12px !important; }
+    .region-biz-stars { font-size: 11.5px !important; }
+    
+    /* CTA 박스 */
+    .region-cta-box { padding: 24px 18px !important; }
+    .region-cta-buttons { flex-direction: column !important; gap: 10px !important; }
+    .region-cta-buttons .btn { width: 100% !important; text-align: center; padding: 12px !important; font-size: 14px !important; }
+    
+    /* 버튼 */
+    .btn { font-size: 14px !important; padding: 10px 18px !important; }
+    .btn-primary, .btn-ghost { width: auto; }
+    
+    /* breadcrumb */
+    .breadcrumb { font-size: 11.5px !important; flex-wrap: wrap; gap: 4px; }
+    
+    /* 푸터 */
+    footer { padding: 32px 0 24px !important; }
+    .footer-grid { gap: 24px !important; }
+    .footer-brand .logo { font-size: 18px !important; }
+}
+
+/* 480px 이하 (작은 모바일) */
+@media (max-width: 480px) {
+    .container { padding: 0 14px !important; }
+    h1 { font-size: clamp(20px, 6vw, 26px) !important; }
+    .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
+    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-thumbnail { max-height: 240px !important; }
+    .region-thumbnail-overlay { padding: 14px 12px !important; }
+    .region-thumbnail-services { font-size: 11px !important; }
+    .region-hero-sub-standalone { font-size: 13px !important; }
+}
+
+/* 360px 이하 (소형 모바일) */
+@media (max-width: 360px) {
+    .container { padding: 0 12px !important; }
+    .region-stats-grid { grid-template-columns: 1fr !important; }
+    .region-list-grid { grid-template-columns: 1fr !important; }
+    .region-thumbnail-title { font-size: 19px !important; }
+}
+
+
+/* ============================================================
+   📱 짤림 방지 추가 패치 (이미지·텍스트 모두)
+   ============================================================ */
+
+/* === 모든 화면 크기에서 짤림 방지 === */
+* {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 모든 이미지가 부모 박스 안에 들어오도록 강제 */
+img, picture, video, svg, canvas, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 모든 텍스트 박스가 부모 안에 들어오도록 */
+p, h1, h2, h3, h4, h5, h6, span, div, li, a, strong, em, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+/* 한글 단어가 중간에 안 끊기도록 */
+p, h1, h2, h3, h4, li {
+    word-break: keep-all;
+}
+
+/* 영어·URL·이메일·전화번호 같은 긴 문자열 강제 줄바꿈 */
+.long-text, code, pre, .url, a[href^="mailto"], a[href^="tel"], .breadcrumb {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
+/* 그리드 자식이 부모를 넘는 것 방지 */
+[class*="grid"], [class*="flex"] {
+    min-width: 0;
+}
+[class*="grid"] > *, [class*="flex"] > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 768px 이하에서 추가 짤림 방지 */
+@media (max-width: 768px) {
+    /* body 내부에서 가로로 넘는 요소 강제 정리 */
+    body, html { max-width: 100vw !important; overflow-x: hidden !important; }
+    
+    /* 컨테이너·박스가 절대 가로폭 안 넘게 */
+    .container, .region-box, .region-cta-box, header, footer, section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 썸네일 안 텍스트도 wrap */
+    .region-thumbnail-title, .region-thumbnail-services, .region-thumbnail-meta {
+        max-width: 100% !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* 통계 카드 숫자 폰트 축소 */
+    .region-stats-grid .region-stat-num,
+    .region-stats-grid .region-stat-value,
+    [class*="stat-num"], [class*="stat-value"] {
+        font-size: clamp(18px, 5vw, 24px) !important;
+        word-break: break-all !important;
+    }
+    
+    /* 표 가로 스크롤 처리 */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+    
+    /* 긴 동 이름(예: "한국토지주택공사동") 줄바꿈 */
+    .region-list-grid a, .region-products-simple a {
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        padding: 8px 6px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+    
+    /* 전화번호·CTA 버튼 텍스트가 안 잘리도록 */
+    .btn, .nav-cta, button, a[href^="tel"] {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
 
 </style>
