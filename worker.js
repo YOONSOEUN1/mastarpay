@@ -1155,6 +1155,7 @@ body {
     border-bottom: 1px solid var(--border);
 }
 .region-product-emoji { font-size: 22px; }
+.region-product-detail-img { width: 36px; height: 36px; object-fit: contain; }
 .region-product-detail-card h3 {
     font-size: 16px;
     font-weight: 700;
@@ -1227,7 +1228,15 @@ body {
     font-size: 36px;
     line-height: 1;
 }
-
+.region-product-simple .ps-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.region-product-simple:hover .ps-img {
+    transform: scale(1.05);
+}
 .region-product-simple .ps-name {
     font-size: 13px;
     font-weight: 700;
@@ -16850,17 +16859,18 @@ function getRegionContext(regionName) {
 }
 
 // 제품 기본 정보
+const PRODUCT_IMG_BASE = 'https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/';
 const PRODUCTS = {
-  'pos': { name: '포스기', emoji: '🖥️', desc: '주문·결제·매출 통합 관리', keyword: '포스기', url: 'pos' },
-  'card-2inch': { name: '2인치 단말기', emoji: '💳', desc: '컴팩트 카드 단말기', keyword: '카드단말기', url: 'card-2inch' },
-  'card-3inch': { name: '3인치 단말기', emoji: '🖨️', desc: '표준 카드 단말기', keyword: '카드단말기', url: 'card-3inch' },
-  'card-toss': { name: '토스 단말기', emoji: '⚡', desc: '간편결제 특화', keyword: '토스단말기', url: 'card-toss' },
-  'card-wireless': { name: '무선 단말기', emoji: '📱', desc: '이동 결제 자유', keyword: '무선단말기', url: 'card-wireless' },
-  'card-bluetooth': { name: '블루투스 단말기', emoji: '🔷', desc: '휴대용 결제', keyword: '블루투스단말기', url: 'card-bluetooth' },
-  'kiosk': { name: '키오스크', emoji: '🤖', desc: '무인 주문 시스템', keyword: '키오스크', url: 'kiosk' },
-  'kiosk-mini': { name: '미니 키오스크', emoji: '📱', desc: '소형 무인 주문', keyword: '미니키오스크', url: 'kiosk-mini' },
-  'tableorder': { name: '테이블 오더', emoji: '📋', desc: 'QR 주문 시스템', keyword: '테이블오더', url: 'tableorder' },
-  'removal': { name: '매장 철거', emoji: '🔨', desc: '철거·원상복구', keyword: '매장철거', url: 'removal' }
+  'pos': { name: '포스기', emoji: '🖥️', img: PRODUCT_IMG_BASE + 'pos.jpg', desc: '주문·결제·매출 통합 관리', keyword: '포스기', url: 'pos' },
+  'card-2inch': { name: '2인치 단말기', emoji: '💳', img: PRODUCT_IMG_BASE + 'kis2200_2in.jpg', desc: '컴팩트 카드 단말기', keyword: '카드단말기', url: 'card-2inch' },
+  'card-3inch': { name: '3인치 단말기', emoji: '🖨️', img: PRODUCT_IMG_BASE + 'kis1420_3in2.jpg', desc: '표준 카드 단말기', keyword: '카드단말기', url: 'card-3inch' },
+  'card-toss': { name: '토스 단말기', emoji: '⚡', img: PRODUCT_IMG_BASE + 'Tosscard.png', desc: '간편결제 특화', keyword: '토스단말기', url: 'card-toss' },
+  'card-wireless': { name: '무선 단말기', emoji: '📱', img: PRODUCT_IMG_BASE + 'Wirelesscard.png', desc: '이동 결제 자유', keyword: '무선단말기', url: 'card-wireless' },
+  'card-bluetooth': { name: '블루투스 단말기', emoji: '🔷', img: PRODUCT_IMG_BASE + 'Bluetoothcard.jpg', desc: '휴대용 결제', keyword: '블루투스단말기', url: 'card-bluetooth' },
+  'kiosk': { name: '키오스크', emoji: '🤖', img: PRODUCT_IMG_BASE + 'Kiosk.png', desc: '무인 주문 시스템', keyword: '키오스크', url: 'kiosk' },
+  'kiosk-mini': { name: '미니 키오스크', emoji: '📱', img: PRODUCT_IMG_BASE + 'Kiosk2.png', desc: '소형 무인 주문', keyword: '미니키오스크', url: 'kiosk-mini' },
+  'tableorder': { name: '테이블 오더', emoji: '📋', img: PRODUCT_IMG_BASE + 'tableorder.png', desc: 'QR 주문 시스템', keyword: '테이블오더', url: 'tableorder' },
+  'removal': { name: '매장 철거', emoji: '🔨', img: '', desc: '철거·원상복구', keyword: '매장철거', url: 'removal' }
 };
 
 // ============================================================
@@ -17850,10 +17860,13 @@ ${data.faqs.map(f => `<div class="region-faq-item"><strong>Q. ${f.q}</strong><p>
 function renderRegionProductsDetailList(regionName) {
   return Object.values(PRODUCTS).map(p => {
     const desc = buildProductDesc(p.url, regionName);
+    const visual = p.img
+      ? `<img src="${p.img}" alt="${p.name}" class="region-product-detail-img" loading="lazy">`
+      : `<span class="region-product-emoji">${p.emoji}</span>`;
     return `
 <div class="region-product-detail-card">
 <div class="region-product-detail-header">
-<span class="region-product-emoji">${p.emoji}</span>
+${visual}
 <h3>${p.name}</h3>
 </div>
 <ul>
@@ -18975,6 +18988,7 @@ body { background: #ffffff; }
     border-bottom: 1px solid var(--border);
 }
 .region-product-emoji { font-size: 22px; }
+.region-product-detail-img { width: 36px; height: 36px; object-fit: contain; }
 .region-product-detail-card h3 {
     font-size: 16px;
     font-weight: 700;
@@ -19041,6 +19055,15 @@ body { background: #ffffff; }
     background: var(--cream);
 }
 .region-product-simple .ps-icon { font-size: 36px; line-height: 1; }
+.region-product-simple .ps-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.region-product-simple:hover .ps-img {
+    transform: scale(1.05);
+}
 .region-product-simple .ps-name {
     font-size: 13px;
     font-weight: 700;
@@ -19990,8 +20013,11 @@ function buildSidoProductsSimpleGrid(sidoUrl) {
   let html = '';
   for (const key in PRODUCTS) {
     const p = PRODUCTS[key];
+    const visual = p.img
+      ? `<img src="${p.img}" alt="${p.name}" class="ps-img" loading="lazy">`
+      : `<div class="ps-icon">${p.emoji}</div>`;
     html += `<a href="/region/${sidoUrl}/${p.url}" class="region-product-simple">
-      <div class="ps-icon">${p.emoji}</div>
+      ${visual}
       <div class="ps-name">${p.name}</div>
     </a>`;
   }
@@ -20002,8 +20028,11 @@ function buildGuProductsSimpleGrid(sidoUrl, guName) {
   let html = '';
   for (const key in PRODUCTS) {
     const p = PRODUCTS[key];
+    const visual = p.img
+      ? `<img src="${p.img}" alt="${p.name}" class="ps-img" loading="lazy">`
+      : `<div class="ps-icon">${p.emoji}</div>`;
     html += `<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}/${p.url}" class="region-product-simple">
-      <div class="ps-icon">${p.emoji}</div>
+      ${visual}
       <div class="ps-name">${p.name}</div>
     </a>`;
   }
@@ -20656,8 +20685,11 @@ function buildDongPage(sidoUrl, guName, dongName) {
   let productsHtml = '';
   for (const key in PRODUCTS) {
     const p = PRODUCTS[key];
+    const visual = p.img
+      ? `<img src="${p.img}" alt="${p.name}" class="ps-img" loading="lazy">`
+      : `<div class="ps-icon">${p.emoji}</div>`;
     productsHtml += `<a href="/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dongName)}/${p.url}" class="region-product-simple">
-      <div class="ps-icon">${p.emoji}</div>
+      ${visual}
       <div class="ps-name">${p.name}</div>
     </a>`;
   }
