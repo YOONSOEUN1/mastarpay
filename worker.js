@@ -1968,6 +1968,19 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
+}
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -2522,30 +2535,63 @@ section.main-section {
 .process-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
+    gap: 20px;
 }
 .process-step {
     position: relative;
-    padding: 32px 0;
+    padding: 32px 28px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.process-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 .process-number {
     font-family: 'Fraunces', serif;
     font-style: italic;
-    font-size: 72px;
+    font-size: 56px;
     line-height: 1;
     color: var(--forest);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     display: block;
+    font-weight: 600;
 }
 .process-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
 }
 .process-desc {
     font-size: 14px;
     color: var(--ink-soft);
-    line-height: 1.6;
+    line-height: 1.7;
+    word-break: keep-all;
+}
+@media (max-width: 768px) {
+    .process-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+    }
+    .process-step {
+        padding: 22px 18px;
+    }
+    .process-number {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+    .process-title {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+    .process-desc {
+        font-size: 12.5px;
+        line-height: 1.6;
+    }
 }
 .testimonial-list {
     display: grid;
@@ -2699,14 +2745,22 @@ section.main-section {
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s;
+    transition: max-height 0.4s ease, padding 0.3s, opacity 0.3s;
     color: var(--ink-soft);
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.75;
+    opacity: 0;
 }
 .faq-item.open .faq-answer {
-    max-height: 300px;
+    max-height: 800px;
     padding-top: 16px;
+    opacity: 1;
+}
+@media (max-width: 768px) {
+    .faq-item { padding: 18px 0; }
+    .faq-question { font-size: 15px !important; gap: 12px; }
+    .faq-toggle { font-size: 20px; }
+    .faq-answer { font-size: 13.5px; line-height: 1.7; }
 }
 /* 메인의 제품 카드 */
 .products-grid {
@@ -2789,6 +2843,19 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
+}
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
 }
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
@@ -4623,6 +4690,19 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
+}
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -4875,6 +4955,19 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
+}
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
 }
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
@@ -5745,6 +5838,19 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
+}
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
 }
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
@@ -6864,6 +6970,19 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
+}
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -7982,6 +8101,19 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
+}
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
 }
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
@@ -9103,6 +9235,19 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
+}
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -10222,6 +10367,19 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
+}
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -11340,6 +11498,19 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
+}
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
 }
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
@@ -12463,6 +12634,19 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
+}
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -13584,6 +13768,19 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
+}
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
 }
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
@@ -14707,6 +14904,19 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
+}
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -15829,6 +16039,19 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
+}
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
 }
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
@@ -19438,6 +19661,19 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
+}
+/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+    /* iOS 사파리 보강 */
+    header {
+        position: -webkit-sticky !important;
+    }
 }
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
