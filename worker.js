@@ -3602,7 +3602,7 @@ p, h1, h2, h3, h4, li {
 <h4>Contact</h4>
 <ul>
 <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-<li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+<li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
 </ul>
 </div>
 </div>
@@ -3621,13 +3621,13 @@ p, h1, h2, h3, h4, li {
 </div>
 
 <script>
-// 카카오톡 채널 열기 (나중에 실제 URL로 교체)
+// 카카오톡 채널 열기
 function openKakao() {
-    var kakaoUrl = 'http://pf.kakao.com/_fPrxbG';
-    if (kakaoUrl === '#') {
-        alert('카카오톡 상담은 곧 오픈 예정입니다.\n지금은 전화 010-2337-0458 또는 아래 문의폼을 이용해주세요.');
-    } else {
-        window.open(kakaoUrl, '_blank');
+    var kakaoUrl = 'https://pf.kakao.com/_fPrxbG/chat';
+    var win = window.open(kakaoUrl, '_blank');
+    // 팝업 차단된 경우 같은 탭에서 열기
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.location.href = kakaoUrl;
     }
 }
 
@@ -3756,54 +3756,66 @@ function toggleMenu() {
     let idx = 0;
     let timer = null;
     let total = 0;
+    let initialized = false;
     
     function init() {
-        const track = document.getElementById('testimonialTrack');
-        const dotsBox = document.getElementById('testimonialDots');
-        if (!track) return;
-        
-        const items = track.querySelectorAll('.testimonial');
-        total = items.length;
-        if (total === 0) return;
-        
-        // 첫 번째 활성화
-        items[0].classList.add('active');
-        
-        // 점 인디케이터 생성
-        if (dotsBox) {
-            dotsBox.innerHTML = '';
-            for (let i = 0; i < total; i++) {
-                const d = document.createElement('button');
-                d.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
-                d.setAttribute('aria-label', (i+1) + '번 후기');
-                d.addEventListener('click', function() {
-                    show(i);
-                    resetAuto();
-                });
-                dotsBox.appendChild(d);
+        try {
+            if (initialized) return;
+            const track = document.getElementById('testimonialTrack');
+            const dotsBox = document.getElementById('testimonialDots');
+            if (!track) return;
+            
+            const items = track.querySelectorAll('.testimonial');
+            total = items.length;
+            if (total === 0) return;
+            
+            // 모든 카드 active 제거 → 첫 번째만 활성화
+            items.forEach(function(el) { el.classList.remove('active'); });
+            items[0].classList.add('active');
+            
+            // 점 인디케이터 생성
+            if (dotsBox) {
+                dotsBox.innerHTML = '';
+                for (let i = 0; i < total; i++) {
+                    const d = document.createElement('button');
+                    d.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+                    d.setAttribute('aria-label', (i+1) + '번 후기');
+                    d.addEventListener('click', function() {
+                        show(i);
+                        resetAuto();
+                    });
+                    dotsBox.appendChild(d);
+                }
             }
+            
+            initialized = true;
+            // 자동 회전 시작
+            resetAuto();
+        } catch(e) {
+            console.error('Testimonial init error:', e);
         }
-        
-        // 자동 회전 시작
-        resetAuto();
     }
     
     function show(n) {
-        const track = document.getElementById('testimonialTrack');
-        const dotsBox = document.getElementById('testimonialDots');
-        if (!track) return;
-        const items = track.querySelectorAll('.testimonial');
-        const dots = dotsBox ? dotsBox.querySelectorAll('.testimonial-dot') : [];
-        
-        if (n < 0) n = total - 1;
-        if (n >= total) n = 0;
-        
-        items.forEach(function(el) { el.classList.remove('active'); });
-        dots.forEach(function(el) { el.classList.remove('active'); });
-        
-        if (items[n]) items[n].classList.add('active');
-        if (dots[n]) dots[n].classList.add('active');
-        idx = n;
+        try {
+            const track = document.getElementById('testimonialTrack');
+            const dotsBox = document.getElementById('testimonialDots');
+            if (!track) return;
+            const items = track.querySelectorAll('.testimonial');
+            const dots = dotsBox ? dotsBox.querySelectorAll('.testimonial-dot') : [];
+            
+            if (n < 0) n = total - 1;
+            if (n >= total) n = 0;
+            
+            items.forEach(function(el) { el.classList.remove('active'); });
+            dots.forEach(function(el) { el.classList.remove('active'); });
+            
+            if (items[n]) items[n].classList.add('active');
+            if (dots[n]) dots[n].classList.add('active');
+            idx = n;
+        } catch(e) {
+            console.error('Testimonial show error:', e);
+        }
     }
     
     function resetAuto() {
@@ -3818,13 +3830,18 @@ function toggleMenu() {
         resetAuto();
     };
     
-    // 초기화: DOM 준비 시점
+    // 다중 발화 시점 (어느 한 시점에라도 무조건 작동)
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
+    window.addEventListener('load', init);
+    setTimeout(init, 100);
+    setTimeout(init, 500);
+    setTimeout(init, 1500);
 })();
+
 
 function toggleFaq(item) {
     item.classList.toggle('open');
@@ -3849,6 +3866,103 @@ function switchFindTab(tab) {
 }
 
 
+</script>
+
+<!-- 슬라이더 강제 발화 (이전 JS 에러와 격리) -->
+<script>
+(function() {
+    var idx = 0, timer = null, total = 0;
+    
+    function setupSlider() {
+        var track = document.getElementById('testimonialTrack');
+        var dotsBox = document.getElementById('testimonialDots');
+        if (!track) return false;
+        
+        var items = track.querySelectorAll('.testimonial');
+        total = items.length;
+        if (total === 0) return false;
+        
+        // 모든 카드 active 제거 후 첫 번째만
+        for (var i = 0; i < items.length; i++) {
+            items[i].classList.remove('active');
+        }
+        items[0].classList.add('active');
+        
+        // 점 생성
+        if (dotsBox && dotsBox.children.length === 0) {
+            for (var j = 0; j < total; j++) {
+                (function(n) {
+                    var d = document.createElement('button');
+                    d.className = 'testimonial-dot' + (n === 0 ? ' active' : '');
+                    d.setAttribute('aria-label', (n+1) + '번 후기');
+                    d.onclick = function() {
+                        showSlide(n);
+                        resetAutoTimer();
+                    };
+                    dotsBox.appendChild(d);
+                })(j);
+            }
+        }
+        
+        return true;
+    }
+    
+    function showSlide(n) {
+        var track = document.getElementById('testimonialTrack');
+        var dotsBox = document.getElementById('testimonialDots');
+        if (!track) return;
+        var items = track.querySelectorAll('.testimonial');
+        var dots = dotsBox ? dotsBox.querySelectorAll('.testimonial-dot') : [];
+        
+        if (n < 0) n = total - 1;
+        if (n >= total) n = 0;
+        
+        for (var i = 0; i < items.length; i++) items[i].classList.remove('active');
+        for (var k = 0; k < dots.length; k++) dots[k].classList.remove('active');
+        
+        if (items[n]) items[n].classList.add('active');
+        if (dots[n]) dots[n].classList.add('active');
+        idx = n;
+    }
+    
+    function resetAutoTimer() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(function() {
+            showSlide(idx + 1);
+        }, 4000);
+    }
+    
+    // moveTestimonial 글로벌 재정의 (확실하게 덮어씀)
+    window.moveTestimonial = function(dir) {
+        showSlide(idx + dir);
+        resetAutoTimer();
+    };
+    
+    // 무조건 작동하도록 다중 시점에서 시도
+    function attempt() {
+        if (setupSlider()) {
+            resetAutoTimer();
+            return true;
+        }
+        return false;
+    }
+    
+    // DOM ready 시점에 시도
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', attempt);
+    } else {
+        attempt();
+    }
+    
+    // load 이벤트에서도 시도
+    window.addEventListener('load', attempt);
+    
+    // 안전장치: 다양한 시점에 재시도
+    setTimeout(attempt, 50);
+    setTimeout(attempt, 200);
+    setTimeout(attempt, 800);
+    setTimeout(attempt, 2000);
+})();
 </script>
 
 </body>
@@ -6069,7 +6183,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -7188,7 +7302,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -8308,7 +8422,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -9427,7 +9541,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -10546,7 +10660,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -11668,7 +11782,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -12790,7 +12904,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -13912,7 +14026,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -15035,7 +15149,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -16370,7 +16484,7 @@ p, h1, h2, h3, h4, li {
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-                        <li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+                        <li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
                     </ul>
                 </div>
             </div>
@@ -19564,7 +19678,7 @@ function getFooter() {
 <h4>Contact</h4>
 <ul>
 <li><a href="tel:010-2337-0458">📞 010-2337-0458</a></li>
-<li><a href="http://pf.kakao.com/_fPrxbG" target="_blank">💬 카카오톡 상담</a></li>
+<li><a href="https://pf.kakao.com/_fPrxbG/chat" target="_blank">💬 카카오톡 상담</a></li>
 </ul>
 </div>
 </div>
@@ -19583,7 +19697,7 @@ function getFooter() {
 <script>
 function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
 function openKakao(){
-  var kakaoUrl='http://pf.kakao.com/_fPrxbG';
+  var kakaoUrl='https://pf.kakao.com/_fPrxbG/chat';
   if(kakaoUrl==='#'){alert('카카오톡 상담은 곧 오픈 예정입니다.\\n지금은 전화 010-2337-0458 또는 문의폼을 이용해주세요.');}
   else{window.open(kakaoUrl,'_blank');}
 }
