@@ -3082,8 +3082,9 @@ p, h1, h2, h3, h4, li {
 
 <div class="find-tabs">
 <button class="find-tab active" data-tab="region" onclick="switchFindTab('region')">📍 지역별 설치</button>
-<button class="find-tab" data-tab="product" onclick="switchFindTab('product'); document.getElementById('allinone').scrollIntoView({behavior:'smooth', block:'start'});">📦 제품별 안내</button>
+<button class="find-tab" data-tab="product" onclick="goToProducts(event)">📦 제품별 안내</button>
 <a href="tel:010-2337-0458" class="find-tab">📞 무료 상담</a>
+<a href="#contact" class="find-tab" onclick="goToContact(event)">💬 상담 문의</a>
 </div>
 
 <div class="find-tab-content">
@@ -3863,6 +3864,30 @@ function switchFindTab(tab) {
     
     const panel = document.getElementById('tab-' + tab);
     if (panel) panel.classList.add('active');
+}
+
+// "제품별 안내" 클릭 시 제품 카드 섹션으로 스크롤
+function goToProducts(event) {
+    if (event) event.preventDefault();
+    var section = document.getElementById('allinone');
+    if (section) {
+        var headerH = 80;
+        var top = section.getBoundingClientRect().top + window.pageYOffset - headerH;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+}
+
+// "상담 문의" 클릭 시 컨택 섹션으로 스크롤
+function goToContact(event) {
+    if (event) event.preventDefault();
+    var section = document.getElementById('contact');
+    if (section) {
+        var headerH = 80;
+        var top = section.getBoundingClientRect().top + window.pageYOffset - headerH;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+    } else {
+        window.location.href = '/#contact';
+    }
 }
 
 
