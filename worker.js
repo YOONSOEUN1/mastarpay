@@ -1910,7 +1910,7 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 .fab-btn.fab-contact {
-    background: var(--ink);
+    background: #4a90e2;
     color: #ffffff;
 }
 .fab-btn.fab-kakao {
@@ -2069,7 +2069,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -2557,27 +2557,20 @@ section.main-section {
     position: relative;
     max-width: 720px;
     margin: 0 auto;
-    min-height: 320px;
 }
 .testimonial-track {
     position: relative;
-    min-height: 280px;
 }
 .testimonial-track .testimonial {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease;
-    pointer-events: none;
+    display: none;
+    animation: fadeInTestimonial 0.6s ease;
 }
 .testimonial-track .testimonial.active {
-    opacity: 1;
-    visibility: visible;
-    position: relative;
-    pointer-events: auto;
+    display: block;
+}
+@keyframes fadeInTestimonial {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 .testimonial-controls {
     display: flex;
@@ -2628,10 +2621,6 @@ section.main-section {
     background: var(--forest);
     width: 28px;
     border-radius: 4px;
-}
-@media (max-width: 640px) {
-    .testimonial-slider { min-height: 360px; }
-    .testimonial-track { min-height: 320px; }
 }
 .testimonial {
     padding: 40px 32px;
@@ -2902,7 +2891,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -3319,7 +3308,7 @@ p, h1, h2, h3, h4, li {
 
 <div class="testimonial-slider" id="testimonialSlider">
 <div class="testimonial-track" id="testimonialTrack">
-<div class="testimonial">
+<div class="testimonial active">
 <span class="quote-mark">"</span>
 <p class="testimonial-text">
 카드단말기 교체 후 연간 60만원 수수료 절감했어요. 상담부터 설치까지 너무 꼼꼼하게 봐주셨습니다.
@@ -3626,8 +3615,8 @@ p, h1, h2, h3, h4, li {
 </footer>
 <!-- 플로팅 버튼 -->
 <div class="floating-buttons">
-<a href="#contact" class="fab-btn fab-contact" data-tooltip="온라인 문의" onclick="scrollToContact(event)" aria-label="온라인 문의">💬</a>
-<a href="#kakao" class="fab-btn fab-kakao" data-tooltip="카카오톡 상담" onclick="openKakao(); return false;" aria-label="카카오톡 상담">💛</a>
+<a href="javascript:void(0)" class="fab-btn fab-contact" data-tooltip="온라인 문의" onclick="scrollToContact(event)" aria-label="온라인 문의">💬</a>
+<a href="javascript:void(0)" class="fab-btn fab-kakao" data-tooltip="카카오톡 상담" onclick="openKakao(); return false;" aria-label="카카오톡 상담">💛</a>
 <a href="tel:010-2337-0458" class="fab-btn fab-phone" data-tooltip="전화 상담 010-2337-0458" aria-label="전화 상담">📞</a>
 </div>
 
@@ -4595,7 +4584,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -4848,7 +4837,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -5718,7 +5707,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -6836,7 +6825,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -7955,7 +7944,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -9075,7 +9064,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -10194,7 +10183,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -11313,7 +11302,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -12435,7 +12424,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -13557,7 +13546,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -14679,7 +14668,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -15802,7 +15791,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -19252,7 +19241,7 @@ body { background: #ffffff; }
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 .fab-btn.fab-contact {
-    background: var(--ink);
+    background: #4a90e2;
     color: #ffffff;
 }
 .fab-btn.fab-kakao {
@@ -19411,7 +19400,7 @@ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .container { padding: 0 14px !important; }
     h1 { font-size: clamp(20px, 6vw, 26px) !important; }
     .region-list-grid { grid-template-columns: repeat(2, 1fr) !important; font-size: 12.5px; }
-    .region-products-simple { grid-template-columns: 1fr !important; }
+    .region-products-simple { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
     .region-thumbnail { max-height: 240px !important; }
     .region-thumbnail-overlay { padding: 14px 12px !important; }
     .region-thumbnail-services { font-size: 11px !important; }
@@ -19587,8 +19576,8 @@ function getFooter() {
 </footer>
 <!-- 플로팅 버튼 -->
 <div class="floating-buttons">
-<a href="#contact" class="fab-btn fab-contact" data-tooltip="온라인 문의" onclick="scrollToContact(event)" aria-label="온라인 문의">💬</a>
-<a href="#kakao" class="fab-btn fab-kakao" data-tooltip="카카오톡 상담" onclick="openKakao(); return false;" aria-label="카카오톡 상담">💛</a>
+<a href="javascript:void(0)" class="fab-btn fab-contact" data-tooltip="온라인 문의" onclick="scrollToContact(event)" aria-label="온라인 문의">💬</a>
+<a href="javascript:void(0)" class="fab-btn fab-kakao" data-tooltip="카카오톡 상담" onclick="openKakao(); return false;" aria-label="카카오톡 상담">💛</a>
 <a href="tel:010-2337-0458" class="fab-btn fab-phone" data-tooltip="전화 상담 010-2337-0458" aria-label="전화 상담">📞</a>
 </div>
 <script>
