@@ -2293,6 +2293,52 @@ p, h1, h2, h3, h4, li {
     font-weight: 700;
     font-family: 'Fraunces', serif;
 }
+/* 모바일: 회전 없애고 가로 2열 배지 형태로 깔끔하게 */
+@media (max-width: 768px) {
+    .hero-visual {
+        flex-direction: row !important;
+        gap: 10px !important;
+        padding-top: 28px !important;
+        max-width: 100%;
+        justify-content: center;
+    }
+    .visual-card {
+        width: auto !important;
+        flex: 1 1 0 !important;
+        min-width: 0;
+        padding: 18px 16px !important;
+        border-radius: 14px !important;
+        transform: none !important;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .visual-card:nth-child(2) {
+        transform: none !important;
+    }
+    .visual-card:hover {
+        transform: translateY(-2px) !important;
+    }
+    .visual-card .icon-big {
+        font-size: 24px !important;
+        margin-bottom: 8px !important;
+    }
+    .visual-card .card-label {
+        font-size: 10.5px !important;
+        margin-bottom: 4px !important;
+        letter-spacing: 0.05em;
+    }
+    .visual-card .card-value {
+        font-size: 22px !important;
+        line-height: 1.1 !important;
+    }
+}
+@media (max-width: 360px) {
+    .visual-card .card-value { font-size: 19px !important; }
+    .visual-card .icon-big { font-size: 20px !important; }
+}
 
 /* ========== FIND YOUR SOLUTION 섹션 (새로!) ========== */
 .find-section {
