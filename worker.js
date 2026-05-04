@@ -60,11 +60,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -1968,19 +1977,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -2890,19 +2887,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -4153,11 +4138,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -4736,19 +4730,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -5002,19 +4984,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -5302,11 +5272,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -5885,19 +5864,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -6433,11 +6400,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -7016,19 +6992,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -7565,11 +7529,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -8148,19 +8121,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -8698,11 +8659,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -9281,19 +9251,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -9830,11 +9788,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -10413,19 +10380,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -10962,11 +10917,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -11545,19 +11509,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -12097,11 +12049,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -12680,19 +12641,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -13232,11 +13181,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -13815,19 +13773,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -14367,11 +14313,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -14950,19 +14905,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -15503,11 +15446,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -16086,19 +16038,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -17983,11 +17923,20 @@ img { max-width: 100%; display: block; }
 
 /* ========== 헤더 ========== */
 header {
-    position: sticky;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     background: var(--cream);
-    z-index: 100;
+    z-index: 9999 !important;
     border-bottom: 1px solid var(--border);
+}
+body {
+    padding-top: 72px;
+}
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
 }
 
 .nav {
@@ -19708,19 +19657,7 @@ html, body {
     width: 100%;
     -webkit-text-size-adjust: 100%;
 }
-/* sticky header 강제 보강 (overflow-x:hidden이 모바일에서 깨는 문제 방지) */
-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    will-change: transform;
-}
-@supports (-webkit-touch-callout: none) {
-    /* iOS 사파리 보강 */
-    header {
-        position: -webkit-sticky !important;
-    }
-}
+
 * { max-width: 100%; }
 img, video, iframe { max-width: 100%; height: auto; }
 table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
