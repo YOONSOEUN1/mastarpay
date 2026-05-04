@@ -3733,10 +3733,11 @@ async function submitContactForm(event) {
     } catch (error) {
         console.error('[문의폼] 에러 발생:', error);
         var errorMsg = error.message || '전송에 실패했습니다';
+        var debugInfo = (result && result.debug) ? '<div style="font-size:11px;background:#f5f5f5;padding:8px;margin-top:10px;border-radius:6px;text-align:left;color:#666;font-family:monospace;word-break:break-all;">' + result.debug + '</div>' : '';
         if (formMessage) {
             formMessage.className = 'form-message error';
             formMessage.style.display = 'block';
-            formMessage.innerHTML = '<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">' + errorMsg + '</div><div style="font-size:14px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';
+            formMessage.innerHTML = '<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">' + errorMsg + '</div>' + debugInfo + '<div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';
             formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     } finally {
@@ -20985,7 +20986,7 @@ async function handleContactAPI(request, env) {
       },
       body: JSON.stringify({
         from: 'Mastarpay <onboarding@resend.dev>',
-        to: ['thdmsdidfl@naver.com'],
+        to: ['thdmsjinu@gmail.com'],
         subject: '[마스터페이] ' + name + ' · ' + product + ' · ' + phone,
         html: emailHTML,
       }),
