@@ -892,6 +892,39 @@ body {
     padding: 32px 28px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
+.keyword-box {
+    background: linear-gradient(135deg, #fff8f0, #fef3e2);
+    border: 1px dashed var(--coral);
+}
+.keyword-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.keyword-tag {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    transition: all 0.2s;
+    cursor: default;
+    display: inline-block;
+    word-break: keep-all;
+}
+.keyword-tag:hover {
+    background: var(--forest);
+    color: var(--cream);
+    border-color: var(--forest);
+    transform: translateY(-1px);
+}
+@media (max-width: 768px) {
+    .keyword-tags { gap: 6px; }
+    .keyword-tag { font-size: 12px; padding: 6px 12px; }
+}
 
 /* 박스 제목 (노란 구분선 + 아이콘) */
 .region-box-title {
@@ -2741,12 +2774,14 @@ section.main-section {
     padding: 40px 32px;
     border: 1px solid var(--border);
     border-radius: 24px;
-    background: var(--cream);
+    background: #ffffff;
     transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 .testimonial:hover {
-    background: var(--cream-dark);
+    background: #ffffff;
     transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
 /* 슬라이더 내 카드는 hover transform 제거 (위치 어긋남 방지) */
 .testimonial-slider .testimonial:hover {
@@ -22565,6 +22600,39 @@ body { background: #ffffff; }
     padding: 32px 28px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
+.keyword-box {
+    background: linear-gradient(135deg, #fff8f0, #fef3e2);
+    border: 1px dashed var(--coral);
+}
+.keyword-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.keyword-tag {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    transition: all 0.2s;
+    cursor: default;
+    display: inline-block;
+    word-break: keep-all;
+}
+.keyword-tag:hover {
+    background: var(--forest);
+    color: var(--cream);
+    border-color: var(--forest);
+    transform: translateY(-1px);
+}
+@media (max-width: 768px) {
+    .keyword-tags { gap: 6px; }
+    .keyword-tag { font-size: 12px; padding: 6px 12px; }
+}
 .region-box-title {
     display: flex;
     align-items: center;
@@ -24246,6 +24314,51 @@ function getSidoStats(sidoName) {
   };
 }
 
+function buildKeywordBox(regionName, productName) {
+  // 지역+제품 키워드 박스 (SEO용 8개 키워드)
+  // regionName: "경기도" / "경기 수원시" / "경기 수원시 영통구" 등
+  // productName: 선택사항. 있으면 지역+제품 키워드, 없으면 지역+일반 키워드
+  
+  // 지역명에서 공백 제거 (예: "경기 수원시" → "경기수원시")
+  const regionKey = regionName.replace(/\s+/g, '');
+  
+  let keywords;
+  if (productName) {
+    // 지역×제품 키워드 8개
+    const productKey = productName.replace(/\s+/g, '');
+    keywords = [
+      regionKey + productKey,
+      regionKey + productKey + '설치',
+      regionKey + productKey + '렌탈',
+      regionKey + productKey + '무료',
+      regionKey + productKey + '가격',
+      regionKey + productKey + '견적',
+      regionKey + productKey + '교체',
+      regionKey + productKey + '추천'
+    ];
+  } else {
+    // 지역만 키워드 8개
+    keywords = [
+      regionKey + '카드단말기',
+      regionKey + '포스기',
+      regionKey + '키오스크',
+      regionKey + '단말기',
+      regionKey + '결제장비',
+      regionKey + '카드기설치',
+      regionKey + '결제단말기',
+      regionKey + '매장설비'
+    ];
+  }
+  
+  return `<div class="region-box keyword-box">
+<h2 class="region-box-title">🔍 관련 검색어</h2>
+<p class="region-box-subtitle">자주 검색되는 ${regionName}${productName ? ' ' + productName : ''} 관련 키워드입니다.</p>
+<div class="keyword-tags">
+${keywords.map(k => `<span class="keyword-tag">#${k}</span>`).join('')}
+</div>
+</div>`;
+}
+
 function buildSidoProductsSimpleGrid(sidoUrl) {
   let html = '';
   for (const key in PRODUCTS) {
@@ -24529,6 +24642,8 @@ function buildSidoPage(sidoUrl) {
 <div class="region-list-grid">${gusListHtml}</div>
 </div>
 
+${buildKeywordBox(sido.name)}
+
 </div>
 </section>
 
@@ -24644,6 +24759,8 @@ ${renderRegionProductBody(buildRegionProductData(sido.name, productSlug))}
 <p class="region-box-subtitle">${productSlug === 'removal' ? `시군구를 클릭하면 해당 지역 매장 철거 상세 안내와 동 목록을 확인할 수 있습니다.` : `시군구를 클릭하면 해당 지역 ${product.name} 상세 안내와 동 목록을 확인할 수 있습니다.`}</p>
 <div class="region-list-grid">${gusListHtml}</div>
 </div>
+
+${buildKeywordBox(sido.name, product.name)}
 
 </div>
 </section>
@@ -24785,6 +24902,8 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
 
+${buildKeywordBox(getShortSidoName(sido.name) + ' ' + guName)}
+
 </div>
 </section>
 
@@ -24888,6 +25007,8 @@ ${renderRegionProductBody(buildRegionProductData(sido.name + ' ' + guName, produ
 <p class="region-box-subtitle">${productSlug === 'removal' ? `동을 선택하면 해당 지역의 매장 철거 맞춤 상세 정보로 이동합니다.` : `동을 선택하면 해당 지역의 ${product.name} 맞춤 상세 정보로 이동합니다.`}</p>
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
+
+${buildKeywordBox(getShortSidoName(sido.name) + ' ' + guName, product.name)}
 
 </div>
 </section>
@@ -25024,6 +25145,8 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <div class="region-faq-item"><strong>Q. ${dongName} 긴급 A/S도 가능한가요?</strong><p>${dongName}을 포함한 ${guName} 전역 당일 긴급 A/S 출동 서비스를 제공합니다.</p></div>
 </div>
 </div>
+
+${buildKeywordBox(getShortSidoName(sido.name) + ' ' + guName + ' ' + dongName)}
 
 </div>
 </section>
@@ -25325,6 +25448,8 @@ ${renderRegionProductBody(buildRegionProductData(sido.name + ' ' + guName + ' ' 
 </div>
 
 ${getProductDetailContent(productSlug, sido.name, guName, dongName, ctx)}
+
+${buildKeywordBox(getShortSidoName(sido.name) + ' ' + guName + ' ' + dongName, product.name)}
 
 </div>
 </section>
