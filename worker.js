@@ -25751,13 +25751,113 @@ Sitemap: ${url.origin}/sitemap.xml`, {
       });
     }
     
-    // 5. 404
+    // 5. IndexNow 키 파일 (검색엔진이 키 검증할 때 호출)
+    const INDEXNOW_KEY = 'f95d74402931badac3c77041bf1d953d';
+    if (pathname === `/${INDEXNOW_KEY}.txt`) {
+      return new Response(INDEXNOW_KEY, {
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+      });
+    }
+    
+    // 6. IndexNow 수동 제출 엔드포인트 (관리자가 호출하면 검색엔진에 사이트맵 URL 일괄 전송)
+    if (pathname === '/api/indexnow-submit') {
+      return await submitToIndexNow(url.origin, INDEXNOW_KEY);
+    }
+    
+    // 7. 404
     return new Response(PAGE_NOT_FOUND, {
       status: 404,
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });
   },
 };
+
+// ============================================================
+// IndexNow 제출 (검색엔진에 페이지 변경 알림)
+// ============================================================
+
+async function submitToIndexNow(origin, key) {
+  // 주요 페이지 URL 목록 (정적 페이지 + 시도 17개 + 시도×제품 일부)
+  const host = origin.replace(/^https?:\/\//, '');
+  const urls = [
+    `${origin}/`,
+    `${origin}/product/pos`,
+    `${origin}/product/card-2inch`,
+    `${origin}/product/card-3inch`,
+    `${origin}/product/card-toss`,
+    `${origin}/product/card-wireless`,
+    `${origin}/product/card-bluetooth`,
+    `${origin}/product/kiosk`,
+    `${origin}/product/kiosk-mini`,
+    `${origin}/product/tableorder`,
+    `${origin}/product/removal`,
+  ];
+  
+  // 시도 17개
+  for (const sidoUrl in REGIONS) {
+    urls.push(`${origin}/region/${sidoUrl}`);
+    // 시도×제품도 일부 포함 (전체는 너무 많음)
+    for (const productKey of ['pos', 'card-2inch', 'kiosk']) {
+      urls.push(`${origin}/region/${sidoUrl}/${productKey}`);
+    }
+  }
+  
+  // IndexNow는 한 번에 최대 10,000개 URL 가능, 주요 페이지만 보내기 (현재 ~70개)
+  const payload = {
+    host: host,
+    key: key,
+    keyLocation: `${origin}/${key}.txt`,
+    urlList: urls
+  };
+  
+  try {
+    // 여러 검색엔진 동시 제출
+    const endpoints = [
+      'https://api.indexnow.org/indexnow',
+      'https://www.bing.com/indexnow',
+      'https://yandex.com/indexnow',
+      'https://searchadvisor.naver.com/indexnow'
+    ];
+    
+    const results = [];
+    for (const endpoint of endpoints) {
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+        results.push({
+          endpoint: endpoint,
+          status: res.status,
+          ok: res.ok
+        });
+      } catch (e) {
+        results.push({
+          endpoint: endpoint,
+          error: e.message
+        });
+      }
+    }
+    
+    return new Response(JSON.stringify({
+      success: true,
+      submitted: urls.length,
+      results: results,
+      message: `${urls.length}개 URL을 IndexNow에 제출했습니다.`
+    }, null, 2), {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' }
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({
+      success: false,
+      error: error.message
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json; charset=utf-8' }
+    });
+  }
+}
 
 // ============================================================
 // 사이트맵 생성 (검색엔진용)
