@@ -24435,9 +24435,13 @@ function buildSidoPage(sidoUrl) {
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">빠른 대응</div></div>
 </div>
-<div class="region-cta">
-<a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+<div class="region-cta-box">
+<h3>💳 ${sido.name} 무료 견적 받기</h3>
+<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
+</div>
 </div>
 </div>
 </section>
@@ -24525,15 +24529,14 @@ function buildSidoPage(sidoUrl) {
 <div class="region-list-grid">${gusListHtml}</div>
 </div>
 
-<!-- 박스 8: CTA -->
-<div class="region-cta-box">
-<h3>💳 ${sido.name} 무료 견적 받기</h3>
-<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
 </div>
-</div>
+</section>
+
+<!-- 박스 8: 온라인 문의 폼 -->
+${getCTA()}
+
+<section class="region-main">
+<div class="container">
 
 <!-- 박스 9: 다른 시도 -->
 <div class="region-box">
@@ -24619,9 +24622,13 @@ ${productSlug === 'removal'
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">빠른 대응</div></div>`}
 </div>
-<div class="region-cta">
-<a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+<div class="region-cta-box">
+<h3>💳 ${sido.name} 무료 견적 받기</h3>
+<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
+</div>
 </div>
 </div>
 </section>
@@ -24638,18 +24645,10 @@ ${renderRegionProductBody(buildRegionProductData(sido.name, productSlug))}
 <div class="region-list-grid">${gusListHtml}</div>
 </div>
 
-<!-- 박스 8: CTA -->
-<div class="region-cta-box">
-<h3>${product.emoji} ${sido.name} ${product.name} 무료 견적</h3>
-<p>${productSlug === 'removal' ? `${sido.name} 전 지역 매장 철거·원상복구 상담 가능합니다.` : `${sido.name} 전 지역 ${product.name} 설치 상담 가능합니다.`}</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
-</div>
-</div>
-
 </div>
 </section>
+
+${getCTA()}
 
 ${getFooter()}`;
 }
@@ -24715,9 +24714,13 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">출동</div><div class="region-stat-value">당일</div></div>
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 </div>
-<div class="region-cta">
-<a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+<div class="region-cta-box">
+<h3>💳 ${sido.name} 무료 견적 받기</h3>
+<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
+</div>
 </div>
 </div>
 </section>
@@ -24782,17 +24785,10 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
 
-<div class="region-cta-box">
-<h3>📞 ${sido.name} ${guName} 무료 상담</h3>
-<p>${guName} 전담 상담사가 빠르게 도와드립니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
-</div>
-</div>
-
 </div>
 </section>
+
+${getCTA()}
 
 ${getFooter()}`;
 }
@@ -24871,9 +24867,13 @@ ${productSlug === 'removal'
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>`}
 </div>
-<div class="region-cta">
-<a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+<div class="region-cta-box">
+<h3>💳 ${sido.name} 무료 견적 받기</h3>
+<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
+</div>
 </div>
 </div>
 </section>
@@ -24889,17 +24889,10 @@ ${renderRegionProductBody(buildRegionProductData(sido.name + ' ' + guName, produ
 <div class="region-list-grid">${dongsListHtml}</div>
 </div>
 
-<div class="region-cta-box">
-<h3>${product.emoji} ${sido.name} ${guName} ${product.name} 무료 견적</h3>
-<p>${guName} 전담 상담사가 빠르게 도와드립니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
-</div>
-</div>
-
 </div>
 </section>
+
+${getCTA()}
 
 ${getFooter()}`;
 }
@@ -24969,9 +24962,13 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">즉시</div></div>
 </div>
-<div class="region-cta">
-<a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+<div class="region-cta-box">
+<h3>💳 ${sido.name} 무료 견적 받기</h3>
+<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
+</div>
 </div>
 </div>
 </section>
@@ -25028,17 +25025,10 @@ function buildDongPage(sidoUrl, guName, dongName) {
 </div>
 </div>
 
-<div class="region-cta-box">
-<h3>📞 ${sido.name} ${guName} ${dongName} 무료 상담</h3>
-<p>지금 바로 전화 한 통으로 ${dongName} 맞춤 견적을 받아보세요.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
-</div>
-</div>
-
 </div>
 </section>
+
+${getCTA()}
 
 ${getFooter()}`;
 }
@@ -25313,9 +25303,13 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 </div>
 </div>
 <div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${fullAddr} 매장 철거·원상복구 전문. 무료 방문 견적, 전국 최저가, 1년 사후 책임을 약속합니다.` : `${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.`}</div>
-<div class="region-cta">
-<a href="/#contact" class="btn btn-primary">무료 상담 신청 →</a>
-<a href="tel:010-2337-0458" class="btn btn-ghost">📞 010-2337-0458</a>
+<div class="region-cta-box">
+<h3>💳 ${sido.name} 무료 견적 받기</h3>
+<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
+<div class="region-cta-buttons">
+<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
+<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
+</div>
 </div>
 </div>
 </section>
@@ -25332,17 +25326,10 @@ ${renderRegionProductBody(buildRegionProductData(sido.name + ' ' + guName + ' ' 
 
 ${getProductDetailContent(productSlug, sido.name, guName, dongName, ctx)}
 
-<div class="region-cta-box">
-<h3>${product.emoji} ${sido.name} ${guName} ${dongName} ${product.name} 무료 견적</h3>
-<p>${ctx.closing}. 지금 바로 전화 한 통이면 충분합니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="/#contact" class="btn btn-ghost">💬 상담 문의</a>
-</div>
-</div>
-
 </div>
 </section>
+
+${getCTA()}
 
 ${getFooter()}`;
 }
