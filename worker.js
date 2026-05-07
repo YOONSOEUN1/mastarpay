@@ -7349,36 +7349,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -7412,60 +7393,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -8782,36 +8714,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -8845,60 +8758,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -10216,36 +10080,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -10279,60 +10124,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -11649,36 +11445,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -11712,60 +11489,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -13082,36 +12810,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -13145,60 +12854,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -14518,36 +14178,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -14581,60 +14222,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -15954,36 +15546,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -16017,60 +15590,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -17390,36 +16914,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -17453,60 +16958,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -18827,36 +18283,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -18890,60 +18327,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
@@ -20476,36 +19864,17 @@ p, h1, h2, h3, h4, li {
     </section>
 
     <!-- CTA -->
-    <section class="contact-section" id="contact">
+    <section class="cta" id="contact">
         <div class="container">
-            <div class="contact-intro">
+            <div class="cta-content">
                 <div class="cta-label">— Contact Us —</div>
-                <h2 class="contact-title">무료 상담 신청</h2>
-                <p class="contact-sub">전화, 카카오톡 또는 아래 폼으로 문의해주세요.<br>담당자가 빠르게 연락드립니다.</p>
-                <div class="contact-direct">
-                    <a href="tel:010-2337-0458" class="contact-direct-btn">
-                        <span class="cd-icon">📞</span>
-                        <span><span class="cd-label">전화 상담</span><span class="cd-value">010-2337-0458</span></span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openKakao(); return false;" class="contact-direct-btn">
-                        <span class="cd-icon">💬</span>
-                        <span><span class="cd-label">카카오톡</span><span class="cd-value">바로 상담</span></span>
-                    </a>
+                <h2>무료 상담 신청</h2>
+                <p style="margin: 16px 0 28px; opacity: 0.85;">전화, 카카오톡 또는 온라인 폼으로 문의해주세요.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a href="tel:010-2337-0458" class="cta-phone">📞 010-2337-0458</a>
+                    <a href="/#contact" class="cta-phone" style="background: #4a90e2;">📝 온라인 문의 폼</a>
                 </div>
-            </div>
-            <div class="contact-form-box">
-                <h3 class="contact-form-title"><span class="cf-bar"></span><span>📝 온라인 문의</span></h3>
-                <form id="contactForm" class="contact-form" onsubmit="return submitContactForm(event)">
-                    <div class="form-group"><label for="name">상호(이름) <span class="required">*</span></label><input type="text" id="name" name="상호_이름" placeholder="상호 또는 이름을 입력하세요" required></div>
-                    <div class="form-group"><label for="phone">연락처 <span class="required">*</span></label><input type="tel" id="phone" name="연락처" placeholder="010-0000-0000" required></div>
-                    <div class="form-group"><label for="address">주소 <span class="required">*</span></label><input type="text" id="address" name="주소" placeholder="매장 주소" required><input type="text" id="address_detail" name="상세주소" placeholder="상세주소 (건물명, 층, 호수 등)" style="margin-top: 8px;"></div>
-                    <div class="form-group"><label for="product">문의 제품 <span class="required">*</span></label><select id="product" name="문의_제품" required><option value="">선택해주세요</option><option value="포스기">포스기(POS)</option><option value="2인치 단말기">2인치 단말기</option><option value="3인치 단말기">3인치 단말기</option><option value="토스 단말기">토스 단말기</option><option value="무선 단말기">무선 단말기</option><option value="블루투스 단말기">블루투스 단말기</option><option value="키오스크">키오스크</option><option value="미니 키오스크">미니 키오스크</option><option value="테이블 오더">테이블 오더</option><option value="매장 철거">매장 철거</option><option value="여러 제품 패키지">여러 제품 패키지</option><option value="기타/미정">기타/미정</option></select></div>
-                    <div class="form-group"><label for="business">업종</label><select id="business" name="업종"><option value="">선택해주세요</option><option value="음식점/식당">음식점/식당</option><option value="카페/베이커리">카페/베이커리</option><option value="편의점/마트">편의점/마트</option><option value="미용실/네일샵">미용실/네일샵</option><option value="스터디카페">스터디카페</option><option value="주점/호프">주점/호프</option><option value="무인매장">무인매장</option><option value="의류/잡화">의류/잡화</option><option value="병원/약국">병원/약국</option><option value="기타">기타</option></select></div>
-                    <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="문의_내용" rows="5" placeholder="매장 위치, 현재 사용 장비, 궁금한 점 등을 자유롭게 적어주세요."></textarea></div>
-                    <div class="form-agree"><label class="checkbox-label"><input type="checkbox" id="agree" required><span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span></label><div class="agree-detail">수집항목: 상호·연락처·주소·문의 내용 / 이용목적: 상담 및 견적 안내 / 보유기간: 3년</div></div>
-                    <button type="submit" class="contact-submit" id="submitBtn"><span id="submitText">무료 상담 신청하기 →</span></button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="cta-note">평일 09:00 – 18:00 · 카카오톡 상담도 가능합니다</div>
             </div>
         </div>
     </section>
@@ -20539,60 +19908,11 @@ p, h1, h2, h3, h4, li {
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
         function openKakao(){
           var url='https://pf.kakao.com/_fPrxbG/chat';
           var w=window.open(url,'_blank');
           if(!w||w.closed||typeof w.closed==='undefined'){window.location.href=url;}
-        }
-        function scrollToContact(event){
-          if(event)event.preventDefault();
-          var c=document.getElementById('contact');
-          if(c){
-            var top=c.getBoundingClientRect().top+window.pageYOffset-80;
-            window.scrollTo({top:top,behavior:'smooth'});
-          }else{window.location.href='/#contact';}
-        }
-        async function submitContactForm(event){
-          if(event){event.preventDefault();event.stopPropagation();}
-          var form=document.getElementById('contactForm');
-          var submitBtn=document.getElementById('submitBtn');
-          var submitText=document.getElementById('submitText');
-          var formMessage=document.getElementById('formMessage');
-          if(!form){alert('⚠️ 폼을 찾을 수 없습니다.');return false;}
-          var agreeCheckbox=document.getElementById('agree');
-          if(!agreeCheckbox||!agreeCheckbox.checked){alert('개인정보 수집 및 이용에 동의해주세요.');return false;}
-          var name=document.getElementById('name').value.trim();
-          var phone=document.getElementById('phone').value.trim();
-          var address=document.getElementById('address').value.trim();
-          var product=document.getElementById('product').value;
-          if(!name){alert('상호(이름)을 입력해주세요.');document.getElementById('name').focus();return false;}
-          if(!phone){alert('연락처를 입력해주세요.');document.getElementById('phone').focus();return false;}
-          if(!address){alert('주소를 입력해주세요.');document.getElementById('address').focus();return false;}
-          if(!product){alert('문의 제품을 선택해주세요.');document.getElementById('product').focus();return false;}
-          if(submitBtn)submitBtn.disabled=true;
-          if(submitText)submitText.textContent='전송 중...';
-          if(formMessage){formMessage.className='form-message';formMessage.style.display='none';}
-          var data={name:name,phone:phone,address:address,addressDetail:document.getElementById('address_detail').value.trim(),product:product,business:document.getElementById('business').value,message:document.getElementById('message').value.trim()};
-          var result;
-          try{
-            var response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-            result=await response.json();
-            if(result.success){
-              if(formMessage){formMessage.className='form-message success';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:24px 20px;"><div style="font-size:48px;margin-bottom:12px;">✅</div><div style="font-size:18px;font-weight:800;color:#2e7d32;margin-bottom:8px;">문의가 성공적으로 접수되었습니다!</div><div style="font-size:14px;color:#555;">24시간 이내에 연락드리겠습니다.<br>급하신 경우 <strong>010-2337-0458</strong>로 연락주세요.</div></div>';}
-              form.reset();
-              setTimeout(function(){if(formMessage)formMessage.scrollIntoView({behavior:'smooth',block:'center'});},100);
-            }else{throw new Error(result.error||'전송에 실패했습니다.');}
-          }catch(error){
-            var errorMsg=error.message||'전송에 실패했습니다';
-            if(formMessage){formMessage.className='form-message error';formMessage.style.display='block';formMessage.innerHTML='<div style="text-align:center;padding:20px;"><div style="font-size:40px;margin-bottom:10px;">❌</div><div style="font-size:16px;font-weight:700;margin-bottom:8px;">전송에 실패했습니다</div><div style="font-size:13px;margin-bottom:12px;color:#555;">'+errorMsg+'</div><div style="font-size:14px;margin-top:12px;"><strong>📞 010-2337-0458</strong><br>또는 카카오톡으로 문의해주세요.</div></div>';formMessage.scrollIntoView({behavior:'smooth',block:'center'});}
-          }finally{
-            if(submitBtn)submitBtn.disabled=false;
-            if(submitText)submitText.textContent='무료 상담 신청하기 →';
-          }
-          return false;
         }
     </script>
 
