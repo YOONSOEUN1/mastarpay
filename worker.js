@@ -3534,11 +3534,11 @@ p, h1, h2, h3, h4, li {
 <div class="find-tab-panel" id="tab-product">
 <div class="product-chips-display">
 <a href="/product/pos" class="region-chip-big">🖥️ 포스기</a>
-<a href="/product/card-2inch" class="region-chip-big">💳 2인치 단말기</a>
-<a href="/product/card-3inch" class="region-chip-big">🖨️ 3인치 단말기</a>
-<a href="/product/card-toss" class="region-chip-big">⚡ 토스 단말기</a>
-<a href="/product/card-wireless" class="region-chip-big">📱 무선 단말기</a>
-<a href="/product/card-bluetooth" class="region-chip-big">🔷 블루투스 단말기</a>
+<a href="/product/card-2inch" class="region-chip-big">💳 2인치 카드단말기</a>
+<a href="/product/card-3inch" class="region-chip-big">🖨️ 3인치 카드단말기</a>
+<a href="/product/card-toss" class="region-chip-big">⚡ 토스 카드단말기</a>
+<a href="/product/card-wireless" class="region-chip-big">📱 무선 카드단말기</a>
+<a href="/product/card-bluetooth" class="region-chip-big">🔷 블루투스 카드단말기</a>
 <a href="/product/kiosk" class="region-chip-big">🤖 키오스크</a>
 <a href="/product/kiosk-mini" class="region-chip-big">📱 미니 키오스크</a>
 <a href="/product/tableorder" class="region-chip-big">📋 테이블 오더</a>
@@ -3571,11 +3571,11 @@ p, h1, h2, h3, h4, li {
 
 <a href="/product/card-2inch" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 카드단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">02 / 10</div>
-<div class="allinone-card-name">2인치 단말기</div>
+<div class="allinone-card-name">2인치 카드단말기</div>
 <div class="allinone-card-desc">컴팩트 사이즈 카드 단말기</div>
 <div class="allinone-card-btn">상세 보기 →</div>
 </div>
@@ -3583,11 +3583,11 @@ p, h1, h2, h3, h4, li {
 
 <a href="/product/card-3inch" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg" alt="3인치 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg" alt="3인치 카드단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">03 / 10</div>
-<div class="allinone-card-name">3인치 단말기</div>
+<div class="allinone-card-name">3인치 카드단말기</div>
 <div class="allinone-card-desc">표준 사이즈 카드 단말기</div>
 <div class="allinone-card-btn">상세 보기 →</div>
 </div>
@@ -3595,11 +3595,11 @@ p, h1, h2, h3, h4, li {
 
 <a href="/product/card-toss" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Tosscard.png" alt="토스 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Tosscard.png" alt="토스 카드단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">04 / 10</div>
-<div class="allinone-card-name">토스 단말기</div>
+<div class="allinone-card-name">토스 카드단말기</div>
 <div class="allinone-card-desc">간편결제 특화 단말기</div>
 <div class="allinone-card-btn">상세 보기 →</div>
 </div>
@@ -3607,23 +3607,23 @@ p, h1, h2, h3, h4, li {
 
 <a href="/product/card-wireless" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Wirelesscard.png" alt="무선 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Wirelesscard.png" alt="무선 카드단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">05 / 10</div>
-<div class="allinone-card-name">무선 단말기</div>
-<div class="allinone-card-desc">이동 결제가 가능한 무선 단말기</div>
+<div class="allinone-card-name">무선 카드단말기</div>
+<div class="allinone-card-desc">이동 결제가 가능한 무선 카드단말기</div>
 <div class="allinone-card-btn">상세 보기 →</div>
 </div>
 </a>
 
 <a href="/product/card-bluetooth" class="allinone-product-card">
 <div class="allinone-card-visual">
-<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Bluetoothcard.jpg" alt="블루투스 단말기" class="allinone-card-img">
+<img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Bluetoothcard.jpg" alt="블루투스 카드단말기" class="allinone-card-img">
 </div>
 <div class="allinone-card-info">
 <div class="allinone-card-index">06 / 10</div>
-<div class="allinone-card-name">블루투스 단말기</div>
+<div class="allinone-card-name">블루투스 카드단말기</div>
 <div class="allinone-card-desc">스마트폰 연동 초소형 단말기</div>
 <div class="allinone-card-btn">상세 보기 →</div>
 </div>
@@ -3787,7 +3787,7 @@ p, h1, h2, h3, h4, li {
 <div class="testimonial">
 <span class="quote-mark">"</span>
 <p class="testimonial-text">
-무선 단말기로 바꾸고 나서 손님 응대가 훨씬 빨라졌어요. 야외 테이블에서도 결제가 자유로워서 좋아요.
+무선 카드단말기로 바꾸고 나서 손님 응대가 훨씬 빨라졌어요. 야외 테이블에서도 결제가 자유로워서 좋아요.
 </p>
 <div class="testimonial-author">
 <div class="author-avatar">정</div>
@@ -3930,11 +3930,11 @@ p, h1, h2, h3, h4, li {
 <select id="product" name="문의_제품" required>
 <option value="">선택해주세요</option>
 <option value="포스기">포스기(POS)</option>
-<option value="2인치 단말기">2인치 단말기</option>
-<option value="3인치 단말기">3인치 단말기</option>
-<option value="토스 단말기">토스 단말기</option>
-<option value="무선 단말기">무선 단말기</option>
-<option value="블루투스 단말기">블루투스 단말기</option>
+<option value="2인치 카드단말기">2인치 카드단말기</option>
+<option value="3인치 카드단말기">3인치 카드단말기</option>
+<option value="토스 카드단말기">토스 카드단말기</option>
+<option value="무선 카드단말기">무선 카드단말기</option>
+<option value="블루투스 카드단말기">블루투스 카드단말기</option>
 <option value="키오스크">키오스크</option>
 <option value="미니 키오스크">미니 키오스크</option>
 <option value="테이블 오더">테이블 오더</option>
@@ -4016,11 +4016,11 @@ p, h1, h2, h3, h4, li {
 <h4>제품 안내</h4>
 <ul>
 <li><a href="/product/pos">포스기(POS)</a></li>
-<li><a href="/product/card-2inch">2인치 단말기</a></li>
-<li><a href="/product/card-3inch">3인치 단말기</a></li>
-<li><a href="/product/card-toss">토스 단말기</a></li>
-<li><a href="/product/card-wireless">무선 단말기</a></li>
-<li><a href="/product/card-bluetooth">블루투스 단말기</a></li>
+<li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+<li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+<li><a href="/product/card-toss">토스 카드단말기</a></li>
+<li><a href="/product/card-wireless">무선 카드단말기</a></li>
+<li><a href="/product/card-bluetooth">블루투스 카드단말기</a></li>
 <li><a href="/product/kiosk">키오스크</a></li>
 <li><a href="/product/kiosk-mini">미니 키오스크</a></li>
 <li><a href="/product/tableorder">테이블 오더</a></li>
@@ -7366,7 +7366,7 @@ p, h1, h2, h3, h4, li {
             <div class="related-grid">
                 <a href="/product/card-3inch" class="related-card">
                     <div class="related-icon">🖨️</div>
-                    <div class="related-name">3인치 단말기</div>
+                    <div class="related-name">3인치 카드단말기</div>
                     <div class="related-desc">표준 카드 단말기</div>
                 </a>
                 <a href="/product/kiosk" class="related-card">
@@ -7431,10 +7431,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -7480,9 +7480,9 @@ const PAGE_CARD_2INCH = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>2인치 단말기 | 마스터페이</title>
+    <title>2인치 카드단말기 | 마스터페이</title>
     <meta name="description" content="좁은 공간에도 깔끔하게 설치되는 컴팩트 사이즈 2인치 카드 단말기. KIS2200·KPN1902 등 검증된 모델로 안정적인 결제 환경을 제공합니다.">
-    <meta property="og:title" content="2인치 단말기 | 마스터페이">
+    <meta property="og:title" content="2인치 카드단말기 | 마스터페이">
     <meta property="og:description" content="좁은 공간에도 깔끔하게 설치되는 컴팩트 사이즈 2인치 카드 단말기. KIS2200·KPN1902 등 검증된 모델로 안정적인 결제 환경을 제공합니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -8621,14 +8621,14 @@ p, h1, h2, h3, h4, li {
                 <span class="breadcrumb-separator">/</span>
                 <a href="/#products">제품</a>
                 <span class="breadcrumb-separator">/</span>
-                <span>2인치 단말기</span>
+                <span>2인치 카드단말기</span>
             </div>
             
             <div class="product-grid">
                 <div class="product-info">
                     <span class="product-badge">2inch Compact</span>
                     <h1 class="product-title">
-                        2인치 단말기
+                        2인치 카드단말기
                     </h1>
                     <p class="product-lead">좁은 공간에도 깔끔하게 설치되는 컴팩트 사이즈 2인치 카드 단말기. KIS2200·KPN1902 등 검증된 모델로 안정적인 결제 환경을 제공합니다.</p>
                     
@@ -8658,7 +8658,7 @@ p, h1, h2, h3, h4, li {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis2200_2in.jpg" alt="2인치 카드단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -8711,11 +8711,11 @@ p, h1, h2, h3, h4, li {
             
             <div class="detail-content">
                 
-                <h3>2인치 단말기가 필요한 이유</h3>
+                <h3>2인치 카드단말기가 필요한 이유</h3>
                 <p>2인치 카드 단말기는 컴팩트한 크기가 가장 큰 매력입니다. 카운터 공간이 부족한 편의점, 소규모 카페, 분식집, 독서실 등에서 인기가 매우 높습니다. 작은 사이즈에도 불구하고 필요한 모든 결제 기능을 완벽하게 지원하며, 최신 IC칩·NFC·QR코드·간편결제까지 한 대로 모두 처리할 수 있습니다.</p>
                 <p>마스터페이는 KIS2200, KPN1902 등 업계에서 검증된 2인치 모델을 취급합니다. 안정적인 성능과 빠른 결제 속도, 세련된 디자인으로 매장 분위기를 해치지 않으면서 전문적인 인상을 줍니다.</p>
                 
-                <h3>2인치 단말기 설치 프로세스</h3>
+                <h3>2인치 카드단말기 설치 프로세스</h3>
                 <ul>
                     <li>1단계 무료 상담 — 전화나 문자로 매장 환경을 간단히 공유해주세요</li>
                     <li>2단계 모델 추천 — 유선·무선·토스 등 매장 상황에 맞는 최적 모델을 추천합니다</li>
@@ -8725,7 +8725,7 @@ p, h1, h2, h3, h4, li {
                     <li>6단계 A/S 보장 — 설치 후에도 지속적으로 관리해드립니다</li>
                 </ul>
                 
-                <h3>2인치 단말기의 주요 특징</h3>
+                <h3>2인치 카드단말기의 주요 특징</h3>
                 <ul>
                     <li>공간 절약형 — 손바닥만한 크기로 좁은 카운터에도 깔끔하게 설치됩니다</li>
                     <li>빠른 결제 속도 — 고성능 프로세서로 결제 대기 시간을 최소화합니다</li>
@@ -8738,11 +8738,11 @@ p, h1, h2, h3, h4, li {
                 <h3>이런 매장에 추천합니다</h3>
                 <p>카운터 공간이 협소한 편의점·매점, 깔끔한 디자인을 원하는 카페·베이커리, 이동 없이 고정된 위치에서만 결제하는 매장, 고객 대면 결제가 주된 업종에 특히 적합합니다. 분식집, 간이음식점, 독서실, 소규모 미용실 등 공간이 제한적인 모든 매장에서 훌륭한 선택입니다.</p>
                 
-                <h3>2인치 단말기 VS 3인치 단말기 비교</h3>
-                <p>2인치 단말기는 공간 효율성과 현대적 디자인이 장점이며, 고정된 카운터에서 결제하는 매장에 최적입니다. 반면 3인치 단말기는 영수증 가독성이 좋고 화면이 커서 매출 내역 확인이 편리합니다. 세금계산서 발행이 잦거나 영수증을 많이 발급하는 업종에는 3인치를, 컴팩트한 공간과 모던한 디자인을 원하면 2인치를 추천드립니다.</p>
+                <h3>2인치 카드단말기 VS 3인치 카드단말기 비교</h3>
+                <p>2인치 카드단말기는 공간 효율성과 현대적 디자인이 장점이며, 고정된 카운터에서 결제하는 매장에 최적입니다. 반면 3인치 카드단말기는 영수증 가독성이 좋고 화면이 커서 매출 내역 확인이 편리합니다. 세금계산서 발행이 잦거나 영수증을 많이 발급하는 업종에는 3인치를, 컴팩트한 공간과 모던한 디자인을 원하면 2인치를 추천드립니다.</p>
                 
                 <h3>자주 묻는 질문</h3>
-                <p><strong>Q. 2인치 단말기도 영수증이 나오나요?</strong><br>네, 2인치에서도 영수증이 출력됩니다. 다만 폭이 좁아 3인치보다는 영수증 크기가 작습니다.</p>
+                <p><strong>Q. 2인치 카드단말기도 영수증이 나오나요?</strong><br>네, 2인치에서도 영수증이 출력됩니다. 다만 폭이 좁아 3인치보다는 영수증 크기가 작습니다.</p>
                 <p><strong>Q. 무선 모델도 있나요?</strong><br>네, 2인치 사이즈에도 무선 모델이 있습니다. 배달이나 테이블 결제가 필요한 경우 무선 모델을 추천드립니다.</p>
                 <p><strong>Q. 기존 단말기와 교체 가능한가요?</strong><br>네, 기존 장비 교체도 동일한 무료 혜택으로 진행됩니다. VAN사 변경 시에도 별도 비용이 없습니다.</p>
                 <p><strong>Q. 설치 후 A/S는 어떻게 받나요?</strong><br>장애 시 전화 한 통이면 원격 지원으로 대부분 즉시 해결됩니다. 하드웨어 문제는 엔지니어가 현장 출동합니다.</p>
@@ -8764,17 +8764,17 @@ p, h1, h2, h3, h4, li {
             <div class="related-grid">
                 <a href="/product/card-3inch" class="related-card">
                     <div class="related-icon">🖨️</div>
-                    <div class="related-name">3인치 단말기</div>
+                    <div class="related-name">3인치 카드단말기</div>
                     <div class="related-desc">큰 화면 스탠다드</div>
                 </a>
                 <a href="/product/card-toss" class="related-card">
                     <div class="related-icon">⚡</div>
-                    <div class="related-name">토스 단말기</div>
+                    <div class="related-name">토스 카드단말기</div>
                     <div class="related-desc">간편결제 특화</div>
                 </a>
                 <a href="/product/card-wireless" class="related-card">
                     <div class="related-icon">📱</div>
-                    <div class="related-name">무선 단말기</div>
+                    <div class="related-name">무선 카드단말기</div>
                     <div class="related-desc">이동 결제 자유</div>
                 </a>
             </div>
@@ -8829,10 +8829,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -8878,9 +8878,9 @@ const PAGE_CARD_3INCH = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>3인치 단말기 | 마스터페이</title>
+    <title>3인치 카드단말기 | 마스터페이</title>
     <meta name="description" content="가장 많이 사용되는 표준 사이즈 3인치 카드 단말기. 넓은 영수증 출력과 선명한 화면으로 업무 효율을 높입니다. KIS1420·KPN1901 등 대표 모델 취급.">
-    <meta property="og:title" content="3인치 단말기 | 마스터페이">
+    <meta property="og:title" content="3인치 카드단말기 | 마스터페이">
     <meta property="og:description" content="가장 많이 사용되는 표준 사이즈 3인치 카드 단말기. 넓은 영수증 출력과 선명한 화면으로 업무 효율을 높입니다. KIS1420·KPN1901 등 대표 모델 취급.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -10019,14 +10019,14 @@ p, h1, h2, h3, h4, li {
                 <span class="breadcrumb-separator">/</span>
                 <a href="/#products">제품</a>
                 <span class="breadcrumb-separator">/</span>
-                <span>3인치 단말기</span>
+                <span>3인치 카드단말기</span>
             </div>
             
             <div class="product-grid">
                 <div class="product-info">
                     <span class="product-badge">3inch Standard</span>
                     <h1 class="product-title">
-                        3인치 단말기
+                        3인치 카드단말기
                     </h1>
                     <p class="product-lead">가장 많이 사용되는 표준 사이즈 3인치 카드 단말기. 넓은 영수증 출력과 선명한 화면으로 업무 효율을 높입니다. KIS1420·KPN1901 등 대표 모델 취급.</p>
                     
@@ -10056,7 +10056,7 @@ p, h1, h2, h3, h4, li {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg" alt="3인치 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/kis1420_3in2.jpg" alt="3인치 카드단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -10109,11 +10109,11 @@ p, h1, h2, h3, h4, li {
             
             <div class="detail-content">
                 
-                <h3>3인치 단말기가 가장 많이 쓰이는 이유</h3>
+                <h3>3인치 카드단말기가 가장 많이 쓰이는 이유</h3>
                 <p>3인치 카드 단말기는 국내 매장에서 가장 널리 사용되는 표준 사이즈입니다. 영수증 가독성과 화면 크기의 균형이 가장 뛰어나, 대부분의 업종에서 첫 번째 선택으로 꼽힙니다. 넓은 영수증 폭으로 내역이 한눈에 보이고, 넉넉한 화면으로 결제 금액 확인이 쉬워 실수를 줄일 수 있습니다.</p>
-                <p>마스터페이는 KIS1420, KIS1421, KPN1901 등 국내 최고 품질의 3인치 단말기를 취급합니다. 오랜 시간 사용해도 안정적인 성능을 유지하는 검증된 모델들로, 음식점·카페·편의점·미용실 등 업종에 상관없이 최적의 결제 경험을 제공합니다.</p>
+                <p>마스터페이는 KIS1420, KIS1421, KPN1901 등 국내 최고 품질의 3인치 카드단말기를 취급합니다. 오랜 시간 사용해도 안정적인 성능을 유지하는 검증된 모델들로, 음식점·카페·편의점·미용실 등 업종에 상관없이 최적의 결제 경험을 제공합니다.</p>
                 
-                <h3>3인치 단말기 설치 프로세스</h3>
+                <h3>3인치 카드단말기 설치 프로세스</h3>
                 <ul>
                     <li>1단계 무료 상담 — 매장 업종과 월 결제 건수를 간단히 알려주세요</li>
                     <li>2단계 VAN사 비교 — VAN사별 수수료를 비교하여 가장 유리한 조건을 찾아드립니다</li>
@@ -10123,7 +10123,7 @@ p, h1, h2, h3, h4, li {
                     <li>6단계 지속 관리 — 설치 후에도 정기적으로 점검하고 관리합니다</li>
                 </ul>
                 
-                <h3>3인치 단말기 주요 기능</h3>
+                <h3>3인치 카드단말기 주요 기능</h3>
                 <ul>
                     <li>선명한 영수증 출력 — 3인치 폭으로 영수증이 넉넉하게 출력되어 가독성이 매우 좋습니다</li>
                     <li>큰 화면 디스플레이 — 결제 금액과 내역을 한눈에 확인할 수 있어 실수를 줄입니다</li>
@@ -10163,12 +10163,12 @@ p, h1, h2, h3, h4, li {
             <div class="related-grid">
                 <a href="/product/card-2inch" class="related-card">
                     <div class="related-icon">💳</div>
-                    <div class="related-name">2인치 단말기</div>
+                    <div class="related-name">2인치 카드단말기</div>
                     <div class="related-desc">컴팩트 사이즈</div>
                 </a>
                 <a href="/product/card-wireless" class="related-card">
                     <div class="related-icon">📱</div>
-                    <div class="related-name">무선 단말기</div>
+                    <div class="related-name">무선 카드단말기</div>
                     <div class="related-desc">어디서든 결제</div>
                 </a>
                 <a href="/product/pos" class="related-card">
@@ -10228,10 +10228,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -10277,9 +10277,9 @@ const PAGE_CARD_TOSS = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>토스 단말기 | 마스터페이</title>
+    <title>토스 카드단말기 | 마스터페이</title>
     <meta name="description" content="토스페이먼츠와 완벽하게 연동되는 전용 단말기. 간편결제 특화 기능과 합리적인 수수료로 트렌디한 매장에 가장 적합한 결제 솔루션입니다.">
-    <meta property="og:title" content="토스 단말기 | 마스터페이">
+    <meta property="og:title" content="토스 카드단말기 | 마스터페이">
     <meta property="og:description" content="토스페이먼츠와 완벽하게 연동되는 전용 단말기. 간편결제 특화 기능과 합리적인 수수료로 트렌디한 매장에 가장 적합한 결제 솔루션입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -11418,14 +11418,14 @@ p, h1, h2, h3, h4, li {
                 <span class="breadcrumb-separator">/</span>
                 <a href="/#products">제품</a>
                 <span class="breadcrumb-separator">/</span>
-                <span>토스 단말기</span>
+                <span>토스 카드단말기</span>
             </div>
             
             <div class="product-grid">
                 <div class="product-info">
                     <span class="product-badge">Toss Payments</span>
                     <h1 class="product-title">
-                        토스 단말기
+                        토스 카드단말기
                     </h1>
                     <p class="product-lead">토스페이먼츠와 완벽하게 연동되는 전용 단말기. 간편결제 특화 기능과 합리적인 수수료로 트렌디한 매장에 가장 적합한 결제 솔루션입니다.</p>
                     
@@ -11455,7 +11455,7 @@ p, h1, h2, h3, h4, li {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Tosscard.png" alt="토스 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Tosscard.png" alt="토스 카드단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -11508,11 +11508,11 @@ p, h1, h2, h3, h4, li {
             
             <div class="detail-content">
                 
-                <h3>토스 단말기가 주목받는 이유</h3>
-                <p>토스 단말기는 토스페이먼츠와 완벽하게 연동되어 간편결제에 특화된 전용 카드 단말기입니다. 토스페이 사용자가 급증하는 요즘, 간편결제 비중이 높은 젊은 고객층 매장에서 특히 인기가 많습니다. QR 스캔 한 번으로 결제가 완료되는 빠른 속도와 세련된 디자인이 매장 분위기를 한층 업그레이드합니다.</p>
-                <p>마스터페이는 토스페이먼츠 공식 제휴를 통해 토스 단말기를 저렴한 수수료로 제공합니다. 기존 카드결제는 물론 토스페이·삼성페이·카카오페이·네이버페이 등 모든 간편결제 수단을 한 대로 처리할 수 있어, 고객 편의성이 매우 높습니다.</p>
+                <h3>토스 카드단말기가 주목받는 이유</h3>
+                <p>토스 카드단말기는 토스페이먼츠와 완벽하게 연동되어 간편결제에 특화된 전용 카드 단말기입니다. 토스페이 사용자가 급증하는 요즘, 간편결제 비중이 높은 젊은 고객층 매장에서 특히 인기가 많습니다. QR 스캔 한 번으로 결제가 완료되는 빠른 속도와 세련된 디자인이 매장 분위기를 한층 업그레이드합니다.</p>
+                <p>마스터페이는 토스페이먼츠 공식 제휴를 통해 토스 카드단말기를 저렴한 수수료로 제공합니다. 기존 카드결제는 물론 토스페이·삼성페이·카카오페이·네이버페이 등 모든 간편결제 수단을 한 대로 처리할 수 있어, 고객 편의성이 매우 높습니다.</p>
                 
-                <h3>토스 단말기 설치 프로세스</h3>
+                <h3>토스 카드단말기 설치 프로세스</h3>
                 <ul>
                     <li>1단계 무료 상담 — 매장의 주요 고객층과 결제 패턴을 알려주세요</li>
                     <li>2단계 수수료 안내 — 토스페이먼츠의 경쟁력 있는 수수료 조건을 상세히 안내합니다</li>
@@ -11522,7 +11522,7 @@ p, h1, h2, h3, h4, li {
                     <li>6단계 지속 지원 — 장애 시 즉시 대응하는 전담 A/S 체계를 운영합니다</li>
                 </ul>
                 
-                <h3>토스 단말기 주요 기능</h3>
+                <h3>토스 카드단말기 주요 기능</h3>
                 <ul>
                     <li>토스페이 즉시 결제 — 토스페이 고객은 QR 스캔만으로 결제가 완료됩니다</li>
                     <li>저렴한 수수료 — 토스페이먼츠의 경쟁력 있는 수수료로 결제 비용을 절감합니다</li>
@@ -11535,14 +11535,14 @@ p, h1, h2, h3, h4, li {
                 <h3>이런 매장에 추천합니다</h3>
                 <p>젊은 층 고객이 많은 카페·디저트 가게, 토스페이 사용자가 많은 트렌디한 매장, 수수료 부담을 줄이고 싶은 소상공인, 실시간 매출 대시보드를 활용하고 싶은 사장님, 온라인 홍보를 적극 활용하는 매장에 특히 추천합니다. 브런치 카페, 디저트샵, 플라워샵, 공방, 편집샵 등 감성적인 매장과 잘 어울립니다.</p>
                 
-                <h3>토스 단말기의 차별점</h3>
-                <p>기존 일반 카드 단말기와 달리, 토스 단말기는 토스페이먼츠의 강력한 인프라를 활용합니다. 결제 속도가 빠르고, 대시보드가 직관적이며, 모바일 앱으로 실시간 확인이 가능합니다. 또한 토스페이먼츠의 다양한 부가 서비스(예: 간편 환불, 자동 정산 리포트, 세무 연동 등)를 함께 활용할 수 있어 매장 운영의 편의성이 크게 향상됩니다.</p>
+                <h3>토스 카드단말기의 차별점</h3>
+                <p>기존 일반 카드 단말기와 달리, 토스 카드단말기는 토스페이먼츠의 강력한 인프라를 활용합니다. 결제 속도가 빠르고, 대시보드가 직관적이며, 모바일 앱으로 실시간 확인이 가능합니다. 또한 토스페이먼츠의 다양한 부가 서비스(예: 간편 환불, 자동 정산 리포트, 세무 연동 등)를 함께 활용할 수 있어 매장 운영의 편의성이 크게 향상됩니다.</p>
                 
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. 기존 카드결제도 되나요?</strong><br>물론입니다. 토스페이뿐만 아니라 일반 신용카드, 체크카드, 삼성페이, 카카오페이 등 모든 결제 수단을 지원합니다.</p>
                 <p><strong>Q. 수수료는 얼마인가요?</strong><br>토스페이먼츠의 경쟁력 있는 수수료가 적용되며, 카드 종류와 매출 규모에 따라 달라집니다. 정확한 수수료는 상담 시 안내해드립니다.</p>
-                <p><strong>Q. 기존 VAN사 단말기를 쓰고 있는데 교체 가능한가요?</strong><br>네, 기존 단말기에서 토스 단말기로 교체 가능합니다. 마스터페이가 교체 과정을 대행해드립니다.</p>
-                <p><strong>Q. 토스페이 고객이 많지 않아도 도움이 될까요?</strong><br>네, 토스 단말기는 일반 카드결제도 처리 가능하며, 토스페이 고객이 점점 늘어나고 있어 미래 투자로도 좋은 선택입니다.</p>
+                <p><strong>Q. 기존 VAN사 단말기를 쓰고 있는데 교체 가능한가요?</strong><br>네, 기존 단말기에서 토스 카드단말기로 교체 가능합니다. 마스터페이가 교체 과정을 대행해드립니다.</p>
+                <p><strong>Q. 토스페이 고객이 많지 않아도 도움이 될까요?</strong><br>네, 토스 카드단말기는 일반 카드결제도 처리 가능하며, 토스페이 고객이 점점 늘어나고 있어 미래 투자로도 좋은 선택입니다.</p>
     
             </div>
         </div>
@@ -11561,17 +11561,17 @@ p, h1, h2, h3, h4, li {
             <div class="related-grid">
                 <a href="/product/card-2inch" class="related-card">
                     <div class="related-icon">💳</div>
-                    <div class="related-name">2인치 단말기</div>
+                    <div class="related-name">2인치 카드단말기</div>
                     <div class="related-desc">컴팩트 사이즈</div>
                 </a>
                 <a href="/product/card-3inch" class="related-card">
                     <div class="related-icon">🖨️</div>
-                    <div class="related-name">3인치 단말기</div>
+                    <div class="related-name">3인치 카드단말기</div>
                     <div class="related-desc">스탠다드 모델</div>
                 </a>
                 <a href="/product/card-bluetooth" class="related-card">
                     <div class="related-icon">🔷</div>
-                    <div class="related-name">블루투스 단말기</div>
+                    <div class="related-name">블루투스 카드단말기</div>
                     <div class="related-desc">스마트폰 연동</div>
                 </a>
             </div>
@@ -11626,10 +11626,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -11675,9 +11675,9 @@ const PAGE_CARD_WIRELESS = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>무선 단말기 | 마스터페이</title>
+    <title>무선 카드단말기 | 마스터페이</title>
     <meta name="description" content="이동 결제의 자유로움을 제공하는 무선 카드 단말기. 테이블 결제, 배달, 출장까지 매장을 벗어나서도 어디든 결제 가능한 필수 장비입니다.">
-    <meta property="og:title" content="무선 단말기 | 마스터페이">
+    <meta property="og:title" content="무선 카드단말기 | 마스터페이">
     <meta property="og:description" content="이동 결제의 자유로움을 제공하는 무선 카드 단말기. 테이블 결제, 배달, 출장까지 매장을 벗어나서도 어디든 결제 가능한 필수 장비입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -12816,14 +12816,14 @@ p, h1, h2, h3, h4, li {
                 <span class="breadcrumb-separator">/</span>
                 <a href="/#products">제품</a>
                 <span class="breadcrumb-separator">/</span>
-                <span>무선 단말기</span>
+                <span>무선 카드단말기</span>
             </div>
             
             <div class="product-grid">
                 <div class="product-info">
                     <span class="product-badge">Wireless</span>
                     <h1 class="product-title">
-                        무선 단말기
+                        무선 카드단말기
                     </h1>
                     <p class="product-lead">이동 결제의 자유로움을 제공하는 무선 카드 단말기. 테이블 결제, 배달, 출장까지 매장을 벗어나서도 어디든 결제 가능한 필수 장비입니다.</p>
                     
@@ -12853,7 +12853,7 @@ p, h1, h2, h3, h4, li {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Wirelesscard.png" alt="무선 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Wirelesscard.png" alt="무선 카드단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -12906,21 +12906,21 @@ p, h1, h2, h3, h4, li {
             
             <div class="detail-content">
                 
-                <h3>무선 단말기가 필요한 이유</h3>
+                <h3>무선 카드단말기가 필요한 이유</h3>
                 <p>카운터에서만 결제하는 시대는 끝났습니다. 테이블 결제, 배달 현장 결제, 야외 이벤트, 출장 서비스 등 매장 밖에서도 결제가 필요한 상황이 갈수록 많아지고 있습니다. 무선 카드 단말기는 이러한 변화에 대응하는 필수 장비로, 이동의 자유로움과 결제의 편의성을 동시에 제공합니다.</p>
-                <p>마스터페이가 제공하는 무선 단말기는 Wi-Fi와 4G 통신을 모두 지원하여 어디서든 안정적인 결제가 가능합니다. 한 번 충전으로 하루 종일 사용 가능한 배터리 수명, 빠른 결제 속도, 선명한 영수증 출력까지 갖춘 프리미엄 모델들을 취급합니다.</p>
+                <p>마스터페이가 제공하는 무선 카드단말기는 Wi-Fi와 4G 통신을 모두 지원하여 어디서든 안정적인 결제가 가능합니다. 한 번 충전으로 하루 종일 사용 가능한 배터리 수명, 빠른 결제 속도, 선명한 영수증 출력까지 갖춘 프리미엄 모델들을 취급합니다.</p>
                 
-                <h3>무선 단말기 설치 프로세스</h3>
+                <h3>무선 카드단말기 설치 프로세스</h3>
                 <ul>
                     <li>1단계 무료 상담 — 매장 업종과 이동 결제 필요성을 파악합니다</li>
                     <li>2단계 네트워크 확인 — 매장 Wi-Fi 환경을 점검하고 필요 시 보강 방안을 제안합니다</li>
-                    <li>3단계 모델 추천 — 사용 패턴에 맞는 최적의 무선 단말기 모델을 추천합니다</li>
+                    <li>3단계 모델 추천 — 사용 패턴에 맞는 최적의 무선 카드단말기 모델을 추천합니다</li>
                     <li>4단계 설치 및 테스트 — 전문 기사가 직접 방문하여 설치하고 이동 결제를 테스트합니다</li>
                     <li>5단계 배터리 관리 교육 — 배터리 수명을 최대화하는 사용법을 안내합니다</li>
                     <li>6단계 A/S 지원 — 배터리 교체·수리 등 지속적인 관리를 제공합니다</li>
                 </ul>
                 
-                <h3>무선 단말기 주요 기능</h3>
+                <h3>무선 카드단말기 주요 기능</h3>
                 <ul>
                     <li>이동 결제 자유 — 테이블이든 배달 현장이든 자유롭게 이동하며 결제할 수 있습니다</li>
                     <li>긴 배터리 수명 — 한 번 충전으로 하루 종일 사용 가능합니다</li>
@@ -12934,7 +12934,7 @@ p, h1, h2, h3, h4, li {
                 <p>테이블 결제를 원하는 음식점·주점, 배달 서비스를 함께 운영하는 매장, 푸드트럭·야외 이벤트 부스, 출장 서비스를 제공하는 업종, 매장이 넓어 여러 결제 포인트가 필요한 곳에 특히 적합합니다. 고깃집, 횟집, 배달전문점, 플리마켓, 방문 판매 업종 등에서 매우 유용합니다.</p>
                 
                 <h3>무선 vs 유선 단말기 비교</h3>
-                <p>유선 단말기는 고정된 위치에서 안정적으로 사용하고 비용이 저렴한 장점이 있지만, 이동 결제가 불가능한 한계가 있습니다. 반면 무선 단말기는 초기 비용이 약간 더 들지만, 테이블 결제로 홀 서빙 인력을 절감하고, 배달 시 현장 결제로 고객 신뢰도를 높이며, 출장 서비스 매출도 늘릴 수 있어 투자 대비 효과가 뛰어납니다. 매장 업종과 영업 방식에 따라 선택하시면 됩니다.</p>
+                <p>유선 단말기는 고정된 위치에서 안정적으로 사용하고 비용이 저렴한 장점이 있지만, 이동 결제가 불가능한 한계가 있습니다. 반면 무선 카드단말기는 초기 비용이 약간 더 들지만, 테이블 결제로 홀 서빙 인력을 절감하고, 배달 시 현장 결제로 고객 신뢰도를 높이며, 출장 서비스 매출도 늘릴 수 있어 투자 대비 효과가 뛰어납니다. 매장 업종과 영업 방식에 따라 선택하시면 됩니다.</p>
                 
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. 배터리는 얼마나 오래 가나요?</strong><br>모델에 따라 다르지만 대체로 하루 영업 시간 동안 충분히 사용 가능합니다. 보조 배터리나 충전 거치대를 함께 제공해 업무에 차질이 없도록 합니다.</p>
@@ -12959,12 +12959,12 @@ p, h1, h2, h3, h4, li {
             <div class="related-grid">
                 <a href="/product/card-bluetooth" class="related-card">
                     <div class="related-icon">🔷</div>
-                    <div class="related-name">블루투스 단말기</div>
+                    <div class="related-name">블루투스 카드단말기</div>
                     <div class="related-desc">휴대성 최고</div>
                 </a>
                 <a href="/product/card-3inch" class="related-card">
                     <div class="related-icon">🖨️</div>
-                    <div class="related-name">3인치 단말기</div>
+                    <div class="related-name">3인치 카드단말기</div>
                     <div class="related-desc">스탠다드 모델</div>
                 </a>
                 <a href="/product/tableorder" class="related-card">
@@ -13024,10 +13024,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -13073,9 +13073,9 @@ const PAGE_CARD_BLUETOOTH = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>블루투스 단말기 | 마스터페이</title>
+    <title>블루투스 카드단말기 | 마스터페이</title>
     <meta name="description" content="스마트폰·태블릿과 블루투스로 연결되는 초소형 휴대용 카드 단말기. 출장·방문 서비스·플리마켓 등 이동이 잦은 업종에 최적화되었습니다.">
-    <meta property="og:title" content="블루투스 단말기 | 마스터페이">
+    <meta property="og:title" content="블루투스 카드단말기 | 마스터페이">
     <meta property="og:description" content="스마트폰·태블릿과 블루투스로 연결되는 초소형 휴대용 카드 단말기. 출장·방문 서비스·플리마켓 등 이동이 잦은 업종에 최적화되었습니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -14214,14 +14214,14 @@ p, h1, h2, h3, h4, li {
                 <span class="breadcrumb-separator">/</span>
                 <a href="/#products">제품</a>
                 <span class="breadcrumb-separator">/</span>
-                <span>블루투스 단말기</span>
+                <span>블루투스 카드단말기</span>
             </div>
             
             <div class="product-grid">
                 <div class="product-info">
                     <span class="product-badge">Bluetooth</span>
                     <h1 class="product-title">
-                        블루투스 단말기
+                        블루투스 카드단말기
                     </h1>
                     <p class="product-lead">스마트폰·태블릿과 블루투스로 연결되는 초소형 휴대용 카드 단말기. 출장·방문 서비스·플리마켓 등 이동이 잦은 업종에 최적화되었습니다.</p>
                     
@@ -14251,7 +14251,7 @@ p, h1, h2, h3, h4, li {
                 </div>
                 
                 <div class="product-visual">
-                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Bluetoothcard.jpg" alt="블루투스 단말기" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/Bluetoothcard.jpg" alt="블루투스 카드단말기" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -14304,21 +14304,21 @@ p, h1, h2, h3, h4, li {
             
             <div class="detail-content">
                 
-                <h3>블루투스 단말기가 인기인 이유</h3>
+                <h3>블루투스 카드단말기가 인기인 이유</h3>
                 <p>블루투스 카드 단말기는 스마트폰이나 태블릿과 블루투스로 연결하여 사용하는 초소형 카드 리더기입니다. 별도의 디스플레이가 없어 가격이 매우 저렴하고, 손바닥 크기로 휴대가 편리해 이동 결제가 필요한 1인 사업자, 프리랜서, 방문 서비스 업종에서 폭발적인 인기를 얻고 있습니다.</p>
-                <p>마스터페이는 업계에서 검증된 블루투스 단말기를 저렴한 가격에 제공합니다. 스마트폰 앱과 완벽하게 연동되어 결제·영수증 발행·매출 관리까지 한 번에 처리할 수 있으며, 전자 영수증을 문자나 이메일로 발송하는 기능까지 지원합니다.</p>
+                <p>마스터페이는 업계에서 검증된 블루투스 카드단말기를 저렴한 가격에 제공합니다. 스마트폰 앱과 완벽하게 연동되어 결제·영수증 발행·매출 관리까지 한 번에 처리할 수 있으며, 전자 영수증을 문자나 이메일로 발송하는 기능까지 지원합니다.</p>
                 
-                <h3>블루투스 단말기 설치 프로세스</h3>
+                <h3>블루투스 카드단말기 설치 프로세스</h3>
                 <ul>
                     <li>1단계 무료 상담 — 사용 목적과 예상 결제 건수를 알려주세요</li>
-                    <li>2단계 VAN사 선정 — 블루투스 단말기에 맞는 VAN사를 선정합니다</li>
+                    <li>2단계 VAN사 선정 — 블루투스 카드단말기에 맞는 VAN사를 선정합니다</li>
                     <li>3단계 가맹점 등록 — 카드결제 가맹점 등록을 마스터페이가 대행합니다</li>
                     <li>4단계 단말기 발송 — 단말기와 앱 설치 안내 자료를 발송합니다</li>
                     <li>5단계 원격 세팅 — 전화로 원격 설치를 도와드립니다 (현장 방문도 가능)</li>
                     <li>6단계 A/S 지원 — 장애 시 전화 상담으로 즉시 해결합니다</li>
                 </ul>
                 
-                <h3>블루투스 단말기 주요 기능</h3>
+                <h3>블루투스 카드단말기 주요 기능</h3>
                 <ul>
                     <li>스마트폰 연동 — 전용 앱과 블루투스로 연결해 어디서든 간편하게 결제 가능합니다</li>
                     <li>휴대성 최강 — 손바닥 크기로 주머니에 쏙 들어갑니다</li>
@@ -14331,11 +14331,11 @@ p, h1, h2, h3, h4, li {
                 <h3>이런 분들께 추천합니다</h3>
                 <p>프리랜서, 출장 강사 등 이동이 많은 직종, 푸드트럭·플리마켓 참가자, 소규모 매장에서 보조 단말기가 필요한 경우, 비용 부담 없이 카드결제를 시작하고 싶은 분, 방문 서비스·출장 서비스 업종에 특히 적합합니다. 네일 아티스트, 개인 트레이너, 반려동물 미용사, 출장 청소업체 등 방문형 서비스에서 매우 유용합니다.</p>
                 
-                <h3>블루투스 단말기의 장점</h3>
-                <p>블루투스 단말기는 다른 카드 단말기에 비해 압도적으로 저렴한 가격이 가장 큰 매력입니다. 또한 스마트폰을 활용하기 때문에 별도의 큰 기기를 들고 다닐 필요가 없어 휴대성이 매우 뛰어납니다. 최신 앱은 포스기 수준의 매출 관리 기능을 제공해, 소규모 사업자에게 필요한 모든 기능을 스마트폰 하나로 해결할 수 있습니다.</p>
+                <h3>블루투스 카드단말기의 장점</h3>
+                <p>블루투스 카드단말기는 다른 카드 단말기에 비해 압도적으로 저렴한 가격이 가장 큰 매력입니다. 또한 스마트폰을 활용하기 때문에 별도의 큰 기기를 들고 다닐 필요가 없어 휴대성이 매우 뛰어납니다. 최신 앱은 포스기 수준의 매출 관리 기능을 제공해, 소규모 사업자에게 필요한 모든 기능을 스마트폰 하나로 해결할 수 있습니다.</p>
                 
                 <h3>사용 시 주의사항</h3>
-                <p>블루투스 단말기는 스마트폰이나 태블릿이 반드시 필요합니다. 앱 실행 시 배터리가 빠르게 소모될 수 있어 보조 배터리를 준비하시길 권장합니다. 블루투스 연결이 간혹 끊어질 수 있으나, 최신 모델은 자동 재연결 기능이 있어 불편함이 크게 줄었습니다.</p>
+                <p>블루투스 카드단말기는 스마트폰이나 태블릿이 반드시 필요합니다. 앱 실행 시 배터리가 빠르게 소모될 수 있어 보조 배터리를 준비하시길 권장합니다. 블루투스 연결이 간혹 끊어질 수 있으나, 최신 모델은 자동 재연결 기능이 있어 불편함이 크게 줄었습니다.</p>
                 
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. 영수증은 어떻게 발행하나요?</strong><br>스마트폰 앱을 통해 전자 영수증을 문자나 이메일로 발송합니다. 종이 영수증이 필요하면 별도의 블루투스 프린터와 연결할 수 있습니다.</p>
@@ -14360,17 +14360,17 @@ p, h1, h2, h3, h4, li {
             <div class="related-grid">
                 <a href="/product/card-wireless" class="related-card">
                     <div class="related-icon">📱</div>
-                    <div class="related-name">무선 단말기</div>
+                    <div class="related-name">무선 카드단말기</div>
                     <div class="related-desc">자유로운 이동</div>
                 </a>
                 <a href="/product/card-2inch" class="related-card">
                     <div class="related-icon">💳</div>
-                    <div class="related-name">2인치 단말기</div>
+                    <div class="related-name">2인치 카드단말기</div>
                     <div class="related-desc">컴팩트 사이즈</div>
                 </a>
                 <a href="/product/card-toss" class="related-card">
                     <div class="related-icon">⚡</div>
-                    <div class="related-name">토스 단말기</div>
+                    <div class="related-name">토스 카드단말기</div>
                     <div class="related-desc">간편결제 특화</div>
                 </a>
             </div>
@@ -14425,10 +14425,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -15826,10 +15826,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -17227,10 +17227,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -18629,10 +18629,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -20243,10 +20243,10 @@ p, h1, h2, h3, h4, li {
                     <h4>제품 안내</h4>
                     <ul>
                         <li><a href="/product/pos">포스기(POS)</a></li>
-                        <li><a href="/product/card-2inch">2인치 단말기</a></li>
-                        <li><a href="/product/card-3inch">3인치 단말기</a></li>
-                        <li><a href="/product/card-toss">토스 단말기</a></li>
-                        <li><a href="/product/card-wireless">무선 단말기</a></li>
+                        <li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+                        <li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+                        <li><a href="/product/card-toss">토스 카드단말기</a></li>
+                        <li><a href="/product/card-wireless">무선 카드단말기</a></li>
                         <li><a href="/product/kiosk">키오스크</a></li>
                         <li><a href="/product/tableorder">테이블 오더</a></li>
                         <li><a href="/product/removal">매장 철거</a></li>
@@ -20423,11 +20423,11 @@ function getRegionContext(regionName) {
 const PRODUCT_IMG_BASE = 'https://raw.githubusercontent.com/YOONSOEUN1/mastarpay/main/images/';
 const PRODUCTS = {
   'pos': { name: '포스기', emoji: '🖥️', img: PRODUCT_IMG_BASE + 'pos.jpg', desc: '주문·결제·매출 통합 관리', keyword: '포스기', url: 'pos' },
-  'card-2inch': { name: '2인치 단말기', emoji: '💳', img: PRODUCT_IMG_BASE + 'kis2200_2in.jpg', desc: '컴팩트 카드 단말기', keyword: '카드단말기', url: 'card-2inch' },
-  'card-3inch': { name: '3인치 단말기', emoji: '🖨️', img: PRODUCT_IMG_BASE + 'kis1420_3in2.jpg', desc: '표준 카드 단말기', keyword: '카드단말기', url: 'card-3inch' },
-  'card-toss': { name: '토스 단말기', emoji: '⚡', img: PRODUCT_IMG_BASE + 'Tosscard.png', desc: '간편결제 특화', keyword: '토스단말기', url: 'card-toss' },
-  'card-wireless': { name: '무선 단말기', emoji: '📱', img: PRODUCT_IMG_BASE + 'Wirelesscard.png', desc: '이동 결제 자유', keyword: '무선단말기', url: 'card-wireless' },
-  'card-bluetooth': { name: '블루투스 단말기', emoji: '🔷', img: PRODUCT_IMG_BASE + 'Bluetoothcard.jpg', desc: '휴대용 결제', keyword: '블루투스단말기', url: 'card-bluetooth' },
+  'card-2inch': { name: '2인치 카드단말기', emoji: '💳', img: PRODUCT_IMG_BASE + 'kis2200_2in.jpg', desc: '컴팩트 카드 단말기', keyword: '카드단말기', url: 'card-2inch' },
+  'card-3inch': { name: '3인치 카드단말기', emoji: '🖨️', img: PRODUCT_IMG_BASE + 'kis1420_3in2.jpg', desc: '표준 카드 단말기', keyword: '카드단말기', url: 'card-3inch' },
+  'card-toss': { name: '토스 카드단말기', emoji: '⚡', img: PRODUCT_IMG_BASE + 'Tosscard.png', desc: '간편결제 특화', keyword: '토스단말기', url: 'card-toss' },
+  'card-wireless': { name: '무선 카드단말기', emoji: '📱', img: PRODUCT_IMG_BASE + 'Wirelesscard.png', desc: '이동 결제 자유', keyword: '무선단말기', url: 'card-wireless' },
+  'card-bluetooth': { name: '블루투스 카드단말기', emoji: '🔷', img: PRODUCT_IMG_BASE + 'Bluetoothcard.jpg', desc: '휴대용 결제', keyword: '블루투스단말기', url: 'card-bluetooth' },
   'kiosk': { name: '키오스크', emoji: '🤖', img: PRODUCT_IMG_BASE + 'Kiosk.png', desc: '무인 주문 시스템', keyword: '키오스크', url: 'kiosk' },
   'kiosk-mini': { name: '미니 키오스크', emoji: '📱', img: PRODUCT_IMG_BASE + 'Kiosk2.png', desc: '소형 무인 주문', keyword: '미니키오스크', url: 'kiosk-mini' },
   'tableorder': { name: '테이블 오더', emoji: '📋', img: PRODUCT_IMG_BASE + 'tableorder.png', desc: 'QR 주문 시스템', keyword: '테이블오더', url: 'tableorder' },
@@ -21328,19 +21328,23 @@ function buildRegionProductData(regionName, productSlug) {
   const faqPool = RP_FAQ_POOLS[poolKey] || RP_FAQ_POOLS['card'];
   const faqs = pick(faqPool, seed, 6);
   
-  return { product, intro, regionAnalysis, productDesc, benefitsTitle, benefits, industries, cautions, effect, combo, longterm, cost, guide, process, faqs };
+  return { product, regionName, intro, regionAnalysis, productDesc, benefitsTitle, benefits, industries, cautions, effect, combo, longterm, cost, guide, process, faqs };
 }
 
 // ----- 지역×제품 페이지 본문 HTML 렌더 -----
 function renderRegionProductBody(data) {
   if (!data) return '';
+  // 메인 키워드: "지역 + 제품 + 설치" (예: "경기도 포스기 설치")
+  const mainKeyword = data.product.url === 'removal' 
+    ? `${data.regionName} ${data.product.name}` 
+    : `${data.regionName} ${data.product.name} 설치`;
   return `
 <div class="region-box">
 <div class="region-intro-box">
 <div class="region-intro-icon">📋</div>
 <div class="region-intro-text">
-<strong>지역 매장 환경과 제품 안내</strong>
-<p>${data.intro}</p>
+<strong>${mainKeyword} 안내</strong>
+<p><strong>${mainKeyword}</strong>는 ${data.intro}</p>
 </div>
 </div>
 </div>
@@ -23814,10 +23818,10 @@ function getFooter() {
 <h4>제품 안내</h4>
 <ul>
 <li><a href="/product/pos">포스기(POS)</a></li>
-<li><a href="/product/card-2inch">2인치 단말기</a></li>
-<li><a href="/product/card-3inch">3인치 단말기</a></li>
-<li><a href="/product/card-toss">토스 단말기</a></li>
-<li><a href="/product/card-wireless">무선 단말기</a></li>
+<li><a href="/product/card-2inch">2인치 카드단말기</a></li>
+<li><a href="/product/card-3inch">3인치 카드단말기</a></li>
+<li><a href="/product/card-toss">토스 카드단말기</a></li>
+<li><a href="/product/card-wireless">무선 카드단말기</a></li>
 <li><a href="/product/kiosk">키오스크</a></li>
 <li><a href="/product/tableorder">테이블 오더</a></li>
 <li><a href="/product/removal">매장 철거</a></li>
@@ -23958,11 +23962,11 @@ function getCTA() {
 <select id="product" name="문의_제품" required>
 <option value="">선택해주세요</option>
 <option value="포스기">포스기(POS)</option>
-<option value="2인치 단말기">2인치 단말기</option>
-<option value="3인치 단말기">3인치 단말기</option>
-<option value="토스 단말기">토스 단말기</option>
-<option value="무선 단말기">무선 단말기</option>
-<option value="블루투스 단말기">블루투스 단말기</option>
+<option value="2인치 카드단말기">2인치 카드단말기</option>
+<option value="3인치 카드단말기">3인치 카드단말기</option>
+<option value="토스 카드단말기">토스 카드단말기</option>
+<option value="무선 카드단말기">무선 카드단말기</option>
+<option value="블루투스 카드단말기">블루투스 카드단말기</option>
 <option value="키오스크">키오스크</option>
 <option value="미니 키오스크">미니 키오스크</option>
 <option value="테이블 오더">테이블 오더</option>
@@ -24160,11 +24164,15 @@ function getThumbnailUrl(productSlug, regionName) {
   return regionImages[0];
 }
 
-// 한국 시간 기준 "YYYY년 M월 D일" 문자열 반환 (요청 시점 기준)
+// 한국 시간 기준 "YYYY년 M월 D일" 문자열 반환
+// 15일 단위로 끊어서 표시 (1~15일 → 1일, 16~31일 → 16일)
+// 콘텐츠 최신성 유지 효과 + 검색엔진 신선도 신호
 function getKstDateString() {
   const now = new Date();
   const kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
-  return `${kst.getUTCFullYear()}년 ${kst.getUTCMonth() + 1}월 ${kst.getUTCDate()}일`;
+  const day = kst.getUTCDate();
+  const stableDay = day <= 15 ? 1 : 16;
+  return `${kst.getUTCFullYear()}년 ${kst.getUTCMonth() + 1}월 ${stableDay}일`;
 }
 
 function getThumbnailEmoji(productSlug) {
@@ -24186,11 +24194,11 @@ function getThumbnailEmoji(productSlug) {
 function getThumbnailLabel(productSlug) {
   const labels = {
     'pos': '포스기 설치',
-    'card-2inch': '2인치 단말기 설치',
-    'card-3inch': '3인치 단말기 설치',
-    'card-toss': '토스 단말기 설치',
-    'card-wireless': '무선 단말기 설치',
-    'card-bluetooth': '블루투스 단말기 설치',
+    'card-2inch': '2인치 카드단말기 설치',
+    'card-3inch': '3인치 카드단말기 설치',
+    'card-toss': '토스 카드단말기 설치',
+    'card-wireless': '무선 카드단말기 설치',
+    'card-bluetooth': '블루투스 카드단말기 설치',
     'kiosk': '키오스크 설치',
     'kiosk-mini': '미니 키오스크 설치',
     'tableorder': '테이블오더 설치',
@@ -24264,14 +24272,6 @@ function buildSidoPage(sidoUrl) {
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">빠른 대응</div></div>
 </div>
-<div class="region-cta-box">
-<h3>💳 ${sido.name} 무료 견적 받기</h3>
-<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
-</div>
-</div>
 </div>
 </section>
 
@@ -24283,8 +24283,8 @@ function buildSidoPage(sidoUrl) {
 <div class="region-intro-box">
 <div class="region-intro-icon">📋</div>
 <div class="region-intro-text">
-<strong>설치 진행 방식</strong>
-<p>무료 상담 → 매장 환경 분석 → 업종별 최적 장비 추천 → 설치 완료 방식으로 진행됩니다. 업종·매장 크기·예산에 따라 최적의 장비를 함께 결정해 드립니다.</p>
+<strong>${sido.name} 카드단말기·포스기·키오스크 설치 안내</strong>
+<p><strong>${sido.name} 카드단말기·포스기 설치</strong>는 무료 상담 → 매장 환경 분석 → 업종별 최적 장비 추천 → 설치 완료 방식으로 진행됩니다. 업종·매장 크기·예산에 따라 최적의 장비를 함께 결정해 드립니다.</p>
 </div>
 </div>
 </div>
@@ -24453,14 +24453,6 @@ ${productSlug === 'removal'
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">빠른 대응</div></div>`}
 </div>
-<div class="region-cta-box">
-<h3>💳 ${sido.name} 무료 견적 받기</h3>
-<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
-</div>
-</div>
 </div>
 </section>
 
@@ -24547,14 +24539,6 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">출동</div><div class="region-stat-value">당일</div></div>
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 </div>
-<div class="region-cta-box">
-<h3>💳 ${sido.name} 무료 견적 받기</h3>
-<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
-</div>
-</div>
 </div>
 </section>
 
@@ -24565,8 +24549,8 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-intro-box">
 <div class="region-intro-icon">📋</div>
 <div class="region-intro-text">
-<strong>${sido.name} ${guName} 설치 진행 방식</strong>
-<p>무료 상담 → ${sido.name} ${guName} 매장 방문 → 업종별 최적 장비 추천 → 설치·교육 완료 방식으로 진행됩니다. ${ctx.areaType} 특성과 업종에 맞는 장비를 함께 결정해 드립니다.</p>
+<strong>${getShortSidoName(sido.name)} ${guName} 카드단말기·포스기 설치 안내</strong>
+<p><strong>${getShortSidoName(sido.name)} ${guName} 카드단말기 설치</strong>는 무료 상담 → ${guName} 매장 방문 → 업종별 최적 장비 추천 → 설치·교육 완료 방식으로 진행됩니다. ${ctx.areaType} 특성과 업종에 맞는 장비를 함께 결정해 드립니다.</p>
 </div>
 </div>
 </div>
@@ -24702,14 +24686,6 @@ ${productSlug === 'removal'
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>`}
 </div>
-<div class="region-cta-box">
-<h3>💳 ${sido.name} 무료 견적 받기</h3>
-<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
-</div>
-</div>
 </div>
 </section>
 
@@ -24799,14 +24775,6 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">즉시</div></div>
 </div>
-<div class="region-cta-box">
-<h3>💳 ${sido.name} 무료 견적 받기</h3>
-<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
-</div>
-</div>
 </div>
 </section>
 
@@ -24817,8 +24785,8 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <div class="region-intro-box">
 <div class="region-intro-icon">🏘️</div>
 <div class="region-intro-text">
-<strong>${sido.name} ${guName} ${dongName} 상권 특성</strong>
-<p>${fullAddr}은(는) ${ctx.areaType} 성격이 두드러지는 지역으로, ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종이 활발합니다. ${ctx.keyBenefit}이(가) 매장 운영의 핵심 요소로 작용합니다.</p>
+<strong>${getShortSidoName(sido.name)} ${guName} ${dongName} 카드단말기·포스기 설치 안내</strong>
+<p><strong>${getShortSidoName(sido.name)} ${guName} ${dongName} 카드단말기 설치</strong>는 ${fullAddr} 지역 매장을 위한 전문 설치 서비스입니다. ${dongName}은 ${ctx.areaType} 성격이 두드러지는 지역으로, ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종이 활발합니다. ${ctx.keyBenefit}이(가) 매장 운영의 핵심 요소로 작용합니다.</p>
 </div>
 </div>
 </div>
@@ -24902,18 +24870,18 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
     'card-2inch': `
 <div class="region-box">
 <h2 class="region-box-title">💳 ${fullAddr} 2인치 카드단말기 상세 가이드</h2>
-<h3>${dongName} 매장에 2인치 단말기가 적합한 이유</h3>
+<h3>${dongName} 매장에 2인치 카드단말기가 적합한 이유</h3>
 <p>2인치 카드단말기는 영수증 폭이 좁고 본체 크기가 작아, 카운터 공간이 제한적이거나 사장님이 직접 결제 받는 1인 매장에 가장 적합한 모델입니다. ${ctx.areaType} 성격이 강한 ${fullAddr} 일대는 작은 평수의 매장이 많고, 이런 매장에서는 큰 단말기보다 컴팩트한 2인치 모델이 공간 효율 면에서 우수합니다.</p>
-<p><strong>2인치 단말기의 장점</strong></p>
+<p><strong>2인치 카드단말기의 장점</strong></p>
 <p><strong>① 작은 사이즈, 큰 효과.</strong> 가로 7cm 정도의 본체 크기로 어디든 둘 수 있고, 가벼워서 이동 결제도 가능합니다. ${dongName} 매장에서 카운터가 좁다면 2인치가 정답입니다.</p>
 <p><strong>② 영수증 비용 절감.</strong> 영수증 용지 폭이 좁아 일반 3인치 모델 대비 용지 비용이 약 30% 절감됩니다. ${ctx.topBiz[0]}처럼 결제 횟수가 많은 업종은 연간 수십만 원의 영수증 용지 비용을 아낄 수 있습니다.</p>
-<p><strong>③ 빠른 결제 속도.</strong> 신형 2인치 단말기(KIS-2200 등)는 IC카드·MS카드·삼성페이·LG페이·애플페이까지 한 대로 모두 처리하며, 결제 처리 속도가 평균 1.5초 이내입니다.</p>
+<p><strong>③ 빠른 결제 속도.</strong> 신형 2인치 카드단말기(KIS-2200 등)는 IC카드·MS카드·삼성페이·LG페이·애플페이까지 한 대로 모두 처리하며, 결제 처리 속도가 평균 1.5초 이내입니다.</p>
 <p><strong>④ 무선 모델 선택 가능.</strong> Wi-Fi 또는 LTE 모델을 선택하면 매장 어디서든 결제가 가능해, ${dongName} 일대 ${ctx.topBiz[1]} 업종(테이블 결제, 출장 결제)에 특히 유리합니다.</p>
 <h3>${fullAddr}에서 자주 받는 질문</h3>
-<p><strong>Q. 2인치 단말기로 영수증이 너무 작지 않나요?</strong> A. 일반 결제 정보(가맹점명, 카드사, 금액, 승인번호 등)는 모두 정상적으로 출력되며, 글자 크기도 충분히 읽기 좋습니다. 단, 메뉴 항목이 많은 카페나 식당이라면 3인치 모델이 더 적합할 수 있습니다.</p>
+<p><strong>Q. 2인치 카드단말기로 영수증이 너무 작지 않나요?</strong> A. 일반 결제 정보(가맹점명, 카드사, 금액, 승인번호 등)는 모두 정상적으로 출력되며, 글자 크기도 충분히 읽기 좋습니다. 단, 메뉴 항목이 많은 카페나 식당이라면 3인치 모델이 더 적합할 수 있습니다.</p>
 <p><strong>Q. 단말기 비용은 얼마인가요?</strong> A. 마스터페이를 통해 신청하시면 ${guName} 지역도 단말기 무료 옵션이 있으며, 월 사용료도 0원입니다. VAN사 카드 수수료만 일반 요율로 부과됩니다.</p>
 <p><strong>Q. 기존 단말기 교체도 가능한가요?</strong> A. 네, ${fullAddr} 매장의 기존 단말기는 마스터페이가 무료 회수·반납 처리를 도와드립니다. 가맹점 명의 변경 절차도 함께 처리됩니다.</p>
-<h3>${dongName} 2인치 단말기 설치 절차</h3>
+<h3>${dongName} 2인치 카드단말기 설치 절차</h3>
 <p>상담 → 매장 방문 또는 전화 견적 → 모델 선정 → 설치(${ctx.installTime}~${ctx.installTime+2}일 이내) → 사용법 교육 → 사후 관리. ${guName} 전담 기사가 ${dongName} 매장을 직접 방문해 설치하며, 카드사 가맹 등록까지 모두 대행합니다. 사장님은 설치 당일 결제 테스트만 함께 해보시면 됩니다.</p>
 </div>
 `,
@@ -24921,9 +24889,9 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
     'card-3inch': `
 <div class="region-box">
 <h2 class="region-box-title">🖨️ ${fullAddr} 3인치 카드단말기 상세 가이드</h2>
-<h3>3인치 단말기가 ${dongName} 매장에 주는 가치</h3>
-<p>3인치 카드단말기는 표준형 모델로, 영수증 폭이 넓어 결제 정보 외에도 매장 로고·이벤트 안내·QR쿠폰 등을 함께 인쇄할 수 있는 가장 대중적인 모델입니다. ${ctx.areaType} 특성을 가진 ${fullAddr} 일대 ${ctx.topBiz[0]} 업종 매장에서는 표준 3인치 단말기가 가장 안정적인 선택입니다.</p>
-<p><strong>3인치 단말기의 강점</strong></p>
+<h3>3인치 카드단말기가 ${dongName} 매장에 주는 가치</h3>
+<p>3인치 카드단말기는 표준형 모델로, 영수증 폭이 넓어 결제 정보 외에도 매장 로고·이벤트 안내·QR쿠폰 등을 함께 인쇄할 수 있는 가장 대중적인 모델입니다. ${ctx.areaType} 특성을 가진 ${fullAddr} 일대 ${ctx.topBiz[0]} 업종 매장에서는 표준 3인치 카드단말기가 가장 안정적인 선택입니다.</p>
+<p><strong>3인치 카드단말기의 강점</strong></p>
 <p><strong>① 가독성 우수.</strong> 영수증 폭이 80mm로 넓어 메뉴명·옵션·할인 내역이 모두 한눈에 보입니다. ${ctx.topBiz[0]} 같이 메뉴가 많은 업종에 적합합니다.</p>
 <p><strong>② 표준 호환성.</strong> 대부분의 포스기·키오스크와 표준 인터페이스로 연결되어, ${dongName} 매장에서 향후 시스템 업그레이드 시에도 호환성 문제가 없습니다.</p>
 <p><strong>③ 다양한 결제 수단 지원.</strong> 신용카드·체크카드·삼성페이·LG페이·애플페이·제로페이·서울페이·각종 모바일 상품권까지 모두 한 대로 처리됩니다.</p>
@@ -24932,64 +24900,64 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <h3>${fullAddr}에서 추천하는 3인치 모델</h3>
 <p>일반 매장은 KIS-1420 모델이 가장 인기 있으며, 결제 속도가 빠르고 NFC·MS·IC 카드를 모두 지원합니다. 무선 결제가 필요한 매장은 KIS-1420 LTE 모델을, 비용 절감이 중요한 매장은 동급 KS-7700 시리즈도 좋은 선택입니다.</p>
 <p>마스터페이는 ${fullAddr} 매장에 ${ctx.topBiz[0]} 업종 기준으로 가장 적합한 모델을 추천드리며, 카드사 수수료를 카드사별로 비교해 가장 유리한 조건으로 가맹 신청을 진행해드립니다. 신용카드 수수료는 매출 규모에 따라 차이가 크기 때문에, 같은 단말기라도 어느 VAN사를 통하느냐에 따라 연간 수백만 원의 차이가 날 수 있습니다.</p>
-<h3>${dongName} 3인치 단말기 도입 효과</h3>
-<p>${dongName} 일대 매장 사례를 보면, 3인치 단말기 도입 후 결제 대기 시간이 평균 30% 단축되고, 영수증 분실로 인한 환불 분쟁도 크게 줄어듭니다. 또한 매출 데이터가 자동으로 정리되어 부가세 신고 시간도 절약됩니다. 마스터페이가 설치한 ${guName} 지역 매장의 평균 만족도는 ${ctx.satisfaction || 96}% 이상입니다.</p>
+<h3>${dongName} 3인치 카드단말기 도입 효과</h3>
+<p>${dongName} 일대 매장 사례를 보면, 3인치 카드단말기 도입 후 결제 대기 시간이 평균 30% 단축되고, 영수증 분실로 인한 환불 분쟁도 크게 줄어듭니다. 또한 매출 데이터가 자동으로 정리되어 부가세 신고 시간도 절약됩니다. 마스터페이가 설치한 ${guName} 지역 매장의 평균 만족도는 ${ctx.satisfaction || 96}% 이상입니다.</p>
 </div>
 `,
 
     'card-toss': `
 <div class="region-box">
-<h2 class="region-box-title">⚡ ${fullAddr} 토스 단말기 상세 가이드</h2>
-<h3>${dongName}에서 토스 단말기가 인기인 이유</h3>
-<p>토스 단말기는 토스페이먼츠가 자체 개발한 차세대 결제 단말기로, 일반 카드결제뿐만 아니라 토스페이·삼성페이·간편송금까지 한 대로 처리할 수 있는 통합형 결제기입니다. ${ctx.areaType} 성격의 ${fullAddr} 일대는 젊은 고객층이 많아, 간편결제 비중이 높은 업종에서 토스 단말기의 효과가 특히 큽니다.</p>
-<p><strong>토스 단말기의 차별점</strong></p>
+<h2 class="region-box-title">⚡ ${fullAddr} 토스 카드단말기 상세 가이드</h2>
+<h3>${dongName}에서 토스 카드단말기가 인기인 이유</h3>
+<p>토스 카드단말기는 토스페이먼츠가 자체 개발한 차세대 결제 단말기로, 일반 카드결제뿐만 아니라 토스페이·삼성페이·간편송금까지 한 대로 처리할 수 있는 통합형 결제기입니다. ${ctx.areaType} 성격의 ${fullAddr} 일대는 젊은 고객층이 많아, 간편결제 비중이 높은 업종에서 토스 카드단말기의 효과가 특히 큽니다.</p>
+<p><strong>토스 카드단말기의 차별점</strong></p>
 <p><strong>① 간편결제 통합.</strong> 토스페이·카카오페이·네이버페이·페이코 등 주요 간편결제를 모두 한 대로 처리하며, 결제 화면도 직관적이라 고객이 빠르게 결제할 수 있습니다.</p>
 <p><strong>② 가맹점 정산 빠름.</strong> 일반 카드 매출은 영업일 기준 2~3일 후 입금되지만, 토스 결제는 익일 정산이 기본이며 일부는 당일 정산도 가능합니다. ${dongName} 1인 자영업자에게는 자금 회전이 큰 도움이 됩니다.</p>
 <p><strong>③ 수수료 투명.</strong> 토스페이먼츠는 카드사별 수수료를 명확히 공개하며, 일반 VAN사 대비 평균 0.1~0.3%p 낮은 경우가 많습니다. ${ctx.topBiz[0]} 처럼 매출 규모가 큰 업종은 연간 수십만 원의 수수료 절감 효과가 있습니다.</p>
 <p><strong>④ 매출 알림 즉시.</strong> 결제될 때마다 토스 사장님 앱으로 푸시 알림이 오며, 매출 현황을 실시간으로 확인할 수 있습니다. ${dongName} 처럼 직원이 결제 받는 매장에서는 사장님이 매장 밖에서도 매출을 모니터링할 수 있습니다.</p>
 <p><strong>⑤ 단말기 디자인.</strong> 깔끔한 흰색 미니멀 디자인으로 인테리어와 잘 어울리며, ${ctx.topBiz[1]} 같은 디자인 중요 업종에서 호평을 받습니다.</p>
-<h3>${fullAddr} 토스 단말기 도입 절차</h3>
+<h3>${fullAddr} 토스 카드단말기 도입 절차</h3>
 <p>토스페이먼츠 가맹 심사 → 단말기 발송 → ${dongName} 현지 설치 → 토스 사장님 앱 설치 → 사용법 교육 순으로 진행됩니다. 마스터페이는 ${fullAddr} 매장의 가맹 신청을 대행하며, 사업자등록증·통장사본·신분증만 준비하시면 나머지는 모두 처리해드립니다. ${guName} 전담 기사가 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치를 완료합니다.</p>
-<h3>${dongName} 매장에 추천하는 토스 단말기 활용법</h3>
-<p>토스 단말기를 ${dongName} 매장에 설치하면, 토스 앱 사용자에게 자동 노출되는 장점도 있습니다. 토스 앱의 '내 주변 가맹점' 기능에 ${fullAddr} 매장이 노출되어 자연 유입이 늘어날 수 있습니다. 또한 토스 결제 고객 대상 자체 적립금·쿠폰 발행도 가능해, ${ctx.topBiz[0]} 업종이라면 단골 마케팅 도구로도 활용할 수 있습니다.</p>
+<h3>${dongName} 매장에 추천하는 토스 카드단말기 활용법</h3>
+<p>토스 카드단말기를 ${dongName} 매장에 설치하면, 토스 앱 사용자에게 자동 노출되는 장점도 있습니다. 토스 앱의 '내 주변 가맹점' 기능에 ${fullAddr} 매장이 노출되어 자연 유입이 늘어날 수 있습니다. 또한 토스 결제 고객 대상 자체 적립금·쿠폰 발행도 가능해, ${ctx.topBiz[0]} 업종이라면 단골 마케팅 도구로도 활용할 수 있습니다.</p>
 </div>
 `,
 
     'card-wireless': `
 <div class="region-box">
 <h2 class="region-box-title">📡 ${fullAddr} 무선 카드단말기 상세 가이드</h2>
-<h3>${dongName} 매장에 무선 단말기가 필요한 경우</h3>
-<p>무선 카드단말기는 LTE 또는 Wi-Fi로 인터넷에 연결되어, 매장 내 어디서든 결제가 가능한 휴대형 결제기입니다. ${ctx.areaType} 특성의 ${fullAddr} 일대에서는 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 처럼 테이블 결제·출장 결제·이동식 매장이 많아 무선 단말기 수요가 높습니다.</p>
-<p><strong>무선 단말기 vs 유선 단말기</strong></p>
-<p>유선 단말기는 카운터에 고정되어 있어 고객이 카운터까지 와서 결제해야 합니다. 반면 무선 단말기는 사장님이 단말기를 들고 고객에게 가서 결제할 수 있어, 매장 동선이 길거나 테이블이 많은 업종에서 회전율을 크게 높여줍니다.</p>
-<p><strong>무선 단말기 활용 사례</strong></p>
+<h3>${dongName} 매장에 무선 카드단말기가 필요한 경우</h3>
+<p>무선 카드단말기는 LTE 또는 Wi-Fi로 인터넷에 연결되어, 매장 내 어디서든 결제가 가능한 휴대형 결제기입니다. ${ctx.areaType} 특성의 ${fullAddr} 일대에서는 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 처럼 테이블 결제·출장 결제·이동식 매장이 많아 무선 카드단말기 수요가 높습니다.</p>
+<p><strong>무선 카드단말기 vs 유선 단말기</strong></p>
+<p>유선 단말기는 카운터에 고정되어 있어 고객이 카운터까지 와서 결제해야 합니다. 반면 무선 카드단말기는 사장님이 단말기를 들고 고객에게 가서 결제할 수 있어, 매장 동선이 길거나 테이블이 많은 업종에서 회전율을 크게 높여줍니다.</p>
+<p><strong>무선 카드단말기 활용 사례</strong></p>
 <p><strong>① 음식점·식당:</strong> 테이블 결제로 고객 만족도 향상. ${ctx.topBiz[0]} 업종 ${dongName} 매장의 평균 회전율이 15~20% 증가합니다.</p>
 <p><strong>② 푸드트럭·이동매장:</strong> 어디서든 즉시 결제 가능. ${guName} 일대 행사·축제에서 매출 누락 없이 결제 처리.</p>
 <p><strong>③ 출장 서비스:</strong> 청소·이사·인테리어·정비 업종이 현장에서 바로 결제. ${dongName} 매장이 출장 서비스를 제공한다면 필수 장비.</p>
 <p><strong>④ 야외 매장:</strong> 카페 야외 테라스·가든 레스토랑에서 자유롭게 이동하며 결제.</p>
 <p><strong>⑤ 줄 서는 매장:</strong> ${ctx.topBiz[1]} 같은 인기 매장에서 대기줄 결제 선처리로 회전율 향상.</p>
-<h3>${fullAddr} 무선 단말기 추천 사양</h3>
+<h3>${fullAddr} 무선 카드단말기 추천 사양</h3>
 <p>일반 매장은 LTE 무선 모델 (월 통신비 5,000~9,000원)을 추천드리며, Wi-Fi가 안정적인 매장은 Wi-Fi 모델로도 충분합니다. 배터리는 한 번 충전으로 8~12시간 사용 가능하며, ${dongName} 매장에서 영업 시간 내내 결제가 가능합니다. 영수증 출력은 내장 프린터로 즉시 가능하며, 일부 모델은 무선으로 별도 프린터와 연결됩니다.</p>
-<h3>${dongName} 무선 단말기 도입 시 주의사항</h3>
-<p>무선 단말기는 통신 환경이 중요합니다. ${fullAddr} 매장의 위치에 따라 LTE 신호가 약할 수 있으므로, 마스터페이는 설치 전 ${dongName} 매장 위치의 통신 환경을 미리 확인합니다. 신호가 약한 지역은 Wi-Fi 모델을 추천하거나, 신호 증폭 옵션을 안내합니다. ${guName} 전담 기사가 직접 매장에 방문해 통신 테스트를 진행하고, 가장 안정적인 옵션을 결정해드립니다.</p>
+<h3>${dongName} 무선 카드단말기 도입 시 주의사항</h3>
+<p>무선 카드단말기는 통신 환경이 중요합니다. ${fullAddr} 매장의 위치에 따라 LTE 신호가 약할 수 있으므로, 마스터페이는 설치 전 ${dongName} 매장 위치의 통신 환경을 미리 확인합니다. 신호가 약한 지역은 Wi-Fi 모델을 추천하거나, 신호 증폭 옵션을 안내합니다. ${guName} 전담 기사가 직접 매장에 방문해 통신 테스트를 진행하고, 가장 안정적인 옵션을 결정해드립니다.</p>
 </div>
 `,
 
     'card-bluetooth': `
 <div class="region-box">
 <h2 class="region-box-title">📶 ${fullAddr} 블루투스 카드단말기 상세 가이드</h2>
-<h3>블루투스 단말기가 ${dongName} 매장에 적합한 이유</h3>
+<h3>블루투스 카드단말기가 ${dongName} 매장에 적합한 이유</h3>
 <p>블루투스 카드단말기는 스마트폰 또는 태블릿과 무선으로 연결되어 결제하는 초소형 결제기입니다. 본체 크기가 일반 단말기의 1/4 수준이며 무게도 100g 내외로 가벼워, ${ctx.areaType} 성격의 ${fullAddr} 일대 1인 매장이나 출장형 사장님께 가장 인기가 높습니다.</p>
-<p><strong>블루투스 단말기의 차별점</strong></p>
+<p><strong>블루투스 카드단말기의 차별점</strong></p>
 <p><strong>① 초소형 휴대성.</strong> 손바닥 안에 들어오는 크기로, 사장님이 항상 휴대할 수 있습니다. ${dongName} 일대 1인 사업자에게는 가장 편리한 결제 도구입니다.</p>
 <p><strong>② 저렴한 단말기 비용.</strong> 일반 단말기 대비 약 절반 수준의 단말기 비용으로, ${guName} 지역 사장님들도 부담 없이 도입 가능합니다.</p>
 <p><strong>③ 통신비 절감.</strong> 별도 LTE 통신비가 없으며, 사장님 스마트폰 데이터를 활용해 결제됩니다. 월 5,000~10,000원의 통신비를 절약할 수 있습니다.</p>
-<p><strong>④ 다중 단말기 운영.</strong> 한 매장에서 여러 명의 직원이 각자 블루투스 단말기를 들고 결제하면 줄서는 시간을 분산할 수 있습니다. ${ctx.topBiz[0]} 같은 회전율 중요 업종에 효과적입니다.</p>
+<p><strong>④ 다중 단말기 운영.</strong> 한 매장에서 여러 명의 직원이 각자 블루투스 카드단말기를 들고 결제하면 줄서는 시간을 분산할 수 있습니다. ${ctx.topBiz[0]} 같은 회전율 중요 업종에 효과적입니다.</p>
 <p><strong>⑤ 영수증 선택 발급.</strong> 종이 영수증이 필요 없는 고객에게는 모바일 영수증(SMS/카카오톡)을 발송할 수 있어, 영수증 용지 비용도 크게 절감됩니다.</p>
-<h3>${fullAddr} 블루투스 단말기 사용 환경</h3>
+<h3>${fullAddr} 블루투스 카드단말기 사용 환경</h3>
 <p>안드로이드폰·아이폰 모두 호환되며, 전용 앱(MPI 등)을 설치하면 결제 화면이 스마트폰에 표시됩니다. 결제 정보·영수증·매출 통계를 모두 스마트폰에서 확인할 수 있어, ${dongName} 사장님이 매장 밖에서도 실시간으로 매출을 모니터링할 수 있습니다.</p>
 <p>블루투스 연결 안정성은 최대 10m이며, ${guName} 일대 일반적인 매장 크기에서는 충분합니다. 다만 콘크리트 벽이나 금속 가구가 많은 환경에서는 연결이 끊길 수 있으므로, ${fullAddr} 매장 환경에 따라 적합 여부를 마스터페이가 사전 확인해드립니다.</p>
-<h3>${dongName} 블루투스 단말기 도입 절차</h3>
+<h3>${dongName} 블루투스 카드단말기 도입 절차</h3>
 <p>가맹 신청 → 단말기 발송 → 스마트폰 앱 설치 → 페어링(약 5분) → 첫 결제 테스트 → 운영 시작. ${ctx.installTime}~${ctx.installTime+2}일 이내에 모든 절차가 완료되며, ${guName} 전담 매니저가 첫 사용을 도와드립니다. ${ctx.topBiz[1]} 업종이라면 특히 추천드리는 모델입니다.</p>
 </div>
 `,
@@ -25142,14 +25110,6 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 </div>
 </div>
 <div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${fullAddr} 매장 철거·원상복구 전문. 무료 방문 견적, 전국 최저가, 1년 사후 책임을 약속합니다.` : `${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.`}</div>
-<div class="region-cta-box">
-<h3>💳 ${sido.name} 무료 견적 받기</h3>
-<p>${sido.name} 전 지역 전문가가 책임집니다.</p>
-<div class="region-cta-buttons">
-<a href="tel:010-2337-0458" class="btn btn-primary">📞 010-2337-0458</a>
-<a href="#contact" class="btn btn-ghost" onclick="scrollToContact(event)">💬 상담 문의</a>
-</div>
-</div>
 </div>
 </section>
 
