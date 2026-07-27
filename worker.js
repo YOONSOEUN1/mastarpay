@@ -18,10 +18,17 @@ const PAGE_HOME = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
 <title>마스터페이 | 카드단말기·포스기·키오스크 전국 설치 전문</title>
-<meta name="description" content="카드단말기, 포스기, 키오스크, 테이블오더, 철거까지. 전국 어디든 매장에 필요한 모든 장비를 한 번에 설치합니다. 무료 상담·빠른 설치·A/S 보장.">
+<meta name="description" content="카드단말기, 포스기, 키오스크, 테이블오더, 철거까지. 매장에 필요한 모든 장비를 한 번에 설치합니다. 설치비·관리비 0원(기기값 별도), 무료 상담, 빠른 설치·A/S 보장.">
 <meta property="og:title" content="마스터페이 | 매장 설비 전국 설치">
 <meta property="og:description" content="매장 운영의 모든 것, 마스터페이와 함께.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="마스터페이">
+<meta property="og:locale" content="ko_KR">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"마스터페이","alternateName":"Mastarpay","url":"https://mastarpay.com","logo":"https://mastarpay.com/brand.png","telephone":"+82-10-2337-0458","contactPoint":{"@type":"ContactPoint","telephone":"+82-10-2337-0458","contactType":"customer service","areaServed":"KR","availableLanguage":["Korean"]},"description":"전국 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·관리비 0원(기기값 별도), 당일 상담, 빠른 A/S."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"마스터페이","url":"https://mastarpay.com","inLanguage":"ko-KR"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"마스터페이","image":"https://mastarpay.com/brand.png","url":"https://mastarpay.com","telephone":"+82-10-2337-0458","priceRange":"설치비·관리비 0원, 기기값 별도","description":"전국 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·월 관리비 0원(기기값 별도), 당일 상담, 빠른 A/S.","address":{"@type":"PostalAddress","addressCountry":"KR"},"areaServed":{"@type":"Country","name":"대한민국"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"20:00"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"설치 비용은 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"설치비 0원, 월 관리비 0원입니다. 다만 기기(카드단말기·포스기·키오스크 등) 본체 값은 별도로 발생하며, 일시불·렌탈·리스 중 선택하실 수 있습니다. 정확한 금액은 상담을 통해 안내해드립니다."}},{"@type":"Question","name":"정말 다 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"설치비·월 관리비·A/S 비용이 무료입니다. 매장에 설치되는 기기 본체 값은 별도로 발생하며, 일시불·렌탈·리스 중 선택 가능합니다. 상담 시 총 비용 견적서를 투명하게 안내해드립니다."}},{"@type":"Question","name":"A/S는 어떻게 받나요?","acceptedAnswer":{"@type":"Answer","text":"전화 한 통이면 됩니다. 대부분의 문제는 원격 지원으로 즉시 해결되며, 하드웨어 문제는 엔지니어가 직접 방문하여 처리해드립니다. 계약 기간 내 무상 A/S를 보장합니다."}},{"@type":"Question","name":"설치까지 얼마나 걸리나요?","acceptedAnswer":{"@type":"Answer","text":"장비에 따라 다르지만, 간단한 카드단말기는 상담 당일 또는 1~2일 내 설치가 가능합니다. 키오스크나 포스기는 3~7일 정도 소요됩니다."}},{"@type":"Question","name":"여러 장비를 함께 설치하면 할인되나요?","acceptedAnswer":{"@type":"Answer","text":"네, 패키지 할인 혜택이 있습니다. 포스기+카드단말기+테이블오더 등을 함께 설치하시면 개별 설치보다 훨씬 저렴하게 이용하실 수 있습니다."}}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
@@ -820,6 +827,47 @@ body {
     max-width: 700px;
     margin: -8px auto 28px;
     letter-spacing: -0.005em;
+}
+
+/* 비용 구조 명확 안내 배너 (오해 방지) */
+.region-price-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 780px;
+    margin: 0 auto 24px;
+    padding: 14px 20px;
+    background: linear-gradient(to right, #fef8ee, #fdf3e0);
+    border: 1px solid #e8c893;
+    border-radius: 14px;
+    font-size: 14.5px;
+    color: #7a4a1a;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+.region-price-notice-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.region-price-notice strong {
+    color: #5c3a12;
+    font-weight: 700;
+}
+.region-price-notice-sep {
+    color: #d9b57a;
+    margin: 0 4px;
+}
+@media (max-width: 768px) {
+    .region-price-notice {
+        font-size: 13px;
+        padding: 12px 14px;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 0 12px 20px;
+    }
+    .region-price-notice-icon { font-size: 16px; }
 }
 
 /* 히어로 통계 4개 박스 (명확히!) */
@@ -2306,8 +2354,50 @@ p, h1, h2, h3, h4, li {
     font-size: 18px;
     color: var(--ink-soft);
     max-width: 520px;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
     line-height: 1.6;
+}
+.hero-price-notice {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 520px;
+    margin-bottom: 32px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #fef8ee 0%, #fdf1dc 100%);
+    border: 1px solid #e8c893;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(232, 200, 147, 0.15);
+}
+.hero-price-notice-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+.hero-price-notice-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.hero-price-notice-text strong {
+    font-size: 15.5px;
+    color: #5c3a12;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+.hero-price-notice-sub {
+    font-size: 13px;
+    color: #8a6538;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+}
+@media (max-width: 768px) {
+    .hero-price-notice {
+        padding: 14px 16px;
+        gap: 10px;
+    }
+    .hero-price-notice-icon { font-size: 20px; }
+    .hero-price-notice-text strong { font-size: 14px; }
+    .hero-price-notice-sub { font-size: 12px; }
 }
 .hero-actions {
     display: flex;
@@ -3467,6 +3557,14 @@ p, h1, h2, h3, h4, li {
 전국 어디든 매장에 필요한 모든 장비를 한 곳에서 설치부터 A/S까지 책임집니다.
 </p>
 
+<div class="hero-price-notice">
+<span class="hero-price-notice-icon">💰</span>
+<div class="hero-price-notice-text">
+<strong>설치비 0원 · 월 관리비 0원 · A/S 무상</strong>
+<span class="hero-price-notice-sub">기기(카드단말기·포스기·키오스크 등) 본체 값은 별도 · 일시불·렌탈 선택 가능</span>
+</div>
+</div>
+
 <div class="hero-actions">
 <a href="#contact" class="btn btn-primary">
 무료 상담 신청 →
@@ -3839,7 +3937,17 @@ p, h1, h2, h3, h4, li {
 <span class="faq-toggle">+</span>
 </div>
 <div class="faq-answer">
-대부분의 장비는 무료 설치가 가능합니다. 월 렌탈료 또는 일시불 구매 등 다양한 옵션이 있으며, 정확한 비용은 매장 상황에 따라 달라지므로 상담을 통해 안내해드립니다.
+<strong>설치비 0원 · 월 관리비 0원</strong>입니다. 다만 기기(카드단말기·포스기·키오스크 등) 본체 값은 별도로 발생합니다. 기기값은 일시불 구매, 월 렌탈, 리스 등 매장 상황에 맞게 선택하실 수 있으며, 정확한 금액은 상담을 통해 안내해드립니다.
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+<div class="faq-question">
+<span>"무료"라고 하는데 정말 다 무료인가요?</span>
+<span class="faq-toggle">+</span>
+</div>
+<div class="faq-answer">
+정확히 말씀드리면 <strong>설치비·월 관리비·A/S 비용이 무료</strong>입니다. 매장에 설치되는 기기(카드단말기·포스기·키오스크 등) 본체 값은 별도로 발생하며, 이 기기값은 일시불·렌탈·리스 중 선택 가능합니다. 오해 없도록 상담 시 총 비용 견적서를 투명하게 안내해드립니다.
 </div>
 </div>
 
@@ -7291,7 +7399,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -8688,7 +8796,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -10086,7 +10194,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -11485,7 +11593,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -12883,7 +12991,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -14281,7 +14389,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -15682,7 +15790,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -17083,7 +17191,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -18484,7 +18592,7 @@ p, h1, h2, h3, h4, li {
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <h3 class="feature-title">합리적 비용</h3>
-                    <p class="feature-desc">설치비 무료 옵션과 렌탈 프로그램으로 부담이 적습니다.</p>
+                    <p class="feature-desc">설치비·월 관리비 0원이며, 기기 본체 값은 일시불·렌탈 중 선택 가능합니다.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
@@ -20706,6 +20814,95 @@ function buildProductDesc(productSlug, regionName) {
 }
 
 // ============================================================
+// JSON-LD 스키마 생성 헬퍼들 (SEO 리치 스니펫용)
+// ============================================================
+
+// FAQPage 스키마: faqs = [{q: '...', a: '...'}, ...]
+function buildFAQSchema(faqs) {
+  if (!Array.isArray(faqs) || faqs.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }))
+  };
+}
+
+// BreadcrumbList 스키마: items = [{name: '홈', url: '/'}, ...]
+function buildBreadcrumbSchema(items) {
+  if (!Array.isArray(items) || items.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((it, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": it.name,
+      "item": it.url.startsWith('http') ? it.url : ('https://mastarpay.com' + it.url)
+    }))
+  };
+}
+
+// LocalBusiness 스키마: 지역 페이지용 (지역 비즈니스 정보)
+function buildLocalBusinessSchema(opts) {
+  const o = opts || {};
+  const areaName = o.areaName || '대한민국';
+  const pageUrl = o.pageUrl ? ('https://mastarpay.com' + o.pageUrl) : 'https://mastarpay.com';
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": `마스터페이 ${areaName}`,
+    "image": "https://mastarpay.com/brand.png",
+    "url": pageUrl,
+    "telephone": "+82-10-2337-0458",
+    "priceRange": "설치비·관리비 0원, 기기값 별도",
+    "description": `${areaName} 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·월 관리비 0원(기기값 별도), 당일 상담, 빠른 A/S.`,
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": areaName
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": areaName
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  };
+}
+
+// Service 스키마: 제품 페이지용
+function buildServiceSchema(opts) {
+  const o = opts || {};
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": o.serviceType || "매장 설비 설치",
+    "name": o.name || "매장 설비 설치",
+    "description": o.description || "매장 설비 설치 서비스",
+    "provider": {
+      "@type": "Organization",
+      "name": "마스터페이",
+      "telephone": "+82-10-2337-0458"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": o.areaName || "대한민국"
+    }
+  };
+}
+
+// ============================================================
 // 지역×제품 페이지 섹션별 콘텐츠 풀
 // 6개 섹션 × 평균 5~6 변형 = 6^6 = 46,656 조합
 // ============================================================
@@ -21148,20 +21345,20 @@ const RP_REGION_ANALYSIS_POOLS = [
 // 섹션 B: 함께 쓰면 좋은 제품 조합 (250~350자)
 const RP_COMBO_POOLS = {
   'card': [
-    "{productName}만 단독으로 도입하기보다 포스기와 함께 도입하면 매장 운영 효율이 극대화됩니다. 카드 단말기로 결제만 처리하던 환경에서 포스기까지 도입하면 주문·결제·매출 마감·재고 관리가 단일 화면에서 통합 처리되어, 운영 시간이 평균 30~40% 단축됩니다. 패키지 도입 시 설치비 무료 혜택이 적용되며, 단말 간 자동 연동 세팅까지 함께 진행됩니다.",
-    "{productName} 도입 매장에서는 키오스크 또는 테이블오더 도입을 함께 검토하시는 경우가 많습니다. 결제 단말기는 카운터 운영의 기본이지만, 인건비 부담이 큰 매장이라면 키오스크·테이블오더로 카운터 인력 자체를 줄이는 방향이 효과적입니다. 패키지 도입 시 단말 간 자동 연동과 설치비 무료 혜택이 함께 제공됩니다.",
-    "카드 단말기와 포스기를 함께 도입하면 결제·매출 데이터가 통합 관리되어 세무 신고와 매출 분석이 자동화됩니다. {region}의 다수 매장에서 이 조합을 표준 운영 환경으로 채택하고 있으며, 마스터페이는 패키지 도입 시 설치비 무료와 통합 사후 관리 혜택을 함께 제공합니다."
+    "{productName}만 단독으로 도입하기보다 포스기와 함께 도입하면 매장 운영 효율이 극대화됩니다. 카드 단말기로 결제만 처리하던 환경에서 포스기까지 도입하면 주문·결제·매출 마감·재고 관리가 단일 화면에서 통합 처리되어, 운영 시간이 평균 30~40% 단축됩니다. 패키지 도입 시 설치비·관리비 0원 혜택이 적용되며, 단말 간 자동 연동 세팅까지 함께 진행됩니다.",
+    "{productName} 도입 매장에서는 키오스크 또는 테이블오더 도입을 함께 검토하시는 경우가 많습니다. 결제 단말기는 카운터 운영의 기본이지만, 인건비 부담이 큰 매장이라면 키오스크·테이블오더로 카운터 인력 자체를 줄이는 방향이 효과적입니다. 패키지 도입 시 단말 간 자동 연동과 설치비·관리비 0원 혜택이 함께 제공됩니다.",
+    "카드 단말기와 포스기를 함께 도입하면 결제·매출 데이터가 통합 관리되어 세무 신고와 매출 분석이 자동화됩니다. {region}의 다수 매장에서 이 조합을 표준 운영 환경으로 채택하고 있으며, 마스터페이는 패키지 도입 시 설치비·관리비 0원과 통합 사후 관리 혜택을 함께 제공합니다."
   ],
   'pos': [
-    "{productName}은(는) 카드 단말기·키오스크·테이블오더와 모두 자동 연동되는 통합 플랫폼입니다. 포스기 도입 후 매장 환경에 따라 키오스크나 테이블오더를 추가 도입하면 운영 효율이 단계적으로 향상됩니다. 패키지 도입 시 설치비 무료 혜택과 단말 간 자동 연동 세팅이 함께 제공되어, 도입 부담이 사실상 없습니다.",
+    "{productName}은(는) 카드 단말기·키오스크·테이블오더와 모두 자동 연동되는 통합 플랫폼입니다. 포스기 도입 후 매장 환경에 따라 키오스크나 테이블오더를 추가 도입하면 운영 효율이 단계적으로 향상됩니다. 패키지 도입 시 설치비·관리비 0원 혜택과 단말 간 자동 연동 세팅이 함께 제공되어, 도입 부담이 사실상 없습니다.",
     "포스기 단독 도입도 운영 효율 향상에 충분하지만, 인건비 부담이 큰 매장에서는 테이블오더·키오스크와 함께 도입하는 것을 권장합니다. 직원 응대 부담이 근본적으로 줄어들어, 동일 인력으로 매장 운영 규모를 확장할 수 있습니다. {region} 매장 다수가 이 통합 운영 구조를 채택하고 있습니다."
   ],
   'kiosk': [
-    "{productName}을(를) 단독으로 도입해도 효과가 즉각적이지만, 포스기와 함께 도입하면 매장 운영의 통합도가 한 단계 더 높아집니다. 키오스크에서 발생한 주문이 포스기·주방 출력기로 자동 전달되어, 직원이 응대에 개입할 필요가 거의 없는 운영 구조가 완성됩니다. 패키지 도입 시 설치비 무료 혜택이 적용됩니다.",
+    "{productName}을(를) 단독으로 도입해도 효과가 즉각적이지만, 포스기와 함께 도입하면 매장 운영의 통합도가 한 단계 더 높아집니다. 키오스크에서 발생한 주문이 포스기·주방 출력기로 자동 전달되어, 직원이 응대에 개입할 필요가 거의 없는 운영 구조가 완성됩니다. 패키지 도입 시 설치비·관리비 0원 혜택이 적용됩니다.",
     "키오스크 도입 후 운영 효율이 안정화되면 테이블오더 추가 도입도 검토할 가치가 있습니다. 카운터 주문은 키오스크가, 테이블 추가 주문은 테이블오더가 처리하는 이중 셀프 오더링 구조가 매장 운영 효율을 극대화합니다. {region}의 외식업 매장 다수가 이 구조를 채택하고 있습니다."
   ],
   'tableorder': [
-    "{productName}은(는) 포스기와의 자동 연동이 도입 효과의 핵심입니다. 테이블오더에서 발생한 주문이 포스기·주방 출력기로 즉시 전달되어, 직원이 주문 전달에 개입할 필요가 거의 없습니다. 패키지 도입 시 설치비 무료와 자동 연동 세팅이 함께 제공됩니다."
+    "{productName}은(는) 포스기와의 자동 연동이 도입 효과의 핵심입니다. 테이블오더에서 발생한 주문이 포스기·주방 출력기로 즉시 전달되어, 직원이 주문 전달에 개입할 필요가 거의 없습니다. 패키지 도입 시 설치비·관리비 0원과 자동 연동 세팅이 함께 제공됩니다."
   ],
   'removal': [
     "{productName} 서비스는 매장 폐업·이전 시점의 일회성 작업이지만, 신규 매장 오픈을 함께 검토하시는 경우 카드 단말기·포스기·키오스크 등 신규 매장 장비 도입까지 일괄 진행 가능합니다. 매장 정리와 새 매장 오픈을 단일 업체에서 진행하면 일정 조율과 비용 절감 측면에서 효율적입니다."
@@ -21450,7 +21647,43 @@ ${desc.map(line => `<li>${line}</li>`).join('')}
 // 공통 HTML 레이아웃 생성
 // ============================================================
 
-function getCommonHead(title, description) {
+function getCommonHead(title, description, schemas) {
+  // schemas: JSON-LD 객체 배열 (선택). 빌더에서 페이지별 스키마 넘기면 <script>로 박힘.
+  let schemaHtml = '';
+  if (Array.isArray(schemas) && schemas.length > 0) {
+    for (const s of schemas) {
+      if (s) {
+        schemaHtml += `<script type="application/ld+json">${JSON.stringify(s)}</script>\n`;
+      }
+    }
+  }
+  // 사이트 전역 스키마(Organization + WebSite)는 항상 박음
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "마스터페이",
+    "alternateName": "Mastarpay",
+    "url": "https://mastarpay.com",
+    "logo": "https://mastarpay.com/brand.png",
+    "telephone": "+82-10-2337-0458",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+82-10-2337-0458",
+      "contactType": "customer service",
+      "areaServed": "KR",
+      "availableLanguage": ["Korean"]
+    },
+    "description": "전국 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·월 관리비 0원(기기값 별도), 당일 상담, 빠른 A/S."
+  };
+  const siteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "마스터페이",
+    "url": "https://mastarpay.com",
+    "inLanguage": "ko-KR"
+  };
+  schemaHtml = `<script type="application/ld+json">${JSON.stringify(orgSchema)}</script>\n<script type="application/ld+json">${JSON.stringify(siteSchema)}</script>\n` + schemaHtml;
+
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21463,6 +21696,11 @@ function getCommonHead(title, description) {
 <meta name="description" content="${description}">
 <meta property="og:title" content="${title} | 마스터페이">
 <meta property="og:description" content="${description}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="마스터페이">
+<meta property="og:locale" content="ko_KR">
+<meta name="robots" content="index, follow">
+${schemaHtml}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
@@ -24236,9 +24474,39 @@ function buildSidoPage(sidoUrl) {
     }
   }
   
+  // FAQ 데이터 (HTML과 스키마 모두에서 사용)
+  const faqs = [
+    { q: `${sido.name} 어디든 출장 설치가 가능한가요?`, a: `네, ${sido.name} ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 전 지역 직접 방문 설치를 제공합니다.` },
+    { q: `설치비가 정말 무료인가요?`, a: `네, 마스터페이는 VAN사 제휴를 통해 설치비를 전액 지원합니다. 월 이용료도 무료이며, 카드 수수료만 정상 부과됩니다.` },
+    { q: `기존 장비 교체도 가능한가요?`, a: `네, 기존 카드단말기·포스기 교체도 무료 견적 후 빠르게 진행됩니다.` },
+    { q: `여러 장비를 함께 설치하면 할인되나요?`, a: `네, 여러 장비를 한번에 설치하면 패키지 혜택이 적용됩니다.` },
+    { q: `A/S는 어떻게 받나요?`, a: `전화 한 통이면 됩니다. 대부분 원격 지원으로 즉시 해결되며, 하드웨어 문제는 ${sido.name} 전역 현장 출동합니다.` }
+  ];
+  let faqHtml = '';
+  for (const f of faqs) {
+    faqHtml += `<div class="region-faq-item"><strong>Q. ${f.q}</strong><p>${f.a}</p></div>`;
+  }
+  
+  const pageUrl = `/region/${sidoUrl}`;
+  const pageSchemas = [
+    buildFAQSchema(faqs),
+    buildBreadcrumbSchema([
+      { name: '홈', url: '/' },
+      { name: '지역별 설치', url: '/#find-sec' },
+      { name: sido.name, url: pageUrl }
+    ]),
+    buildLocalBusinessSchema({
+      areaName: sido.name,
+      pageUrl: pageUrl
+    })
+  ];
+  
+  const richDescription = `${sido.name} 전 지역 ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·관리비 0원(기기값 별도), 당일 상담, 빠른 A/S. 전화 010-2337-0458.`;
+  
   return getCommonHead(
     `${sido.name} 카드단말기·포스기·키오스크 설치`,
-    `${sido.name} 전 지역 ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동 카드단말기, 포스기, 키오스크 설치. 설치비 무료·빠른 설치·A/S 보장.`
+    richDescription,
+    pageSchemas
   ) + `<body>${getHeader()}
 
 <section class="region-hero">
@@ -24266,6 +24534,11 @@ function buildSidoPage(sidoUrl) {
 </div>
 </div>
 <div class="region-hero-sub-standalone">카드단말기·포스기·키오스크·테이블오더·철거까지 ${sido.name} 전 지역 무료 설치와 빠른 A/S를 지원합니다.</div>
+<div class="region-price-notice">
+<span class="region-price-notice-icon">💰</span>
+<span><strong>설치비 0원</strong><span class="region-price-notice-sep">·</span><strong>월 관리비 0원</strong><span class="region-price-notice-sep">·</span><span>기기값 별도 상담</span></span>
+</div>
+
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">빠른 설치</div><div class="region-stat-value">신속</div></div>
@@ -24320,7 +24593,7 @@ function buildSidoPage(sidoUrl) {
 <h2 class="region-box-title">💡 마스터페이만의 특별함</h2>
 <div class="region-numbered-grid">
 <div class="region-numbered-card"><div class="num-circle">1</div><h3>현장 환경 분석</h3><p>매장 방문 전 업종, 크기, 동선, 네트워크 상태를 파악하고 꼭 맞는 장비 조합을 설계합니다.</p></div>
-<div class="region-numbered-card"><div class="num-circle">2</div><h3>패키지 설치 할인</h3><p>카드단말기·포스기·키오스크·테이블오더를 함께 설치하면 설치비 무료 혜택이 적용됩니다.</p></div>
+<div class="region-numbered-card"><div class="num-circle">2</div><h3>패키지 설치 할인</h3><p>카드단말기·포스기·키오스크·테이블오더를 함께 설치하면 설치비·관리비 0원 혜택이 적용됩니다.</p></div>
 <div class="region-numbered-card"><div class="num-circle">3</div><h3>카카오톡 24시간 상담</h3><p>영업 중 문제가 생기면 언제든 카카오톡으로 문의 가능하며, 원격 지원으로 즉시 해결합니다.</p></div>
 <div class="region-numbered-card"><div class="num-circle">4</div><h3>사후 관리 보고</h3><p>설치 후에도 매출 관리, VAN사 수수료 최적화 등 사장님께 투명하게 공유합니다.</p></div>
 </div>
@@ -24343,11 +24616,7 @@ function buildSidoPage(sidoUrl) {
 <div class="region-box">
 <h2 class="region-box-title">❓ 자주 묻는 질문</h2>
 <div class="region-faq-list">
-<div class="region-faq-item"><strong>Q. ${sido.name} 어디든 출장 설치가 가능한가요?</strong><p>네, ${sido.name} ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 전 지역 직접 방문 설치를 제공합니다.</p></div>
-<div class="region-faq-item"><strong>Q. 설치비가 정말 무료인가요?</strong><p>네, 마스터페이는 VAN사 제휴를 통해 설치비를 전액 지원합니다. 월 이용료도 무료이며, 카드 수수료만 정상 부과됩니다.</p></div>
-<div class="region-faq-item"><strong>Q. 기존 장비 교체도 가능한가요?</strong><p>네, 기존 카드단말기·포스기 교체도 무료 견적 후 빠르게 진행됩니다.</p></div>
-<div class="region-faq-item"><strong>Q. 여러 장비를 함께 설치하면 할인되나요?</strong><p>네, 여러 장비를 한번에 설치하면 패키지 혜택이 적용됩니다.</p></div>
-<div class="region-faq-item"><strong>Q. A/S는 어떻게 받나요?</strong><p>전화 한 통이면 됩니다. 대부분 원격 지원으로 즉시 해결되며, 하드웨어 문제는 ${sido.name} 전역 현장 출동합니다.</p></div>
+${faqHtml}
 </div>
 </div>
 
@@ -24408,14 +24677,46 @@ function buildSidoProductPage(sidoUrl, productSlug) {
     </a>`;
   }
   
-  return getCommonHead(
-    productSlug === 'removal'
-      ? `${sido.name} 매장 철거 | 무료 견적·원상복구`
-      : `${sido.name} ${product.keyword} 설치 | ${product.name}`,
-    productSlug === 'removal'
-      ? `${sido.name} 매장 철거·원상복구 전문. ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동. 무료 견적·전국 최저가·1년 사후 책임.`
-      : `${sido.name} ${product.name} 설치 전문. ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동. 설치비 무료·빠른 설치·A/S 보장.`
-  ) + `<body>${getHeader()}
+  // FAQ 및 스키마
+  const isRemoval = productSlug === 'removal';
+  const faqs = isRemoval
+    ? [
+        { q: `${sido.name} 어디든 철거가 가능한가요?`, a: `네, ${sido.name} ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 전 지역 출장 철거가 가능합니다.` },
+        { q: `철거 비용은 어떻게 산정되나요?`, a: `매장 평수·구조·폐기물 양에 따라 달라지며, 현장 방문 후 무료 견적을 드립니다. 전국 최저가를 보증합니다.` },
+        { q: `원상복구도 함께 해주나요?`, a: `네, 임대인 요구에 맞춰 천장·벽·바닥 원상복구까지 일괄 진행 가능합니다.` },
+        { q: `철거 후 분쟁이 생기면 어떻게 하나요?`, a: `1년 사후 책임 보증이 적용됩니다. 시공 후 발생한 하자에 대해 무상으로 처리해드립니다.` }
+      ]
+    : [
+        { q: `${sido.name} 어디든 ${product.name} 설치가 가능한가요?`, a: `네, ${sido.name} ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동 전 지역 직접 방문 설치를 제공합니다.` },
+        { q: `${product.name} 설치 비용은 얼마인가요?`, a: `${product.name}은(는) 설치비·월 관리비 0원으로 진행됩니다. 기기 본체 값은 별도이며(일시불·렌탈 선택), 카드 결제 수수료는 정상 부과됩니다.` },
+        { q: `${product.name} A/S는 어떻게 받나요?`, a: `전화 한 통이면 됩니다. 대부분 원격 지원으로 즉시 해결되며, 하드웨어 문제는 ${sido.name} 전역 현장 출동합니다.` },
+        { q: `다른 장비와 함께 설치하면 할인되나요?`, a: `네, 패키지 할인 혜택이 있습니다. 카드단말기·포스기·키오스크·테이블오더를 함께 설치하시면 추가 혜택이 적용됩니다.` }
+      ];
+  
+  const pageUrl = `/region/${sidoUrl}/${product.url}`;
+  const pageSchemas = [
+    buildFAQSchema(faqs),
+    buildBreadcrumbSchema([
+      { name: '홈', url: '/' },
+      { name: sido.name, url: `/region/${sidoUrl}` },
+      { name: product.name, url: pageUrl }
+    ]),
+    buildServiceSchema({
+      name: `${sido.name} ${product.name} ${isRemoval ? '' : '설치'}`,
+      serviceType: isRemoval ? '매장 철거' : '매장 설비 설치',
+      description: `${sido.name} ${product.name} ${isRemoval ? '철거·원상복구' : '설치'} 전문 서비스. ${product.desc}`,
+      areaName: sido.name
+    })
+  ];
+  
+  const title = isRemoval
+    ? `${sido.name} 매장 철거 | 무료 견적·원상복구`
+    : `${sido.name} ${product.keyword} 설치 | ${product.name}`;
+  const richDescription = isRemoval
+    ? `${sido.name} 매장 철거·원상복구 전문. ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동. 무료 견적, 전국 최저가, 1년 사후 책임 보증. 전화 010-2337-0458.`
+    : `${sido.name} ${product.name} 설치 전문. ${gus.length}개 시군구 ${totalDongs.toLocaleString()}개 읍면동. ${product.desc}. 설치비·관리비 0원(기기값 별도), 빠른 설치, A/S 보장. 전화 010-2337-0458.`;
+  
+  return getCommonHead(title, richDescription, pageSchemas) + `<body>${getHeader()}
 
 <section class="region-hero">
 <div class="container">
@@ -24442,6 +24743,11 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 </div>
 </div>
 <div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 매장 철거·원상복구 전문. 무료 견적과 1년 사후 책임을 약속합니다.` : `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 무료 설치와 빠른 A/S를 지원합니다.`}</div>
+<div class="region-price-notice">
+<span class="region-price-notice-icon">💰</span>
+<span><strong>설치비 0원</strong><span class="region-price-notice-sep">·</span><strong>월 관리비 0원</strong><span class="region-price-notice-sep">·</span><span>기기값 별도 상담</span></span>
+</div>
+
 <div class="region-stats-grid">
 ${productSlug === 'removal'
 ? `<div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
@@ -24503,9 +24809,40 @@ function buildGuPage(sidoUrl, guName) {
     </a>`;
   }
   
+  // FAQ 데이터 (HTML과 스키마 모두에서 사용)
+  const faqs = [
+    { q: `${guName} 어느 동이든 설치 가능한가요?`, a: `네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 설치 가능합니다.` },
+    { q: `${guName} 설치까지 얼마나 걸리나요?`, a: `상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내 설치 완료됩니다.` },
+    { q: `${guName} 긴급 A/S도 빠른가요?`, a: `${guName} 전담 A/S 인력이 배치되어 있어 평균 2시간 내 출동 가능합니다.` },
+    { q: `기존 장비 교체도 가능한가요?`, a: `네, ${guName} 지역도 기존 장비 교체 무료 서비스를 제공합니다.` },
+    { q: `${guName} 카드단말기 설치 비용은 얼마인가요?`, a: `카드단말기 설치비·월 관리비는 ${guName}에서도 0원이며, 기기 본체 값만 발생합니다(일시불·월 렌탈 중 선택). 정확한 금액은 상담 시 안내해 드립니다.` }
+  ];
+  let faqHtml = '';
+  for (const f of faqs.slice(0, 4)) {
+    faqHtml += `<div class="region-faq-item"><strong>Q. ${f.q}</strong><p>${f.a}</p></div>`;
+  }
+  
+  // 스키마 배열
+  const pageUrl = `/region/${sidoUrl}/${encodeURIComponent(guName)}`;
+  const pageSchemas = [
+    buildFAQSchema(faqs),
+    buildBreadcrumbSchema([
+      { name: '홈', url: '/' },
+      { name: sido.name, url: `/region/${sidoUrl}` },
+      { name: guName, url: pageUrl }
+    ]),
+    buildLocalBusinessSchema({
+      areaName: `${sido.name} ${guName}`,
+      pageUrl: pageUrl
+    })
+  ];
+  
+  const richDescription = `${sido.name} ${guName} ${dongs.length}개 동 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·관리비 0원(기기값 별도), 당일 상담, 평균 2시간 내 A/S 출동. ${shops.toLocaleString()}+ 매장 실적. 전화 010-2337-0458.`;
+  
   return getCommonHead(
     `${sido.name} ${guName} 카드단말기·포스기·키오스크 설치`,
-    `${sido.name} ${guName} ${dongs.length}개 동 전체 카드단말기, 포스기, 키오스크 설치. 설치비 무료·빠른 설치·A/S 보장.`
+    richDescription,
+    pageSchemas
   ) + `<body>${getHeader()}
 
 <section class="region-hero">
@@ -24532,7 +24869,12 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
-<div class="region-hero-sub-standalone">${sido.name} ${guName} ${dongs.length}개 동 전 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</div>
+<div class="region-hero-sub-standalone">${sido.name} ${guName} ${dongs.length}개 동 전 지역 전문 설치. 설치비·관리비 0원(기기값 별도), 당일 상담, 빠른 A/S를 지원합니다.</div>
+<div class="region-price-notice">
+<span class="region-price-notice-icon">💰</span>
+<span><strong>설치비 0원</strong><span class="region-price-notice-sep">·</span><strong>월 관리비 0원</strong><span class="region-price-notice-sep">·</span><span>기기값 별도 상담</span></span>
+</div>
+
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">${dongs.length}개 동</div></div>
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">실적</div><div class="region-stat-value">${shops.toLocaleString()}+</div></div>
@@ -24589,10 +24931,7 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-box">
 <h2 class="region-box-title">❓ 자주 묻는 질문</h2>
 <div class="region-faq-list">
-<div class="region-faq-item"><strong>Q. ${guName} 어느 동이든 설치 가능한가요?</strong><p>네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 설치 가능합니다.</p></div>
-<div class="region-faq-item"><strong>Q. ${guName} 설치까지 얼마나 걸리나요?</strong><p>상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내 설치 완료됩니다.</p></div>
-<div class="region-faq-item"><strong>Q. ${guName} 긴급 A/S도 빠른가요?</strong><p>${guName} 전담 A/S 인력이 배치되어 있어 평균 2시간 내 출동 가능합니다.</p></div>
-<div class="region-faq-item"><strong>Q. 기존 장비 교체도 가능한가요?</strong><p>네, ${guName} 지역도 기존 장비 교체 무료 서비스를 제공합니다.</p></div>
+${faqHtml}
 </div>
 </div>
 
@@ -24639,14 +24978,47 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
     </a>`;
   }
   
-  return getCommonHead(
-    productSlug === 'removal'
-      ? `${sido.name} ${guName} 매장 철거 | 무료 견적·원상복구`
-      : `${sido.name} ${guName} ${product.keyword} 설치 | ${product.name}`,
-    productSlug === 'removal'
-      ? `${sido.name} ${guName} ${dongs.length}개 동 전체 매장 철거·원상복구 전문. 무료 견적·전국 최저가·1년 사후 책임.`
-      : `${sido.name} ${guName} ${dongs.length}개 동 전체 ${product.name} 설치. 설치비 무료·빠른 설치·A/S 보장.`
-  ) + `<body>${getHeader()}
+  // FAQ 및 스키마
+  const isRemoval = productSlug === 'removal';
+  const faqs = isRemoval
+    ? [
+        { q: `${guName} 어디든 매장 철거가 가능한가요?`, a: `네, ${guName} ${dongs.length}개 동 전 지역 출장 철거가 가능합니다.` },
+        { q: `${guName} 철거 비용은 어떻게 책정되나요?`, a: `매장 평수·구조·폐기물 양에 따라 다르며 ${guName} 현장 방문 후 무료 견적을 드립니다.` },
+        { q: `철거와 원상복구를 함께 할 수 있나요?`, a: `네, ${guName} 임대인 요구에 맞춰 천장·벽·바닥 원상복구까지 일괄 진행합니다.` },
+        { q: `철거 일정은 얼마나 빠르게 잡히나요?`, a: `${guName} 일정 따라 다르지만 보통 상담 후 1~3일 내 시공 시작이 가능합니다.` }
+      ]
+    : [
+        { q: `${guName} 어디든 ${product.name} 설치가 가능한가요?`, a: `네, ${guName} 내 ${dongs.length}개 동 모두 직접 방문 설치 가능합니다.` },
+        { q: `${guName} ${product.name} 설치까지 얼마나 걸리나요?`, a: `상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내 설치가 완료됩니다.` },
+        { q: `${product.name} 설치 비용은 얼마인가요?`, a: `${product.name}은(는) 설치비·월 관리비 0원입니다. 기기 본체 값은 별도이며(일시불·렌탈 선택), 카드 결제 수수료는 정상 부과됩니다.` },
+        { q: `${guName} ${product.name} A/S도 빠른가요?`, a: `${guName} 전담 A/S 인력이 배치되어 있어 평균 2시간 내 출동 가능합니다.` }
+      ];
+  
+  const pageUrl = `/region/${sidoUrl}/${encodeURIComponent(guName)}/${product.url}`;
+  const pageSchemas = [
+    buildFAQSchema(faqs),
+    buildBreadcrumbSchema([
+      { name: '홈', url: '/' },
+      { name: sido.name, url: `/region/${sidoUrl}` },
+      { name: guName, url: `/region/${sidoUrl}/${encodeURIComponent(guName)}` },
+      { name: product.name, url: pageUrl }
+    ]),
+    buildServiceSchema({
+      name: `${sido.name} ${guName} ${product.name}${isRemoval ? '' : ' 설치'}`,
+      serviceType: isRemoval ? '매장 철거' : '매장 설비 설치',
+      description: `${sido.name} ${guName} ${product.name} ${isRemoval ? '철거·원상복구' : '설치'} 전문. ${product.desc}`,
+      areaName: `${sido.name} ${guName}`
+    })
+  ];
+  
+  const title = isRemoval
+    ? `${sido.name} ${guName} 매장 철거 | 무료 견적·원상복구`
+    : `${sido.name} ${guName} ${product.keyword} 설치 | ${product.name}`;
+  const richDescription = isRemoval
+    ? `${sido.name} ${guName} ${dongs.length}개 동 매장 철거·원상복구 전문. 무료 견적, 전국 최저가, 1년 사후 책임. ${guName} 전담팀 직접 시공. 전화 010-2337-0458.`
+    : `${sido.name} ${guName} ${dongs.length}개 동 ${product.name} 설치 전문. ${product.desc}. 설치비·관리비 0원(기기값 별도), ${ctx.installTime}~${ctx.installTime+2}일 이내 설치, ${guName} 평균 2시간 내 A/S 출동. 전화 010-2337-0458.`;
+  
+  return getCommonHead(title, richDescription, pageSchemas) + `<body>${getHeader()}
 
 <section class="region-hero">
 <div class="container">
@@ -24674,7 +25046,12 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
-<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${sido.name} ${guName} ${dongs.length}개 동 전 지역 매장 철거·원상복구 전문. 무료 견적, 1년 사후 책임, 지역 전담팀이 책임집니다.` : `${sido.name} ${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비 무료, 빠른 A/S, 지역 전담팀이 책임집니다.`}</div>
+<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${sido.name} ${guName} ${dongs.length}개 동 전 지역 매장 철거·원상복구 전문. 무료 견적, 1년 사후 책임, 지역 전담팀이 책임집니다.` : `${sido.name} ${guName} ${dongs.length}개 동 전 지역 ${product.name} 설치. 설치비·관리비 0원(기기값 별도), 빠른 A/S, 지역 전담팀이 책임집니다.`}</div>
+<div class="region-price-notice">
+<span class="region-price-notice-icon">💰</span>
+<span><strong>설치비 0원</strong><span class="region-price-notice-sep">·</span><strong>월 관리비 0원</strong><span class="region-price-notice-sep">·</span><span>기기값 별도 상담</span></span>
+</div>
+
 <div class="region-stats-grid">
 ${productSlug === 'removal'
 ? `<div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">전문</div></div>
@@ -24737,9 +25114,39 @@ function buildDongPage(sidoUrl, guName, dongName) {
     </a>`;
   }
   
+  // FAQ 데이터
+  const faqs = [
+    { q: `${dongName}도 설치 가능한가요?`, a: `네, ${dongName}은(는) ${guName} 설치 권역에 포함되어 있어 빠른 방문이 가능합니다.` },
+    { q: `${dongName} 설치 비용은 얼마인가요?`, a: `${dongName} 지역도 설치비·월 관리비 0원이며, 기기 본체 값만 별도로 발생합니다.` },
+    { q: `${dongName} 긴급 A/S도 가능한가요?`, a: `${dongName}을 포함한 ${guName} 전역 당일 긴급 A/S 출동 서비스를 제공합니다.` },
+    { q: `${fullAddr} 설치까지 며칠 걸리나요?`, a: `상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치가 완료됩니다. 긴급 시 당일 설치도 가능합니다.` }
+  ];
+  let faqHtml = '';
+  for (const f of faqs.slice(0, 3)) {
+    faqHtml += `<div class="region-faq-item"><strong>Q. ${f.q}</strong><p>${f.a}</p></div>`;
+  }
+  
+  const pageUrl = `/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dongName)}`;
+  const pageSchemas = [
+    buildFAQSchema(faqs),
+    buildBreadcrumbSchema([
+      { name: '홈', url: '/' },
+      { name: sido.name, url: `/region/${sidoUrl}` },
+      { name: guName, url: `/region/${sidoUrl}/${encodeURIComponent(guName)}` },
+      { name: dongName, url: pageUrl }
+    ]),
+    buildLocalBusinessSchema({
+      areaName: fullAddr,
+      pageUrl: pageUrl
+    })
+  ];
+  
+  const richDescription = `${fullAddr} 카드단말기·포스기·키오스크·테이블오더 설치. 설치비·관리비 0원(기기값 별도), ${ctx.installTime}~${ctx.installTime+2}일 이내 설치, 당일 A/S. ${guName} 전담팀이 직접 방문합니다. 전화 010-2337-0458.`;
+  
   return getCommonHead(
     `${sido.name} ${guName} ${dongName} 카드단말기·포스기·키오스크 설치`,
-    `${fullAddr} 카드단말기, 포스기, 키오스크 설치. 무료 상담, 빠른 설치, A/S 보장.`
+    richDescription,
+    pageSchemas
   ) + `<body>${getHeader()}
 
 <section class="region-hero">
@@ -24768,7 +25175,12 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
-<div class="region-hero-sub-standalone">${fullAddr} 지역 전문 설치. 설치비 무료, 당일 상담, 빠른 A/S를 지원합니다.</div>
+<div class="region-hero-sub-standalone">${fullAddr} 지역 전문 설치. 설치비·관리비 0원(기기값 별도), 당일 상담, 빠른 A/S를 지원합니다.</div>
+<div class="region-price-notice">
+<span class="region-price-notice-icon">💰</span>
+<span><strong>설치비 0원</strong><span class="region-price-notice-sep">·</span><strong>월 관리비 0원</strong><span class="region-price-notice-sep">·</span><span>기기값 별도 상담</span></span>
+</div>
+
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${guName} ${dongName}</div><div class="region-stat-value">${shops}+건</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
@@ -24824,9 +25236,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <div class="region-box">
 <h2 class="region-box-title">❓ 자주 묻는 질문</h2>
 <div class="region-faq-list">
-<div class="region-faq-item"><strong>Q. ${dongName}도 설치 가능한가요?</strong><p>네, ${dongName}은(는) ${guName} 설치 권역에 포함되어 있어 빠른 방문이 가능합니다.</p></div>
-<div class="region-faq-item"><strong>Q. ${dongName} 설치 비용은 얼마인가요?</strong><p>${dongName} 지역도 설치비 무료 옵션을 제공합니다.</p></div>
-<div class="region-faq-item"><strong>Q. ${dongName} 긴급 A/S도 가능한가요?</strong><p>${dongName}을 포함한 ${guName} 전역 당일 긴급 A/S 출동 서비스를 제공합니다.</p></div>
+${faqHtml}
 </div>
 </div>
 
@@ -25072,14 +25482,47 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
     </a>`;
   }
   
-  return getCommonHead(
-    productSlug === 'removal'
-      ? `${sido.name} ${guName} ${dongName} 매장 철거 | 무료 견적·원상복구`
-      : `${sido.name} ${guName} ${dongName} ${product.keyword} 설치 | ${product.name}`,
-    productSlug === 'removal'
-      ? `${fullAddr} 매장 철거·원상복구 전문. ${ctx.opening}. 무료 견적·전국 최저가·1년 사후 책임.`
-      : `${fullAddr} ${product.name} 설치 전문. ${ctx.opening}. 무료 상담·빠른 설치·A/S 보장.`
-  ) + `<body>${getHeader()}
+  // FAQ 및 스키마
+  const isRemoval = productSlug === 'removal';
+  const faqs = isRemoval
+    ? [
+        { q: `${dongName}도 매장 철거가 가능한가요?`, a: `네, ${dongName}을 포함한 ${guName} 전 지역 출장 철거가 가능합니다.` },
+        { q: `${dongName} 철거 비용은 어떻게 정해지나요?`, a: `매장 평수·구조·폐기물 양에 따라 다르며 ${dongName} 현장 방문 후 무료 견적을 드립니다.` },
+        { q: `철거 후 사후 책임은 어떻게 되나요?`, a: `1년 사후 책임 보증이 적용됩니다. 시공 후 발생한 하자에 대해 무상 처리해드립니다.` }
+      ]
+    : [
+        { q: `${dongName}에서도 ${product.name} 설치가 가능한가요?`, a: `네, ${dongName}은(는) ${guName} 설치 권역에 포함되어 있어 빠른 방문이 가능합니다.` },
+        { q: `${dongName} ${product.name} 설치 비용은 얼마인가요?`, a: `${product.name}은(는) 설치비·월 관리비 0원으로 진행됩니다. 기기 본체 값은 별도이며(일시불·렌탈 선택), 카드 결제 수수료는 정상 부과됩니다.` },
+        { q: `${dongName} ${product.name} A/S는 어떻게 되나요?`, a: `${guName} 전역 당일 긴급 A/S 출동 서비스를 제공합니다.` },
+        { q: `설치까지 며칠 걸리나요?`, a: `상담 후 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치가 완료됩니다.` }
+      ];
+  
+  const pageUrl = `/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dongName)}/${product.url}`;
+  const pageSchemas = [
+    buildFAQSchema(faqs),
+    buildBreadcrumbSchema([
+      { name: '홈', url: '/' },
+      { name: sido.name, url: `/region/${sidoUrl}` },
+      { name: guName, url: `/region/${sidoUrl}/${encodeURIComponent(guName)}` },
+      { name: dongName, url: `/region/${sidoUrl}/${encodeURIComponent(guName)}/${encodeURIComponent(dongName)}` },
+      { name: product.name, url: pageUrl }
+    ]),
+    buildServiceSchema({
+      name: `${fullAddr} ${product.name}${isRemoval ? '' : ' 설치'}`,
+      serviceType: isRemoval ? '매장 철거' : '매장 설비 설치',
+      description: `${fullAddr} ${product.name} ${isRemoval ? '철거·원상복구' : '설치'} 전문. ${product.desc}`,
+      areaName: fullAddr
+    })
+  ];
+  
+  const title = isRemoval
+    ? `${sido.name} ${guName} ${dongName} 매장 철거 | 무료 견적·원상복구`
+    : `${sido.name} ${guName} ${dongName} ${product.keyword} 설치 | ${product.name}`;
+  const richDescription = isRemoval
+    ? `${fullAddr} 매장 철거·원상복구 전문. ${ctx.opening}. 무료 견적, 전국 최저가, 1년 사후 책임. 전화 010-2337-0458.`
+    : `${fullAddr} ${product.name} 설치 전문. ${product.desc}. 설치비·관리비 0원(기기값 별도), ${ctx.installTime}~${ctx.installTime+2}일 이내 설치, 당일 A/S. 전화 010-2337-0458.`;
+  
+  return getCommonHead(title, richDescription, pageSchemas) + `<body>${getHeader()}
 
 <section class="region-hero">
 <div class="container">
@@ -25109,7 +25552,12 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
-<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${fullAddr} 매장 철거·원상복구 전문. 무료 방문 견적, 전국 최저가, 1년 사후 책임을 약속합니다.` : `${fullAddr} 지역 ${product.name} 전문 설치. 설치비 무료, 빠른 A/S, 업종 맞춤 설치를 지원합니다.`}</div>
+<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${fullAddr} 매장 철거·원상복구 전문. 무료 방문 견적, 전국 최저가, 1년 사후 책임을 약속합니다.` : `${fullAddr} 지역 ${product.name} 전문 설치. 설치비·관리비 0원(기기값 별도), 빠른 A/S, 업종 맞춤 설치를 지원합니다.`}</div>
+<div class="region-price-notice">
+<span class="region-price-notice-icon">💰</span>
+<span><strong>설치비 0원</strong><span class="region-price-notice-sep">·</span><strong>월 관리비 0원</strong><span class="region-price-notice-sep">·</span><span>기기값 별도 상담</span></span>
+</div>
+
 </div>
 </section>
 
