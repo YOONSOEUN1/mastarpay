@@ -25861,16 +25861,30 @@ export default {
       }
     }
     
-    // 3. sitemap.xml (SEO용)
+    // 3. sitemap.xml (SEO용) — 사이트맵 인덱스 반환
     if (pathname === '/sitemap.xml') {
-      return buildSitemap(url.origin);
+      return buildSitemapIndex(url.origin);
     }
+    // 3-1. 세부 사이트맵 (인덱스가 가리키는 개별 파일들)
+    if (pathname === '/sitemap-1-main.xml') return buildSitemapMain(url.origin);
+    if (pathname === '/sitemap-2-sido.xml') return buildSitemapSido(url.origin);
+    if (pathname === '/sitemap-3-gu.xml') return buildSitemapGu(url.origin);
+    if (pathname === '/sitemap-4-dong.xml') return buildSitemapDong(url.origin);
+    if (pathname === '/sitemap-5-dong-product-a.xml') return buildSitemapDongProduct(url.origin, 'a');
+    if (pathname === '/sitemap-6-dong-product-b.xml') return buildSitemapDongProduct(url.origin, 'b');
     
     // 4. robots.txt
     if (pathname === '/robots.txt') {
       return new Response(`User-agent: *
 Allow: /
-Sitemap: ${url.origin}/sitemap.xml`, {
+
+Sitemap: ${url.origin}/sitemap.xml
+Sitemap: ${url.origin}/sitemap-1-main.xml
+Sitemap: ${url.origin}/sitemap-2-sido.xml
+Sitemap: ${url.origin}/sitemap-3-gu.xml
+Sitemap: ${url.origin}/sitemap-4-dong.xml
+Sitemap: ${url.origin}/sitemap-5-dong-product-a.xml
+Sitemap: ${url.origin}/sitemap-6-dong-product-b.xml`, {
         headers: { 'Content-Type': 'text/plain; charset=utf-8' }
       });
     }
@@ -25984,38 +25998,157 @@ async function submitToIndexNow(origin, key) {
 }
 
 // ============================================================
-// 사이트맵 생성 (검색엔진용)
+// 사이트맵 생성 (검색엔진용) — 인덱스 + 6개 분할 사이트맵
 // ============================================================
 
-function buildSitemap(origin) {
-  let urls = [
-    `${origin}/`,
-    `${origin}/product/pos`,
-    `${origin}/product/card-2inch`,
-    `${origin}/product/card-3inch`,
-    `${origin}/product/card-toss`,
-    `${origin}/product/card-wireless`,
-    `${origin}/product/card-bluetooth`,
-    `${origin}/product/kiosk`,
-    `${origin}/product/kiosk-mini`,
-    `${origin}/product/tableorder`,
-    `${origin}/product/removal`,
+// 사이트맵용 안정된 lastmod (매월 1일/16일 중 최근 값)
+function getStableLastmod() {
+  const now = new Date();
+  const kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+  const y = kst.getUTCFullYear();
+  const m = String(kst.getUTCMonth() + 1).padStart(2, '0');
+  const day = kst.getUTCDate();
+  const stableDay = day <= 15 ? '01' : '16';
+  return `${y}-${m}-${stableDay}`;
+}
+
+// XML 특수문자 이스케이프
+function xmlEscape(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+function xmlResponse(xml) {
+  return new Response(xml, {
+    headers: {
+      'Content-Type': 'application/xml; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600'
+    }
+  });
+}
+
+// URL 배열 → <urlset> XML
+function urlsToSitemapXml(urls, lastmod) {
+  const entries = urls.map(u =>
+    `<url><loc>${xmlEscape(u)}</loc><lastmod>${lastmod}</lastmod></url>`
+  ).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries}
+</urlset>`;
+}
+
+// 상품 슬러그 목록 (내부 사용)
+function getProductSlugs() {
+  return Object.keys(PRODUCTS).map(k => PRODUCTS[k].url);
+}
+
+// ===== 사이트맵 인덱스 (루트 /sitemap.xml) =====
+function buildSitemapIndex(origin) {
+  const lastmod = getStableLastmod();
+  const maps = [
+    'sitemap-1-main.xml',
+    'sitemap-2-sido.xml',
+    'sitemap-3-gu.xml',
+    'sitemap-4-dong.xml',
+    'sitemap-5-dong-product-a.xml',
+    'sitemap-6-dong-product-b.xml',
   ];
-  
-  // 시도 + 시군구만 사이트맵에 포함 (동 단위는 너무 많음)
+  const entries = maps.map(m =>
+    `<sitemap><loc>${origin}/${m}</loc><lastmod>${lastmod}</lastmod></sitemap>`
+  ).join('\n');
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries}
+</sitemapindex>`;
+  return xmlResponse(xml);
+}
+
+// ===== 1. 홈 + 제품 페이지 =====
+function buildSitemapMain(origin) {
+  const lastmod = getStableLastmod();
+  const urls = [`${origin}/`];
+  for (const slug of getProductSlugs()) {
+    urls.push(`${origin}/product/${slug}`);
+  }
+  return xmlResponse(urlsToSitemapXml(urls, lastmod));
+}
+
+// ===== 2. 시도 + 시도×제품 =====
+function buildSitemapSido(origin) {
+  const lastmod = getStableLastmod();
+  const urls = [];
+  const productSlugs = getProductSlugs();
   for (const sidoUrl in REGIONS) {
     urls.push(`${origin}/region/${sidoUrl}`);
-    for (const gu of Object.keys(REGIONS[sidoUrl].gus)) {
-      urls.push(`${origin}/region/${sidoUrl}/${encodeURIComponent(gu)}`);
+    for (const slug of productSlugs) {
+      urls.push(`${origin}/region/${sidoUrl}/${slug}`);
     }
   }
-  
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `<url><loc>${u}</loc></url>`).join('\n')}
-</urlset>`;
-  
-  return new Response(xml, {
-    headers: { 'Content-Type': 'application/xml; charset=utf-8' }
-  });
+  return xmlResponse(urlsToSitemapXml(urls, lastmod));
+}
+
+// ===== 3. 시군구 + 시군구×제품 =====
+function buildSitemapGu(origin) {
+  const lastmod = getStableLastmod();
+  const urls = [];
+  const productSlugs = getProductSlugs();
+  for (const sidoUrl in REGIONS) {
+    for (const gu of Object.keys(REGIONS[sidoUrl].gus)) {
+      const encGu = encodeURIComponent(gu);
+      urls.push(`${origin}/region/${sidoUrl}/${encGu}`);
+      for (const slug of productSlugs) {
+        urls.push(`${origin}/region/${sidoUrl}/${encGu}/${slug}`);
+      }
+    }
+  }
+  return xmlResponse(urlsToSitemapXml(urls, lastmod));
+}
+
+// ===== 4. 읍면동 =====
+function buildSitemapDong(origin) {
+  const lastmod = getStableLastmod();
+  const urls = [];
+  for (const sidoUrl in REGIONS) {
+    const sido = REGIONS[sidoUrl];
+    for (const gu of Object.keys(sido.gus)) {
+      const encGu = encodeURIComponent(gu);
+      for (const dong of sido.gus[gu]) {
+        urls.push(`${origin}/region/${sidoUrl}/${encGu}/${encodeURIComponent(dong)}`);
+      }
+    }
+  }
+  return xmlResponse(urlsToSitemapXml(urls, lastmod));
+}
+
+// ===== 5, 6. 동×제품 (2등분) =====
+// 전체 (시도, 시군구, 동, 제품) 조합을 시도 순서대로 생성 후 절반 지점에서 자름
+function buildSitemapDongProduct(origin, part) {
+  const lastmod = getStableLastmod();
+  const productSlugs = getProductSlugs();
+  const allUrls = [];
+  for (const sidoUrl in REGIONS) {
+    const sido = REGIONS[sidoUrl];
+    for (const gu of Object.keys(sido.gus)) {
+      const encGu = encodeURIComponent(gu);
+      for (const dong of sido.gus[gu]) {
+        const encDong = encodeURIComponent(dong);
+        for (const slug of productSlugs) {
+          allUrls.push(`${origin}/region/${sidoUrl}/${encGu}/${encDong}/${slug}`);
+        }
+      }
+    }
+  }
+  const half = Math.ceil(allUrls.length / 2);
+  const slice = part === 'a' ? allUrls.slice(0, half) : allUrls.slice(half);
+  return xmlResponse(urlsToSitemapXml(slice, lastmod));
+}
+
+// 호환용: 기존 /sitemap.xml 호출 시 인덱스 반환
+function buildSitemap(origin) {
+  return buildSitemapIndex(origin);
 }
