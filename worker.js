@@ -25771,7 +25771,7 @@ const staticRoutes = {
 // Worker 진입점
 // ============================================================
 
-export default {
+const _appHandler = {
   async fetch(request, env) {
     // API 엔드포인트 먼저 처리
     const _url = new URL(request.url);
@@ -26152,3 +26152,34 @@ function buildSitemapDongProduct(origin, part) {
 function buildSitemap(origin) {
   return buildSitemapIndex(origin);
 }
+
+/* ── 전화 클릭 → 텔레그램 알림 (tel-alert) ───────────────────
+   모든 HTML 응답의 </body> 앞에 추적 스크립트를 자동으로 넣습니다.
+   사이트 이름을 바꾸려면 아래 data-site 값만 수정하세요.        */
+const TEL_ALERT_TAG =
+  '<script defer src="https://tel-aler.thdmsdidfl.workers.dev/t.js" data-site="마스터페이"></script>';
+
+async function injectTelAlert(res) {
+  try {
+    const ct = res.headers.get("content-type") || "";
+    if (!ct.includes("text/html")) return res;
+
+    let html = await res.text();
+    if (html.indexOf("/t.js") >= 0) return new Response(html, res);
+
+    if (html.indexOf("</body>") >= 0) {
+      html = html.replace("</body>", TEL_ALERT_TAG + "</body>");
+    } else {
+      html += TEL_ALERT_TAG;
+    }
+    return new Response(html, res);
+  } catch (e) {
+    return res;
+  }
+}
+
+export default {
+  async fetch(request, env, ctx) {
+    return injectTelAlert(await _appHandler.fetch(request, env, ctx));
+  }
+};
