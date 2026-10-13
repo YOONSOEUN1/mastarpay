@@ -1,16 +1,5 @@
-/* ════════════════════════════════════════════════════════
-   마스터페이  —  mastarpay.com
-   Cloudflare Worker 소스
-
-   포함: 전화 알림 + 방문 통계
-   올리는 곳: 마스터페이 GitHub 저장소
-
-   ※ 저장소에 올릴 때 파일 이름은 worker.js 로 바꿔주세요.
-     다른 사이트 파일과 섞이지 않게 확인하세요.
-   ════════════════════════════════════════════════════════ */
-
 // ============================================================
-// 마스터페이 - Cloudflare Workers (동적 라우팅 버전)
+// 포엔페이 - Cloudflare Workers (동적 라우팅 버전)
 // - 메인 + 제품 10개: 정적 페이지
 // - 지역별 페이지: 동적 생성 (시도/시군구/동/동-제품)
 // ============================================================
@@ -28,17 +17,17 @@ const PAGE_HOME = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-<title>마스터페이 | 카드단말기·포스기·키오스크 전국 설치 전문</title>
+<title>포엔페이 | 카드단말기·포스기·키오스크 전국 설치 전문</title>
 <meta name="description" content="카드단말기, 포스기, 키오스크, 테이블오더, 철거까지. 매장에 필요한 모든 장비를 한 번에 설치합니다. 설치비·관리비 0원(기기값 별도), 무료 상담, 빠른 설치·A/S 보장.">
-<meta property="og:title" content="마스터페이 | 매장 설비 전국 설치">
-<meta property="og:description" content="매장 운영의 모든 것, 마스터페이와 함께.">
+<meta property="og:title" content="포엔페이 | 매장 설비 전국 설치">
+<meta property="og:description" content="매장 운영의 모든 것, 포엔페이와 함께.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="마스터페이">
+<meta property="og:site_name" content="포엔페이">
 <meta property="og:locale" content="ko_KR">
 <meta name="robots" content="index, follow">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"마스터페이","alternateName":"Mastarpay","url":"https://mastarpay.com","logo":"https://mastarpay.com/brand.png","telephone":"+82-10-2337-0458","contactPoint":{"@type":"ContactPoint","telephone":"+82-10-2337-0458","contactType":"customer service","areaServed":"KR","availableLanguage":["Korean"]},"description":"전국 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·관리비 0원(기기값 별도), 당일 상담, 빠른 A/S."}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"마스터페이","url":"https://mastarpay.com","inLanguage":"ko-KR"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"마스터페이","image":"https://mastarpay.com/brand.png","url":"https://mastarpay.com","telephone":"+82-10-2337-0458","priceRange":"설치비·관리비 0원, 기기값 별도","description":"전국 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·월 관리비 0원(기기값 별도), 당일 상담, 빠른 A/S.","address":{"@type":"PostalAddress","addressCountry":"KR"},"areaServed":{"@type":"Country","name":"대한민국"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"20:00"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"포엔페이","alternateName":"Fonepay","url":"https://mastarpay.com","logo":"https://mastarpay.com/brand.png","telephone":"+82-10-2337-0458","contactPoint":{"@type":"ContactPoint","telephone":"+82-10-2337-0458","contactType":"customer service","areaServed":"KR","availableLanguage":["Korean"]},"description":"전국 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·관리비 0원(기기값 별도), 당일 상담, 빠른 A/S."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"포엔페이","url":"https://mastarpay.com","inLanguage":"ko-KR"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"포엔페이","image":"https://mastarpay.com/brand.png","url":"https://mastarpay.com","telephone":"+82-10-2337-0458","priceRange":"설치비·관리비 0원, 기기값 별도","description":"전국 카드단말기·포스기·키오스크·테이블오더 설치 전문. 설치비·월 관리비 0원(기기값 별도), 당일 상담, 빠른 A/S.","address":{"@type":"PostalAddress","addressCountry":"KR"},"areaServed":{"@type":"Country","name":"대한민국"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"20:00"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"설치 비용은 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"설치비 0원, 월 관리비 0원입니다. 다만 기기(카드단말기·포스기·키오스크 등) 본체 값은 별도로 발생하며, 일시불·렌탈·리스 중 선택하실 수 있습니다. 정확한 금액은 상담을 통해 안내해드립니다."}},{"@type":"Question","name":"정말 다 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"설치비·월 관리비·A/S 비용이 무료입니다. 매장에 설치되는 기기 본체 값은 별도로 발생하며, 일시불·렌탈·리스 중 선택 가능합니다. 상담 시 총 비용 견적서를 투명하게 안내해드립니다."}},{"@type":"Question","name":"A/S는 어떻게 받나요?","acceptedAnswer":{"@type":"Answer","text":"전화 한 통이면 됩니다. 대부분의 문제는 원격 지원으로 즉시 해결되며, 하드웨어 문제는 엔지니어가 직접 방문하여 처리해드립니다. 계약 기간 내 무상 A/S를 보장합니다."}},{"@type":"Question","name":"설치까지 얼마나 걸리나요?","acceptedAnswer":{"@type":"Answer","text":"장비에 따라 다르지만, 간단한 카드단말기는 상담 당일 또는 1~2일 내 설치가 가능합니다. 키오스크나 포스기는 3~7일 정도 소요됩니다."}},{"@type":"Question","name":"여러 장비를 함께 설치하면 할인되나요?","acceptedAnswer":{"@type":"Answer","text":"네, 패키지 할인 혜택이 있습니다. 포스기+카드단말기+테이블오더 등을 함께 설치하시면 개별 설치보다 훨씬 저렴하게 이용하실 수 있습니다."}}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -3531,8 +3520,8 @@ p, h1, h2, h3, h4, li {
 <header>
 <nav class="nav">
 <a href="/" class="logo">
-<img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-마스터페이
+<img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+포엔페이
 </a>
 
 <ul class="nav-menu" id="navMenu">
@@ -4109,8 +4098,8 @@ p, h1, h2, h3, h4, li {
 <div class="footer-grid">
 <div class="footer-brand">
 <div class="logo">
-<img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-마스터페이
+<img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+포엔페이
 </div>
 <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
 </div>
@@ -4160,7 +4149,7 @@ p, h1, h2, h3, h4, li {
 </div>
 
 <div class="footer-bottom">
-<span>© 2026 마스터페이. All rights reserved.</span>
+<span>© 2026 포엔페이. All rights reserved.</span>
 <span>개인정보처리방침 · 이용약관</span>
 </div>
 </div>
@@ -4553,7 +4542,7 @@ const PAGE_NOT_FOUND = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>페이지를 찾을 수 없습니다 | 마스터페이</title>
+    <title>페이지를 찾을 수 없습니다 | 포엔페이</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
     <style>/* ========== 공용 스타일 (모든 페이지에서 사용) ========== */
@@ -6177,8 +6166,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             <a href="/#contact" class="nav-cta">문의하기</a>
         </nav>
@@ -6202,10 +6191,10 @@ const PAGE_POS = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>포스기 | 마스터페이</title>
-    <meta name="description" content="주문·결제·매출·재고 관리까지 한 번에 통합하는 매장 운영의 심장, 포스기(POS) 시스템입니다. 업종별 맞춤 설치부터 A/S까지 마스터페이가 책임집니다.">
-    <meta property="og:title" content="포스기 | 마스터페이">
-    <meta property="og:description" content="주문·결제·매출·재고 관리까지 한 번에 통합하는 매장 운영의 심장, 포스기(POS) 시스템입니다. 업종별 맞춤 설치부터 A/S까지 마스터페이가 책임집니다.">
+    <title>포스기 | 포엔페이</title>
+    <meta name="description" content="주문·결제·매출·재고 관리까지 한 번에 통합하는 매장 운영의 심장, 포스기(POS) 시스템입니다. 업종별 맞춤 설치부터 A/S까지 포엔페이가 책임집니다.">
+    <meta property="og:title" content="포스기 | 포엔페이">
+    <meta property="og:description" content="주문·결제·매출·재고 관리까지 한 번에 통합하는 매장 운영의 심장, 포스기(POS) 시스템입니다. 업종별 맞춤 설치부터 A/S까지 포엔페이가 책임집니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -7319,8 +7308,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -7352,7 +7341,7 @@ p, h1, h2, h3, h4, li {
                     <h1 class="product-title">
                         포스기
                     </h1>
-                    <p class="product-lead">주문·결제·매출·재고 관리까지 한 번에 통합하는 매장 운영의 심장, 포스기(POS) 시스템입니다. 업종별 맞춤 설치부터 A/S까지 마스터페이가 책임집니다.</p>
+                    <p class="product-lead">주문·결제·매출·재고 관리까지 한 번에 통합하는 매장 운영의 심장, 포스기(POS) 시스템입니다. 업종별 맞춤 설치부터 A/S까지 포엔페이가 책임집니다.</p>
                     
                     <div class="product-specs">
                     <div class="spec-item">
@@ -7435,7 +7424,7 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>포스기(POS)가 필요한 이유</h3>
                 <p>포스기는 단순한 계산기가 아닙니다. 주문·결제·매출·재고·직원 관리까지 매장 운영의 모든 데이터를 통합 관리하는 심장과 같은 역할을 합니다. 최저임금 상승과 인력난으로 어려움을 겪는 자영업자에게 포스기는 더 이상 선택이 아닌 필수입니다. 매장 규모에 상관없이 체계적인 데이터 관리만으로도 매출 15~25% 상승을 기대할 수 있습니다.</p>
-                <p>마스터페이는 전국 매장에 포스기를 직접 설치하며, 업종별 특성을 분석하여 가장 적합한 모델을 추천합니다. 음식점·카페·편의점·미용실·베이커리 등 업종에 상관없이 최적의 솔루션을 제공하며, 설치부터 직원 교육, 사후 A/S까지 완벽하게 책임집니다.</p>
+                <p>포엔페이는 전국 매장에 포스기를 직접 설치하며, 업종별 특성을 분석하여 가장 적합한 모델을 추천합니다. 음식점·카페·편의점·미용실·베이커리 등 업종에 상관없이 최적의 솔루션을 제공하며, 설치부터 직원 교육, 사후 A/S까지 완벽하게 책임집니다.</p>
                 
                 <h3>포스기 설치 프로세스</h3>
                 <ul>
@@ -7464,7 +7453,7 @@ p, h1, h2, h3, h4, li {
                 <p>포스기 도입 매장의 평균 효과는 매출 15~25% 증가, 인건비 20% 절감, 주문 실수 90% 이상 감소, 재고 관리 시간 70% 단축입니다. 특히 카드단말기·키오스크·테이블오더와 함께 도입하면 시너지 효과가 극대화되어 매장 운영이 완전히 달라집니다.</p>
                 
                 <h3>자주 묻는 질문</h3>
-                <p><strong>Q. 설치 비용은 얼마인가요?</strong><br>대부분의 포스기는 무료 설치가 가능합니다. 월 렌탈료 또는 일시불 구매 등 다양한 옵션이 있으며, 매장 상황에 맞게 안내해드립니다.</p>
+                <p><strong>Q. 설치 비용은 얼마인가요?</strong><br>포스기 설치비·월 관리비는 0원이며, 포스기 본체 값은 별도로 발생합니다. 월 렌탈 또는 일시불 구매 중 선택 가능하며, 매장 상황에 맞게 상담 시 안내해드립니다.</p>
                 <p><strong>Q. A/S는 어떻게 받나요?</strong><br>전화 한 통이면 됩니다. 대부분의 문제는 원격 지원으로 즉시 해결되며, 하드웨어 문제는 엔지니어가 직접 방문하여 처리합니다.</p>
                 <p><strong>Q. 다른 장비와 함께 설치하면 할인되나요?</strong><br>네, 패키지 할인이 있습니다. 포스기+카드단말기+테이블오더를 함께 설치하시면 개별 설치보다 훨씬 저렴하게 이용하실 수 있습니다.</p>
     
@@ -7524,8 +7513,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -7573,7 +7562,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -7599,9 +7588,9 @@ const PAGE_CARD_2INCH = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>2인치 카드단말기 | 마스터페이</title>
+    <title>2인치 카드단말기 | 포엔페이</title>
     <meta name="description" content="좁은 공간에도 깔끔하게 설치되는 컴팩트 사이즈 2인치 카드 단말기. KIS2200·KPN1902 등 검증된 모델로 안정적인 결제 환경을 제공합니다.">
-    <meta property="og:title" content="2인치 카드단말기 | 마스터페이">
+    <meta property="og:title" content="2인치 카드단말기 | 포엔페이">
     <meta property="og:description" content="좁은 공간에도 깔끔하게 설치되는 컴팩트 사이즈 2인치 카드 단말기. KIS2200·KPN1902 등 검증된 모델로 안정적인 결제 환경을 제공합니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -8716,8 +8705,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -8832,7 +8821,7 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>2인치 카드단말기가 필요한 이유</h3>
                 <p>2인치 카드 단말기는 컴팩트한 크기가 가장 큰 매력입니다. 카운터 공간이 부족한 편의점, 소규모 카페, 분식집, 독서실 등에서 인기가 매우 높습니다. 작은 사이즈에도 불구하고 필요한 모든 결제 기능을 완벽하게 지원하며, 최신 IC칩·NFC·QR코드·간편결제까지 한 대로 모두 처리할 수 있습니다.</p>
-                <p>마스터페이는 KIS2200, KPN1902 등 업계에서 검증된 2인치 모델을 취급합니다. 안정적인 성능과 빠른 결제 속도, 세련된 디자인으로 매장 분위기를 해치지 않으면서 전문적인 인상을 줍니다.</p>
+                <p>포엔페이는 KIS2200, KPN1902 등 업계에서 검증된 2인치 모델을 취급합니다. 안정적인 성능과 빠른 결제 속도, 세련된 디자인으로 매장 분위기를 해치지 않으면서 전문적인 인상을 줍니다.</p>
                 
                 <h3>2인치 카드단말기 설치 프로세스</h3>
                 <ul>
@@ -8863,7 +8852,7 @@ p, h1, h2, h3, h4, li {
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. 2인치 카드단말기도 영수증이 나오나요?</strong><br>네, 2인치에서도 영수증이 출력됩니다. 다만 폭이 좁아 3인치보다는 영수증 크기가 작습니다.</p>
                 <p><strong>Q. 무선 모델도 있나요?</strong><br>네, 2인치 사이즈에도 무선 모델이 있습니다. 배달이나 테이블 결제가 필요한 경우 무선 모델을 추천드립니다.</p>
-                <p><strong>Q. 기존 단말기와 교체 가능한가요?</strong><br>네, 기존 장비 교체도 동일한 무료 혜택으로 진행됩니다. VAN사 변경 시에도 별도 비용이 없습니다.</p>
+                <p><strong>Q. 기존 단말기와 교체 가능한가요?</strong><br>네, 기존 장비 교체 시 설치비·회수비는 0원으로 진행됩니다. 새 기기 본체 값은 별도이며(일시불·렌탈 선택), VAN사 변경 시에도 별도 수수료는 없습니다.</p>
                 <p><strong>Q. 설치 후 A/S는 어떻게 받나요?</strong><br>장애 시 전화 한 통이면 원격 지원으로 대부분 즉시 해결됩니다. 하드웨어 문제는 엔지니어가 현장 출동합니다.</p>
     
             </div>
@@ -8922,8 +8911,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -8971,7 +8960,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -8997,9 +8986,9 @@ const PAGE_CARD_3INCH = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>3인치 카드단말기 | 마스터페이</title>
+    <title>3인치 카드단말기 | 포엔페이</title>
     <meta name="description" content="가장 많이 사용되는 표준 사이즈 3인치 카드 단말기. 넓은 영수증 출력과 선명한 화면으로 업무 효율을 높입니다. KIS1420·KPN1901 등 대표 모델 취급.">
-    <meta property="og:title" content="3인치 카드단말기 | 마스터페이">
+    <meta property="og:title" content="3인치 카드단말기 | 포엔페이">
     <meta property="og:description" content="가장 많이 사용되는 표준 사이즈 3인치 카드 단말기. 넓은 영수증 출력과 선명한 화면으로 업무 효율을 높입니다. KIS1420·KPN1901 등 대표 모델 취급.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -10114,8 +10103,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -10230,7 +10219,7 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>3인치 카드단말기가 가장 많이 쓰이는 이유</h3>
                 <p>3인치 카드 단말기는 국내 매장에서 가장 널리 사용되는 표준 사이즈입니다. 영수증 가독성과 화면 크기의 균형이 가장 뛰어나, 대부분의 업종에서 첫 번째 선택으로 꼽힙니다. 넓은 영수증 폭으로 내역이 한눈에 보이고, 넉넉한 화면으로 결제 금액 확인이 쉬워 실수를 줄일 수 있습니다.</p>
-                <p>마스터페이는 KIS1420, KIS1421, KPN1901 등 국내 최고 품질의 3인치 카드단말기를 취급합니다. 오랜 시간 사용해도 안정적인 성능을 유지하는 검증된 모델들로, 음식점·카페·편의점·미용실 등 업종에 상관없이 최적의 결제 경험을 제공합니다.</p>
+                <p>포엔페이는 KIS1420, KIS1421, KPN1901 등 국내 최고 품질의 3인치 카드단말기를 취급합니다. 오랜 시간 사용해도 안정적인 성능을 유지하는 검증된 모델들로, 음식점·카페·편의점·미용실 등 업종에 상관없이 최적의 결제 경험을 제공합니다.</p>
                 
                 <h3>3인치 카드단말기 설치 프로세스</h3>
                 <ul>
@@ -10261,9 +10250,9 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. 3인치와 2인치 중 어느 것이 좋나요?</strong><br>영수증이 자주 출력되고 가독성이 중요하면 3인치, 공간이 협소하면 2인치를 추천합니다. 매장 환경을 알려주시면 맞춤 추천해드립니다.</p>
-                <p><strong>Q. 카드 수수료는 얼마인가요?</strong><br>VAN사와 카드 종류에 따라 다릅니다. 마스터페이는 여러 VAN사 수수료를 비교하여 가장 저렴한 조건을 찾아드립니다.</p>
+                <p><strong>Q. 카드 수수료는 얼마인가요?</strong><br>VAN사와 카드 종류에 따라 다릅니다. 포엔페이는 여러 VAN사 수수료를 비교하여 가장 저렴한 조건을 찾아드립니다.</p>
                 <p><strong>Q. 설치는 얼마나 걸리나요?</strong><br>간단한 경우 당일 설치가 가능하며, 보통 상담 후 1~2일 내로 설치가 완료됩니다.</p>
-                <p><strong>Q. 기존 단말기 교체도 되나요?</strong><br>네, 기존 단말기 교체 시에도 무료로 진행됩니다. VAN사 변경이 필요한 경우에도 마스터페이가 도와드립니다.</p>
+                <p><strong>Q. 기존 단말기 교체도 되나요?</strong><br>네, 기존 단말기 교체 시에도 무료로 진행됩니다. VAN사 변경이 필요한 경우에도 포엔페이가 도와드립니다.</p>
     
             </div>
         </div>
@@ -10321,8 +10310,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -10370,7 +10359,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -10396,9 +10385,9 @@ const PAGE_CARD_TOSS = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>토스 카드단말기 | 마스터페이</title>
+    <title>토스 카드단말기 | 포엔페이</title>
     <meta name="description" content="토스페이먼츠와 완벽하게 연동되는 전용 단말기. 간편결제 특화 기능과 합리적인 수수료로 트렌디한 매장에 가장 적합한 결제 솔루션입니다.">
-    <meta property="og:title" content="토스 카드단말기 | 마스터페이">
+    <meta property="og:title" content="토스 카드단말기 | 포엔페이">
     <meta property="og:description" content="토스페이먼츠와 완벽하게 연동되는 전용 단말기. 간편결제 특화 기능과 합리적인 수수료로 트렌디한 매장에 가장 적합한 결제 솔루션입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -11513,8 +11502,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -11629,13 +11618,13 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>토스 카드단말기가 주목받는 이유</h3>
                 <p>토스 카드단말기는 토스페이먼츠와 완벽하게 연동되어 간편결제에 특화된 전용 카드 단말기입니다. 토스페이 사용자가 급증하는 요즘, 간편결제 비중이 높은 젊은 고객층 매장에서 특히 인기가 많습니다. QR 스캔 한 번으로 결제가 완료되는 빠른 속도와 세련된 디자인이 매장 분위기를 한층 업그레이드합니다.</p>
-                <p>마스터페이는 토스페이먼츠 공식 제휴를 통해 토스 카드단말기를 저렴한 수수료로 제공합니다. 기존 카드결제는 물론 토스페이·삼성페이·카카오페이·네이버페이 등 모든 간편결제 수단을 한 대로 처리할 수 있어, 고객 편의성이 매우 높습니다.</p>
+                <p>포엔페이는 토스페이먼츠 공식 제휴를 통해 토스 카드단말기를 저렴한 수수료로 제공합니다. 기존 카드결제는 물론 토스페이·삼성페이·카카오페이·네이버페이 등 모든 간편결제 수단을 한 대로 처리할 수 있어, 고객 편의성이 매우 높습니다.</p>
                 
                 <h3>토스 카드단말기 설치 프로세스</h3>
                 <ul>
                     <li>1단계 무료 상담 — 매장의 주요 고객층과 결제 패턴을 알려주세요</li>
                     <li>2단계 수수료 안내 — 토스페이먼츠의 경쟁력 있는 수수료 조건을 상세히 안내합니다</li>
-                    <li>3단계 가맹점 신청 — 토스페이먼츠 가맹점 등록을 마스터페이가 대행합니다</li>
+                    <li>3단계 가맹점 신청 — 토스페이먼츠 가맹점 등록을 포엔페이가 대행합니다</li>
                     <li>4단계 단말기 설치 — 전문 기사가 매장 방문하여 설치 및 세팅을 완료합니다</li>
                     <li>5단계 대시보드 안내 — 토스 매출 대시보드 사용법을 교육합니다</li>
                     <li>6단계 지속 지원 — 장애 시 즉시 대응하는 전담 A/S 체계를 운영합니다</li>
@@ -11660,7 +11649,7 @@ p, h1, h2, h3, h4, li {
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. 기존 카드결제도 되나요?</strong><br>물론입니다. 토스페이뿐만 아니라 일반 신용카드, 체크카드, 삼성페이, 카카오페이 등 모든 결제 수단을 지원합니다.</p>
                 <p><strong>Q. 수수료는 얼마인가요?</strong><br>토스페이먼츠의 경쟁력 있는 수수료가 적용되며, 카드 종류와 매출 규모에 따라 달라집니다. 정확한 수수료는 상담 시 안내해드립니다.</p>
-                <p><strong>Q. 기존 VAN사 단말기를 쓰고 있는데 교체 가능한가요?</strong><br>네, 기존 단말기에서 토스 카드단말기로 교체 가능합니다. 마스터페이가 교체 과정을 대행해드립니다.</p>
+                <p><strong>Q. 기존 VAN사 단말기를 쓰고 있는데 교체 가능한가요?</strong><br>네, 기존 단말기에서 토스 카드단말기로 교체 가능합니다. 포엔페이가 교체 과정을 대행해드립니다.</p>
                 <p><strong>Q. 토스페이 고객이 많지 않아도 도움이 될까요?</strong><br>네, 토스 카드단말기는 일반 카드결제도 처리 가능하며, 토스페이 고객이 점점 늘어나고 있어 미래 투자로도 좋은 선택입니다.</p>
     
             </div>
@@ -11719,8 +11708,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -11768,7 +11757,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -11794,9 +11783,9 @@ const PAGE_CARD_WIRELESS = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>무선 카드단말기 | 마스터페이</title>
+    <title>무선 카드단말기 | 포엔페이</title>
     <meta name="description" content="이동 결제의 자유로움을 제공하는 무선 카드 단말기. 테이블 결제, 배달, 출장까지 매장을 벗어나서도 어디든 결제 가능한 필수 장비입니다.">
-    <meta property="og:title" content="무선 카드단말기 | 마스터페이">
+    <meta property="og:title" content="무선 카드단말기 | 포엔페이">
     <meta property="og:description" content="이동 결제의 자유로움을 제공하는 무선 카드 단말기. 테이블 결제, 배달, 출장까지 매장을 벗어나서도 어디든 결제 가능한 필수 장비입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -12911,8 +12900,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -13027,7 +13016,7 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>무선 카드단말기가 필요한 이유</h3>
                 <p>카운터에서만 결제하는 시대는 끝났습니다. 테이블 결제, 배달 현장 결제, 야외 이벤트, 출장 서비스 등 매장 밖에서도 결제가 필요한 상황이 갈수록 많아지고 있습니다. 무선 카드 단말기는 이러한 변화에 대응하는 필수 장비로, 이동의 자유로움과 결제의 편의성을 동시에 제공합니다.</p>
-                <p>마스터페이가 제공하는 무선 카드단말기는 Wi-Fi와 4G 통신을 모두 지원하여 어디서든 안정적인 결제가 가능합니다. 한 번 충전으로 하루 종일 사용 가능한 배터리 수명, 빠른 결제 속도, 선명한 영수증 출력까지 갖춘 프리미엄 모델들을 취급합니다.</p>
+                <p>포엔페이가 제공하는 무선 카드단말기는 Wi-Fi와 4G 통신을 모두 지원하여 어디서든 안정적인 결제가 가능합니다. 한 번 충전으로 하루 종일 사용 가능한 배터리 수명, 빠른 결제 속도, 선명한 영수증 출력까지 갖춘 프리미엄 모델들을 취급합니다.</p>
                 
                 <h3>무선 카드단말기 설치 프로세스</h3>
                 <ul>
@@ -13117,8 +13106,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -13166,7 +13155,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -13192,9 +13181,9 @@ const PAGE_CARD_BLUETOOTH = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>블루투스 카드단말기 | 마스터페이</title>
+    <title>블루투스 카드단말기 | 포엔페이</title>
     <meta name="description" content="스마트폰·태블릿과 블루투스로 연결되는 초소형 휴대용 카드 단말기. 출장·방문 서비스·플리마켓 등 이동이 잦은 업종에 최적화되었습니다.">
-    <meta property="og:title" content="블루투스 카드단말기 | 마스터페이">
+    <meta property="og:title" content="블루투스 카드단말기 | 포엔페이">
     <meta property="og:description" content="스마트폰·태블릿과 블루투스로 연결되는 초소형 휴대용 카드 단말기. 출장·방문 서비스·플리마켓 등 이동이 잦은 업종에 최적화되었습니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -14309,8 +14298,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -14425,13 +14414,13 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>블루투스 카드단말기가 인기인 이유</h3>
                 <p>블루투스 카드 단말기는 스마트폰이나 태블릿과 블루투스로 연결하여 사용하는 초소형 카드 리더기입니다. 별도의 디스플레이가 없어 가격이 매우 저렴하고, 손바닥 크기로 휴대가 편리해 이동 결제가 필요한 1인 사업자, 프리랜서, 방문 서비스 업종에서 폭발적인 인기를 얻고 있습니다.</p>
-                <p>마스터페이는 업계에서 검증된 블루투스 카드단말기를 저렴한 가격에 제공합니다. 스마트폰 앱과 완벽하게 연동되어 결제·영수증 발행·매출 관리까지 한 번에 처리할 수 있으며, 전자 영수증을 문자나 이메일로 발송하는 기능까지 지원합니다.</p>
+                <p>포엔페이는 업계에서 검증된 블루투스 카드단말기를 저렴한 가격에 제공합니다. 스마트폰 앱과 완벽하게 연동되어 결제·영수증 발행·매출 관리까지 한 번에 처리할 수 있으며, 전자 영수증을 문자나 이메일로 발송하는 기능까지 지원합니다.</p>
                 
                 <h3>블루투스 카드단말기 설치 프로세스</h3>
                 <ul>
                     <li>1단계 무료 상담 — 사용 목적과 예상 결제 건수를 알려주세요</li>
                     <li>2단계 VAN사 선정 — 블루투스 카드단말기에 맞는 VAN사를 선정합니다</li>
-                    <li>3단계 가맹점 등록 — 카드결제 가맹점 등록을 마스터페이가 대행합니다</li>
+                    <li>3단계 가맹점 등록 — 카드결제 가맹점 등록을 포엔페이가 대행합니다</li>
                     <li>4단계 단말기 발송 — 단말기와 앱 설치 안내 자료를 발송합니다</li>
                     <li>5단계 원격 세팅 — 전화로 원격 설치를 도와드립니다 (현장 방문도 가능)</li>
                     <li>6단계 A/S 지원 — 장애 시 전화 상담으로 즉시 해결합니다</li>
@@ -14518,8 +14507,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -14567,7 +14556,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -14593,9 +14582,9 @@ const PAGE_KIOSK = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>키오스크 | 마스터페이</title>
+    <title>키오스크 | 포엔페이</title>
     <meta name="description" content="인건비 절감과 매출 증대를 동시에. 대형 터치스크린 무인 주문·결제 시스템으로 매장 운영의 새로운 표준을 만듭니다.">
-    <meta property="og:title" content="키오스크 | 마스터페이">
+    <meta property="og:title" content="키오스크 | 포엔페이">
     <meta property="og:description" content="인건비 절감과 매출 증대를 동시에. 대형 터치스크린 무인 주문·결제 시스템으로 매장 운영의 새로운 표준을 만듭니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -15710,8 +15699,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -15826,7 +15815,7 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>키오스크가 필수인 시대</h3>
                 <p>최저임금 상승과 심각한 인력난으로 자영업자의 고민이 깊어지고 있습니다. 특히 홀 서빙과 카운터 업무는 인건비 부담의 가장 큰 원인입니다. 키오스크는 이러한 문제를 한 번에 해결하는 가장 효과적인 솔루션입니다. 단순 주문 업무를 자동화하여 직원은 더 중요한 서비스와 주방 업무에 집중할 수 있고, 인건비는 월 최대 200만원까지 절감 가능합니다.</p>
-                <p>마스터페이는 전국 매장에 키오스크를 직접 설치하며, 업종별 최적 모델을 추천합니다. 패스트푸드, 카페, 분식집, 중식당, 한식당, 편의점 등 업종에 상관없이 매장에 딱 맞는 메뉴 구성과 결제 흐름을 설계해드립니다.</p>
+                <p>포엔페이는 전국 매장에 키오스크를 직접 설치하며, 업종별 최적 모델을 추천합니다. 패스트푸드, 카페, 분식집, 중식당, 한식당, 편의점 등 업종에 상관없이 매장에 딱 맞는 메뉴 구성과 결제 흐름을 설계해드립니다.</p>
                 
                 <h3>키오스크 설치 프로세스</h3>
                 <ul>
@@ -15855,12 +15844,12 @@ p, h1, h2, h3, h4, li {
                 <p>키오스크 도입 전 매장은 피크 타임에 주문 대기 줄이 길어지고, 주문 실수가 빈번하며, 홀 인건비가 매출의 30% 이상을 차지합니다. 반면 도입 후에는 여러 고객이 동시에 주문할 수 있어 대기 시간이 60% 이상 단축되고, 주문 정확도가 98% 이상으로 향상되며, 홀 인건비가 15% 수준까지 떨어집니다. 또한 메뉴 사진 노출로 추가 주문이 늘어 객단가가 평균 20% 이상 상승합니다.</p>
                 
                 <h3>설치 비용과 렌탈 옵션</h3>
-                <p>키오스크는 초기 구매 비용이 부담스러울 수 있어 렌탈 방식을 많이 선택합니다. 마스터페이는 초기 비용 0원 렌탈 옵션을 제공하여, 매장에서 절감된 인건비로 렌탈료를 충당하고도 이익이 남도록 설계합니다. 대부분의 매장이 3~6개월 내에 투자 비용을 회수하고 이후부터는 순수 이익이 발생합니다. 정확한 견적은 상담을 통해 안내해드립니다.</p>
+                <p>키오스크는 초기 구매 비용이 부담스러울 수 있어 렌탈 방식을 많이 선택합니다. 포엔페이는 초기 비용 0원 렌탈 옵션을 제공하여, 매장에서 절감된 인건비로 렌탈료를 충당하고도 이익이 남도록 설계합니다. 대부분의 매장이 3~6개월 내에 투자 비용을 회수하고 이후부터는 순수 이익이 발생합니다. 정확한 견적은 상담을 통해 안내해드립니다.</p>
                 
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. 설치 비용이 부담되지 않을까요?</strong><br>렌탈 방식으로 초기 비용 없이 도입 가능합니다. 절감된 인건비로 렌탈료를 충당하고도 이익이 남는 구조입니다.</p>
                 <p><strong>Q. 노년층 고객이 사용하기 어렵지 않을까요?</strong><br>큰 버튼, 직관적인 아이콘, 단순한 흐름으로 설계되어 대부분의 연령대가 쉽게 사용합니다. 필요 시 직원이 도와드리는 시간이 짧습니다.</p>
-                <p><strong>Q. 메뉴 변경은 어떻게 하나요?</strong><br>관리 화면에서 간단히 메뉴·가격·사진을 변경할 수 있습니다. 복잡한 변경은 마스터페이가 원격으로 도와드립니다.</p>
+                <p><strong>Q. 메뉴 변경은 어떻게 하나요?</strong><br>관리 화면에서 간단히 메뉴·가격·사진을 변경할 수 있습니다. 복잡한 변경은 포엔페이가 원격으로 도와드립니다.</p>
                 <p><strong>Q. 설치 공간이 충분한가요?</strong><br>대형 스탠드형은 약 1m² 공간이 필요합니다. 공간이 부족하면 미니 키오스크를 추천드립니다.</p>
     
             </div>
@@ -15919,8 +15908,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -15968,7 +15957,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -15994,9 +15983,9 @@ const PAGE_KIOSK_MINI = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>미니 키오스크 | 마스터페이</title>
+    <title>미니 키오스크 | 포엔페이</title>
     <meta name="description" content="작은 매장에도 부담 없이 도입하는 컴팩트 무인 주문 시스템. 공간 절약과 비용 절감, 두 마리 토끼를 모두 잡는 합리적인 선택입니다.">
-    <meta property="og:title" content="미니 키오스크 | 마스터페이">
+    <meta property="og:title" content="미니 키오스크 | 포엔페이">
     <meta property="og:description" content="작은 매장에도 부담 없이 도입하는 컴팩트 무인 주문 시스템. 공간 절약과 비용 절감, 두 마리 토끼를 모두 잡는 합리적인 선택입니다.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -17111,8 +17100,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -17227,7 +17216,7 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>미니 키오스크가 주목받는 이유</h3>
                 <p>모든 매장이 대형 키오스크를 놓을 공간이 있는 것은 아닙니다. 작은 카페, 디저트 가게, 소형 식당 등 공간이 제한적인 매장에서는 대형 키오스크가 부담스러울 수 있습니다. 미니 키오스크는 이런 매장을 위해 설계된 컴팩트한 무인 주문 시스템으로, 공간 효율성과 무인화의 장점을 모두 제공합니다.</p>
-                <p>마스터페이의 미니 키오스크는 테이블형, 벽걸이형 등 다양한 설치 방식을 지원하여 매장 공간에 딱 맞게 설치할 수 있습니다. 작지만 대형 키오스크와 동일한 주문·결제 기능을 모두 지원하며, 비용은 절반 이하로 훨씬 저렴합니다.</p>
+                <p>포엔페이의 미니 키오스크는 테이블형, 벽걸이형 등 다양한 설치 방식을 지원하여 매장 공간에 딱 맞게 설치할 수 있습니다. 작지만 대형 키오스크와 동일한 주문·결제 기능을 모두 지원하며, 비용은 절반 이하로 훨씬 저렴합니다.</p>
                 
                 <h3>미니 키오스크 설치 프로세스</h3>
                 <ul>
@@ -17320,8 +17309,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -17369,7 +17358,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -17395,9 +17384,9 @@ const PAGE_TABLEORDER = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>테이블 오더 | 마스터페이</title>
+    <title>테이블 오더 | 포엔페이</title>
     <meta name="description" content="QR코드 스캔 한 번으로 주문부터 결제까지. 홀 인건비를 줄이고 객단가를 높이는 스마트 주문 시스템을 경험해보세요.">
-    <meta property="og:title" content="테이블 오더 | 마스터페이">
+    <meta property="og:title" content="테이블 오더 | 포엔페이">
     <meta property="og:description" content="QR코드 스캔 한 번으로 주문부터 결제까지. 홀 인건비를 줄이고 객단가를 높이는 스마트 주문 시스템을 경험해보세요.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -18512,8 +18501,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -18628,7 +18617,7 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>테이블 오더가 대세인 이유</h3>
                 <p>코로나 이후 비대면 주문이 일상화되고, 최저임금 상승으로 홀 인건비 부담이 커지면서 테이블 오더는 음식점의 새로운 표준이 되었습니다. 고객은 자리에 앉아 스마트폰이나 태블릿으로 메뉴를 보고 주문할 수 있어 편리하고, 사장님은 홀 서빙 인력을 대폭 줄일 수 있어 인건비 절감 효과가 큽니다.</p>
-                <p>마스터페이의 테이블 오더는 QR코드 방식과 태블릿 방식 모두 지원하여, 매장 특성에 맞게 선택할 수 있습니다. 주문부터 결제까지 한 번에 처리되며, 포스기와 실시간 연동되어 주방 프린터로 주문이 자동 전송되어 업무 효율이 크게 향상됩니다.</p>
+                <p>포엔페이의 테이블 오더는 QR코드 방식과 태블릿 방식 모두 지원하여, 매장 특성에 맞게 선택할 수 있습니다. 주문부터 결제까지 한 번에 처리되며, 포스기와 실시간 연동되어 주방 프린터로 주문이 자동 전송되어 업무 효율이 크게 향상됩니다.</p>
                 
                 <h3>테이블 오더 설치 프로세스</h3>
                 <ul>
@@ -18663,7 +18652,7 @@ p, h1, h2, h3, h4, li {
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. QR과 태블릿 중 어떤 것이 좋나요?</strong><br>매장 고객층에 따라 다릅니다. 2030 고객이 많으면 QR, 전 연령대가 있으면 태블릿을 추천드립니다. 상담 시 자세히 안내해드립니다.</p>
                 <p><strong>Q. 기존 포스기와 연동되나요?</strong><br>네, 대부분의 포스기와 실시간 연동됩니다. 주문이 주방 프린터로 자동 전송되어 업무 효율이 크게 높아집니다.</p>
-                <p><strong>Q. 메뉴 변경은 어떻게 하나요?</strong><br>관리 앱에서 간단히 메뉴·가격·사진을 변경할 수 있습니다. 복잡한 변경은 마스터페이가 원격으로 도와드립니다.</p>
+                <p><strong>Q. 메뉴 변경은 어떻게 하나요?</strong><br>관리 앱에서 간단히 메뉴·가격·사진을 변경할 수 있습니다. 복잡한 변경은 포엔페이가 원격으로 도와드립니다.</p>
                 <p><strong>Q. 노년층 손님도 사용 가능한가요?</strong><br>태블릿 방식은 큰 화면과 단순한 흐름으로 노년층도 쉽게 사용합니다. 직원이 간단히 안내해드리면 대부분 잘 사용하십니다.</p>
     
             </div>
@@ -18722,8 +18711,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -18771,7 +18760,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -18797,9 +18786,9 @@ const PAGE_REMOVAL = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/brand.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-    <title>매장 철거 | 마스터페이</title>
+    <title>매장 철거 | 포엔페이</title>
     <meta name="description" content="매장·사무실·가게 철거를 전문 엔지니어팀이 책임집니다. 철거부터 원상복구·폐기물 처리까지 원스톱으로 깔끔하게.">
-    <meta property="og:title" content="매장 철거 | 마스터페이">
+    <meta property="og:title" content="매장 철거 | 포엔페이">
     <meta property="og:description" content="매장·사무실·가게 철거를 전문 엔지니어팀이 책임집니다. 철거부터 원상복구·폐기물 처리까지 원스톱으로 깔끔하게.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -19914,8 +19903,8 @@ p, h1, h2, h3, h4, li {
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                마스터페이
+                <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                포엔페이
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -20030,7 +20019,7 @@ p, h1, h2, h3, h4, li {
                 
                 <h3>전문 철거가 필요한 이유</h3>
                 <p>매장이나 사무실 철거는 단순히 시설을 부수는 작업이 아닙니다. 안전 관리, 전기·배관 처리, 폐기물 분류, 원상복구, 임대인과의 분쟁 방지 등 수많은 고려 사항이 있습니다. 비전문 업체에 맡기면 보증금을 돌려받지 못하거나 예상치 못한 추가 비용이 발생할 수 있습니다.</p>
-                <p>마스터페이는 전문 엔지니어팀을 보유하여 매장·사무실·가게 철거를 안전하고 깔끔하게 진행합니다. 정밀 현장 분석부터 철거, 폐기물 처리, 원상복구까지 원스톱으로 책임지며, 시공 보증서를 발급해 사후 하자도 100% 책임집니다.</p>
+                <p>포엔페이는 전문 엔지니어팀을 보유하여 매장·사무실·가게 철거를 안전하고 깔끔하게 진행합니다. 정밀 현장 분석부터 철거, 폐기물 처리, 원상복구까지 원스톱으로 책임지며, 시공 보증서를 발급해 사후 하자도 100% 책임집니다.</p>
                 
                 <h3>매장 철거 프로세스</h3>
                 <ul>
@@ -20059,7 +20048,7 @@ p, h1, h2, h3, h4, li {
                 <p>철거 비용은 매장 면적, 철거 범위, 폐기물 양, 층수와 접근성, 원상복구 정도에 따라 달라집니다. 일반적으로 10평 매장 기준 기본 철거는 100만원대부터 시작되며, 원상복구까지 포함하면 300~500만원 수준입니다. 정확한 비용은 현장 실측 후 정찰제로 확정되어, 공사 후 추가 청구가 없습니다.</p>
                 
                 <h3>보증금 반환을 위한 원상복구 팁</h3>
-                <p>임대 종료 시 보증금을 100% 반환받으려면 원상복구가 매우 중요합니다. 임대인이 요구하는 수준은 임대차 계약서에 명시된 대로이지만, 일반적으로 임차 전 상태로 복구해야 합니다. 벽면 도배, 바닥 공사, 천장 복구, 전기·통신 설비 원복 등이 포함됩니다. 마스터페이는 임대차 계약서를 함께 검토하여 필요한 수준의 원상복구를 정확하게 진행합니다.</p>
+                <p>임대 종료 시 보증금을 100% 반환받으려면 원상복구가 매우 중요합니다. 임대인이 요구하는 수준은 임대차 계약서에 명시된 대로이지만, 일반적으로 임차 전 상태로 복구해야 합니다. 벽면 도배, 바닥 공사, 천장 복구, 전기·통신 설비 원복 등이 포함됩니다. 포엔페이는 임대차 계약서를 함께 검토하여 필요한 수준의 원상복구를 정확하게 진행합니다.</p>
                 
                 <h3>자주 묻는 질문</h3>
                 <p><strong>Q. 견적은 어떻게 내나요?</strong><br>현장 실측 후 정확한 견적을 무료로 내드립니다. 정찰제로 운영되어 견적 대비 추가 청구가 없습니다.</p>
@@ -20111,7 +20100,7 @@ p, h1, h2, h3, h4, li {
                     체계적인 7단계 철거 진행 절차
                 </h2>
                 <p style="font-size: 15px; color: var(--ink-soft); margin: 16px 0 0; line-height: 1.7;">
-                    마스터페이의 철거는 즉흥적으로 진행되지 않습니다.<br>
+                    포엔페이의 철거는 즉흥적으로 진행되지 않습니다.<br>
                     안전하고 합법적인 작업을 위해 체계화된 7단계 프로세스를 따릅니다.
                 </p>
             </div>
@@ -20211,13 +20200,13 @@ p, h1, h2, h3, h4, li {
         </div>
     </section>
 
-    <!-- 마스터페이 강점 3가지 -->
+    <!-- 포엔페이 강점 3가지 -->
     <section class="removal-why" style="padding: 100px 0; background: var(--cream-dark);">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 48px;">
-                <span class="section-num" style="display: inline-block; padding: 6px 16px; background: var(--ink); color: var(--cream); border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 16px;">03 / Why Mastarpay</span>
+                <span class="section-num" style="display: inline-block; padding: 6px 16px; background: var(--ink); color: var(--cream); border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 16px;">03 / Why Fonepay</span>
                 <h2 class="section-title" style="font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; margin: 0;">
-                    왜 마스터페이여야 할까요?
+                    왜 포엔페이여야 할까요?
                 </h2>
             </div>
 
@@ -20233,7 +20222,7 @@ p, h1, h2, h3, h4, li {
                     <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--coral); color: #ffffff; padding: 4px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 1px;">BEST</div>
                     <div style="font-size: 56px; margin-bottom: 16px;">💰</div>
                     <h3 style="margin: 0 0 12px; font-size: 19px; font-weight: 800; color: var(--ink);">전국 최저가<br>가격 보증</h3>
-                    <p style="font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin: 0;">마스터페이 원상복구는 전국 최저가를 보증합니다. 다른 곳에서 더 저렴한 견적을 받으셨다면 알려주세요.</p>
+                    <p style="font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin: 0;">포엔페이 원상복구는 전국 최저가를 보증합니다. 다른 곳에서 더 저렴한 견적을 받으셨다면 알려주세요.</p>
                 </div>
 
                 <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 20px; padding: 36px 28px; text-align: center;">
@@ -20256,7 +20245,7 @@ p, h1, h2, h3, h4, li {
                 </h2>
                 <p style="font-size: 16px; line-height: 1.8; opacity: 0.9; margin: 0 0 32px;">
                     대한민국 NO.1 소상공인 폐업 지원 패키지!<br>
-                    마스터페이 폐업원상복구는 소상공인 분들의 철거 공사를<br>
+                    포엔페이 폐업원상복구는 소상공인 분들의 철거 공사를<br>
                     정부지원금 중 하나인 <strong style="color: var(--coral);">"폐업점포철거지원금"</strong>으로<br>
                     철거 및 원상복구 공사를 진행할 수 있도록 도와드립니다.
                 </p>
@@ -20336,8 +20325,8 @@ p, h1, h2, h3, h4, li {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="/brand.png" alt="마스터페이" class="logo-mark-img">
-                        마스터페이
+                        <img src="/brand.png" alt="포엔페이" class="logo-mark-img">
+                        포엔페이
                     </div>
                     <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
                 </div>
@@ -20385,7 +20374,7 @@ p, h1, h2, h3, h4, li {
             </div>
             
             <div class="footer-bottom">
-                <span>© 2026 마스터페이. All rights reserved.</span>
+                <span>© 2026 포엔페이. All rights reserved.</span>
                 <span>개인정보처리방침 · 이용약관</span>
             </div>
         </div>
@@ -20602,7 +20591,7 @@ const PRODUCT_DESC_POOLS = {
       "한 번 설치하면 통상 5~7년간 별다른 교체 없이 운영되어 장기적 비용 효율이 높습니다."
     ],
     line5: [
-      "설치비·월 임대료 모두 무료이며, 카드 수수료만 정상 부과되는 부담 없는 도입 구조입니다.",
+      "설치비·월 임대료는 0원이며, 기기 본체 값은 별도로 발생합니다. 그 외 카드 결제 수수료만 정상 부과되는 투명한 비용 구조입니다.",
       "설치비 0원·월 사용료 0원으로 시작 부담 없이 도입할 수 있습니다.",
       "장애 발생 시 현장 출동 또는 원격 지원이 24시간 제공됩니다.",
       "전국 어느 매장이든 동일한 사후 관리 기준으로 책임집니다.",
@@ -20640,7 +20629,7 @@ const PRODUCT_DESC_POOLS = {
       "회전율이 높은 분식·치킨·중식 매장에서 주문 누락 방지 효과가 즉시 체감됩니다."
     ],
     line5: [
-      "설치비·소프트웨어 라이선스 모두 패키지 도입 시 무상 제공됩니다.",
+      "설치비·소프트웨어 라이선스는 패키지 도입 시 무상 제공되며, 기기 본체 값은 별도로 발생합니다.",
       "최신 모델 기준 5년 이상 사용해도 처리 속도 저하가 거의 없는 내구성을 갖추고 있습니다.",
       "설치 후 1년간 무상 A/S와 정기 소프트웨어 업데이트가 함께 제공됩니다.",
       "장애 발생 시 원격 지원으로 평균 10분 이내 해결되며, 하드웨어는 현장 출동합니다.",
@@ -20678,7 +20667,7 @@ const PRODUCT_DESC_POOLS = {
       "프랜차이즈 가맹점이라면 본사 메뉴 일괄 업데이트 기능도 함께 활용 가능합니다."
     ],
     line5: [
-      "설치비·하드웨어 비용·월 사용료 모두 패키지 도입 시 부담을 최소화한 구조로 설계됩니다.",
+      "설치비·월 사용료는 패키지 도입 시 부담을 최소화한 구조로 설계되며, 하드웨어 본체 값은 별도로 발생합니다(일시불·렌탈·리스 중 선택).",
       "매장 규모와 동선에 맞춰 21·24·27인치 모델을 선택할 수 있습니다.",
       "스탠드형·벽걸이형·테이블형 등 매장 환경별 거치 옵션을 제공합니다.",
       "설치 당일 메뉴 입력과 운영 교육까지 한 번에 완료되어 즉시 영업에 투입 가능합니다.",
@@ -20745,7 +20734,7 @@ const PRODUCT_DESC_POOLS = {
     line5: [
       "현장 견적은 무료이며, 매장 규모에 따라 작업 기간 1~5일 내 완료됩니다.",
       "전국 어느 지역이든 직접 출장 견적이 가능하며, 야간·주말 작업도 별도 협의 가능합니다.",
-      "1년 사후 책임 보증으로 임대인 분쟁 발생 시 마스터페이가 직접 대응합니다."
+      "1년 사후 책임 보증으로 임대인 분쟁 발생 시 포엔페이가 직접 대응합니다."
     ]
   }
 };
@@ -20868,7 +20857,7 @@ function buildLocalBusinessSchema(opts) {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": `마스터페이 ${areaName}`,
+    "name": `포엔페이 ${areaName}`,
     "image": "https://mastarpay.com/brand.png",
     "url": pageUrl,
     "telephone": "+82-10-2337-0458",
@@ -20903,7 +20892,7 @@ function buildServiceSchema(opts) {
     "description": o.description || "매장 설비 설치 서비스",
     "provider": {
       "@type": "Organization",
-      "name": "마스터페이",
+      "name": "포엔페이",
       "telephone": "+82-10-2337-0458"
     },
     "areaServed": {
@@ -20924,7 +20913,7 @@ const RP_INTRO_POOLS = {
     "{region}은(는) {areaType} 특성이 뚜렷한 지역으로, 카드 결제 비중이 90%를 넘는 업종이 다수 분포해 있습니다. 이러한 환경에서는 결제 단말기의 처리 속도와 통신 안정성이 매장 회전율에 직접적인 영향을 미칩니다. {productName}은(는) 이 지역의 카드 결제 환경에 가장 적합한 표준 모델로 평가받고 있으며, 결제 거절·승인 지연 같은 운영 리스크를 최소화하는 검증된 장비입니다.",
     "{region}에서 매장을 운영하는 사장님들이 카드 단말기 선택 시 가장 중요하게 보는 요소는 결제 안정성과 VAN사 수수료입니다. {region}의 {areaType} 환경은 시간대별 결제 빈도 편차가 크기 때문에, 어느 시점에서도 결제 처리가 지연되지 않는 단말기가 필수입니다. {productName}은(는) {region} 매장 환경에 적합한 통신·결제 안정성을 갖춘 단말로, 도입 후 결제 관련 클레임이 거의 발생하지 않는 모델입니다.",
     "{region}은(는) {topBiz1}, {topBiz2} 같은 업종이 활발히 운영되는 지역으로, 매장당 일 결제 건수가 평균 이상인 환경입니다. 이런 환경에서는 단말기의 안정성과 영수증 인쇄 속도가 매장 운영의 효율을 결정합니다. {productName}은(는) 이 두 조건을 모두 충족하는 표준 모델로, {region} 내 다수 매장에 도입되어 운영 안정성이 검증되었습니다.",
-    "{region}의 매장 환경은 {areaType}을(를) 중심으로 다양한 업종이 혼재되어 있어, 카드 결제 단말기 선택에 신중함이 요구됩니다. {productName}은(는) 결제 안정성·VAN사 수수료·사후 관리 등 사장님이 가장 우선시하는 항목에서 균형 있는 성능을 발휘하는 모델입니다. 마스터페이는 {region} 전 지역 직접 방문 설치를 통해 매장별 환경에 최적화된 세팅을 제공합니다.",
+    "{region}의 매장 환경은 {areaType}을(를) 중심으로 다양한 업종이 혼재되어 있어, 카드 결제 단말기 선택에 신중함이 요구됩니다. {productName}은(는) 결제 안정성·VAN사 수수료·사후 관리 등 사장님이 가장 우선시하는 항목에서 균형 있는 성능을 발휘하는 모델입니다. 포엔페이는 {region} 전 지역 직접 방문 설치를 통해 매장별 환경에 최적화된 세팅을 제공합니다.",
     "{region}에서 카드 단말기를 새로 설치하거나 교체하려는 매장이 늘고 있습니다. 그 배경에는 VAN사 수수료 절감 요구, 간편결제 확산, 노후 단말기의 결제 거절 빈발 등이 자리합니다. {productName}은(는) 이 모든 변화에 대응하는 최신 표준 모델이며, {region}의 {areaType} 환경에서 안정적인 운영이 가능한 검증된 장비입니다."
   ],
   'pos': [
@@ -20959,7 +20948,7 @@ const RP_BENEFITS_POOLS = {
       // 슬롯 1: 비용
       [
         { h: '수수료 절감', d: 'VAN사 직제휴 모델로 카드 수수료가 시중 평균 대비 약 0.1~0.3%p 낮게 책정되어 일 매출 누적 시 실질적 비용 절감 효과가 발생합니다.' },
-        { h: '도입 비용 0원', d: '설치비·월 임대료·소프트웨어 라이선스 모두 무료이며, 카드 수수료만 정상 부과되어 시작 부담이 거의 없습니다.' },
+        { h: '설치비·관리비 0원', d: '설치비·월 임대료·소프트웨어 라이선스는 0원이며, 기기 본체 값만 별도로 발생합니다. 그 외 카드 결제 수수료만 정상 부과되어 운영 중 추가 비용 부담이 없습니다.' },
         { h: '장기 비용 효율', d: '한 번 설치 후 통상 5~7년간 추가 비용 없이 운영되어 매장 운영 비용 구조가 안정적입니다.' },
         { h: '교체 비용 무료', d: '기존 단말기 교체 시에도 무료 견적 후 진행되며, 잔여 약정이 있는 경우 인수 지원도 협의 가능합니다.' }
       ],
@@ -21074,7 +21063,7 @@ const RP_BENEFITS_POOLS = {
       ],
       [
         { h: '무료 현장 견적', d: '현장 방문 견적이 무료이며, 작업 일정·비용·범위를 사전 확정하여 진행됩니다.' },
-        { h: '1년 사후 책임', d: '작업 완료 후 1년간 임대인 분쟁 발생 시 마스터페이가 직접 대응합니다.' },
+        { h: '1년 사후 책임', d: '작업 완료 후 1년간 임대인 분쟁 발생 시 포엔페이가 직접 대응합니다.' },
         { h: '야간 작업', d: '주거지 인근 매장은 소음·먼지 최소화를 위한 야간 작업 옵션도 운영합니다.' }
       ]
     ]
@@ -21282,13 +21271,13 @@ const RP_EFFECT_POOLS = {
     "테이블오더 도입 매장에서 가장 자주 나오는 평가는 \"주문 누락이 사라졌다\"는 점입니다. 고객이 직접 주문하므로 직원 매개 단계가 사라져, 주문 실수·누락·전달 오류가 거의 0에 수렴합니다. 이는 곧 클레임 감소와 매장 분위기 개선으로 이어지며, 단골 고객 만족도와 재방문율 향상의 핵심 요인이 됩니다. 도입 후 3개월 시점부터 매장 회전율과 객단가 양쪽에서 명확한 변화가 데이터로 확인됩니다."
   ],
   'removal': [
-    "매장 철거 작업의 핵심은 임대인이 요구하는 원상복구 수준을 정확히 충족하는 것입니다. {productName} 서비스는 무료 현장 견적 단계에서 임대인의 요구 사항을 직접 확인하여, 작업 범위에 누락이나 과잉이 없도록 설계합니다. 작업은 평균 1~5일 내 완료되며, 폐기물 운반·처리까지 단일 견적에 모두 포함되어 작업 후 추가 비용이 발생하지 않습니다. 작업 완료 후 1년간 임대인 분쟁 발생 시 마스터페이가 직접 대응하므로, 사장님은 안전한 마무리를 보장받을 수 있습니다."
+    "매장 철거 작업의 핵심은 임대인이 요구하는 원상복구 수준을 정확히 충족하는 것입니다. {productName} 서비스는 무료 현장 견적 단계에서 임대인의 요구 사항을 직접 확인하여, 작업 범위에 누락이나 과잉이 없도록 설계합니다. 작업은 평균 1~5일 내 완료되며, 폐기물 운반·처리까지 단일 견적에 모두 포함되어 작업 후 추가 비용이 발생하지 않습니다. 작업 완료 후 1년간 임대인 분쟁 발생 시 포엔페이가 직접 대응하므로, 사장님은 안전한 마무리를 보장받을 수 있습니다."
   ]
 };
 
 // 섹션 6: 설치/도입 프로세스 안내 (200~300자)
 const RP_PROCESS_POOLS = [
-  "마스터페이의 설치 프로세스는 무료 상담 → 매장 환경 분석 → 업종별 최적 모델 추천 → 설치 일정 확정 → 직접 방문 설치 → 사용법 교육 → 사후 관리 안내 순서로 진행됩니다. 상담부터 설치 완료까지 통상 1~3일이 소요되며, 매장 영업 시간을 침해하지 않도록 일정이 조율됩니다.",
+  "포엔페이의 설치 프로세스는 무료 상담 → 매장 환경 분석 → 업종별 최적 모델 추천 → 설치 일정 확정 → 직접 방문 설치 → 사용법 교육 → 사후 관리 안내 순서로 진행됩니다. 상담부터 설치 완료까지 통상 1~3일이 소요되며, 매장 영업 시간을 침해하지 않도록 일정이 조율됩니다.",
   "도입 절차는 전화 또는 카카오톡 상담으로 시작되며, 매장 환경(업종·규모·동선·기존 장비)을 파악한 후 가장 적합한 모델을 추천드립니다. 견적 확정 후 1~2일 내 전문 기사가 직접 방문하여 설치·세팅·사용법 교육까지 한 번에 완료합니다. 설치 후에도 1년간 무상 A/S와 카카오톡 24시간 지원이 제공됩니다.",
   "설치는 매장 영업에 영향이 없도록 영업 시작 전 또는 종료 후 시간대로 협의됩니다. 전문 기사가 직접 방문하여 장비 설치, 통신 연결, 결제 시스템 세팅, 직원 사용법 교육까지 단계별로 진행하며, 설치 당일 영업에 즉시 투입 가능한 상태로 마무리됩니다.",
   "도입 절차는 간단합니다. 카카오톡 또는 전화로 매장 정보(업종·규모·결제 환경)를 알려주시면, 가장 적합한 모델과 견적을 안내드립니다. 결제 조건과 설치 일정 확정 후 전문 기사가 매장에 직접 방문하여 설치·교육까지 한 번에 완료합니다. 별도 비용이나 추가 청구는 발생하지 않습니다."
@@ -21298,7 +21287,7 @@ const RP_PROCESS_POOLS = [
 const RP_FAQ_POOLS = {
   'card': [
     [
-      { q: '설치비가 정말 무료인가요?', a: '네, 카드 단말기 설치비·월 임대료·소프트웨어 라이선스 모두 무료입니다. 카드 결제 발생 시 정상 카드 수수료만 부과되며, 별도 비용은 발생하지 않습니다.' },
+      { q: '설치비가 정말 무료인가요?', a: '설치비·월 임대료·소프트웨어 라이선스는 0원입니다. 다만 카드 단말기 본체 값은 별도로 발생하며, 일시불·렌탈·리스 중 선택 가능합니다. 그 외 카드 결제 수수료만 정상 부과되며, 숨은 비용은 없습니다. 정확한 기기값은 상담 시 안내드립니다.' },
       { q: '기존 단말기 약정이 남아있는데 교체 가능한가요?', a: '네, 잔여 약정이 있는 경우에도 무료 견적 후 교체가 가능합니다. 약정 위약금이 부담되는 경우 인수 지원 조건도 함께 협의 가능합니다.' },
       { q: '카드 수수료는 얼마나 차이가 나나요?', a: 'VAN사 직제휴 모델로 시중 평균 대비 약 0.1~0.3%p 낮게 책정됩니다. 일 매출 100만원 매장 기준 월 3~9만원의 수수료 절감 효과가 발생합니다.' },
       { q: 'A/S는 어떻게 받나요?', a: '전화 또는 카카오톡으로 24시간 상담 가능하며, 대부분 원격 지원으로 즉시 해결됩니다. 하드웨어 문제는 영업 중 1시간 이내 현장 출동이 원칙입니다.' },
@@ -21336,7 +21325,7 @@ const RP_FAQ_POOLS = {
       { q: '견적은 무료인가요?', a: '네, 현장 방문 견적은 100% 무료이며, 작업 일정·비용·범위를 사전 확정 후 진행됩니다.' },
       { q: '폐기물 처리 비용도 견적에 포함되나요?', a: '네, 폐기물 운반·처리 비용이 모두 단일 견적에 포함되어, 작업 후 추가 비용이 발생하지 않습니다.' },
       { q: '작업 기간은 얼마나 소요되나요?', a: '매장 규모에 따라 1~5일 내 완료됩니다. 야간·주말 작업도 별도 협의 가능합니다.' },
-      { q: '임대인과 분쟁이 생기면 어떻게 되나요?', a: '작업 완료 후 1년간 임대인 분쟁 발생 시 마스터페이가 직접 대응합니다. 사장님은 별도로 분쟁에 개입하실 필요가 없습니다.' }
+      { q: '임대인과 분쟁이 생기면 어떻게 되나요?', a: '작업 완료 후 1년간 임대인 분쟁 발생 시 포엔페이가 직접 대응합니다. 사장님은 별도로 분쟁에 개입하실 필요가 없습니다.' }
     ]
   ]
 };
@@ -21347,10 +21336,10 @@ const RP_FAQ_POOLS = {
 
 // 섹션 A: 지역 매장 환경 분석 (350~450자)
 const RP_REGION_ANALYSIS_POOLS = [
-  "{region}에서 매장을 운영하는 사장님들이 결제·운영 장비를 검토할 때 가장 먼저 고려해야 할 요소는 지역 상권의 특성입니다. {region}은(는) {areaType} 환경을 중심으로 다양한 업종이 분포하며, 매장당 일 결제 빈도와 객단가, 결제 수단 비중이 상이합니다. 이러한 환경에서는 단일 모델을 모든 매장에 일률적으로 적용하기보다, 매장 업종·규모·동선에 맞는 모델 선정이 운영 효율의 핵심이 됩니다. 마스터페이는 {region} 매장 환경에 누적된 설치 데이터를 바탕으로, 매장별 최적 조합을 제안합니다.",
-  "{region}은(는) {topBiz1}과 {topBiz2}이(가) 활발하게 운영되는 지역으로, 매장 운영 환경이 다양합니다. 일부 매장은 객단가가 높고 결제 빈도가 낮은 반면, 다른 매장은 객단가가 낮고 결제 빈도가 매우 높습니다. 이러한 환경 차이에 따라 적합한 결제·운영 장비 모델도 달라지며, 마스터페이는 매장 환경 분석 후 가장 효율적인 조합을 제안합니다. 무료 현장 방문을 통해 매장 동선·결제 흐름·기존 장비 호환성까지 종합 검토합니다.",
+  "{region}에서 매장을 운영하는 사장님들이 결제·운영 장비를 검토할 때 가장 먼저 고려해야 할 요소는 지역 상권의 특성입니다. {region}은(는) {areaType} 환경을 중심으로 다양한 업종이 분포하며, 매장당 일 결제 빈도와 객단가, 결제 수단 비중이 상이합니다. 이러한 환경에서는 단일 모델을 모든 매장에 일률적으로 적용하기보다, 매장 업종·규모·동선에 맞는 모델 선정이 운영 효율의 핵심이 됩니다. 포엔페이는 {region} 매장 환경에 누적된 설치 데이터를 바탕으로, 매장별 최적 조합을 제안합니다.",
+  "{region}은(는) {topBiz1}과 {topBiz2}이(가) 활발하게 운영되는 지역으로, 매장 운영 환경이 다양합니다. 일부 매장은 객단가가 높고 결제 빈도가 낮은 반면, 다른 매장은 객단가가 낮고 결제 빈도가 매우 높습니다. 이러한 환경 차이에 따라 적합한 결제·운영 장비 모델도 달라지며, 포엔페이는 매장 환경 분석 후 가장 효율적인 조합을 제안합니다. 무료 현장 방문을 통해 매장 동선·결제 흐름·기존 장비 호환성까지 종합 검토합니다.",
   "{region}의 매장 환경에서 결제·운영 장비 선택 시 고려해야 할 변수는 단순 가격이 아닙니다. 매장 규모, 일 결제 건수, 객단가, 결제 수단 비중, 직원 수, 운영 시간 등 다양한 요소가 모델 선정에 영향을 미칩니다. {region}은(는) {areaType} 환경의 특성상 시간대별 매출 편차가 크고 외국인 고객 비중도 일정 수준 있어, 결제 안정성과 다국어·다결제수단 지원 여부가 특히 중요합니다.",
-  "{region}에서 매장을 운영하시는 사장님께 가장 자주 받는 질문은 \"우리 매장에 어떤 모델이 가장 잘 맞을지\"입니다. 매장마다 환경이 다르기 때문에 정답은 없으나, {region}의 {areaType} 특성을 고려할 때 결제 안정성과 사후 관리 응답 속도가 가장 우선 고려할 요소입니다. 마스터페이는 매장 방문을 통해 직접 환경을 확인하고, 매장에 가장 적합한 모델과 운영 조합을 제안합니다."
+  "{region}에서 매장을 운영하시는 사장님께 가장 자주 받는 질문은 \"우리 매장에 어떤 모델이 가장 잘 맞을지\"입니다. 매장마다 환경이 다르기 때문에 정답은 없으나, {region}의 {areaType} 특성을 고려할 때 결제 안정성과 사후 관리 응답 속도가 가장 우선 고려할 요소입니다. 포엔페이는 매장 방문을 통해 직접 환경을 확인하고, 매장에 가장 적합한 모델과 운영 조합을 제안합니다."
 ];
 
 // 섹션 B: 함께 쓰면 좋은 제품 조합 (250~350자)
@@ -21358,7 +21347,7 @@ const RP_COMBO_POOLS = {
   'card': [
     "{productName}만 단독으로 도입하기보다 포스기와 함께 도입하면 매장 운영 효율이 극대화됩니다. 카드 단말기로 결제만 처리하던 환경에서 포스기까지 도입하면 주문·결제·매출 마감·재고 관리가 단일 화면에서 통합 처리되어, 운영 시간이 평균 30~40% 단축됩니다. 패키지 도입 시 설치비·관리비 0원 혜택이 적용되며, 단말 간 자동 연동 세팅까지 함께 진행됩니다.",
     "{productName} 도입 매장에서는 키오스크 또는 테이블오더 도입을 함께 검토하시는 경우가 많습니다. 결제 단말기는 카운터 운영의 기본이지만, 인건비 부담이 큰 매장이라면 키오스크·테이블오더로 카운터 인력 자체를 줄이는 방향이 효과적입니다. 패키지 도입 시 단말 간 자동 연동과 설치비·관리비 0원 혜택이 함께 제공됩니다.",
-    "카드 단말기와 포스기를 함께 도입하면 결제·매출 데이터가 통합 관리되어 세무 신고와 매출 분석이 자동화됩니다. {region}의 다수 매장에서 이 조합을 표준 운영 환경으로 채택하고 있으며, 마스터페이는 패키지 도입 시 설치비·관리비 0원과 통합 사후 관리 혜택을 함께 제공합니다."
+    "카드 단말기와 포스기를 함께 도입하면 결제·매출 데이터가 통합 관리되어 세무 신고와 매출 분석이 자동화됩니다. {region}의 다수 매장에서 이 조합을 표준 운영 환경으로 채택하고 있으며, 포엔페이는 패키지 도입 시 설치비·관리비 0원과 통합 사후 관리 혜택을 함께 제공합니다."
   ],
   'pos': [
     "{productName}은(는) 카드 단말기·키오스크·테이블오더와 모두 자동 연동되는 통합 플랫폼입니다. 포스기 도입 후 매장 환경에 따라 키오스크나 테이블오더를 추가 도입하면 운영 효율이 단계적으로 향상됩니다. 패키지 도입 시 설치비·관리비 0원 혜택과 단말 간 자동 연동 세팅이 함께 제공되어, 도입 부담이 사실상 없습니다.",
@@ -21379,10 +21368,10 @@ const RP_COMBO_POOLS = {
 // 인트로 풀 확장 버전 (350~500자)
 const RP_INTRO_EXPANDED_POOLS = {
   'card': [
-    "{region}은(는) {areaType} 특성이 뚜렷한 지역으로, 카드 결제 비중이 90%를 넘는 업종이 다수 분포해 있습니다. 이러한 환경에서는 결제 단말기의 처리 속도와 통신 안정성이 매장 회전율에 직접적인 영향을 미치며, 결제 거절·승인 지연 같은 사소한 문제도 매출 손실로 이어질 수 있습니다. {productName}은(는) 이 지역의 카드 결제 환경에 가장 적합한 표준 모델로 평가받고 있으며, 결제 거절률을 동급 모델 대비 절반 수준으로 낮춘 검증된 장비입니다. 마스터페이는 {region} 전 지역 직접 방문 설치를 통해 매장별 환경에 최적화된 세팅과 1년 무상 A/S를 함께 제공합니다.",
+    "{region}은(는) {areaType} 특성이 뚜렷한 지역으로, 카드 결제 비중이 90%를 넘는 업종이 다수 분포해 있습니다. 이러한 환경에서는 결제 단말기의 처리 속도와 통신 안정성이 매장 회전율에 직접적인 영향을 미치며, 결제 거절·승인 지연 같은 사소한 문제도 매출 손실로 이어질 수 있습니다. {productName}은(는) 이 지역의 카드 결제 환경에 가장 적합한 표준 모델로 평가받고 있으며, 결제 거절률을 동급 모델 대비 절반 수준으로 낮춘 검증된 장비입니다. 포엔페이는 {region} 전 지역 직접 방문 설치를 통해 매장별 환경에 최적화된 세팅과 1년 무상 A/S를 함께 제공합니다.",
     "{region}에서 매장을 운영하는 사장님들이 카드 단말기 선택 시 가장 중요하게 보는 요소는 결제 안정성과 VAN사 수수료입니다. {region}의 {areaType} 환경은 시간대별 결제 빈도 편차가 크기 때문에, 어느 시점에서도 결제 처리가 지연되지 않는 단말기가 필수입니다. {productName}은(는) {region} 매장 환경에 적합한 통신·결제 안정성을 갖춘 단말로, 도입 후 결제 관련 클레임이 거의 발생하지 않는 모델입니다. VAN사 직제휴 모델로 카드 수수료가 시중 평균 대비 약 0.1~0.3%p 낮게 책정되어, 일 매출 100만원 매장 기준 월 3~9만원의 실질적 비용 절감 효과도 함께 발생합니다.",
     "{region}은(는) {topBiz1}, {topBiz2} 같은 업종이 활발히 운영되는 지역으로, 매장당 일 결제 건수가 평균 이상인 환경입니다. 이런 환경에서는 단말기의 안정성과 영수증 인쇄 속도가 매장 운영의 효율을 결정합니다. {productName}은(는) 이 두 조건을 모두 충족하는 표준 모델로, {region} 내 다수 매장에 도입되어 운영 안정성이 검증되었습니다. 신용·체크·간편결제(삼성페이·애플페이·제로페이 등) 모든 결제수단을 단일 단말로 처리하며, 외국인 고객의 해외 발급 카드 결제까지 안정적으로 지원합니다. 또한 결제 데이터의 실시간 본사 서버 동기화 기능으로 매출 누락 위험이 거의 없습니다.",
-    "{region}의 매장 환경은 {areaType}을(를) 중심으로 다양한 업종이 혼재되어 있어, 카드 결제 단말기 선택에 신중함이 요구됩니다. {productName}은(는) 결제 안정성·VAN사 수수료·사후 관리 등 사장님이 가장 우선시하는 항목에서 균형 있는 성능을 발휘하는 모델입니다. 마스터페이는 {region} 전 지역 직접 방문 설치를 통해 매장별 환경에 최적화된 세팅을 제공하며, 설치 후 1년간 무상 A/S와 카카오톡 24시간 상담을 함께 운영합니다. 노후 단말기 교체나 신규 개업 매장 모두 무료 견적 후 빠른 설치가 가능합니다."
+    "{region}의 매장 환경은 {areaType}을(를) 중심으로 다양한 업종이 혼재되어 있어, 카드 결제 단말기 선택에 신중함이 요구됩니다. {productName}은(는) 결제 안정성·VAN사 수수료·사후 관리 등 사장님이 가장 우선시하는 항목에서 균형 있는 성능을 발휘하는 모델입니다. 포엔페이는 {region} 전 지역 직접 방문 설치를 통해 매장별 환경에 최적화된 세팅을 제공하며, 설치 후 1년간 무상 A/S와 카카오톡 24시간 상담을 함께 운영합니다. 노후 단말기 교체나 신규 개업 매장 모두 무료 견적 후 빠른 설치가 가능합니다."
   ],
   'pos': [
     "{region}에서 포스기 도입을 검토하는 사장님이 늘어나는 배경에는 매출 관리 자동화에 대한 요구가 자리합니다. {region}의 {areaType} 환경은 매장당 메뉴 종류와 결제 빈도가 다양해, 카드 단말기만으로는 매출·재고·직원 관리가 분리되어 운영 효율이 떨어지는 경우가 많습니다. {productName}은(는) 이 모든 영역을 단일 화면에서 통합 관리하는 매장 운영 플랫폼으로, 도입 즉시 운영 부담이 체감되는 장비입니다. 도입 매장 평균 일 매출은 도입 전 대비 5~12% 상승하며, 매장 운영 시간(매출 마감·재고 정리·세무 신고)이 월 평균 8~15시간 단축되는 효과가 일반적입니다.",
@@ -21399,42 +21388,42 @@ const RP_INTRO_EXPANDED_POOLS = {
     "{region}의 외식업 매장에서 직원 채용이 점점 어려워지고 있는 가운데, 테이블오더는 인력 구조를 근본적으로 재설계하는 도구로 활용되고 있습니다. {productName}은(는) {region} 환경에 도입된 다수 매장에서 홀 운영 부담을 평균 40% 이상 줄이는 결과를 만들어냈으며, 동시에 객단가는 10~15% 상승하는 이중 효과가 발생합니다. 메뉴 사진 기반 주문 흐름은 외국인 고객 응대에도 효과적이며, 단골 고객의 주문 이력 자동 누적 기능은 마케팅 의사결정에 직접 활용됩니다."
   ],
   'removal': [
-    "{region}에서 매장 폐업·이전을 결정한 사장님이 가장 큰 부담을 느끼는 영역이 원상복구입니다. 임대인의 요구 수준, 폐기물 처리 비용, 작업 기간 등 변수가 많아 직접 알아보기 어려운 영역이기 때문입니다. {productName} 서비스는 {region} 전 지역 매장 철거를 단일 업체에서 책임지며, 견적부터 사후 책임까지 일관된 기준으로 진행됩니다. 무료 현장 방문 견적 단계에서 임대인 요구 수준을 직접 확인하여 분쟁 가능성을 사전에 차단하며, 작업 완료 후 1년간 임대인 분쟁 발생 시 마스터페이가 직접 대응합니다."
+    "{region}에서 매장 폐업·이전을 결정한 사장님이 가장 큰 부담을 느끼는 영역이 원상복구입니다. 임대인의 요구 수준, 폐기물 처리 비용, 작업 기간 등 변수가 많아 직접 알아보기 어려운 영역이기 때문입니다. {productName} 서비스는 {region} 전 지역 매장 철거를 단일 업체에서 책임지며, 견적부터 사후 책임까지 일관된 기준으로 진행됩니다. 무료 현장 방문 견적 단계에서 임대인 요구 수준을 직접 확인하여 분쟁 가능성을 사전에 차단하며, 작업 완료 후 1년간 임대인 분쟁 발생 시 포엔페이가 직접 대응합니다."
   ]
 };
 
 // 섹션 C: 운영 체크리스트 + 장기 운영 안정성 (추가 보강용, 300~400자)
 const RP_LONGTERM_POOLS = {
   'card': [
-    "{productName}은(는) 한 번 설치 후 통상 5~7년간 추가 비용 없이 운영되는 장기 안정 모델입니다. 그 기간 동안 카드 결제 규격이 변경되거나 새로운 간편결제수단이 추가되더라도 소프트웨어 업데이트가 무상으로 제공되어 운영 환경 변화에 자연스럽게 대응할 수 있습니다. 매장 이전 시에도 단말 재설치가 무상으로 진행되며, 별도 약정 변경이나 위약금 발생 없이 새 매장에서 동일하게 운영을 이어갈 수 있습니다. 마스터페이는 도입 시점뿐 아니라 장기 운영 전 과정에 걸친 안정성을 책임집니다.",
+    "{productName}은(는) 한 번 설치 후 통상 5~7년간 추가 비용 없이 운영되는 장기 안정 모델입니다. 그 기간 동안 카드 결제 규격이 변경되거나 새로운 간편결제수단이 추가되더라도 소프트웨어 업데이트가 무상으로 제공되어 운영 환경 변화에 자연스럽게 대응할 수 있습니다. 매장 이전 시에도 단말 재설치가 무상으로 진행되며, 별도 약정 변경이나 위약금 발생 없이 새 매장에서 동일하게 운영을 이어갈 수 있습니다. 포엔페이는 도입 시점뿐 아니라 장기 운영 전 과정에 걸친 안정성을 책임집니다.",
     "장기 운영 관점에서 카드 단말기 선택 시 가장 중요한 것은 사후 관리 응답 속도와 소모품 조달 안정성입니다. {productName}은(는) 영수증 용지가 표준 76mm 규격으로 어디서나 구매 가능하며, 장애 발생 시 영업 중 1시간 이내 현장 출동을 원칙으로 합니다. 또한 결제 데이터의 클라우드 백업으로 단말 고장 시에도 매출 손실 위험이 거의 없으며, 매장 이전·확장·재오픈 같은 운영 변화에도 유연하게 대응 가능합니다.",
-    "도입 후 안정적 운영을 위해 사장님께서 챙기실 사항은 많지 않습니다. 영수증 용지 잔량 확인, 단말 표면 청결 유지, 통신 상태 정상 작동 확인 정도이며, 그 외 모든 운영 관리는 마스터페이가 책임집니다. 정기 점검 안내, 소프트웨어 업데이트, VAN사 수수료 재검토까지 사장님이 별도로 챙기지 않아도 자동으로 진행됩니다."
+    "도입 후 안정적 운영을 위해 사장님께서 챙기실 사항은 많지 않습니다. 영수증 용지 잔량 확인, 단말 표면 청결 유지, 통신 상태 정상 작동 확인 정도이며, 그 외 모든 운영 관리는 포엔페이가 책임집니다. 정기 점검 안내, 소프트웨어 업데이트, VAN사 수수료 재검토까지 사장님이 별도로 챙기지 않아도 자동으로 진행됩니다."
   ],
   'pos': [
     "{productName}은(는) 5년 이상 안정 운영이 검증된 모델로, 장기 사용에 따른 처리 속도 저하나 시스템 불안정이 거의 발생하지 않습니다. 그 기간 동안 메뉴 변경, 직원 교체, 매장 이전 같은 운영 변화에도 유연하게 대응 가능하며, 소프트웨어 업데이트는 무상으로 정기 진행됩니다. 매장 운영 데이터(매출·재고·고객 이력)는 자동으로 클라우드에 누적되어, 5년 후 시점에서도 도입 초기부터의 데이터를 모두 활용할 수 있습니다.",
     "포스기 도입 후 운영 안정성은 사후 관리 응답 속도에 크게 좌우됩니다. {productName}은(는) 24시간 카카오톡 상담과 원격 지원이 기본 제공되며, 하드웨어 장애 시 영업 중 1시간 이내 현장 출동을 원칙으로 합니다. 또한 분기별 정기 점검과 소프트웨어 업데이트가 무상으로 진행되어, 사장님이 별도로 시스템 관리에 신경 쓰지 않아도 안정적 운영이 지속됩니다."
   ],
   'kiosk': [
-    "{productName}은(는) 24시간 가동 환경에서 5년 이상 무고장 운영이 검증된 하드웨어 내구성을 갖추고 있습니다. 도입 후 안정적 운영을 위해 매월 1회 정도 화면 청결 관리와 영수증 용지 보충만 챙기시면 되며, 그 외 모든 시스템 관리는 마스터페이가 책임집니다. 메뉴 변경·시즌 메뉴 운영·가격 조정 같은 일상 운영 변경은 사장님께서 직접 처리할 수 있도록 직관적 관리자 화면이 제공됩니다.",
+    "{productName}은(는) 24시간 가동 환경에서 5년 이상 무고장 운영이 검증된 하드웨어 내구성을 갖추고 있습니다. 도입 후 안정적 운영을 위해 매월 1회 정도 화면 청결 관리와 영수증 용지 보충만 챙기시면 되며, 그 외 모든 시스템 관리는 포엔페이가 책임집니다. 메뉴 변경·시즌 메뉴 운영·가격 조정 같은 일상 운영 변경은 사장님께서 직접 처리할 수 있도록 직관적 관리자 화면이 제공됩니다.",
     "키오스크 도입 후 운영 안정성을 좌우하는 가장 중요한 요소는 야간·주말 장애 대응입니다. {productName}은(는) 24시간 원격 지원 체계로 야간 장애 발생 시에도 즉시 대응 가능하며, 하드웨어 장애는 영업일 기준 1일 이내 현장 출동을 원칙으로 합니다. 도입 1년 후에도 합리적 비용으로 사후 관리가 지속되어, 장기 운영 부담이 크지 않습니다."
   ],
   'tableorder': [
-    "{productName}은(는) 도입 후 매장 운영에 자연스럽게 녹아드는 시스템입니다. 초기 1~2주 적응 기간이 지나면 직원과 고객 모두 익숙해지며, 그 이후로는 별도 관리 부담이 거의 없습니다. 메뉴 변경, 가격 조정, 시즌 운영은 사장님께서 직접 관리자 화면에서 처리 가능하며, 시스템 장애 발생 시 마스터페이가 24시간 원격 지원으로 즉시 대응합니다."
+    "{productName}은(는) 도입 후 매장 운영에 자연스럽게 녹아드는 시스템입니다. 초기 1~2주 적응 기간이 지나면 직원과 고객 모두 익숙해지며, 그 이후로는 별도 관리 부담이 거의 없습니다. 메뉴 변경, 가격 조정, 시즌 운영은 사장님께서 직접 관리자 화면에서 처리 가능하며, 시스템 장애 발생 시 포엔페이가 24시간 원격 지원으로 즉시 대응합니다."
   ],
   'removal': [
-    "{productName} 작업 완료 후에도 1년간 임대인 분쟁 발생 시 마스터페이가 직접 대응합니다. 작업 시점에서 임대인이 요구한 원상복구 수준을 충족했더라도, 인계 후 추가 요구가 발생하는 경우가 있습니다. 이때 마스터페이가 직접 임대인과 협의하여 사장님이 분쟁에 개입하실 필요가 없도록 책임집니다."
+    "{productName} 작업 완료 후에도 1년간 임대인 분쟁 발생 시 포엔페이가 직접 대응합니다. 작업 시점에서 임대인이 요구한 원상복구 수준을 충족했더라도, 인계 후 추가 요구가 발생하는 경우가 있습니다. 이때 포엔페이가 직접 임대인과 협의하여 사장님이 분쟁에 개입하실 필요가 없도록 책임집니다."
   ]
 };
 
 // 섹션 D: 비용 구조 안내 (300~400자)
 const RP_COST_POOLS = {
   'card': [
-    "{productName}의 도입 비용 구조는 단순합니다. 설치비·월 임대료·소프트웨어 라이선스 모두 무료이며, 카드 결제 발생 시 정상 카드 수수료만 부과됩니다. {region} 매장 기준 일 매출 100만원 가맹점은 월 평균 카드 수수료가 약 30~50만원 수준이며, 이는 시중 평균 대비 3~9만원 절감된 금액입니다. 별도 약정 위약금이나 중도 해지 비용은 발생하지 않으며, 매장 이전·확장 시 단말 재설치도 무료로 진행됩니다. 영수증 용지 등 소모품은 매장에서 별도 구매하시며, 표준 76mm 규격으로 어디서나 손쉽게 조달 가능합니다.",
-    "도입 비용은 사실상 0원에 가깝습니다. {productName}은(는) VAN사 직제휴 모델로 설치비·월 사용료가 발생하지 않으며, 정상 카드 수수료만 부과됩니다. {region} 매장 평균 기준 도입 후 첫 달부터 시중 단말 대비 월 3~9만원의 수수료 절감 효과가 누적되며, 연 환산 시 36~108만원의 실질적 비용 차이가 발생합니다. 매장 이전, 단말 추가, 소프트웨어 업데이트 모두 무상으로 진행됩니다."
+    "{productName}의 도입 비용 구조는 단순합니다. 설치비·월 임대료·소프트웨어 라이선스는 0원이며, 기기 본체 값은 별도로 발생합니다(일시불·렌탈·리스 중 선택). 그 외 카드 결제 발생 시 정상 카드 수수료만 부과됩니다. {region} 매장 기준 일 매출 100만원 가맹점은 월 평균 카드 수수료가 약 30~50만원 수준이며, 이는 시중 평균 대비 3~9만원 절감된 금액입니다. 별도 약정 위약금이나 중도 해지 비용은 발생하지 않으며, 매장 이전·확장 시 단말 재설치도 무료로 진행됩니다. 영수증 용지 등 소모품은 매장에서 별도 구매하시며, 표준 76mm 규격으로 어디서나 손쉽게 조달 가능합니다.",
+    "도입 초기 비용 중 설치비·월 사용료는 0원이며, 기기 본체 값만 별도로 발생합니다(일시불·렌탈·리스 선택 가능). {productName}은(는) VAN사 직제휴 모델로 운영 중에는 정상 카드 결제 수수료만 부과됩니다. {region} 매장 평균 기준 도입 후 첫 달부터 시중 단말 대비 월 3~9만원의 수수료 절감 효과가 누적되며, 연 환산 시 36~108만원의 실질적 비용 차이가 발생합니다. 매장 이전, 단말 추가, 소프트웨어 업데이트 모두 무상으로 진행됩니다."
   ],
   'pos': [
-    "{productName}은(는) 패키지 도입 시 설치비·하드웨어 비용·소프트웨어 라이선스가 모두 무상으로 제공되는 구조입니다. 별도 월 사용료가 발생하지 않으며, 카드 단말기·키오스크·테이블오더와 함께 도입할 경우 통합 설치 혜택이 추가로 적용됩니다. {region} 매장 기준 도입 후 누적 비용 부담은 사실상 카드 수수료만 발생하며, 매출 분석·재고 관리·세무 신고 자동화 같은 통합 기능을 추가 비용 없이 활용할 수 있습니다. 단말 고장 시 1년 무상 A/S, 이후에도 합리적 비용으로 사후 관리가 지속됩니다.",
-    "도입 비용 구조가 명확합니다. 설치비·소프트웨어 비용 0원, 카드 수수료 정상 부과, 그 외 추가 청구 없음입니다. {region}의 다수 매장이 이 구조로 운영 중이며, 도입 후 월 발생 비용은 사실상 카드 수수료뿐입니다. 매장 메뉴 변경, 직원 추가, 분점 오픈 같은 운영 변화 시에도 별도 비용이 발생하지 않으며, 정기 소프트웨어 업데이트도 무상 제공됩니다."
+    "{productName}은(는) 패키지 도입 시 설치비·월 사용료·소프트웨어 라이선스가 0원이며, 기기 본체 값은 별도로 발생합니다(일시불·렌탈·리스 중 선택 가능). 카드 단말기·키오스크·테이블오더와 함께 도입할 경우 통합 설치 혜택이 추가로 적용됩니다. {region} 매장 기준 도입 후 누적 비용 부담은 사실상 카드 수수료만 발생하며, 매출 분석·재고 관리·세무 신고 자동화 같은 통합 기능을 추가 비용 없이 활용할 수 있습니다. 단말 고장 시 1년 무상 A/S, 이후에도 합리적 비용으로 사후 관리가 지속됩니다.",
+    "도입 비용 구조가 명확합니다. 설치비·소프트웨어 비용 0원, 기기 본체 값은 별도(일시불·렌탈 선택), 카드 결제 수수료 정상 부과, 그 외 숨은 비용 없음입니다. {region}의 다수 매장이 이 구조로 운영 중이며, 도입 후 월 발생 비용은 사실상 카드 수수료뿐입니다. 매장 메뉴 변경, 직원 추가, 분점 오픈 같은 운영 변화 시에도 별도 비용이 발생하지 않으며, 정기 소프트웨어 업데이트도 무상 제공됩니다."
   ],
   'kiosk': [
     "{productName}의 도입 비용은 매장 환경과 모델에 따라 차등 적용되며, 무료 견적을 통해 가장 합리적인 조건을 안내드립니다. {region} 매장 기준 도입 후 회수 기간은 평균 6~12개월이며, 이후로는 인건비 절감 효과가 순수익으로 전환되는 구조입니다. 패키지 도입(포스기·테이블오더 등 함께 도입) 시 추가 할인 혜택이 적용되며, 1년 무상 A/S 후에도 사후 관리 비용이 합리적 수준으로 유지됩니다. 별도 월 사용료나 숨은 비용은 발생하지 않습니다.",
@@ -21455,7 +21444,7 @@ const RP_GUIDE_POOLS = {
     "도입 첫 주에는 직원분들이 새 단말 조작에 익숙해지도록 사용법 교육이 함께 진행됩니다. 결제 처리, 환불, 매출 마감 등 기본 동작은 5분 이내 숙달 가능한 직관적 UI 설계여서, 적응 기간이 매우 짧습니다. 첫 달 매출 마감 데이터를 확인하시면서 결제 흐름이 매장 운영에 자연스럽게 녹아들었는지 점검하시면 도입이 마무리됩니다."
   ],
   'pos': [
-    "{productName} 도입 첫 주는 메뉴 입력과 직원 사용법 교육이 핵심입니다. 마스터페이가 매장 메뉴 입력을 직접 지원하므로 사장님께서는 메뉴 정확성만 검토해주시면 됩니다. 둘째 주부터는 일 매출 마감과 시간대별 매출 분석이 자동 생성되므로, 데이터를 확인하시면서 매장 운영 패턴을 파악하시면 좋습니다. 도입 1개월 시점부터는 누적된 데이터를 기반으로 메뉴 운영 전략을 수립할 수 있어, 매장 운영의 새로운 단계로 진입하게 됩니다.",
+    "{productName} 도입 첫 주는 메뉴 입력과 직원 사용법 교육이 핵심입니다. 포엔페이가 매장 메뉴 입력을 직접 지원하므로 사장님께서는 메뉴 정확성만 검토해주시면 됩니다. 둘째 주부터는 일 매출 마감과 시간대별 매출 분석이 자동 생성되므로, 데이터를 확인하시면서 매장 운영 패턴을 파악하시면 좋습니다. 도입 1개월 시점부터는 누적된 데이터를 기반으로 메뉴 운영 전략을 수립할 수 있어, 매장 운영의 새로운 단계로 진입하게 됩니다.",
     "포스기 도입 후 첫 30일은 직원과 시스템이 서로 적응하는 기간입니다. 직원분들이 메뉴 변경·환불 처리·매출 마감 같은 일상 운영 동작에 익숙해지면, 매장 운영 효율이 본격적으로 향상됩니다. 첫 달 누적 매출 데이터는 시간대별·요일별·메뉴별 분석으로 자동 정리되어, 두 번째 달 운영 의사결정의 근거로 즉시 활용됩니다."
   ],
   'kiosk': [
@@ -21466,7 +21455,7 @@ const RP_GUIDE_POOLS = {
     "{productName} 도입 후 첫 주는 고객분들이 QR 또는 태블릿 주문에 익숙해지는 기간입니다. 직원이 첫 주문 시 사용법을 짧게 안내해주시면 적응이 매우 빠르게 진행됩니다. 둘째 주부터는 고객이 자연스럽게 직접 주문하시며, 홀 직원 부담이 본격적으로 감소합니다. 한 달 시점에 객단가 상승 효과와 회전율 향상 효과가 데이터로 확인됩니다."
   ],
   'removal': [
-    "{productName} 작업 완료 후 임대인 인계까지의 절차도 함께 안내드립니다. 작업 종료 시점에 매장 상태 사진을 촬영하여 임대인과 공유하면, 추후 분쟁 가능성을 사전에 차단할 수 있습니다. 인계 후 1년간 임대인이 추가 요구를 하는 경우 마스터페이가 직접 협의 진행하므로, 사장님은 일상으로 빠르게 복귀하실 수 있습니다."
+    "{productName} 작업 완료 후 임대인 인계까지의 절차도 함께 안내드립니다. 작업 종료 시점에 매장 상태 사진을 촬영하여 임대인과 공유하면, 추후 분쟁 가능성을 사전에 차단할 수 있습니다. 인계 후 1년간 임대인이 추가 요구를 하는 경우 포엔페이가 직접 협의 진행하므로, 사장님은 일상으로 빠르게 복귀하실 수 있습니다."
   ]
 };
 
@@ -21672,8 +21661,8 @@ function getCommonHead(title, description, schemas) {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "마스터페이",
-    "alternateName": "Mastarpay",
+    "name": "포엔페이",
+    "alternateName": "Fonepay",
     "url": "https://mastarpay.com",
     "logo": "https://mastarpay.com/brand.png",
     "telephone": "+82-10-2337-0458",
@@ -21689,7 +21678,7 @@ function getCommonHead(title, description, schemas) {
   const siteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "마스터페이",
+    "name": "포엔페이",
     "url": "https://mastarpay.com",
     "inLanguage": "ko-KR"
   };
@@ -21703,12 +21692,12 @@ function getCommonHead(title, description, schemas) {
 <link rel="apple-touch-icon" href="/brand.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="53af8497b3a522a8a85a7b13bae57efd7e27fb5c" />
-<title>${title} | 마스터페이</title>
+<title>${title} | 포엔페이</title>
 <meta name="description" content="${description}">
-<meta property="og:title" content="${title} | 마스터페이">
+<meta property="og:title" content="${title} | 포엔페이">
 <meta property="og:description" content="${description}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="마스터페이">
+<meta property="og:site_name" content="포엔페이">
 <meta property="og:locale" content="ko_KR">
 <meta name="robots" content="index, follow">
 ${schemaHtml}
@@ -24027,7 +24016,7 @@ p, h1, h2, h3, h4, li {
 function getHeader() {
   return `<header>
 <nav class="nav">
-<a href="/" class="logo"><img src="/brand.png" alt="마스터페이" class="logo-mark-img">마스터페이</a>
+<a href="/" class="logo"><img src="/brand.png" alt="포엔페이" class="logo-mark-img">포엔페이</a>
 <ul class="nav-menu" id="navMenu">
 <li><a href="/#find-sec">지역별 설치</a></li>
 <li><a href="/#allinone">제품 안내</a></li>
@@ -24045,7 +24034,7 @@ function getFooter() {
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<div class="logo"><img src="/brand.png" alt="마스터페이" class="logo-mark-img">마스터페이</div>
+<div class="logo"><img src="/brand.png" alt="포엔페이" class="logo-mark-img">포엔페이</div>
 <p>매장 운영에 필요한 모든 장비<br>설치부터 A/S까지 한번에.</p>
 </div>
 <div class="footer-col">
@@ -24088,7 +24077,7 @@ function getFooter() {
 </div>
 </div>
 <div class="footer-bottom">
-<span>© 2026 마스터페이. All rights reserved.</span>
+<span>© 2026 포엔페이. All rights reserved.</span>
 <span>개인정보처리방침 · 이용약관</span>
 </div>
 </div>
@@ -24488,7 +24477,7 @@ function buildSidoPage(sidoUrl) {
   // FAQ 데이터 (HTML과 스키마 모두에서 사용)
   const faqs = [
     { q: `${sido.name} 어디든 출장 설치가 가능한가요?`, a: `네, ${sido.name} ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 전 지역 직접 방문 설치를 제공합니다.` },
-    { q: `설치비가 정말 무료인가요?`, a: `네, 마스터페이는 VAN사 제휴를 통해 설치비를 전액 지원합니다. 월 이용료도 무료이며, 카드 수수료만 정상 부과됩니다.` },
+    { q: `설치비가 정말 무료인가요?`, a: `네, 포엔페이는 VAN사 제휴를 통해 설치비·월 이용료는 0원으로 제공합니다. 다만 기기 본체 값(카드단말기·포스기 등)은 별도로 발생하며, 일시불·렌탈·리스 중 선택 가능합니다. 그 외 카드 결제 수수료만 정상 부과됩니다.` },
     { q: `기존 장비 교체도 가능한가요?`, a: `네, 기존 카드단말기·포스기 교체도 무료 견적 후 빠르게 진행됩니다.` },
     { q: `여러 장비를 함께 설치하면 할인되나요?`, a: `네, 여러 장비를 한번에 설치하면 패키지 혜택이 적용됩니다.` },
     { q: `A/S는 어떻게 받나요?`, a: `전화 한 통이면 됩니다. 대부분 원격 지원으로 즉시 해결되며, 하드웨어 문제는 ${sido.name} 전역 현장 출동합니다.` }
@@ -24544,7 +24533,7 @@ function buildSidoPage(sidoUrl) {
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
 </div>
 </div>
-<div class="region-hero-sub-standalone">카드단말기·포스기·키오스크·테이블오더·철거까지 ${sido.name} 전 지역 무료 설치와 빠른 A/S를 지원합니다.</div>
+<div class="region-hero-sub-standalone">카드단말기·포스기·키오스크·테이블오더·철거까지 ${sido.name} 전 지역 설치비·관리비 0원(기기값 별도)과 빠른 A/S를 지원합니다.</div>
 <div class="region-price-notice">
 <span class="region-price-notice-icon">💰</span>
 <span><strong>설치비 0원</strong><span class="region-price-notice-sep">·</span><strong>월 관리비 0원</strong><span class="region-price-notice-sep">·</span><span>기기값 별도 상담</span></span>
@@ -24553,7 +24542,7 @@ function buildSidoPage(sidoUrl) {
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">빠른 설치</div><div class="region-stat-value">신속</div></div>
-<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
+<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">0원</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">빠른 대응</div></div>
 </div>
 </div>
@@ -24573,10 +24562,10 @@ function buildSidoPage(sidoUrl) {
 </div>
 </div>
 
-<!-- 박스 2: 왜 마스터페이인가 -->
+<!-- 박스 2: 왜 포엔페이인가 -->
 <div class="region-box">
-<h2 class="region-box-title">🏙️ ${sido.name} 설치, 왜 마스터페이일까요?</h2>
-<p class="region-box-subtitle">${sido.name}은(는) ${ctx.areaType} 중심으로 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 등 다양한 업종이 분포한 지역입니다. 마스터페이는 ${sido.name} ${gus.length}개 시군구의 매장 특성을 분석하여 꼭 맞는 장비를 설치합니다.</p>
+<h2 class="region-box-title">🏙️ ${sido.name} 설치, 왜 포엔페이일까요?</h2>
+<p class="region-box-subtitle">${sido.name}은(는) ${ctx.areaType} 중심으로 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 등 다양한 업종이 분포한 지역입니다. 포엔페이는 ${sido.name} ${gus.length}개 시군구의 매장 특성을 분석하여 꼭 맞는 장비를 설치합니다.</p>
 <div class="region-features-grid">
 <div class="region-feature-card"><div class="fi-icon">🎯</div><h3>업종별 맞춤 설치</h3><p>${sido.name} 매장의 업종·규모·동선을 분석해 꼭 맞는 장비를 추천합니다.</p></div>
 <div class="region-feature-card"><div class="fi-icon">🏠</div><h3>직접 방문 설치</h3><p>전문 기사가 직접 방문하여 설치·세팅·테스트까지 완료합니다.</p></div>
@@ -24601,7 +24590,7 @@ function buildSidoPage(sidoUrl) {
 
 <!-- 박스 4: 특징 (번호) -->
 <div class="region-box">
-<h2 class="region-box-title">💡 마스터페이만의 특별함</h2>
+<h2 class="region-box-title">💡 포엔페이만의 특별함</h2>
 <div class="region-numbered-grid">
 <div class="region-numbered-card"><div class="num-circle">1</div><h3>현장 환경 분석</h3><p>매장 방문 전 업종, 크기, 동선, 네트워크 상태를 파악하고 꼭 맞는 장비 조합을 설계합니다.</p></div>
 <div class="region-numbered-card"><div class="num-circle">2</div><h3>패키지 설치 할인</h3><p>카드단말기·포스기·키오스크·테이블오더를 함께 설치하면 설치비·관리비 0원 혜택이 적용됩니다.</p></div>
@@ -24747,13 +24736,13 @@ function buildSidoProductPage(sidoUrl, productSlug) {
 <span class="region-thumbnail-dot">·</span>
 <span>${sido.name} 전 지역</span>
 <span class="region-thumbnail-dot">·</span>
-<span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
+<span>${productSlug === 'removal' ? '무료 견적' : '설치비 0원'}</span>
 </div>
 <h1 class="region-thumbnail-title">${sido.name} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
 </div>
 </div>
-<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 매장 철거·원상복구 전문. 무료 견적과 1년 사후 책임을 약속합니다.` : `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 무료 설치와 빠른 A/S를 지원합니다.`}</div>
+<div class="region-hero-sub-standalone">${productSlug === 'removal' ? `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 매장 철거·원상복구 전문. 무료 견적과 1년 사후 책임을 약속합니다.` : `${sido.name} 전 지역 ${gus.length}개 시군구, ${totalDongs.toLocaleString()}개 읍면동 ${product.name} 설치비·관리비 0원(기기값 별도)과 빠른 A/S를 지원합니다.`}</div>
 <div class="region-price-notice">
 <span class="region-price-notice-icon">💰</span>
 <span><strong>설치비 0원</strong><span class="region-price-notice-sep">·</span><strong>월 관리비 0원</strong><span class="region-price-notice-sep">·</span><span>기기값 별도 상담</span></span>
@@ -24767,7 +24756,7 @@ ${productSlug === 'removal'
 <div class="region-stat"><div class="region-stat-icon">🛡️</div><div class="region-stat-label">사후 책임</div><div class="region-stat-value">1년</div></div>`
 : `<div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">${sido.name} 누적</div><div class="region-stat-value">${stats.shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">빠른 설치</div><div class="region-stat-value">신속</div></div>
-<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
+<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">0원</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">빠른 대응</div></div>`}
 </div>
 </div>
@@ -24890,7 +24879,7 @@ function buildGuPage(sidoUrl, guName) {
 <div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">${dongs.length}개 동</div></div>
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">실적</div><div class="region-stat-value">${shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">출동</div><div class="region-stat-value">당일</div></div>
-<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
+<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">0원</div></div>
 </div>
 </div>
 </section>
@@ -24909,8 +24898,8 @@ function buildGuPage(sidoUrl, guName) {
 </div>
 
 <div class="region-box">
-<h2 class="region-box-title">🏙️ ${sido.name} ${guName} 설치, 왜 마스터페이일까요?</h2>
-<p class="region-box-subtitle">${sido.name} ${guName}은(는) ${ctx.areaType} 특성이 강한 지역으로, ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종이 특히 활발합니다. ${guName} ${dongs.length}개 동 전역에 ${shops.toLocaleString()}+ 매장이 마스터페이 장비를 이용하고 있습니다.</p>
+<h2 class="region-box-title">🏙️ ${sido.name} ${guName} 설치, 왜 포엔페이일까요?</h2>
+<p class="region-box-subtitle">${sido.name} ${guName}은(는) ${ctx.areaType} 특성이 강한 지역으로, ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 업종이 특히 활발합니다. ${guName} ${dongs.length}개 동 전역에 ${shops.toLocaleString()}+ 매장이 포엔페이 장비를 이용하고 있습니다.</p>
 <div class="region-features-grid">
 <div class="region-feature-card"><div class="fi-icon">📍</div><h3>${guName} 전담팀</h3><p>${guName} ${dongs.length}개 동을 전담하는 현지 설치팀이 빠르게 대응합니다.</p></div>
 <div class="region-feature-card"><div class="fi-icon">⚡</div><h3>당일 긴급 출동</h3><p>${guName} 내 긴급 A/S 요청 시 평균 2시간 내 도착합니다.</p></div>
@@ -25051,7 +25040,7 @@ function buildGuProductPage(sidoUrl, guName, productSlug) {
 <span class="region-thumbnail-dot">·</span>
 <span>${sido.name} ${guName}</span>
 <span class="region-thumbnail-dot">·</span>
-<span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
+<span>${productSlug === 'removal' ? '무료 견적' : '설치비 0원'}</span>
 </div>
 <h1 class="region-thumbnail-title">${getShortSidoName(sido.name)} ${guName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
@@ -25072,7 +25061,7 @@ ${productSlug === 'removal'
 : `<div class="region-stat"><div class="region-stat-icon">${product.emoji}</div><div class="region-stat-label">${sido.name} ${guName}</div><div class="region-stat-value">전문</div></div>
 <div class="region-stat"><div class="region-stat-icon">🏆</div><div class="region-stat-label">실적</div><div class="region-stat-value">${shops.toLocaleString()}+</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
-<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>`}
+<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">0원</div></div>`}
 </div>
 </div>
 </section>
@@ -25180,7 +25169,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <span class="region-thumbnail-dot">·</span>
 <span>${fullAddr}</span>
 <span class="region-thumbnail-dot">·</span>
-<span>무료 설치</span>
+<span>설치비 0원</span>
 </div>
 <h1 class="region-thumbnail-title">${getShortSidoName(sido.name)} ${guName} ${dongName} 설치 전문</h1>
 <div class="region-thumbnail-services">카드단말기 · 포스기 · 키오스크 · 테이블오더 · 철거</div>
@@ -25195,7 +25184,7 @@ function buildDongPage(sidoUrl, guName, dongName) {
 <div class="region-stats-grid">
 <div class="region-stat"><div class="region-stat-icon">📍</div><div class="region-stat-label">${guName} ${dongName}</div><div class="region-stat-value">${shops}+건</div></div>
 <div class="region-stat"><div class="region-stat-icon">⚡</div><div class="region-stat-label">설치</div><div class="region-stat-value">${ctx.installTime}~${ctx.installTime+2}일</div></div>
-<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">무료</div></div>
+<div class="region-stat"><div class="region-stat-icon">💰</div><div class="region-stat-label">설치비</div><div class="region-stat-value">0원</div></div>
 <div class="region-stat"><div class="region-stat-icon">🔧</div><div class="region-stat-label">A/S</div><div class="region-stat-value">즉시</div></div>
 </div>
 </div>
@@ -25274,7 +25263,7 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <div class="region-box">
 <h2 class="region-box-title">📊 ${fullAddr} 포스기 상세 가이드</h2>
 <h3>${dongName} 매장에 포스기가 꼭 필요한 5가지 이유</h3>
-<p>${ctx.areaType} 특성이 강한 ${fullAddr} 일대는 ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종의 매장이 밀집해 있어, 빠르고 정확한 매출 관리가 매장 경쟁력의 핵심입니다. 포스기는 단순히 결제하는 도구가 아니라 매장 운영의 두뇌 역할을 하는 통합 시스템입니다. 마스터페이가 ${dongName} 사장님들께 포스기를 권해드리는 이유는 다음과 같습니다.</p>
+<p>${ctx.areaType} 특성이 강한 ${fullAddr} 일대는 ${ctx.topBiz[0]}와(과) ${ctx.topBiz[1]} 업종의 매장이 밀집해 있어, 빠르고 정확한 매출 관리가 매장 경쟁력의 핵심입니다. 포스기는 단순히 결제하는 도구가 아니라 매장 운영의 두뇌 역할을 하는 통합 시스템입니다. 포엔페이가 ${dongName} 사장님들께 포스기를 권해드리는 이유는 다음과 같습니다.</p>
 <p><strong>첫째, 매출 통합 관리.</strong> 포스기 한 대로 카드결제·현금결제·간편결제·테이블별 매출·시간대별 매출까지 모두 자동 집계됩니다. ${dongName} 매장이 ${ctx.topBiz[0]} 업종이라면 매일 마감 정산 시간을 절반 이하로 줄일 수 있습니다.</p>
 <p><strong>둘째, 재고 자동 차감.</strong> 메뉴를 등록해두면 판매할 때마다 재고가 자동으로 차감되어, ${dongName} 같이 회전율이 높은 상권에서는 재료 소진 시점을 정확히 파악할 수 있습니다. 식자재·소모품 발주 타이밍을 놓치지 않게 됩니다.</p>
 <p><strong>셋째, 직원 관리 통합.</strong> 직원별 로그인 기능으로 누가 언제 어떤 결제를 처리했는지 모두 기록되며, 출퇴근 관리도 함께 가능합니다. ${guName} 같이 인건비 부담이 큰 지역에서는 인력 효율을 극대화할 수 있습니다.</p>
@@ -25282,9 +25271,9 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p><strong>다섯째, 24시간 데이터 백업.</strong> 클라우드 자동 백업으로 ${dongName} 매장의 모든 데이터가 안전하게 보관되며, 갑작스러운 정전·기기 고장에도 매출 정보가 사라지지 않습니다.</p>
 <h3>${fullAddr}에 추천하는 포스기 모델</h3>
 <p>${ctx.topBiz[0]} 업종은 일반적으로 15.6인치 터치스크린 모델이 적합합니다. 화면이 커서 메뉴 추가가 쉽고, 키친 프린터·번호표 출력기·카드단말기 등 다양한 주변 기기를 동시에 연결할 수 있습니다. ${ctx.topBiz[1]} 업종은 11~13인치 컴팩트 모델로도 충분합니다. 매장 면적이 작은 ${dongName} 일대 매장이라면 카운터 공간을 최대한 효율적으로 사용할 수 있습니다.</p>
-<p>마스터페이는 ${fullAddr}에서 다양한 포스기 브랜드(OKPOS, 솔루엠, 빌포스 등)를 직접 비교 견적해드리며, ${ctx.topBiz[0]} 업종에 최적화된 메뉴 템플릿까지 무료로 세팅해 드립니다. 설치 후 1주일 동안 ${dongName} 전담 기사가 직접 매장을 방문하거나 원격 지원으로 사용법을 알려드리고, 6개월 무상 A/S와 1년 동안 정기 점검까지 포함됩니다.</p>
+<p>포엔페이는 ${fullAddr}에서 다양한 포스기 브랜드(OKPOS, 솔루엠, 빌포스 등)를 직접 비교 견적해드리며, ${ctx.topBiz[0]} 업종에 최적화된 메뉴 템플릿까지 무료로 세팅해 드립니다. 설치 후 1주일 동안 ${dongName} 전담 기사가 직접 매장을 방문하거나 원격 지원으로 사용법을 알려드리고, 6개월 무상 A/S와 1년 동안 정기 점검까지 포함됩니다.</p>
 <h3>${dongName} 포스기 도입 절차</h3>
-<p>전화 또는 카카오톡으로 상담을 신청하시면 ${dongName} 담당 매니저가 매장에 직접 방문해 매장 환경(인터넷·전기·동선)을 점검하고, 업종에 맞는 모델 2~3종을 비교해드립니다. 결정 후 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치가 완료되며, 운영 중인 매장이라면 영업 종료 후 야간 설치도 가능합니다. 설치 비용은 무료이며, VAN사 수수료만 정상 부과됩니다.</p>
+<p>전화 또는 카카오톡으로 상담을 신청하시면 ${dongName} 담당 매니저가 매장에 직접 방문해 매장 환경(인터넷·전기·동선)을 점검하고, 업종에 맞는 모델 2~3종을 비교해드립니다. 결정 후 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치가 완료되며, 운영 중인 매장이라면 영업 종료 후 야간 설치도 가능합니다. 설치비·월 관리비는 0원이며, 기기 본체 값은 별도로 발생합니다. 카드 결제 발생 시 VAN사 수수료만 정상 부과됩니다.</p>
 </div>
 `,
 
@@ -25300,8 +25289,8 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p><strong>④ 무선 모델 선택 가능.</strong> Wi-Fi 또는 LTE 모델을 선택하면 매장 어디서든 결제가 가능해, ${dongName} 일대 ${ctx.topBiz[1]} 업종(테이블 결제, 출장 결제)에 특히 유리합니다.</p>
 <h3>${fullAddr}에서 자주 받는 질문</h3>
 <p><strong>Q. 2인치 카드단말기로 영수증이 너무 작지 않나요?</strong> A. 일반 결제 정보(가맹점명, 카드사, 금액, 승인번호 등)는 모두 정상적으로 출력되며, 글자 크기도 충분히 읽기 좋습니다. 단, 메뉴 항목이 많은 카페나 식당이라면 3인치 모델이 더 적합할 수 있습니다.</p>
-<p><strong>Q. 단말기 비용은 얼마인가요?</strong> A. 마스터페이를 통해 신청하시면 ${guName} 지역도 단말기 무료 옵션이 있으며, 월 사용료도 0원입니다. VAN사 카드 수수료만 일반 요율로 부과됩니다.</p>
-<p><strong>Q. 기존 단말기 교체도 가능한가요?</strong> A. 네, ${fullAddr} 매장의 기존 단말기는 마스터페이가 무료 회수·반납 처리를 도와드립니다. 가맹점 명의 변경 절차도 함께 처리됩니다.</p>
+<p><strong>Q. 단말기 비용은 얼마인가요?</strong> A. ${guName} 지역에서 포엔페이 신청 시 설치비·월 사용료는 0원입니다. 단말기 본체 값은 별도로 발생하며(일시불·렌탈·리스 중 선택), 상담 시 매장 환경에 맞춰 안내드립니다. 운영 중에는 VAN사 카드 결제 수수료만 일반 요율로 부과됩니다.</p>
+<p><strong>Q. 기존 단말기 교체도 가능한가요?</strong> A. 네, ${fullAddr} 매장의 기존 단말기는 포엔페이가 무료 회수·반납 처리를 도와드립니다. 가맹점 명의 변경 절차도 함께 처리됩니다.</p>
 <h3>${dongName} 2인치 카드단말기 설치 절차</h3>
 <p>상담 → 매장 방문 또는 전화 견적 → 모델 선정 → 설치(${ctx.installTime}~${ctx.installTime+2}일 이내) → 사용법 교육 → 사후 관리. ${guName} 전담 기사가 ${dongName} 매장을 직접 방문해 설치하며, 카드사 가맹 등록까지 모두 대행합니다. 사장님은 설치 당일 결제 테스트만 함께 해보시면 됩니다.</p>
 </div>
@@ -25320,9 +25309,9 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p><strong>⑤ 안정적인 내구성.</strong> 일평균 500건 이상의 결제도 무리 없이 처리하며, 평균 사용 수명이 5년 이상으로 ${ctx.topBiz[1]} 처럼 결제 횟수가 많은 업종에서도 안심하고 사용 가능합니다.</p>
 <h3>${fullAddr}에서 추천하는 3인치 모델</h3>
 <p>일반 매장은 KIS-1420 모델이 가장 인기 있으며, 결제 속도가 빠르고 NFC·MS·IC 카드를 모두 지원합니다. 무선 결제가 필요한 매장은 KIS-1420 LTE 모델을, 비용 절감이 중요한 매장은 동급 KS-7700 시리즈도 좋은 선택입니다.</p>
-<p>마스터페이는 ${fullAddr} 매장에 ${ctx.topBiz[0]} 업종 기준으로 가장 적합한 모델을 추천드리며, 카드사 수수료를 카드사별로 비교해 가장 유리한 조건으로 가맹 신청을 진행해드립니다. 신용카드 수수료는 매출 규모에 따라 차이가 크기 때문에, 같은 단말기라도 어느 VAN사를 통하느냐에 따라 연간 수백만 원의 차이가 날 수 있습니다.</p>
+<p>포엔페이는 ${fullAddr} 매장에 ${ctx.topBiz[0]} 업종 기준으로 가장 적합한 모델을 추천드리며, 카드사 수수료를 카드사별로 비교해 가장 유리한 조건으로 가맹 신청을 진행해드립니다. 신용카드 수수료는 매출 규모에 따라 차이가 크기 때문에, 같은 단말기라도 어느 VAN사를 통하느냐에 따라 연간 수백만 원의 차이가 날 수 있습니다.</p>
 <h3>${dongName} 3인치 카드단말기 도입 효과</h3>
-<p>${dongName} 일대 매장 사례를 보면, 3인치 카드단말기 도입 후 결제 대기 시간이 평균 30% 단축되고, 영수증 분실로 인한 환불 분쟁도 크게 줄어듭니다. 또한 매출 데이터가 자동으로 정리되어 부가세 신고 시간도 절약됩니다. 마스터페이가 설치한 ${guName} 지역 매장의 평균 만족도는 ${ctx.satisfaction || 96}% 이상입니다.</p>
+<p>${dongName} 일대 매장 사례를 보면, 3인치 카드단말기 도입 후 결제 대기 시간이 평균 30% 단축되고, 영수증 분실로 인한 환불 분쟁도 크게 줄어듭니다. 또한 매출 데이터가 자동으로 정리되어 부가세 신고 시간도 절약됩니다. 포엔페이가 설치한 ${guName} 지역 매장의 평균 만족도는 ${ctx.satisfaction || 96}% 이상입니다.</p>
 </div>
 `,
 
@@ -25338,7 +25327,7 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p><strong>④ 매출 알림 즉시.</strong> 결제될 때마다 토스 사장님 앱으로 푸시 알림이 오며, 매출 현황을 실시간으로 확인할 수 있습니다. ${dongName} 처럼 직원이 결제 받는 매장에서는 사장님이 매장 밖에서도 매출을 모니터링할 수 있습니다.</p>
 <p><strong>⑤ 단말기 디자인.</strong> 깔끔한 흰색 미니멀 디자인으로 인테리어와 잘 어울리며, ${ctx.topBiz[1]} 같은 디자인 중요 업종에서 호평을 받습니다.</p>
 <h3>${fullAddr} 토스 카드단말기 도입 절차</h3>
-<p>토스페이먼츠 가맹 심사 → 단말기 발송 → ${dongName} 현지 설치 → 토스 사장님 앱 설치 → 사용법 교육 순으로 진행됩니다. 마스터페이는 ${fullAddr} 매장의 가맹 신청을 대행하며, 사업자등록증·통장사본·신분증만 준비하시면 나머지는 모두 처리해드립니다. ${guName} 전담 기사가 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치를 완료합니다.</p>
+<p>토스페이먼츠 가맹 심사 → 단말기 발송 → ${dongName} 현지 설치 → 토스 사장님 앱 설치 → 사용법 교육 순으로 진행됩니다. 포엔페이는 ${fullAddr} 매장의 가맹 신청을 대행하며, 사업자등록증·통장사본·신분증만 준비하시면 나머지는 모두 처리해드립니다. ${guName} 전담 기사가 ${ctx.installTime}~${ctx.installTime+2}일 이내에 설치를 완료합니다.</p>
 <h3>${dongName} 매장에 추천하는 토스 카드단말기 활용법</h3>
 <p>토스 카드단말기를 ${dongName} 매장에 설치하면, 토스 앱 사용자에게 자동 노출되는 장점도 있습니다. 토스 앱의 '내 주변 가맹점' 기능에 ${fullAddr} 매장이 노출되어 자연 유입이 늘어날 수 있습니다. 또한 토스 결제 고객 대상 자체 적립금·쿠폰 발행도 가능해, ${ctx.topBiz[0]} 업종이라면 단골 마케팅 도구로도 활용할 수 있습니다.</p>
 </div>
@@ -25360,7 +25349,7 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <h3>${fullAddr} 무선 카드단말기 추천 사양</h3>
 <p>일반 매장은 LTE 무선 모델 (월 통신비 5,000~9,000원)을 추천드리며, Wi-Fi가 안정적인 매장은 Wi-Fi 모델로도 충분합니다. 배터리는 한 번 충전으로 8~12시간 사용 가능하며, ${dongName} 매장에서 영업 시간 내내 결제가 가능합니다. 영수증 출력은 내장 프린터로 즉시 가능하며, 일부 모델은 무선으로 별도 프린터와 연결됩니다.</p>
 <h3>${dongName} 무선 카드단말기 도입 시 주의사항</h3>
-<p>무선 카드단말기는 통신 환경이 중요합니다. ${fullAddr} 매장의 위치에 따라 LTE 신호가 약할 수 있으므로, 마스터페이는 설치 전 ${dongName} 매장 위치의 통신 환경을 미리 확인합니다. 신호가 약한 지역은 Wi-Fi 모델을 추천하거나, 신호 증폭 옵션을 안내합니다. ${guName} 전담 기사가 직접 매장에 방문해 통신 테스트를 진행하고, 가장 안정적인 옵션을 결정해드립니다.</p>
+<p>무선 카드단말기는 통신 환경이 중요합니다. ${fullAddr} 매장의 위치에 따라 LTE 신호가 약할 수 있으므로, 포엔페이는 설치 전 ${dongName} 매장 위치의 통신 환경을 미리 확인합니다. 신호가 약한 지역은 Wi-Fi 모델을 추천하거나, 신호 증폭 옵션을 안내합니다. ${guName} 전담 기사가 직접 매장에 방문해 통신 테스트를 진행하고, 가장 안정적인 옵션을 결정해드립니다.</p>
 </div>
 `,
 
@@ -25377,7 +25366,7 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p><strong>⑤ 영수증 선택 발급.</strong> 종이 영수증이 필요 없는 고객에게는 모바일 영수증(SMS/카카오톡)을 발송할 수 있어, 영수증 용지 비용도 크게 절감됩니다.</p>
 <h3>${fullAddr} 블루투스 카드단말기 사용 환경</h3>
 <p>안드로이드폰·아이폰 모두 호환되며, 전용 앱(MPI 등)을 설치하면 결제 화면이 스마트폰에 표시됩니다. 결제 정보·영수증·매출 통계를 모두 스마트폰에서 확인할 수 있어, ${dongName} 사장님이 매장 밖에서도 실시간으로 매출을 모니터링할 수 있습니다.</p>
-<p>블루투스 연결 안정성은 최대 10m이며, ${guName} 일대 일반적인 매장 크기에서는 충분합니다. 다만 콘크리트 벽이나 금속 가구가 많은 환경에서는 연결이 끊길 수 있으므로, ${fullAddr} 매장 환경에 따라 적합 여부를 마스터페이가 사전 확인해드립니다.</p>
+<p>블루투스 연결 안정성은 최대 10m이며, ${guName} 일대 일반적인 매장 크기에서는 충분합니다. 다만 콘크리트 벽이나 금속 가구가 많은 환경에서는 연결이 끊길 수 있으므로, ${fullAddr} 매장 환경에 따라 적합 여부를 포엔페이가 사전 확인해드립니다.</p>
 <h3>${dongName} 블루투스 카드단말기 도입 절차</h3>
 <p>가맹 신청 → 단말기 발송 → 스마트폰 앱 설치 → 페어링(약 5분) → 첫 결제 테스트 → 운영 시작. ${ctx.installTime}~${ctx.installTime+2}일 이내에 모든 절차가 완료되며, ${guName} 전담 매니저가 첫 사용을 도와드립니다. ${ctx.topBiz[1]} 업종이라면 특히 추천드리는 모델입니다.</p>
 </div>
@@ -25396,9 +25385,9 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p><strong>⑤ 데이터 분석.</strong> 어떤 메뉴가 잘 팔리는지·언제 가장 많이 팔리는지 등 데이터가 자동 누적되어, ${dongName} 매장의 메뉴 개발과 마케팅에 활용할 수 있습니다.</p>
 <h3>${fullAddr} 키오스크 추천 사양</h3>
 <p>일반 매장은 21.5~32인치 스탠드형 키오스크가 가장 인기입니다. 메뉴 사진을 크게 보여줄 수 있고, 고객 인지도도 높아집니다. 카드결제·삼성페이·간편결제 모두 지원하며, 영수증 프린터·출력기가 내장되어 있습니다. ${ctx.topBiz[0]} 업종은 음성 안내 기능을 추가하면 시각약자 고객도 편리하게 사용할 수 있습니다.</p>
-<p>설치 공간이 협소한 ${dongName} 매장은 카운터 거치형(15~17인치) 모델로도 충분합니다. 비용은 절반 이하지만 효과는 동일합니다. 마스터페이는 ${fullAddr} 매장의 평수와 동선을 보고 가장 효율적인 모델을 추천드립니다.</p>
+<p>설치 공간이 협소한 ${dongName} 매장은 카운터 거치형(15~17인치) 모델로도 충분합니다. 비용은 절반 이하지만 효과는 동일합니다. 포엔페이는 ${fullAddr} 매장의 평수와 동선을 보고 가장 효율적인 모델을 추천드립니다.</p>
 <h3>${dongName} 키오스크 도입 절차 및 효과 측정</h3>
-<p>상담 → 매장 실측 → 모델 선정 → 메뉴 입력(약 50~100개) → 설치(${ctx.installTime}~${ctx.installTime+2}일) → 직원 교육 → 운영 시작. 키오스크는 단순 설치가 아니라 매장 메뉴를 사진과 함께 등록하는 작업이 가장 중요한데, 마스터페이는 ${dongName} 매장의 메뉴를 직접 촬영해 등록까지 무료로 처리해드립니다. 도입 후 1개월 내에 매출 변화·인건비 절감 효과를 확인할 수 있습니다.</p>
+<p>상담 → 매장 실측 → 모델 선정 → 메뉴 입력(약 50~100개) → 설치(${ctx.installTime}~${ctx.installTime+2}일) → 직원 교육 → 운영 시작. 키오스크는 단순 설치가 아니라 매장 메뉴를 사진과 함께 등록하는 작업이 가장 중요한데, 포엔페이는 ${dongName} 매장의 메뉴를 직접 촬영해 등록까지 무료로 처리해드립니다. 도입 후 1개월 내에 매출 변화·인건비 절감 효과를 확인할 수 있습니다.</p>
 </div>
 `,
 
@@ -25409,7 +25398,7 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p>미니 키오스크는 일반 스탠드형 키오스크의 1/3 크기인 카운터 거치형 모델로, 좁은 매장 공간에 부담 없이 설치할 수 있는 무인 주문 시스템입니다. ${ctx.areaType} 특성의 ${fullAddr} 일대 ${ctx.topBiz[0]}, ${ctx.topBiz[1]} 같이 평수가 작은 매장에서 특히 인기가 높습니다.</p>
 <p><strong>미니 키오스크의 강점</strong></p>
 <p><strong>① 공간 효율.</strong> 13~17인치 컴팩트 사이즈로 카운터 위에 올려놓을 수 있어, ${dongName} 일대 5평 미만 매장에도 설치 가능합니다. 별도 바닥 공간이 필요 없습니다.</p>
-<p><strong>② 저렴한 비용.</strong> 일반 키오스크 대비 단말기 비용이 절반 이하이며, 마스터페이를 통해 신청하면 ${guName} 지역도 추가 할인 혜택이 있습니다. 자영업자에게 부담 없는 가격대입니다.</p>
+<p><strong>② 저렴한 비용.</strong> 일반 키오스크 대비 단말기 비용이 절반 이하이며, 포엔페이를 통해 신청하면 ${guName} 지역도 추가 할인 혜택이 있습니다. 자영업자에게 부담 없는 가격대입니다.</p>
 <p><strong>③ 빠른 설치.</strong> 전기 콘센트와 인터넷만 있으면 ${ctx.installTime}~${ctx.installTime+2}일 이내 설치 완료. 매장 인테리어 변경이 필요 없습니다.</p>
 <p><strong>④ 동일한 기능.</strong> 크기는 작아도 메뉴 등록·주문·결제·영수증 발급까지 모든 기능이 동일합니다. ${ctx.topBiz[0]} 업종에서 충분히 활용할 수 있습니다.</p>
 <p><strong>⑤ 모바일 디자인.</strong> 깔끔한 디자인으로 인테리어와 잘 어울려, ${dongName} 일대 트렌디한 매장에서 선호됩니다.</p>
@@ -25417,7 +25406,7 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p>1인 운영 카페, 무인 아이스크림 매장, 작은 분식점, 떡볶이·핫도그·치킨 테이크아웃 매장 등 ${dongName} 일대에서 흔히 볼 수 있는 소형 매장에 적합합니다. 또한 ${ctx.topBiz[1]} 업종 중 카운터 결제가 많은 매장도 미니 키오스크를 도입하면 결제 대기 시간이 크게 줄어듭니다.</p>
 <p>미니 키오스크는 셀프 주문뿐 아니라 메뉴 추천·세트 메뉴 안내·이벤트 알림까지 화면에 표시할 수 있어, ${dongName} 매장의 마케팅 도구로도 활용 가능합니다. 단골 고객에게 적립금·쿠폰을 자동 안내하면 재방문율이 높아집니다.</p>
 <h3>${dongName} 미니 키오스크 도입 효과</h3>
-<p>${guName} 일대 미니 키오스크 도입 매장 사례에서, 평균 주문 시간이 50% 단축되고 객단가는 10~12% 상승했습니다. 또한 직원 1명이 주문 받지 않고 조리·서빙에 집중할 수 있어, 같은 인력으로 더 많은 고객을 응대할 수 있습니다. 마스터페이는 ${fullAddr} 매장에 미니 키오스크를 설치한 후, 메뉴 등록·디자인·운영 가이드까지 모두 무료로 지원합니다.</p>
+<p>${guName} 일대 미니 키오스크 도입 매장 사례에서, 평균 주문 시간이 50% 단축되고 객단가는 10~12% 상승했습니다. 또한 직원 1명이 주문 받지 않고 조리·서빙에 집중할 수 있어, 같은 인력으로 더 많은 고객을 응대할 수 있습니다. 포엔페이는 ${fullAddr} 매장에 미니 키오스크를 설치한 후, 메뉴 등록·디자인·운영 가이드까지 모두 무료로 지원합니다.</p>
 </div>
 `,
 
@@ -25437,7 +25426,7 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <h3>${fullAddr}에서 테이블오더가 잘 맞는 매장</h3>
 <p>${ctx.topBiz[0]} (4~10인 테이블이 많은 식당·고깃집·중식·일식), ${ctx.topBiz[1]} (주점·호프집·이자카야), 카페·디저트 전문점, 패밀리 레스토랑 등이 테이블오더 도입 시 가장 큰 효과를 봅니다. ${dongName} 일대 매장 중 객단가가 1만 원 이상이면서 테이블이 5개 이상인 매장은 테이블오더 도입을 강력 추천합니다.</p>
 <h3>${dongName} 테이블오더 도입 절차</h3>
-<p>마스터페이가 ${fullAddr} 매장을 직접 방문해 테이블 수·메뉴 수·고객층을 분석한 후 적합한 테이블오더 시스템(태블릿형 또는 QR형)을 추천드립니다. 메뉴 사진 촬영·등록·다국어 번역까지 모두 무료로 지원하며, ${ctx.installTime}~${ctx.installTime+2}일 이내 설치가 완료됩니다. 직원 교육은 30분이면 충분하며, ${guName} 전담 매니저가 도입 후 1개월 동안 지속 관리해드립니다.</p>
+<p>포엔페이가 ${fullAddr} 매장을 직접 방문해 테이블 수·메뉴 수·고객층을 분석한 후 적합한 테이블오더 시스템(태블릿형 또는 QR형)을 추천드립니다. 메뉴 사진 촬영·등록·다국어 번역까지 모두 무료로 지원하며, ${ctx.installTime}~${ctx.installTime+2}일 이내 설치가 완료됩니다. 직원 교육은 30분이면 충분하며, ${guName} 전담 매니저가 도입 후 1개월 동안 지속 관리해드립니다.</p>
 </div>
 `,
 
@@ -25452,12 +25441,12 @@ function getProductDetailContent(productSlug, sidoName, guName, dongName, ctx) {
 <p><strong>③ 원상복구.</strong> 임대차 계약서 기준 원상태로 복구합니다. 벽지·바닥재·천장 등 입주 전 상태로 되돌리는 작업이 포함됩니다.</p>
 <p><strong>④ 청소 및 인계.</strong> 철거 완료 후 깨끗이 청소하여 임대인에게 인계할 수 있는 상태로 만듭니다.</p>
 <h3>${fullAddr} 매장 철거 시 주의사항</h3>
-<p>철거 전 반드시 임대차 계약서를 확인하고, 임대인이 요구하는 원상복구 수준을 명확히 협의해야 합니다. ${dongName} 일대 임대인마다 요구 수준이 달라, 마스터페이가 ${guName} 지역 사례를 바탕으로 협상도 함께 도와드립니다. 또한 폐기물 처리는 반드시 면허 보유 업체에 맡겨야 하며, 무자격 업체에 맡기면 사장님이 폐기물 처리 책임을 지게 됩니다.</p>
+<p>철거 전 반드시 임대차 계약서를 확인하고, 임대인이 요구하는 원상복구 수준을 명확히 협의해야 합니다. ${dongName} 일대 임대인마다 요구 수준이 달라, 포엔페이가 ${guName} 지역 사례를 바탕으로 협상도 함께 도와드립니다. 또한 폐기물 처리는 반드시 면허 보유 업체에 맡겨야 하며, 무자격 업체에 맡기면 사장님이 폐기물 처리 책임을 지게 됩니다.</p>
 <p><strong>비용 산정 기준</strong></p>
-<p>${fullAddr} 매장 철거 비용은 평당 평균 5~15만 원 수준이며, 인테리어 종류·집기 양·폐기물 양에 따라 달라집니다. 마스터페이는 ${dongName} 매장을 직접 방문해 무료 견적을 제공하며, 일반 시세 대비 10~20% 저렴한 가격으로 진행됩니다.</p>
+<p>${fullAddr} 매장 철거 비용은 평당 평균 5~15만 원 수준이며, 인테리어 종류·집기 양·폐기물 양에 따라 달라집니다. 포엔페이는 ${dongName} 매장을 직접 방문해 무료 견적을 제공하며, 일반 시세 대비 10~20% 저렴한 가격으로 진행됩니다.</p>
 <h3>${dongName} 매장 철거 절차</h3>
 <p>전화 상담 → 현장 방문 견적 → 견적 확정 → 철거 일정 협의 → 철거 작업(반나절~3일) → 폐기물 처리 → 청소 및 인계. ${guName} 일대 매장은 평균 1~2일이면 철거가 완료되며, ${ctx.installTime}일 이내 일정 협의도 가능합니다. ${dongName} 사장님은 철거 당일 마지막 점검만 함께 해주시면 됩니다.</p>
-<p>마스터페이의 매장 철거 서비스는 임대인 인계까지 책임지며, 사장님께서 다른 일정을 잡으셔도 문제없이 진행됩니다. ${fullAddr} 일대에서 가장 빠르고 깔끔한 철거를 원하신다면 언제든 상담 문의 주십시오.</p>
+<p>포엔페이의 매장 철거 서비스는 임대인 인계까지 책임지며, 사장님께서 다른 일정을 잡으셔도 문제없이 진행됩니다. ${fullAddr} 일대에서 가장 빠르고 깔끔한 철거를 원하신다면 언제든 상담 문의 주십시오.</p>
 </div>
 `,
   };
@@ -25557,7 +25546,7 @@ function buildDongProductPage(sidoUrl, guName, dongName, productSlug) {
 <span class="region-thumbnail-dot">·</span>
 <span>${fullAddr}</span>
 <span class="region-thumbnail-dot">·</span>
-<span>${productSlug === 'removal' ? '무료 견적' : '무료 설치'}</span>
+<span>${productSlug === 'removal' ? '무료 견적' : '설치비 0원'}</span>
 </div>
 <h1 class="region-thumbnail-title">${getShortSidoName(sido.name)} ${guName} ${dongName} ${product.name}${productSlug === "removal" ? "" : " 설치"}</h1>
 <div class="region-thumbnail-services">${product.desc} · 전문가 직접 방문 · 빠른 A/S 보장</div>
@@ -25720,9 +25709,9 @@ async function handleContactAPI(request, env) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Mastarpay <onboarding@resend.dev>',
+        from: 'Fonepay <onboarding@resend.dev>',
         to: ['thdmsjinu@gmail.com'],
-        subject: '[마스터페이] ' + name + ' · ' + product + ' · ' + phone,
+        subject: '[포엔페이] ' + name + ' · ' + product + ' · ' + phone,
         html: emailHTML,
       }),
     });
@@ -25782,7 +25771,7 @@ const staticRoutes = {
 // Worker 진입점
 // ============================================================
 
-const _origHandler = {
+export default {
   async fetch(request, env) {
     // API 엔드포인트 먼저 처리
     const _url = new URL(request.url);
@@ -26163,35 +26152,3 @@ function buildSitemapDongProduct(origin, part) {
 function buildSitemap(origin) {
   return buildSitemapIndex(origin);
 }
-
-
-/* ══════════════════════════════════════════════════════════════
-   전화 클릭 → 텔레그램 알림 + 방문 통계
-   모든 HTML 응답의 </body> 앞에 수집 스크립트를 자동으로 넣습니다.
-   ══════════════════════════════════════════════════════════════ */
-
-const TEL_ALERT_TAG =
- '<script defer src="https://tel-aler.thdmsdidfl.workers.dev/t.js" data-site="마스터페이"></' + 'script>';
-
-async function injectTelAlert(res) {
- try {
-  const ct = res.headers.get("content-type") || "";
-  if (!ct.includes("text/html")) return res;
-  let html = await res.text();
-  if (html.indexOf("/t.js") >= 0) return new Response(html, res);
-  if (html.indexOf("</body>") >= 0) {
-   html = html.replace("</body>", TEL_ALERT_TAG + "</body>");
-  } else {
-   html += TEL_ALERT_TAG;
-  }
-  return new Response(html, res);
- } catch (e) {
-  return res;
- }
-}
-
-export default {
- async fetch(request, env, ctx) {
-  return injectTelAlert(await _origHandler.fetch(request, env, ctx));
- }
-};
